@@ -18,8 +18,7 @@
  *@Project     Victor
  *@Description:
  *    This class implements a simple knowledge-based solvation potential.
-  *   This causes a runtime error on 64 bit OS, use the path variable to avoid it if you are using a 64 bit SO
- *    string SolvationPotential::SOLV_PARAM_FILE = "data/solv.par";
+  *   
 */
 
 // Includes:
@@ -30,9 +29,6 @@ using namespace Biopool;
 
 // Global constants, typedefs, etc. (to avoid):
 unsigned int SolvationPotential::MAX_BINS = 30;
-//NOTE:
-//This causes a runtime error on 64 bit OS, use the path variable to avoid it if you are using a 64 bit SO
-//string SolvationPotential::SOLV_PARAM_FILE = "data/solv.par";
 
 // CONSTRUCTORS/DESTRUCTOR:
 

@@ -48,9 +48,10 @@ LIBRARY = APPSlibBiopool.a
 
 compile: all
 
+all: install
 install: $(LIBRARY) $(TARGETS)
-	mv $(EXECS) $(UPDIR)/bin
-	mv $(LIBRARY) $(UPDIR)/lib
+	mv $(EXECS) $(UPDIR)/bin/
+	mv $(LIBRARY) $(UPDIR)/lib/
 	
 #
 # Call global Makefile to do the job.

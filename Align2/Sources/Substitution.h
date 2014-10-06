@@ -84,8 +84,7 @@ public:
 	
         /*template<class T> static void pWriteDoubleVector(ostream &os,
 		vector<vector<T> > data);
-        There were problems compiling the previous fuction in a 64 bit architecture,
-        but use of template was not necessary here, so we used the next one:*/
+    */
         static void pWriteDoubleVector(ostream &os,vector<vector<int> > data);
 	/// Helper function used to read a vector<vector> construct.
 	template<class T> static void pReadDoubleVector(istream &is,

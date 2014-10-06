@@ -54,7 +54,7 @@ LIBRARY = libEnergy.a
 compile: all
 
 allinstall: $(LIBRARY) $(TARGETS)
-	mv $(LIBRARY) $(UPDIR)/lib 
+	mv $(LIBRARY) $(UPDIR)/lib/
 
 install: subinstall allinstall
 all: install

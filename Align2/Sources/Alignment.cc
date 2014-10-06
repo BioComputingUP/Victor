@@ -25,8 +25,7 @@
 #include <AlignmentBase.h>
 #include <IoTools.h>
 #include <stringtools.h>
-#include <c++/4.8/bits/basic_string.h>
-#include <c++/4.8/bits/stl_vector.h>
+
 
 namespace Biopool
 {

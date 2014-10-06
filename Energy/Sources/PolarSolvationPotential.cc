@@ -28,8 +28,7 @@ using namespace Biopool;
 // Global constants, typedefs, etc. (to avoid):
 unsigned int PolarSolvationPotential::MAX_BINS = 15;
 unsigned int PolarSolvationPotential::BIN_POLAR = 1;
-//This causes a runtime error on 64 bit OS, use the path variable to avoid it if you are using a 64 bit SO
-//string PolarSolvationPotential::SOLV_PARAM_FILE = "data/polar.par";
+ 
 
 // CONSTRUCTORS/DESTRUCTOR:
 

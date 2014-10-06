@@ -64,7 +64,7 @@ protected:
   double prob[MAX_BINS][MAX_TYPES][MAX_TYPES];
 
 public:
-    //static string RAPDF_PARAM_FILE; //error at runtime in a 64 bit architecture, uncomment this if you are in a no 64bits SO
+    
     string path;				       
 private:
 

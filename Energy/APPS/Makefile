@@ -53,9 +53,10 @@ LIBRARY = APPSlibEnergy.a
 
 compile: all
 
+all: install
 allinstall: $(LIBRARY) $(TARGETS)
-	mv $(EXECS) $(UPDIR)/bin 
-	mv $(LIBRARY) $(UPDIR)/lib 
+	mv $(EXECS) $(UPDIR)/bin/
+	mv $(LIBRARY) $(UPDIR)/lib/
 	echo $(VICTOR_ROOT)
 	export PATH=$(VICTOR_ROOT)bin/:$(PATH)
 

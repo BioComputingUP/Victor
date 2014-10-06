@@ -47,16 +47,16 @@ install: $(LIBRARY) $(TARGET)
 	mkdir -p ../Lobo/data
 	mkdir -p ../Energy/data
 	export PATH=$(VICTOR_ROOT)bin/:$(PATH)
-	ln -s $(VICTOR_ROOT)data/AminoAcidHydrogenData.txt $(VICTOR_ROOT)Biopool/data/AminoAcidHydrogenData.txt
-	ln -s $(VICTOR_ROOT)data/allaminoacids_new.pdb $(VICTOR_ROOT)Energy/data/allaminoacids_new.pdb
-	ln -s $(VICTOR_ROOT)data/frst.model $(VICTOR_ROOT)Energy/data/frst.model
-	ln -s $(VICTOR_ROOT)data/frst2.range $(VICTOR_ROOT)Energy/data/frst2.range
-	ln -s $(VICTOR_ROOT)data/polar.par $(VICTOR_ROOT)Energy/data/polar.par
-	ln -s $(VICTOR_ROOT)data/ram.par $(VICTOR_ROOT)Energy/data/ram.par
-	ln -s $(VICTOR_ROOT)data/solv.par $(VICTOR_ROOT)Energy/data/solv.par
-	ln -s $(VICTOR_ROOT)data/tor.par $(VICTOR_ROOT)Energy/data/tor.par
-	ln -s $(VICTOR_ROOT)data/tor.par $(VICTOR_ROOT)Lobo/data/tor.par
-	ln -s $(VICTOR_ROOT)data/allaminoacids_new_.pdb $(VICTOR_ROOT)Energy/data/allaminoacids_new_.pdb
+	ln -fs $(VICTOR_ROOT)data/AminoAcidHydrogenData.txt $(VICTOR_ROOT)Biopool/data/AminoAcidHydrogenData.txt
+	ln -fs $(VICTOR_ROOT)data/allaminoacids_new.pdb $(VICTOR_ROOT)Energy/data/allaminoacids_new.pdb
+	ln -fs $(VICTOR_ROOT)data/frst.model $(VICTOR_ROOT)Energy/data/frst.model
+	ln -fs $(VICTOR_ROOT)data/frst2.range $(VICTOR_ROOT)Energy/data/frst2.range
+	ln -fs $(VICTOR_ROOT)data/polar.par $(VICTOR_ROOT)Energy/data/polar.par
+	ln -fs $(VICTOR_ROOT)data/ram.par $(VICTOR_ROOT)Energy/data/ram.par
+	ln -fs $(VICTOR_ROOT)data/solv.par $(VICTOR_ROOT)Energy/data/solv.par
+	ln -fs $(VICTOR_ROOT)data/tor.par $(VICTOR_ROOT)Energy/data/tor.par
+	ln -fs $(VICTOR_ROOT)data/tor.par $(VICTOR_ROOT)Lobo/data/tor.par
+	ln -fs $(VICTOR_ROOT)data/allaminoacids_new_.pdb $(VICTOR_ROOT)Energy/data/allaminoacids_new_.pdb
 
 #
 # Call global Makefile to do the job.

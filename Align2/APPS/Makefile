@@ -43,9 +43,10 @@ LIBRARY = APPSlibAlign2.a
 
 compile: all
 
+all: install
 install: $(LIBRARY) $(TARGETS)
-	mv $(LIBRARY) $(UPDIR)/lib
-	mv $(EXECS) $(BINPATH)
+	mv $(LIBRARY) $(UPDIR)/lib/
+	mv $(EXECS) $(BINPATH)/
 
 #
 # Call global Makefile to do the job

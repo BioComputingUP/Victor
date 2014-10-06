@@ -29,8 +29,7 @@
 using namespace Biopool;
 
 // Global constants, typedefs, etc. (to avoid):
-//if you are using a non 64 bit OS, uncomment the next line
-//string RapdfPotential::RAPDF_PARAM_FILE = "data/ram.par";
+ 
 
 // CONSTRUCTORS/DESTRUCTOR:
 
@@ -38,7 +37,7 @@ using namespace Biopool;
  *@Description    basic constructor, allocate the information from the ram.par file 
  */
 RapdfPotential::RapdfPotential(){
-    //if you are using a non 64 bits SO comment the next line 
+     
      char *victor=getenv("VICTOR_ROOT");
 	if (victor  == NULL)
 		ERROR("Environment variable VICTOR_ROOT was not found.\n Use the command:\n export VICTOR_ROOT=......", exception);

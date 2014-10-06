@@ -307,8 +307,7 @@ AlignmentBase::matchPositionVector(vector<int> CeTarget, vector<int> CeTemplate,
 		// Check b-1 the value: we would like to know if we are on N termimus.
 
 //		int posN = CeTarget[placeHolderTarget[b]-1]; // check which position
-		// !!! VERY IMPORTANT: IF WE GO BEYOND N TERMINUS IT RETURNS SEGMENTATION FAULT! HAVE TO THINK HOW TO DEAL WITH IT !!!
-//		int posC = CeTarget[placeHolderTarget[b]+couDead+1];
+		//int posC = CeTarget[placeHolderTarget[b]+couDead+1];
 
 //		for (unsigned int c = b; c < (b + couDead); c++) // I put a very big number; don't expect any protein to reach 1000 aa (as far as I know longest sequence ever seen was around 800 aa)
 //		{

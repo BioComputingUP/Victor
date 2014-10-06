@@ -47,9 +47,10 @@ LIBRARY = APPSlibLobo.a
 
 compile: all
 
+all: install
 install: $(LIBRARY) $(TARGETS)
-	mv $(EXECS) $(UPDIR)/bin
-	mv $(LIBRARY) $(UPDIR)/lib 
+	mv $(EXECS) $(UPDIR)/bin/
+	mv $(LIBRARY) $(UPDIR)/lib/ 
 	cp $(UPDIR)/bin/loboLUT_all ./loboLUT_all
 	
 
