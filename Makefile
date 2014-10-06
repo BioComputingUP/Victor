@@ -7,7 +7,7 @@
 # Path to project directory.
 UPDIR = .
 # Path to subdirectories.
-SUBDIRS =  tools Energy/Sources   Biopool/Sources  Align2/Sources Energy/Sources/TorsionPotential  Lobo/Sources Lobo/APPS Energy/APPS   Biopool/APPS   Align2/APPS    
+SUBDIRS =  tools Energy/Sources   Biopool/Sources  Align2/Sources Energy/Sources/TorsionPotential  Lobo/Sources Lobo/APPS Energy/APPS   Biopool/APPS   Align2/APPS    Biopool/Tests
 
 #
 # Libraries and paths (which are not defined globally).

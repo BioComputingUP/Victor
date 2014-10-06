@@ -105,7 +105,7 @@ SUBDIRS += _dummy_
 
 LIB_PATH += -L$(UPDIR)/lib
 
-INC_PATH += -I$(UPDIR)/tools -I$(UPDIR)/Energy/Sources   -I$(UPDIR)/Biopool/Sources -I$(UPDIR)/Energy/Sources/TorsionPotential     -I$(UPDIR)/Lobo/Sources  -I$(UPDIR)/Align2/Sources  -I$(UPDIR)/Biopool/APPS -I$(UPDIR)/Energy/APPS -I$(UPDIR)/Align2/APPS  -I$(UPDIR)/Lobo/APPS
+INC_PATH += -I$(UPDIR)/tools -I$(UPDIR)/Energy/Sources   -I$(UPDIR)/Biopool/Sources -I$(UPDIR)/Energy/Sources/TorsionPotential     -I$(UPDIR)/Lobo/Sources  -I$(UPDIR)/Align2/Sources  -I$(UPDIR)/Biopool/APPS -I$(UPDIR)/Energy/APPS -I$(UPDIR)/Align2/APPS  -I$(UPDIR)/Lobo/APPS  -I$(UPDIR)/Biopool/Tests
 
 
 ####### Implicit rules
