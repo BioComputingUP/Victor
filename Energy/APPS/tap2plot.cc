@@ -45,7 +45,7 @@ int main(int nArgs, char* argv[]){
   PhiPsiOmegaChi1Chi2 tors(arcstep);
 
   Spacer *sp;
-  ifstream inFile2("../data/allaminoacids_new_.pdb");
+  ifstream inFile2("../data/allaminoacids_new.pdb");
   if (!inFile2)
     ERROR("File not found.", exception);
   PdbLoader pl(inFile2);

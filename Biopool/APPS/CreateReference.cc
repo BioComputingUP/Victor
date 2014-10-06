@@ -38,7 +38,7 @@ int main()
   IntCoordConverter icc;
   Spacer sp;
 
-  ifstream inFile("allaminoacids_lollipop.pdb");
+  ifstream inFile("allaminoacids.pdb");
 
   if (!inFile)
     ERROR("File not found.", exception);

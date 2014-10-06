@@ -56,7 +56,6 @@ install: $(LIBRARY) $(TARGET)
 	ln -fs $(VICTOR_ROOT)data/solv.par $(VICTOR_ROOT)Energy/data/solv.par
 	ln -fs $(VICTOR_ROOT)data/tor.par $(VICTOR_ROOT)Energy/data/tor.par
 	ln -fs $(VICTOR_ROOT)data/tor.par $(VICTOR_ROOT)Lobo/data/tor.par
-	ln -fs $(VICTOR_ROOT)data/allaminoacids_new_.pdb $(VICTOR_ROOT)Energy/data/allaminoacids_new_.pdb
 
 #
 # Call global Makefile to do the job.
