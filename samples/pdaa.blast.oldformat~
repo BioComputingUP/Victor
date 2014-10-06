@@ -1,0 +1,106 @@
+BLASTP 2.2.26 [Sep-21-2011]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+Query= | Symbols: AtPPa1, PPa1 | pyrophosphorylase 1 |
+chr1:31382-32670 REVERSE LENGTH=212
+         (212 letters)
+
+Database: pdb 
+           244,932 sequences; 63,474,260 total letters
+
+Searching..................................................done
+
+
+
+Query= target
+
+Length=212
+
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+pdb|3LD3B| mol:protein length:199 Inorganic pyrophosphatase            242     3.00e-64
+pdb|1UDEC| mol:protein length:195 Inorganic pyrophosphatase            295     4.00e-80
+
+
+>pdb|3LD3B| mol:protein length:199 Inorganic pyrophosphatase
+Length=199
+
+ Score =  242 bits (619), Expect = 3e-64, Method: Composition-based stats.
+ Identities = 67/186 (36%), Positives = 108/186 (58%), Gaps = 5/186 (2%)
+
+Query  23  LSSLSRRSVAAHPWHDLEIGPGAPQIFNVVVEITKGS-KVKYELDKKTGLIKVDRILYSS 81
+           L + ++   + +   D+  G  AP+  NVV+E+++ S  VKYE D+K G + VDR L ++
+Sbjct  12  LEAQTQGPGSMN-LDDIGSGSNAPEEVNVVIEVSQDSHPVKYEFDEKNGALWVDRFLPTA 70
+
+Query  82  VVYPHNYGFVPRTLCEDNDPIDVLVIMQEPVLPGCFLRARAIGLMPMIDQGEKDDKIIAV 141
+           + YP NYGF+P T+  D DP+DVLV+ + PV+PG  +  R +G++ M D+  +D K++AV
+Sbjct  71  MYYPCNYGFIPNTIAGDGDPVDVLVLARFPVMPGAVICVRPVGVLMMNDEKGEDAKVLAV 130
+
+Query  142 CVD--DPEYKHYTDIKELPPHRLSEIRRFFEDYKKNE-NKEVAVNDFLPSESAVEAIQYS 198
+                D  Y +  +  +LP   L  I  FF  YKK E +K V+V  +  + SA E I+ +
+Sbjct  131 PATKVDQYYGNIVNYSDLPSSFLDSISHFFSFYKKLEKDKFVSVGCWQDAASAKELIRSA 190
+
+Query  199 MDLYAE 204
+           +    +
+Sbjct  191 IIAAKK 196
+
+
+
+>pdb|1UDEC| mol:protein length:195 Inorganic pyrophosphatase
+Length=195
+
+ Score =  295 bits (756), Expect = 4e-80, Method: Composition-based stats.
+ Identities = 84/177 (47%), Positives = 120/177 (67%)
+
+Query  28  RRSVAAHPWHDLEIGPGAPQIFNVVVEITKGSKVKYELDKKTGLIKVDRILYSSVVYPHN 87
+           R S   +P+HDLE GP  P++   ++EI KGS+ KYELDK+TGL+K+DR+LY+   YP +
+Sbjct  13  RGSHMMNPFHDLEPGPNVPEVVYALIEIPKGSRNKYELDKETGLLKLDRVLYTPFHYPVD 72
+
+Query  88  YGFVPRTLCEDNDPIDVLVIMQEPVLPGCFLRARAIGLMPMIDQGEKDDKIIAVCVDDPE 147
+           YG +PRT  ED DP D++VIM+EP  P   + AR IGL  MID G+KD K++AV V+DP 
+Sbjct  73  YGIIPRTWYEDGDPFDIMVIMREPTYPLTIIEARPIGLFKMIDSGDKDYKVLAVPVEDPY 132
+
+Query  148 YKHYTDIKELPPHRLSEIRRFFEDYKKNENKEVAVNDFLPSESAVEAIQYSMDLYAE 204
+           +K + DI ++P   L EI  FF+ YK+ E KE+ V  +  +E+A   I  ++++Y E
+Sbjct  133 FKDWKDISDVPKAFLDEIAHFFKRYKELEGKEIIVEGWEGAEAAKREILRAIEMYKE 189
+
+
+
+Lambda     K      H
+   0.318    0.147    0.440 
+
+Lambda     K      H
+   0.267   0.0451    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Hits to DB: 30,820,008
+Number of Sequences: 244932
+Number of extensions: 1530877
+Number of successful extensions: 4362
+Number of sequences better than 10.0: 186
+Number of HSP's better than 10.0 without gapping: 178
+Number of HSP's successfully gapped in prelim test: 8
+Number of HSP's that attempted gapping in prelim test: 3790
+Number of HSP's gapped (non-prelim): 186
+length of query: 212
+length of database: 63,474,260
+effective HSP length: 104
+effective length of query: 108
+effective length of database: 38,001,332
+effective search space: 4104143856
+effective search space used: 4104143856
+T: 11
+A: 40
+X1: 16 ( 7.3 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 41 (21.6 bits)
+S2: 63 (28.7 bits)

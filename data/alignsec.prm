@@ -1,0 +1,36 @@
+HECIFD
+6
+6  2 0 1 2 0 1
+6  0 2 1 0 2 1 
+6  1 1 2 1 1 2
+6  2 0 1 2 0 1
+6  0 2 1 0 2 1
+6  1 1 2 1 1 2
+4
+hI
+eF
+cD
+.C
+3
+Ih
+Fe
+Dc
+
+
+# explanation of parameter file for program alignsec2:
+# first line: n defined sequence characters (internal representation, only capital characters allowed)
+# second line: the dimension of the substitution matrix (same as number of defined characters)
+# then: a n x n subsitution matrix (order of columns and rows is same as in characters defined in first line
+# each line of the n lines of the substitution matrix is preceded by the matrix dimension n.
+# Only integer values are allowd as matrix elements.
+# after the matrix: definition of translation rules to convert from the external to internal representation
+# (preceded by number of rules for translation external->internal)
+# Each rule is a string consisting of two characters (fromChar+toChar). For example, the rule "eF" indicates
+# that every character 'e' of a sequence read in is translated into the character 'F'.
+# The rule ".C" translated the dot character into 'C'.
+# The the rules to translate back into the external representation are read in (again preceded 
+# by the number of rules.
+#
+# author: Eckart Bindewald, 2003 
+
+

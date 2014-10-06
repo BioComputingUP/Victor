@@ -1,0 +1,11 @@
+ENERGY
+
+Compile sources
+make install inside Energy/TorsionPotential
+make install inside Energy/Sources
+Compile APPS
+make install inside Energy/APPS
+
+
+For compiling all the project 
+make install inside  /victor 

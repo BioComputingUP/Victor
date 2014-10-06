@@ -1,0 +1,195 @@
+#--*- makefile -*--------------------------------------------------------------
+#
+#   Standard makefile - global information
+#
+#   This file should be included in all other Makefiles
+#   used in the project. It contains such important 
+#   information as which compiler to use etc.
+#
+# The idea is, that the user may call in his makefile:
+#  * "make" or 
+#    "make debug=1"      to make a debug version of the project
+#  * "make fast=1"       to make a fast version without debug information
+#  * "make profile=1"    to make a version with profiling information
+#  * "make verbose=1"    to make with different levels of verbosity
+#    "make verbose=2"
+#    "make verbose=3"	
+#------------------------------------------------------------------------------
+
+
+#
+# Compiler and path to compiler
+#
+# specifies the version of the compiler to use
+#
+
+ CC=g++ 
+
+
+#
+# Important compile flags
+#
+
+# These flags should always be used.
+STANDARDFLAGS = -Wall -ansi -pedantic -DNEXCEPTIONS -DLINUX -c
+
+DEBUGFLAGS = -g
+
+NORMALFLAGS = $(DEBUGFLAGS)
+
+FASTFLAGS = -O3 -ffast-math -DNDEBUG -ftemplate-depth-36
+
+QUICKFLAGS = -DNDEBUG
+
+USERFLAGS = $(STANDARDFLAGS) $(NORMALFLAGS)
+
+ifdef profile
+  PROFILE = -pg -fno-inline -DNDEBUG
+  USERFLAGS = $(STANDARDFLAGS) $(DEBUGFLAGS) $(PROFILE)
+else
+ifdef fast
+  USERFLAGS = $(STANDARDFLAGS) $(FASTFLAGS)  
+else
+ifdef debug
+  USERFLAGS = $(STANDARDFLAGS) $(DEBUGFLAGS)
+else
+ifdef nopost
+  USERFLAGS += -DNOPOST 
+else
+  USERFLAGS = $(STANDARDFLAGS) $(FASTFLAGS) 
+endif
+endif
+endif
+endif
+
+ifdef static
+  USERFLAGS += -static
+endif
+
+ifeq ($(verbose), 1)
+  USERFLAGS += -DVERBOSE=1
+endif
+ifeq ($(verbose), 2)
+  USERFLAGS += -DVERBOSE=2
+endif
+ifeq ($(verbose), 3)
+  USERFLAGS += -DVERBOSE=3
+endif
+
+CFLAGS = $(USERFLAGS) 
+
+#
+# Tools 
+#
+
+ARCHIVER = ar
+ARCHIVEFLAGS = rvs
+
+MAKE = make
+
+MAKEDEPEND = $(CC) -M
+
+#
+# Remove
+#
+
+RM = /bin/rm -f
+RMDIR = /bin/rm -rf
+
+#
+# Global libraries and paths
+#
+
+# Path to subdirectories.
+SUBDIRS += _dummy_
+
+LIB_PATH += -L$(UPDIR)/lib
+
+INC_PATH += -I$(UPDIR)/tools -I$(UPDIR)/Energy/Sources   -I$(UPDIR)/Biopool/Sources -I$(UPDIR)/Energy/Sources/TorsionPotential     -I$(UPDIR)/Lobo/Sources  -I$(UPDIR)/Align2/Sources  -I$(UPDIR)/Biopool/APPS -I$(UPDIR)/Energy/APPS -I$(UPDIR)/Align2/APPS  -I$(UPDIR)/Lobo/APPS
+
+
+####### Implicit rules
+
+.SUFFIXES: .c .cc .cpp
+.cc.o:
+	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+.c.o:
+	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+.cpp.o:
+	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+
+######## Build rules
+
+all: $(LIBRARY) $(TARGETS) 
+
+$(TARGETS): %: %.o $(LIBRARY)
+	$(CC) $(PROFILE) $@.o -o $@ $(LIB_PATH) $(LIBS) -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+
+$(LIBRARY): $(OBJECTS)
+	$(ARCHIVER) $(ARCHIVEFLAGS) $(LIBRARY) $(OBJECTS)
+
+.PHONY: clean
+clean:
+	$(RM) *~ *.bak *.o *.a core $(TARGETS) 
+        
+Depend:
+	touch Depend
+
+depend:
+	$(MAKEDEPEND) $(CFLAGS) $(INC_PATH) $(SOURCES) > Depend
+
+subdirs:
+	@for i in $(SUBDIRS) ; do		\
+		if [ $$i = "_dummy_" ]; then	\
+			continue ;		\
+		fi;				\
+		$(MAKE) -C $$i "SUBDIR = $$i";	\
+	done
+
+subdepend:
+	@for i in $(SUBDIRS) ; do			\
+		if [ $$i = "_dummy_" ]; then		\
+			continue ;			\
+		fi;					\
+		echo $$i;                               \
+                $(MAKE) -C $$i "SUBDIR = $$i" depend;	\
+	done
+
+subclean:
+	@for i in $(SUBDIRS) ; do			\
+		if [ $$i = "_dummy_" ]; then		\
+			continue ;			\
+		fi;					\
+		$(MAKE) -C $$i "SUBDIR = $$i" clean;	\
+	done
+	$(RM) -rf lib
+	$(RM) -rf bin
+	$(RM) -f ./Biopool/data/*
+	$(RM) -f ./Energy/data/*
+	$(RM) -fr ./Lobo/data/*
+	$(RM) -fr ./Energy/data
+	$(RM) -fr ./Lobo/data
+	$(RM) -fr ./Biopool/data
+
+	
+  
+subinstall:                
+	@for i in $(SUBDIRS) ; do			\
+		if [ $$i = "_dummy_" ]; then		\
+			continue ;			\
+		fi;					\
+		$(MAKE) -C $$i "SUBDIR = $$i" install;	\
+	done
+        
+	
+ 
+
+#
+# Export all variables to sub-makes by default
+#
+
+#
+# Include dependencies
+#
+
+include Depend
