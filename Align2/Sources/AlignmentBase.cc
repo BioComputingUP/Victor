@@ -84,11 +84,7 @@ AlignmentBase::calculatePairwiseIdentity(const string &seq1, const string &seq2)
 		if (seq2[i] == '-')
 			countN++;
 
-//	unsigned int maxS = getSequenceLength(seq1);
-//	if (maxS < getSequenceLength(seq2))
-//		maxS = getSequenceLength(seq2);
 
-//	return tmp / (getSequenceLength(seq1) - countN);
 	return tmp / (seq1.length() - countN);
 }
 
@@ -258,132 +254,21 @@ AlignmentBase::matchPositionVector(vector<int> CeTarget, vector<int> CeTemplate,
 	int counting = 0;
 	int matchCount = 0;
 
-	// Do a cycle for knowing where the "-2" are; i think i should use a hash
-	// for knowing the position and the content of that position:
-	// I should take in account - what comes before (and how many times)
-	// what comes after (and how many times).
-
-	// meta code
-	// preliminary loop
-
-	// Good alignment: -2 should be always aligned with -1 for correct.
-
-//	vector<int> placeHolderTarget;
-//	for (unsigned int a = 0; a < CeTarget.size(); a++)
-//		if (CeTarget == -2)
-//			placeHolderTarget.push_back(a);
-
-//	for (unsigned int b = 0; b < placeHolderTarget.size(); b += couDead)
-//	{
-//		int couMom = 0;
-//		int couDead = 1;
-//		int moment = -1;
-//		int currPos = -3;
-//		currPos = placeHolderTarget[b];
-//		int deadZone = 0;
-
-//		while (deadZone == 0)
-//		{
-//			nextPos = placeHolderTarget[b+couDead];
-//			if (nextPos != (currPos + 1))
-//			{
-//				deadZone = 1;
-//				continue;
-//			}
-//			currPos = nextPos;
-//			couDead++;
-//		}
-
-
-		// At this position I know the length of the current island, namely from b
-		// to b+couDead; it also means that b-1 and b+couDead+1 are the "anchors".
-		// But beware, these positions can also be the end of the sequences
-		// (either N terminus or C terminus).
-
-		//       H O
-		// H3-N+-C-C-N-C ...
-		//       R   H
-
-		// Check b-1 the value: we would like to know if we are on N termimus.
-
-//		int posN = CeTarget[placeHolderTarget[b]-1]; // check which position
-		//int posC = CeTarget[placeHolderTarget[b]+couDead+1];
-
-//		for (unsigned int c = b; c < (b + couDead); c++) // I put a very big number; don't expect any protein to reach 1000 aa (as far as I know longest sequence ever seen was around 800 aa)
-//		{
-//			// First thing to control is the length of the "-2" islands inside the vector
-//			cou++; // increase cou;
-//			moment *= -1;
-//			if (CeTarget[placeHolderTarget[b]+(cou*moment)] != -2)
-//			{ }
-//			moment *= -1;
-//		}
-//	}
-
-//	vector<int> placeHolderTemplate;
-//	for (unsigned int a = 0; a < CeTemplate.size(); a++)
-//		if (CeTemplate == -2)
-//			placeHolderTemplate.push_back(a);
-
-	// Once you know that position I need to know extrema to search
-//	for (i = extrema1; i < extrema2; i++)
-//	{
-//		search for matching;
-//	}
-
-	// example 1:
-	//
-	// AL 1  2  3 -1 -1  4  5
-	// AL 9 10 11 12 13 14 15
-	//
-	// CE 1  2  3 -2 -2  4  5
-	// CE 9 10 11 12 13 14 15
-
-	// example 2:
-	//
-	// AL 1  2 -1 -1 -1  3  4
-	// AL 9 10 11 12 13 14 15
-	//
-	// CE 1  2 -1 -2 -2  3  4
-	// CE 9 10 11 12 13 14 15
-
-	// example 3:
-	//
-	// AL 1  2  3 -1 -1 -1  4
-	// AL 9 10 11 12 13 14 15
-	//
-	// CE 1  2  3 -2 -2 -1  4
-	// CE 9 10 11 12 13 14 15
-
-	// example 4:
-	//
-	// AL 1  2 -1 -1 -1 -1  3
-	// AL 9 10 11 12 13 14 15
-	//
-	// CE 1  2 -1 -2 -2 -1  3
-	// CE 9 10 11 12 13 14 15
-
+	
 
 	for (unsigned int i = 0; i < seqTarget.size(); i++)
-//	for (unsigned int i = 0; i < CeTarget.size(); i++)
 	{
 		int tmp;
 		tmp = seqTarget[i];
-//		tmp = CeTarget[i];
 
 		if ((tmp == -1) || (seqTemplate[i] == -1))
 			continue;
-//		if ((tmp == -1) || (CeTemplate[i] == -1))
-//			continue;
 
 		matchCount++;
 		for (unsigned int j = 0; j < CeTarget.size(); j++)
-//		for (unsigned int j = 0; j < seqTarget.size(); j++)
 			if (CeTarget[j] == tmp)
-//			if (seqTarget[j] == tmp)
 			{
 				if (CeTemplate[j] == seqTemplate[i])
-//				if (seqTemplate[j] == CeTemplate[i])
 					counting++;
 				break;
 			}
@@ -603,7 +488,6 @@ AlignmentBase::addAlignment(const AlignmentBase &orig)
 	     << other.target << endl;
 	#endif
 
-	// ASSERT(getPureSequence(target).size() == getPureSequence(other.target).size(), exception);
 
 	// Count leading gaps.
 	while ((leftGapCount1 < target.size()) && (target[leftGapCount1] == '-'))

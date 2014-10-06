@@ -61,12 +61,9 @@ ScoringP2P::operator = (const ScoringP2P &orig)
 double
 ScoringP2P::scoring(int i, int j)
 {
-	//cout<<"scoring A\n";
 	double s = cSeq * fun->scoringSeq(i, j);
-	//cout<<"scoring B\n";
 	if (str != 0)
 		s += str->scoringStr(i, j);
-	//cout<<"scoring C\n";
 	return s;
 }
 

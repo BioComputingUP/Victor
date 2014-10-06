@@ -82,7 +82,6 @@ LogAverage::scoringSeq(int i, int j)
 		ostringstream convert;   // stream used for the conversion
 		convert << amino1;
 		 
-		//cout<<"scoring seq2, aminoCode: "<<convert.str()<<" (i-1)*tmp: "<<temp<<endl;
 		s += (pro1->getAminoFrequencyFromCode(amino1, (i-1)) * tmp);
 	}
 

@@ -180,9 +180,6 @@ SeqDivergenceProfile::pCalculateWeight(Alignment &ali)
 	}
 
 
-/*	for (unsigned int j = 0; j < numSeq; j++)
-		cout << aliWeight[j] << "  ";
-	cout << endl;*/
 
 }
 
@@ -239,12 +236,6 @@ SeqDivergenceProfile::pConstructData(Alignment &ali)
 	}
 
 
-/*	for (unsigned int i = 0; i < seqLen; i++)
-	{
-		for (unsigned int j = 0; j < 20; j++)
-			cout << profAliFrequency[i][j] << "  ";
-		cout << endl;
-	}*/
 
 
 	setSeq(ali.getTarget());

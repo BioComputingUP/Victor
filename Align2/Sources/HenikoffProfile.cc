@@ -90,10 +90,7 @@ HenikoffProfile::newCopy()
 
 void                  //suggested: use cLen=25 to save computational time
 HenikoffProfile::pCalculateWeight(Alignment &ali, unsigned int cLen)
-{	/*struct tm* newtime;
-	time_t t;
-	time(&t);newtime=localtime(&t);*/
-	//cout << "blocco A1 inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;
+{	
 	const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
 
 
@@ -118,8 +115,6 @@ HenikoffProfile::pCalculateWeight(Alignment &ali, unsigned int cLen)
 			}
                 }
 
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco A2 inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
 	// --------------------------------------------------
 	// 2. Calculate the positions of the last aminoacids
 	//    for every sequence
@@ -141,8 +136,6 @@ HenikoffProfile::pCalculateWeight(Alignment &ali, unsigned int cLen)
 	// --------------------------------------------------
 	// 3. Calculate weights for master sequence
 	// --------------------------------------------------
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco A3 inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
 	vector<double> wSeq;
 	vector<unsigned int> seqSubset;
 
@@ -216,13 +209,11 @@ HenikoffProfile::pCalculateWeight(Alignment &ali, unsigned int cLen)
 			wSeq.push_back((1 / (double)(Cright - Cleft + 1)) * sum);
 		}
 	aliWeight.push_back(wSeq);
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco A4 inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
-
+	
 	// --------------------------------------------------
 	// 4. Calculate weights for other sequences
 	// --------------------------------------------------
-	//cout << "	step: "<<numSeq-1<<"\n";
+	
     //4.1 calculate seqSubset, Cleft, Crigth ,Ndiff for each position, outside main loop
 	//this is a time optimization of section 4. Francesco Lovo 2012
 	vector <pair<int, int> > Cvalues;         //Cleft and Cright for each subSeq
@@ -323,105 +314,7 @@ HenikoffProfile::pCalculateWeight(Alignment &ali, unsigned int cLen)
 			}
 		aliWeight.push_back(wSeq);
 	}
-	//4.1 fine
-	/*
-	for (unsigned int j = 0; j < (numSeq - 1); j++)
-	{
-		wSeq.clear();*/
-
-		/*if (j%50==0){
-			time(&t);newtime=localtime(&t);
-			cout << "	check point, step: " <<j<<" "<< newtime->tm_hour << "/" << newtime->tm_min << endl;}*/
-
-	/*	for (unsigned int i = 0; i < seqLen; i++)
-			if (ali.getTemplatePos(i, j) == '-')
-				wSeq.push_back(0.00);
-			else
-			{
-				// Calculate the subset of sequences
-
-				seqSubset.clear();
-
-				if (ali.getTargetPos(i) != '-')
-					seqSubset.push_back(0);
-
-				for (unsigned int k = 0; k < (numSeq - 1); k++)
-					if (ali.getTemplatePos(i, k) != '-')
-						seqSubset.push_back(k+1);
-
-				unsigned int subsetSize = seqSubset.size();
-
-
-				// Calculate Cleft and Cright
-
-				unsigned int Cleft = firstAminoPos[seqSubset[0]];
-				unsigned int Cright = lastAminoPos[seqSubset[0]];
-
-				for (unsigned int k = 1; k < subsetSize; k++)
-				{
-					if (firstAminoPos[seqSubset[k]] > Cleft)
-						Cleft = firstAminoPos[seqSubset[k]];
-					if (lastAminoPos[seqSubset[k]] < Cright)
-						Cright = lastAminoPos[seqSubset[k]];
-				}
-        */      /*this is violation to Henikoff formula, but to save some computational time
-                 *  we limit Crigth-Cleft<=50*/
-		/*		if ((Cright-Cleft)>CLEN){
-					((i-CLEN/2<0) ? (Cleft=0) : (Cleft=i-CLEN/2));
-					((i+CLEN/2>(seqLen-1)) ? (Cright=(seqLen-1)) : (Cright=i+CLEN/2));
-				}
-		*/		//if ((i==1)&&(j==0)) cout<<"Crigth - CLeft: "<<Cright-Cleft<<"\n";
-                /*done*/
-		/*		double sum = 0.00;
-
-				for (unsigned int p = Cleft; p <= Cright; p++)
-				{
-					// Calculate the number of different aminoacids
-
-					unsigned int Ndiff = 0;
-
-					for (unsigned int index = 0; index < 20; index++)
-					{
-						if ((seqSubset[0] == 0) && (ali.getTargetPos(p) == residue_indices[index]))
-						{
-							Ndiff++;
-							continue;
-						}
-						for (unsigned int k = 1; k < subsetSize; k++)
-							if (ali.getTemplatePos(p, seqSubset[k]-1) == residue_indices[index])
-							{
-								Ndiff++;
-								break;
-							}
-					}
-
-					// Calculate the number of the same aminoacid
-
-					unsigned int n = 0;
-
-					if ((seqSubset[0] == 0) && (ali.getTargetPos(p) == ali.getTemplatePos(p, j)))
-						n++;
-					for (unsigned int k = 1; k < subsetSize; k++)
-						if (ali.getTemplatePos(p, seqSubset[k]-1) == ali.getTemplatePos(p, j))
-							n++;
-
-
-					sum += (1 / (double)(Ndiff * n));
-				}
-				wSeq.push_back((1 / (double)(Cright - Cleft + 1)) * sum);
-			}
-
-		aliWeight.push_back(wSeq);
-	}*/
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco A4 finito " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
-
-/*	for (unsigned int i = 0; i < seqLen; i++)
-	{
-		for (unsigned int j = 0; j < numSeq; j++)
-			cout << aliWeight[j][i] << "  ";
-		cout << endl;
-	}*/
+	
 }
 
 void
@@ -443,20 +336,15 @@ HenikoffProfile::pCalculateRawFrequency(vector<double> &freq, double &freqGap,
 
 void
 HenikoffProfile::pConstructData(Alignment &ali)
-{	/*struct tm* newtime;
-	time_t t;
-	time(&t);newtime=localtime(&t);
-	cout << "blocco A inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+{	
 	if (!gap)
 	{
 		ali.purgeTargetInsertions();
 		seqLen = ali.getTarget().size();
 	}
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco B inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+	
 	pCalculateWeight(ali);
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco C inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+	
 	gapFreq.reserve(seqLen);
 	for (unsigned int i = 0; i < seqLen; i++)
 	{
@@ -466,8 +354,7 @@ HenikoffProfile::pConstructData(Alignment &ali)
 		profAliFrequency.push_back(tmp);
 		gapFreq.push_back(0.00);
 	}
-	/*time(&t);newtime=localtime(&t);
-	cout << "blocco D inizia " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+	
 	profAliFrequency.reserve(seqLen);
 	for (unsigned int i = 0; i < seqLen; i++)
 	{
@@ -482,12 +369,7 @@ HenikoffProfile::pConstructData(Alignment &ali)
 	}
 
 
-/*	for (unsigned int i = 0; i < seqLen; i++)
-	{
-		for (unsigned int j = 0; j < 20; j++)
-			cout << profAliFrequency[i][j] << "  ";
-		cout << endl;
-	}*/
+
 	setSeq(ali.getTarget());
 }
 

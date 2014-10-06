@@ -118,7 +118,7 @@ sShowHelp()
 	<< "\n                     \t --eType=1: One sort of fraction value."
 	<< "\n                     \t --eType=2: We use a power function."
 	<< "\n   [--pdb <name>]    \t Name of template PDB file"
-    << "\n   [--c <id>    ]    \t Chain identifier to read(default is first chain)"
+        << "\n   [--c <id>    ]    \t Chain identifier to read(default is first chain)"
 	<< "\n   [--wH <double>]   \t Weight for helical content (default = 1.00)"
 	<< "\n   [--wS <double>]   \t Weight for strand content (default = 1.00)"
 	<< "\n   [--wB <double>]   \t Weight for solvent accessibility (default = 1.00)"
@@ -223,10 +223,7 @@ main(int argc, char **argv)
 	string path = getenv("VICTOR_ROOT");
 	if (path.length() < 3)
 		cout << "Warning: environment variable VICTOR_ROOT is not set." << endl;
-	//string examplesPath = path + "examples/";
-	// I think the best solution is to work only with current directory. To do so,
-	// I simply use the currect path, and for doing this we just need to set
-	// examplePath=".", namely the current working directory.
+	 
 	string examplesPath;
    
 	string dataPath = path + "data/";
@@ -245,9 +242,7 @@ main(int argc, char **argv)
 		seq2Name = ali.getTemplateName();
 		seq1 = Alignment::getPureSequence(ali.getTarget());
 		seq2 = Alignment::getPureSequence(ali.getTemplate());
-		/*time(&t);
-		newtime=localtime(&t);
-		cout << "caricate seq " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+		 
 	}
 	else
 		ERROR("subali needs input FASTA file.", exception);
@@ -280,9 +275,7 @@ main(int argc, char **argv)
 			ERROR("Secondary structure FASTA file must contain two sequences.", exception);
 		sec1 = Alignment::getPureSequence(aliSec.getTarget());
 		sec2 = Alignment::getPureSequence(aliSec.getTemplate());
-		/*time(&t);
-		newtime=localtime(&t);
-		cout << "caricate sec " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+	 
 	}
 	
 	
@@ -367,8 +360,7 @@ main(int argc, char **argv)
 		case 1:
 			ad = new SecSequenceData(4, seq1, seq2, sec1, sec2, seq1Name, seq2Name);
 			str = new Sec(&subStr, ad, cStr);
-			/*time(&t);newtime=localtime(&t);
-			cout << "swith structure: create 'SecSequenceData ad' e 'Sec str' " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
+			 
 			break;
 		case 2:
 			ad = new SecSequenceData(4, seq1, seq2, sec1, sec2, seq1Name, seq2Name);
@@ -382,8 +374,6 @@ main(int argc, char **argv)
 			ad = new SequenceData(2, seq1, seq2, seq1Name, seq2Name);
 			str = 0;
 			cSeq = 1.00;
-			/*time(&t);newtime=localtime(&t);
-			cout << "swith structure default: create 'SecSequenceData ad' " << newtime->tm_hour << "/" << newtime->tm_min << endl;*/
 			break;
 	}
 	

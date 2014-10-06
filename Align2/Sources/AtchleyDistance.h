@@ -108,18 +108,14 @@ private:
 
 // PREDICATES:
 
-inline double
-AtchleyDistance::getOffset()
-{
+inline double AtchleyDistance::getOffset(){
 	return offset;
 }
 
 
 // MODIFIERS:
 
-inline void
-AtchleyDistance::setOffset(double off)
-{
+inline void AtchleyDistance::setOffset(double off){
 	offset = off;
 }
 

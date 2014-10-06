@@ -62,7 +62,6 @@ ScoringP2Ssec& ScoringP2Ssec::operator = (const ScoringP2Ssec& orig)
   {
     copy(orig);
   }
-//  POSTCOND( (orig == *this), exception);
   return *this;
 }
 

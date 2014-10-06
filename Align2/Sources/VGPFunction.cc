@@ -264,9 +264,6 @@ VGPFunction::pExtractPdbInfo(string pdbFileName, string chainID)
         	//previousSolvAcc = solvAcc;
         }
 		catch (const char* exc) {
-			//cout<<"sp.sizeAmino(): "<<sp.sizeAmino()<<endl;
-			//cout<<"missing residue: " << k<<endl;
-			//solvAccess.push_back(previousSolvAcc);
 			ERROR("In the template there are missing atoms, fix it or use try another gap penalty function", exception);
 
 		}
@@ -297,10 +294,7 @@ VGPFunction::pExtractPdbInfo(string pdbFileName, string chainID)
 			spaceProx.push_back(mod);
 		}
 	}
-	//cout<<"solvAcces size: "<<solvAccess.size()<<endl;
-	//for (int i=0; i<solvAccess.size();i++)
-	//	cout<<solvAccess[i]<<" ";
-	//cout<<endl;
+
 }
 
 } // namespace

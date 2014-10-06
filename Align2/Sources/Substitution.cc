@@ -97,7 +97,6 @@ Substitution::buildscore(const string &residues,
 
 	for (unsigned int i = 0; i < 128; ++i)
 		score.push_back(row128);
-//	score = new int[127][127]; // java original is "127": a bug?
 
 	for (unsigned int i = 0; i < residues.size(); i++)
 	{
@@ -118,8 +117,6 @@ Substitution::buildscore(const string &residues,
 
 // HELPERS:
 
-//template<class T> void
-//Substitution::pWriteDoubleVector(ostream &os, vector< vector<T> > data)
 void Substitution::pWriteDoubleVector(ostream &os, vector< vector<int> > data)
 {
 	os << data.size() << endl;
