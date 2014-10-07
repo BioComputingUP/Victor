@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __EDistance_H__
 #define __EDistance_H__
@@ -21,94 +21,90 @@
 #include <Profile.h>
 #include <ScoringFunction.h>
 
-namespace Biopool
-{
-/** @brief Calculate scores for profile to profile alignment using
-*                  euclidean distance.
- * 
-* @Description  
-* @This 
- **/
-class EDistance : public ScoringFunction
-{
+namespace Biopool {
 
-public:
+    /** @brief Calculate scores for profile to profile alignment using
+     *                  euclidean distance.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class EDistance : public ScoringFunction {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	EDistance(Profile *pro1, Profile *pro2);
+        /// Default constructor.
+        EDistance(Profile *pro1, Profile *pro2);
 
-	/// Constructor assigning offset.
-	EDistance(Profile *pro1, Profile *pro2, double offset);
+        /// Constructor assigning offset.
+        EDistance(Profile *pro1, Profile *pro2, double offset);
 
-	/// Copy constructor.
-	EDistance(const EDistance &orig);
+        /// Copy constructor.
+        EDistance(const EDistance &orig);
 
-	/// Destructor.
-	virtual ~EDistance();
+        /// Destructor.
+        virtual ~EDistance();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	EDistance& operator = (const EDistance &orig);
-
-
-// PREDICATES:
-
-	/// Calculate scores to create matrix values.
-	virtual double scoringSeq(int i, int j);
-
-	/// Return offset.
-	virtual double getOffset();
+        /// Assignment operator.
+        EDistance& operator =(const EDistance &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const EDistance &orig);
+        /// Calculate scores to create matrix values.
+        virtual double scoringSeq(int i, int j);
 
-	/// Construct a new "deep copy" of this object.
-	virtual EDistance* newCopy();
-
-	/// Set offset.
-	virtual void setOffset(double off);
+        /// Return offset.
+        virtual double getOffset();
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const EDistance &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual EDistance* newCopy();
+
+        /// Set offset.
+        virtual void setOffset(double off);
 
 
-private:
-
-// ATTRIBUTES:
-
-	Profile *pro1;    ///< Target profile.
-	Profile *pro2;    ///< Template profile.
-	double offset;    ///< Offset.
-
-};
-
-// -----------------------------------------------------------------------------
-//                                  EDistance
-// -----------------------------------------------------------------------------
-
-// PREDICATES:
-
-inline double
-EDistance::getOffset()
-{
-	return offset;
-}
+    protected:
 
 
-// MODIFIERS:
+    private:
 
-inline void
-EDistance::setOffset(double off)
-{
-	offset = off;
-}
+        // ATTRIBUTES:
+
+        Profile *pro1; ///< Target profile.
+        Profile *pro2; ///< Template profile.
+        double offset; ///< Offset.
+
+    };
+
+    // -----------------------------------------------------------------------------
+    //                                  EDistance
+    // -----------------------------------------------------------------------------
+
+    // PREDICATES:
+
+    inline double
+    EDistance::getOffset() {
+        return offset;
+    }
+
+
+    // MODIFIERS:
+
+    inline void
+    EDistance::setOffset(double off) {
+        offset = off;
+    }
 
 } // namespace
 

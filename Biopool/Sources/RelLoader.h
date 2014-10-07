@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
 #ifndef _REL_LOADER_H_
@@ -28,36 +28,44 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief Loads components (Atoms, Groups, etc.) in relative format.
- * 
-*@Description Relative format is similiar in structure to XYZ format.
-*    The only difference is that the coordinates here are relative 
-*    to the previous atom rather absolute.
-*@This 
- * */
-class RelLoader : public Loader
-{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  RelLoader(istream& _input = cin) : input(_input), connect(true) { }
-  // this class uses the implicit copy operator.
-  virtual ~RelLoader() { PRINT_NAME; }  
+    /**@brief Loads components (Atoms, Groups, etc.) in relative format.
+     * 
+     *@Description Relative format is similiar in structure to XYZ format.
+     *    The only difference is that the coordinates here are relative 
+     *    to the previous atom rather absolute.
+     *@This 
+     * */
+    class RelLoader : public Loader {
+    public:
 
-// MODIFIERS:
-  void connectSegments(bool c) { connect = c; }
-  // determines if segments (aminoacids, sidechains) have to be connected
-  virtual void loadGroup(Group& gr);
-  virtual void loadSideChain(SideChain& sc, AminoAcid* aaRef = NULL);
-  virtual void loadAminoAcid(AminoAcid& aa);
-  virtual void loadSpacer(Spacer& sp);
+        // CONSTRUCTORS/DESTRUCTOR:
 
-protected:
+        RelLoader(istream& _input = cin) : input(_input), connect(true) {
+        }
+        // this class uses the implicit copy operator.
 
-private:
-  istream& input;   // input stream
-  bool connect; // are segments to be connected to each other?
-};
+        virtual ~RelLoader() {
+            PRINT_NAME;
+        }
+
+        // MODIFIERS:
+
+        void connectSegments(bool c) {
+            connect = c;
+        }
+        // determines if segments (aminoacids, sidechains) have to be connected
+        virtual void loadGroup(Group& gr);
+        virtual void loadSideChain(SideChain& sc, AminoAcid* aaRef = NULL);
+        virtual void loadAminoAcid(AminoAcid& aa);
+        virtual void loadSpacer(Spacer& sp);
+
+    protected:
+
+    private:
+        istream& input; // input stream
+        bool connect; // are segments to be connected to each other?
+    };
 
 } // namespace
 #endif //_REL_LOADER_H_

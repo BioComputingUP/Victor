@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 #include <Identity.h>
 
 long Identity::counter = 0;

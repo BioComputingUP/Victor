@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
 // Includes:
@@ -27,26 +27,27 @@ using namespace Biopool;
 
 /**
  *@Description Constructor
-*@param none
-*/
-Nucleotide::Nucleotide() : Group(1,1), type(XX), icc() { }
-
+ *@param none
+ */
+Nucleotide::Nucleotide() : Group(1, 1), type(XX), icc() {
+}
 
 /**
  *@Description Constructor
-*@param Nucleotide
-*/
-Nucleotide::Nucleotide(const Nucleotide& orig)
-{
-  PRINT_NAME;
-  this->copy(orig);
+ *@param Nucleotide
+ */
+Nucleotide::Nucleotide(const Nucleotide& orig) {
+    PRINT_NAME;
+    this->copy(orig);
 }
+
 /**
  *@Description DESTRUCTOR
  *@param none
  */
-Nucleotide::~Nucleotide()
-{ PRINT_NAME; } 
+Nucleotide::~Nucleotide() {
+    PRINT_NAME;
+}
 /**
  *@Description Returns the atom corresponding to N, 
  * aminoacids have only a single possible, hard coded, open in-bond
@@ -58,46 +59,45 @@ Nucleotide::~Nucleotide()
 // MODIFIERS:
 
 /**
-*@Description  Copies an aa
+ *@Description  Copies an aa
  *@param const Nucleotide& (copy from the orig)
  *@return  void
  */
-void Nucleotide::copy(const Nucleotide& orig)
-{
-  PRINT_NAME; 
-  Group::copy(orig);
+void Nucleotide::copy(const Nucleotide& orig) {
+    PRINT_NAME;
+    Group::copy(orig);
 
-  type = orig.type;
-  
-  // set absolute position to orig's:
-  if (orig[0].sizeInBonds())
-    {
-      setTrans(const_cast<Nucleotide&>(orig)[0].getInBond(0).getCoords());
+    type = orig.type;
+
+    // set absolute position to orig's:
+    if (orig[0].sizeInBonds()) {
+        setTrans(const_cast<Nucleotide&> (orig)[0].getInBond(0).getCoords());
     }
 }
 
 /**
-*@Description  Clone the aa
+ *@Description  Clone the aa
  *@param none
  *@return  Component* 
  */
-Component* Nucleotide::clone(){
-  Nucleotide* tmp = new Nucleotide;
-  tmp->copy(*this);
-  return tmp;
+Component* Nucleotide::clone() {
+    Nucleotide* tmp = new Nucleotide;
+    tmp->copy(*this);
+    return tmp;
 }
 
 // OPERATORS:
+
 /**
-*@Description  Operator =, assign the aa
+ *@Description  Operator =, assign the aa
  *@param Nucleotide reference
  *@return  Nucleotide
  */
-Nucleotide& Nucleotide::operator=(const Nucleotide& orig){
-  PRINT_NAME;
-  if (&orig != this)
-    copy(orig);
-  return *this;
+Nucleotide& Nucleotide::operator=(const Nucleotide& orig) {
+    PRINT_NAME;
+    if (&orig != this)
+        copy(orig);
+    return *this;
 }
 
 

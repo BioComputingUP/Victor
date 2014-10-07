@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 #ifndef __DEBUG_H__
 #define __DEBUG_H__
 
@@ -72,33 +72,45 @@ using namespace std;
     SourceLocator is used for error reports to "OSTREAM". */
 class SourceLocator {
 public:
-  SourceLocator(const char* f, long l, const char* fu=0) 
-    : file(f), func(fu), line(l) { }
-  friend ostream& operator<<(ostream& os, const SourceLocator& loc) 
-  { if (loc.func != 0) { return os << loc.file << ":" << loc.line << ": " 
-				   << loc.func << ": "; } 
-  else { return os << loc.file << ":" << loc.line << ": "; } };
-private:  
-  const char* file;
-  const char* func;
-  long line;
+
+    SourceLocator(const char* f, long l, const char* fu = 0)
+    : file(f), func(fu), line(l) {
+    }
+
+    friend ostream& operator<<(ostream& os, const SourceLocator& loc) {
+        if (loc.func != 0) {
+            return os << loc.file << ":" << loc.line << ": "
+                    << loc.func << ": ";
+        }
+        else {
+            return os << loc.file << ":" << loc.line << ": ";
+        }
+    };
+private:
+    const char* file;
+    const char* func;
+    long line;
 };
 
 /** Class helping to trace number of instances of a class. */
 class ObjectTrace {
 public:
-  ObjectTrace() : ct(++count)
-    { V3OUT << "DEBUG_TRACE: Object " << ct << " constructed." << endl; }
-  // commented to remove useless compiler warning - ST 23.2.99:
-  // ObjectTrace(const char* n) :  ct(++count)
-  //  { V3OUT << "DEBUG_TRACE: Object " << ct << " constructed." << endl; }
-  //  ObjectTrace(const ObjectTrace& orig) : ct(++count)
-  //  { V3OUT << "DEBUG_TRACE: Object " << ct << " constructed." << endl; }
-  ~ObjectTrace() 
-    { V3OUT << "DEBUG_TRACE: Object " << ct << " destroyed." << endl; }
+
+    ObjectTrace() : ct(++count) {
+        V3OUT << "DEBUG_TRACE: Object " << ct << " constructed." << endl;
+    }
+    // commented to remove useless compiler warning - ST 23.2.99:
+    // ObjectTrace(const char* n) :  ct(++count)
+    //  { V3OUT << "DEBUG_TRACE: Object " << ct << " constructed." << endl; }
+    //  ObjectTrace(const ObjectTrace& orig) : ct(++count)
+    //  { V3OUT << "DEBUG_TRACE: Object " << ct << " constructed." << endl; }
+
+    ~ObjectTrace() {
+        V3OUT << "DEBUG_TRACE: Object " << ct << " destroyed." << endl;
+    }
 private:
-  static unsigned count;
-  unsigned        ct;
+    static unsigned count;
+    unsigned ct;
 };
 
 #ifndef NDEBUG

@@ -12,10 +12,10 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
- 
+
 //
 // Description:     Calculate scores for profile to profile alignment using
 //                  Zhou-Zhou method. Some explanations can be found in:
@@ -31,77 +31,67 @@
 
 #include <Zhou.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-Zhou::Zhou(Profile *pro1, PssmInput *pssm2) : ScoringFunction(), pro1(pro1),
-	pssm2(pssm2)
-{ }
+    Zhou::Zhou(Profile *pro1, PssmInput *pssm2) : ScoringFunction(), pro1(pro1),
+    pssm2(pssm2) {
+    }
 
+    Zhou::Zhou(const Zhou &orig) : ScoringFunction(orig) {
+        copy(orig);
+    }
 
-Zhou::Zhou(const Zhou &orig) : ScoringFunction(orig)
-{
-	copy(orig);
-}
-
-
-Zhou::~Zhou()
-{ }
+    Zhou::~Zhou() {
+    }
 
 
-// OPERATORS:
+    // OPERATORS:
 
-Zhou&
-Zhou::operator = (const Zhou &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
-
-
-// PREDICATES:
-
-double
-Zhou::scoringSeq(int i, int j)
-{
-	const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
-
-	double freq1 = 0.00;
-	double odds2 = 0.00;
-	double s = 0.00;
-
-	for (unsigned int k = 0; k < 20; k++)
-	{
-		freq1 = pro1->getAminoFrequency(residue_indices[k], (i-1));
-		odds2 = pssm2->score((j-1), k);
-
-		s += (freq1 * odds2);
-	}
-
-	return s;
-}
+    Zhou&
+            Zhou::operator =(const Zhou &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-// MODIFIERS:
+    // PREDICATES:
 
-void
-Zhou::copy(const Zhou &orig)
-{
-	ScoringFunction::copy(orig);
-	pro1 = orig.pro1->newCopy();
-	pssm2 = orig.pssm2->newCopy();
-}
+    double
+    Zhou::scoringSeq(int i, int j) {
+        const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
+
+        double freq1 = 0.00;
+        double odds2 = 0.00;
+        double s = 0.00;
+
+        for (unsigned int k = 0; k < 20; k++) {
+            freq1 = pro1->getAminoFrequency(residue_indices[k], (i - 1));
+            odds2 = pssm2->score((j - 1), k);
+
+            s += (freq1 * odds2);
+        }
+
+        return s;
+    }
 
 
-Zhou*
-Zhou::newCopy()
-{
-	Zhou *tmp = new Zhou(*this);
-	return tmp;
-}
+    // MODIFIERS:
+
+    void
+    Zhou::copy(const Zhou &orig) {
+        ScoringFunction::copy(orig);
+        pro1 = orig.pro1->newCopy();
+        pssm2 = orig.pssm2->newCopy();
+    }
+
+    Zhou*
+    Zhou::newCopy() {
+        Zhou *tmp = new Zhou(*this);
+        return tmp;
+    }
 
 } // namespace

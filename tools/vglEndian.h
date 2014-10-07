@@ -12,11 +12,11 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**  
 @Description  system independent byte order definitions
 
-*/
+ */
 
 #ifndef _TYPES_ENDIAN_H_
 #define _TYPES_ENDIAN_H_

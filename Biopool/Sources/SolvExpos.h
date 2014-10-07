@@ -12,33 +12,35 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
  *@Description A module to determine the solvent exposure/accessibility of residues in a
-*                              protein fragment.
-*/
+ *                              protein fragment.
+ */
 #ifndef __SolvExpos_H__
 #define __SolvExpos_H__
 
 #include <Spacer.h>
 
-namespace Biopool{
+namespace Biopool {
 
-	enum SolvExpos {CORE, EXPOSED};
+    enum SolvExpos {
+        CORE, EXPOSED
+    };
 
-	SolvExpos getSolvExpos(Spacer &chain, const unsigned int tgt,
-		const unsigned int start, const unsigned int end);
+    SolvExpos getSolvExpos(Spacer &chain, const unsigned int tgt,
+            const unsigned int start, const unsigned int end);
 
-	vector<SolvExpos>* getSolvExposVec(Spacer &chain,
-		const unsigned int tgtS, const unsigned int tgtE,
-		const unsigned int envS, const unsigned int envE);
+    vector<SolvExpos>* getSolvExposVec(Spacer &chain,
+            const unsigned int tgtS, const unsigned int tgtE,
+            const unsigned int envS, const unsigned int envE);
 
-	double getSolvAccess(Spacer &chain, unsigned int tgt,
-		unsigned int start, unsigned int end);
+    double getSolvAccess(Spacer &chain, unsigned int tgt,
+            unsigned int start, unsigned int end);
 
-	vector<double> getSolvAccessVec(Spacer &chain,
-		unsigned int tgtS, unsigned int tgtE,
-		unsigned int envS, unsigned int envE);
+    vector<double> getSolvAccessVec(Spacer &chain,
+            unsigned int tgtS, unsigned int tgtE,
+            unsigned int envS, unsigned int envE);
 
 } // namespace
 

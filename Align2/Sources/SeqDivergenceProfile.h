@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 #ifndef __SeqDivergenceProfile_H__
 #define __SeqDivergenceProfile_H__
 
@@ -25,8 +25,7 @@
 #include <SubMatrix.h>
 #include <math.h>
 
-namespace Biopool
-{/** @brief    Calculate a frequency profile or PSSM using SeqDivergence
+namespace Biopool {/** @brief    Calculate a frequency profile or PSSM using SeqDivergence
 *                  weighting scheme.
  * 
 * @Description  Some explanations can be found in:
@@ -39,59 +38,57 @@ namespace Biopool
 * @This 
  **/
 
-class SeqDivergenceProfile : public Profile
-{
+    class SeqDivergenceProfile : public Profile {
+    public:
 
-public:
+        // CONSTRUCTORS:
 
-// CONSTRUCTORS:
+        /// Default constructor.
+        SeqDivergenceProfile();
 
-	/// Default constructor.
-	SeqDivergenceProfile();
+        /// Copy constructor.
+        SeqDivergenceProfile(const SeqDivergenceProfile &orig);
 
-	/// Copy constructor.
-	SeqDivergenceProfile(const SeqDivergenceProfile &orig);
-
-	/// Destructor.
-	virtual ~SeqDivergenceProfile();
+        /// Destructor.
+        virtual ~SeqDivergenceProfile();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	SeqDivergenceProfile& operator = (const SeqDivergenceProfile &orig);
-
-
-// MODIFIERS:
-
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const SeqDivergenceProfile &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual SeqDivergenceProfile* newCopy();
+        /// Assignment operator.
+        SeqDivergenceProfile& operator =(const SeqDivergenceProfile &orig);
 
 
-// HELPERS:
+        // MODIFIERS:
 
-	/// Calculate alignment weights.
-	virtual void pCalculateWeight(Alignment &ali);
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const SeqDivergenceProfile &orig);
 
-	/// Calculate the raw (ie. unnormalized) aminoacids frequencies for position i.
-	virtual void pCalculateRawFrequency(vector<double> &freq, double &gapFreq,
-		Alignment &ali, unsigned int i);
-
-	/// Construct data from alignment.
-	virtual void pConstructData(Alignment &ali);
+        /// Construct a new "deep copy" of this object.
+        virtual SeqDivergenceProfile* newCopy();
 
 
-protected:
+        // HELPERS:
+
+        /// Calculate alignment weights.
+        virtual void pCalculateWeight(Alignment &ali);
+
+        /// Calculate the raw (ie. unnormalized) aminoacids frequencies for position i.
+        virtual void pCalculateRawFrequency(vector<double> &freq, double &gapFreq,
+                Alignment &ali, unsigned int i);
+
+        /// Construct data from alignment.
+        virtual void pConstructData(Alignment &ali);
 
 
-private:
+    protected:
 
-	vector<double> aliWeight;    ///< Alignment weights.
 
-};
+    private:
+
+        vector<double> aliWeight; ///< Alignment weights.
+
+    };
 
 } // namespace
 

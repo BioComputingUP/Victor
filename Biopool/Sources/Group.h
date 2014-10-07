@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 #ifndef _GROUP_H_
 #define _GROUP_H_
 
@@ -23,278 +23,252 @@
 #include <Monomer.h>
 #include <matrix3.h>
 #include <Visitor.h>
- 
+
 namespace Biopool {
-/**@brief This class implements a simple chemical group
- * 
-*@This 
- * */
-// Global constants, typedefs, etc. (to avoid):
+    /**@brief This class implements a simple chemical group
+     * 
+     *@This 
+     * */
+    // Global constants, typedefs, etc. (to avoid):
 
-class Group : public Monomer
-{
-public: 
-  
-  // CONSTRUCTORS/DESTRUCTOR:
-  Group(unsigned int mI = 1, unsigned int mO = 4);
-  Group(const Group& orig);  
-  virtual ~Group();  
-  virtual string getClassName() const
-    { return "Group"; }
-  
-  // PREDICATES:
-  virtual unsigned int getCode() const;
-  virtual unsigned int size() const;
-  
-  Atom& getAtom(unsigned int n);
-  const Atom& getAtom(unsigned int n) const;
+    class Group : public Monomer {
+    public:
 
-  virtual void save(Saver& s);  // data saver
-  vector<Atom>& giveAtoms();
+        // CONSTRUCTORS/DESTRUCTOR:
+        Group(unsigned int mI = 1, unsigned int mO = 4);
+        Group(const Group& orig);
+        virtual ~Group();
 
-  vgVector3<double> getTrans() const;
-  vgMatrix3<double> getRot() const;
+        virtual string getClassName() const {
+            return "Group";
+        }
 
-  virtual bool isMember(const AtomCode& ac) const;
+        // PREDICATES:
+        virtual unsigned int getCode() const;
+        virtual unsigned int size() const;
 
-  // MODIFIERS:
-  void copy(const Group& orig);
-  void setAtom(unsigned int n, Atom& at);
-  void addAtom(Atom& a);
-  void removeAtom(Atom& a);
+        Atom& getAtom(unsigned int n);
+        const Atom& getAtom(unsigned int n) const;
 
-  virtual void load(Loader& l);  // data loader
+        virtual void save(Saver& s); // data saver
+        vector<Atom>& giveAtoms();
 
-  void setTrans(vgVector3<double> t);
-  void addTrans(vgVector3<double> t);
-  void setRot(vgMatrix3<double> r);
-  void addRot(vgMatrix3<double> r);
-  virtual void sync(); // synchronize coords with structure
-  virtual void setModified();
+        vgVector3<double> getTrans() const;
+        vgMatrix3<double> getRot() const;
 
-  virtual const Group& getInBond(unsigned int n) const;
-  virtual Group& getInBond(unsigned int n);
-  virtual const Group& getOutBond(unsigned int n) const;
-  virtual Group& getOutBond(unsigned int n);
+        virtual bool isMember(const AtomCode& ac) const;
 
-  virtual void acceptCalculator(EnergyVisitor* v);
-  virtual void acceptOptimizer(OptimizationVisitor* v);
+        // MODIFIERS:
+        void copy(const Group& orig);
+        void setAtom(unsigned int n, Atom& at);
+        void addAtom(Atom& a);
+        void removeAtom(Atom& a);
 
-  // OPERATORS:
+        virtual void load(Loader& l); // data loader
 
-  Group& operator=(const Group& orig);
-  virtual Atom& operator[](unsigned int n);
-  virtual const Atom& operator[](unsigned int n) const;
-  virtual Atom& operator[](const AtomCode& ac);
-  virtual const Atom& operator[](const AtomCode& ac) const;
-  
-protected:
+        void setTrans(vgVector3<double> t);
+        void addTrans(vgVector3<double> t);
+        void setRot(vgMatrix3<double> r);
+        void addRot(vgMatrix3<double> r);
+        virtual void sync(); // synchronize coords with structure
+        virtual void setModified();
 
-  // HELPERS:
-  void resetBoundaries();
-  Atom* pGetAtom(const AtomCode& ac) const;
-  
-private:
-  
-  // HELPERS:
-  unsigned int pGetIndex(const unsigned long cmp) const;
-  
-  // ATTRIBUTES:
-  vector<Atom> atoms;
-  vgVector3<double> trans;       // group translation
-  vgMatrix3<double> rot;         // group rotation
+        virtual const Group& getInBond(unsigned int n) const;
+        virtual Group& getInBond(unsigned int n);
+        virtual const Group& getOutBond(unsigned int n) const;
+        virtual Group& getOutBond(unsigned int n);
 
-};
+        virtual void acceptCalculator(EnergyVisitor* v);
+        virtual void acceptOptimizer(OptimizationVisitor* v);
 
-// ---------------------------------------------------------------------------
-//                                    Group
-// -----------------x-------------------x-------------------x-----------------
+        // OPERATORS:
 
-// PREDICATES:
+        Group& operator=(const Group& orig);
+        virtual Atom& operator[](unsigned int n);
+        virtual const Atom& operator[](unsigned int n) const;
+        virtual Atom& operator[](const AtomCode& ac);
+        virtual const Atom& operator[](const AtomCode& ac) const;
 
-inline unsigned int 
-Group::getCode() const
-{
-  ERROR("Group::getCode() undefined.", exception);
-  return 0;
-}
+    protected:
 
-inline unsigned int 
-Group::size() const 
-{
-  return atoms.size();
-}
+        // HELPERS:
+        void resetBoundaries();
+        Atom* pGetAtom(const AtomCode& ac) const;
 
-inline void 
-Group::save(Saver& s)
-{
-  s.saveGroup(*this);
-}
+    private:
 
-inline vector<Atom>& 
-Group::giveAtoms()
-{
-  return atoms;
-}
+        // HELPERS:
+        unsigned int pGetIndex(const unsigned long cmp) const;
 
-inline Atom& 
-Group::getAtom(unsigned int n)
-{
-  PRECOND(n < atoms.size(), exception);
-  return atoms[n];
-}
+        // ATTRIBUTES:
+        vector<Atom> atoms;
+        vgVector3<double> trans; // group translation
+        vgMatrix3<double> rot; // group rotation
 
-inline const Atom& 
-Group::getAtom(unsigned int n) const
-{
-  PRECOND(n < atoms.size(), exception);
-  return atoms[n];
-}
+    };
 
-inline vgVector3<double> 
-Group::getTrans() const
-{
-  return trans;
-}
+    // ---------------------------------------------------------------------------
+    //                                    Group
+    // -----------------x-------------------x-------------------x-----------------
 
-inline vgMatrix3<double> 
-Group::getRot() const
-{
-  return rot;
-}
+    // PREDICATES:
 
+    inline unsigned int
+    Group::getCode() const {
+        ERROR("Group::getCode() undefined.", exception);
+        return 0;
+    }
 
-inline bool 
-Group::isMember(const AtomCode& ac) const
-{
-  return (pGetAtom(ac) != NULL);
-}
+    inline unsigned int
+    Group::size() const {
+        return atoms.size();
+    }
 
-// MODIFIERS:
+    inline void
+    Group::save(Saver& s) {
+        s.saveGroup(*this);
+    }
 
-inline void 
-Group::setAtom(unsigned int n, Atom& at)
-{
-  PRECOND(n < atoms.size(), exception);
-  atoms[n] = at;
-  atoms[n].setSuperior(this);
-  Group::setModified();
-}
+    inline vector<Atom>&
+    Group::giveAtoms() {
+        return atoms;
+    }
 
-inline void 
-Group::load(Loader& l)
-{
-  l.loadGroup(*this);
-  resetBoundaries();
-}
+    inline Atom&
+    Group::getAtom(unsigned int n) {
+        PRECOND(n < atoms.size(), exception);
+        return atoms[n];
+    }
 
-inline void 
-Group::setTrans(vgVector3<double> t)
-{
-  trans = t;
-  Group::setModified();
-}
+    inline const Atom&
+    Group::getAtom(unsigned int n) const {
+        PRECOND(n < atoms.size(), exception);
+        return atoms[n];
+    }
 
-inline void 
-Group::addTrans(vgVector3<double> t)
-{
-  trans += t;
-  Group::setModified();
-}
+    inline vgVector3<double>
+    Group::getTrans() const {
+        return trans;
+    }
 
-inline void 
-Group::setRot(vgMatrix3<double> r)
-{
+    inline vgMatrix3<double>
+    Group::getRot() const {
+        return rot;
+    }
+
+    inline bool
+    Group::isMember(const AtomCode& ac) const {
+        return (pGetAtom(ac) != NULL);
+    }
+
+    // MODIFIERS:
+
+    inline void
+    Group::setAtom(unsigned int n, Atom& at) {
+        PRECOND(n < atoms.size(), exception);
+        atoms[n] = at;
+        atoms[n].setSuperior(this);
+        Group::setModified();
+    }
+
+    inline void
+    Group::load(Loader& l) {
+        l.loadGroup(*this);
+        resetBoundaries();
+    }
+
+    inline void
+    Group::setTrans(vgVector3<double> t) {
+        trans = t;
+        Group::setModified();
+    }
+
+    inline void
+    Group::addTrans(vgVector3<double> t) {
+        trans += t;
+        Group::setModified();
+    }
+
+    inline void
+    Group::setRot(vgMatrix3<double> r) {
 #ifndef NDEBUG
 #endif
-  rot = r;
-  Group::setModified();
-}
+        rot = r;
+        Group::setModified();
+    }
 
-inline void 
-Group::addRot(vgMatrix3<double> r)
-{
+    inline void
+    Group::addRot(vgMatrix3<double> r) {
 #ifndef NDEBUG
 #endif
-  rot = r * rot;
-  Group::setModified();
-}
+        rot = r * rot;
+        Group::setModified();
+    }
+
+    inline const Group&
+    Group::getInBond(unsigned int n) const {
+        return dynamic_cast<const Group&> (Bond::getInBond(n));
+    }
+
+    inline Group&
+    Group::getInBond(unsigned int n) {
+        return dynamic_cast<Group&> (Bond::getInBond(n));
+    }
+
+    inline const Group&
+    Group::getOutBond(unsigned int n) const {
+        return dynamic_cast<const Group&> (Bond::getOutBond(n));
+    }
+
+    inline Group&
+    Group::getOutBond(unsigned int n) {
+        return dynamic_cast<Group&> (Bond::getOutBond(n));
+    }
+
+    inline void
+    Group::acceptCalculator(EnergyVisitor* v) {
+        v->PrepareGroup(*this);
+    }
+
+    inline void
+    Group::acceptOptimizer(OptimizationVisitor* v) {
+        v->PrepareGroup(*this);
+    }
 
 
-inline const Group& 
-Group::getInBond(unsigned int n) const
-{
-  return dynamic_cast<const Group&>(Bond::getInBond(n));
-}
+    // OPERATORS:
 
-inline Group& 
-Group::getInBond(unsigned int n)
-{
-  return dynamic_cast<Group&>(Bond::getInBond(n));
-}
+    inline Atom&
+    Group::operator[](unsigned int n) {
+        PRECOND(n < atoms.size(), exception);
+        return atoms[n];
+    }
 
-inline const Group& 
-Group::getOutBond(unsigned int n) const
-{
-  return dynamic_cast<const Group&>(Bond::getOutBond(n));
-}
+    inline const Atom&
+    Group::operator[](unsigned int n) const {
+        PRECOND(n < atoms.size(), exception);
+        return atoms[n];
+    }
 
-inline Group& 
-Group::getOutBond(unsigned int n)
-{
-  return dynamic_cast<Group&>(Bond::getOutBond(n));
-}
+    inline Atom&
+    Group::operator[](const AtomCode& ac) {
+        Atom* a = pGetAtom(ac);
+        INVARIANT(a != NULL, exception);
+        if (a == NULL)
+            ERROR("Inexistent atom requested.", exception);
+        return *a;
+    }
 
-inline void 
-Group::acceptCalculator(EnergyVisitor* v)
-{
-  v->PrepareGroup(*this);
-}
+    inline const Atom&
+    Group::operator[](const AtomCode& ac) const {
+        Atom* a = pGetAtom(ac);
+        INVARIANT(a != NULL, exception);
+        if (a == NULL)
+            ERROR("Inexistent atom requested.", exception);
+        return *a;
+    }
 
-inline void
-Group::acceptOptimizer(OptimizationVisitor* v)
-{
-  v->PrepareGroup(*this);
-}
+    // HELPERS:
 
-
-// OPERATORS:
-
-inline Atom& 
-Group::operator[](unsigned int n)
-{
-  PRECOND(n < atoms.size(), exception);
-  return atoms[n];
-}
-
-inline const Atom& 
-Group::operator[](unsigned int n) const
-{
-  PRECOND(n < atoms.size(), exception);
-  return atoms[n];
-}
-
-inline Atom& 
-Group::operator[](const AtomCode& ac)
-{
-  Atom* a = pGetAtom(ac);
-  INVARIANT(a != NULL, exception);
-  if (a == NULL)
-    ERROR("Inexistent atom requested.", exception);
-  return *a;
-}
-
-inline const Atom& 
-Group::operator[](const AtomCode& ac) const
-{
-  Atom* a = pGetAtom(ac);
-  INVARIANT(a != NULL, exception);
-  if (a == NULL)
-    ERROR("Inexistent atom requested.", exception);
-  return *a;
-}
-
-// HELPERS:
- 
 } // namespace
 #endif //_GROUP_H_

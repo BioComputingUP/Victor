@@ -12,10 +12,10 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
- 
+
 //
 // Description:     Calculate structural scores with info derived from
 //                  threading.
@@ -24,76 +24,66 @@
 
 #include <Threading.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-Threading::Threading(AlignmentData *ad, ThreadingInput *thread, double cThr)
-	: Structure(0), seq1(ad->getSequence(1)), thread(thread), cThr(cThr)
-{ }
+    Threading::Threading(AlignmentData *ad, ThreadingInput *thread, double cThr)
+    : Structure(0), seq1(ad->getSequence(1)), thread(thread), cThr(cThr) {
+    }
 
+    Threading::Threading(const Threading &orig) : Structure(orig) {
+        copy(orig);
+    }
 
-Threading::Threading(const Threading &orig) : Structure(orig)
-{
-	copy(orig);
-}
-
-
-Threading::~Threading()
-{ }
+    Threading::~Threading() {
+    }
 
 
-// OPERATORS:
+    // OPERATORS:
 
-Threading&
-Threading::operator = (const Threading &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
-
-
-// PREDICATES:
-
-double
-Threading::scoringStr(int i, int j)
-{
-	const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
-
-	char aaTarget = seq1[i-1];
-	int targetIndex = 0;
-
-	for (int k = 0; k < 20; k++)
-		if (aaTarget == residue_indices[k])
-		{
-			targetIndex = k;
-			break;
-		}
-
-	return cThr * thread->score(targetIndex, (j-1));
-}
+    Threading&
+            Threading::operator =(const Threading &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-// MODIFIERS:
+    // PREDICATES:
 
-void
-Threading::copy(const Threading &orig)
-{
-	Structure::copy(orig);
-	seq1 = orig.seq1;
-	thread = orig.thread->newCopy();
-	cThr = orig.cThr;
-}
+    double
+    Threading::scoringStr(int i, int j) {
+        const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
+
+        char aaTarget = seq1[i - 1];
+        int targetIndex = 0;
+
+        for (int k = 0; k < 20; k++)
+            if (aaTarget == residue_indices[k]) {
+                targetIndex = k;
+                break;
+            }
+
+        return cThr * thread->score(targetIndex, (j - 1));
+    }
 
 
-Threading*
-Threading::newCopy()
-{
-	Threading *tmp = new Threading(*this);
-	return tmp;
-}
+    // MODIFIERS:
+
+    void
+    Threading::copy(const Threading &orig) {
+        Structure::copy(orig);
+        seq1 = orig.seq1;
+        thread = orig.thread->newCopy();
+        cThr = orig.cThr;
+    }
+
+    Threading*
+    Threading::newCopy() {
+        Threading *tmp = new Threading(*this);
+        return tmp;
+    }
 
 } // namespace

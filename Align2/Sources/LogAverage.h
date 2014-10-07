@@ -12,12 +12,12 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
 
-              /*************************************************
-               * sub is BLOSUM62 matrix standard log-odds form *
-               *************************************************/
+
+/*************************************************
+ * sub is BLOSUM62 matrix standard log-odds form *
+ *************************************************/
 
 #ifndef __LogAverage_H__
 #define __LogAverage_H__
@@ -26,69 +26,67 @@
 #include <ScoringFunction.h>
 #include <SubMatrix.h>
 
-namespace Biopool
-{
-/** @brief Calculate scores for profile to profile alignment using
-*                  sum of pairs method. 
- * 
-* @Description  Some explanations can be found in:
-*
-*                  Guoli Wang, Roland L. Dunbrack jr.
-*                  Scoring profile-to-profile sequence alignments.
-*                  Institute for Cancer Research, Fox Chase Cancer Center,
-*                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
-* @This 
- **/
-class LogAverage : public ScoringFunction
-{
+namespace Biopool {
 
-public:
+    /** @brief Calculate scores for profile to profile alignment using
+     *                  sum of pairs method. 
+     * 
+     * @Description  Some explanations can be found in:
+     *
+     *                  Guoli Wang, Roland L. Dunbrack jr.
+     *                  Scoring profile-to-profile sequence alignments.
+     *                  Institute for Cancer Research, Fox Chase Cancer Center,
+     *                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
+     * @This 
+     **/
+    class LogAverage : public ScoringFunction {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	LogAverage(SubMatrix *sub, Profile *pro1, Profile *pro2);
+        /// Default constructor.
+        LogAverage(SubMatrix *sub, Profile *pro1, Profile *pro2);
 
-	/// Copy constructor.
-	LogAverage(const LogAverage &orig);
+        /// Copy constructor.
+        LogAverage(const LogAverage &orig);
 
-	/// Destructor.
-	virtual ~LogAverage();
+        /// Destructor.
+        virtual ~LogAverage();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	LogAverage& operator = (const LogAverage &orig);
-
-
-// PREDICATES:
-
-	/// Calculate scores to create matrix values.
-	virtual double scoringSeq(int i, int j);
+        /// Assignment operator.
+        LogAverage& operator =(const LogAverage &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const LogAverage &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual LogAverage* newCopy();
+        /// Calculate scores to create matrix values.
+        virtual double scoringSeq(int i, int j);
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const LogAverage &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual LogAverage* newCopy();
 
 
-private:
+    protected:
 
-// ATTRIBUTES:
 
-	SubMatrix *sub;    ///< Substitution matrix.
-	Profile *pro1;     ///< Target profile.
-	Profile *pro2;     ///< Template profile.
+    private:
 
-};
+        // ATTRIBUTES:
+
+        SubMatrix *sub; ///< Substitution matrix.
+        Profile *pro1; ///< Target profile.
+        Profile *pro2; ///< Template profile.
+
+    };
 
 } // namespace
 

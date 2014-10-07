@@ -12,104 +12,90 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
- 
+
 // Description:     Base class for scoring schemes.
 //
 // -----------------x-----------------------------------------------------------
 
 #include <ScoringScheme.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-ScoringScheme::ScoringScheme(SubMatrix *sub, AlignmentData *ad, Structure *str)
-	: sub(sub), ad(ad), str(str)
-{
-	if ((!checkSequence(ad->getSequence(1))) ||
-		(!checkSequence(ad->getSequence(2))))
-	{
-		cout << "Illegal sequence:\n"
-		     << ad->getSequence(1) << "\n"
-		     << ad->getSequence(2) << "\n"
-		     << sub->getResidues() << endl;
-		ERROR("Error checking sequence.", exception);
-	}
-}
+    ScoringScheme::ScoringScheme(SubMatrix *sub, AlignmentData *ad, Structure *str)
+    : sub(sub), ad(ad), str(str) {
+        if ((!checkSequence(ad->getSequence(1))) ||
+                (!checkSequence(ad->getSequence(2)))) {
+            cout << "Illegal sequence:\n"
+                    << ad->getSequence(1) << "\n"
+                    << ad->getSequence(2) << "\n"
+                    << sub->getResidues() << endl;
+            ERROR("Error checking sequence.", exception);
+        }
+    }
 
+    ScoringScheme::ScoringScheme(const ScoringScheme &orig) {
+        copy(orig);
+    }
 
-ScoringScheme::ScoringScheme(const ScoringScheme &orig)
-{
-	copy(orig);
-}
+    ScoringScheme::~ScoringScheme() {
+    }
 
 
-ScoringScheme::~ScoringScheme()
-{ }
+    // OPERATORS:
+
+    ScoringScheme&
+            ScoringScheme::operator =(const ScoringScheme &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-// OPERATORS:
+    // PREDICATES:
 
-ScoringScheme&
-ScoringScheme::operator = (const ScoringScheme &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
+    bool
+    ScoringScheme::checkSequence(const string &s) const {
+        string residues = sub->getResidues();
+        bool found = false;
 
+        for (unsigned int i = 0; i < s.size(); i++) {
+            found = false;
 
-// PREDICATES:
+            for (unsigned int j = 0; j < residues.size(); j++)
+                if (residues[j] == s[i]) {
+                    found = true;
+                    break;
+                }
 
-bool
-ScoringScheme::checkSequence(const string &s) const
-{
-	string residues = sub->getResidues();
-	bool found = false;
+            if (!found) {
+                cout << "checkSequence unsuccessful!" << endl;
+                return false;
+            }
+        }
 
-	for (unsigned int i = 0; i < s.size(); i++)
-	{
-		found = false;
-
-		for (unsigned int j = 0; j < residues.size(); j++)
-			if (residues[j] == s[i])
-			{
-				found = true;
-				break;
-			}
-
-		if (!found)
-		{
-			cout << "checkSequence unsuccessful!" << endl;
-			return false;
-		}
-	}
-
-	return true;
-}
+        return true;
+    }
 
 
-// MODIFIERS:
+    // MODIFIERS:
 
-void
-ScoringScheme::copy(const ScoringScheme &orig)
-{
-	sub = orig.sub->newCopy();
-	ad = orig.ad->newCopy();
-	str = orig.str->newCopy();
-}
+    void
+    ScoringScheme::copy(const ScoringScheme &orig) {
+        sub = orig.sub->newCopy();
+        ad = orig.ad->newCopy();
+        str = orig.str->newCopy();
+    }
 
-
-void
-ScoringScheme::reverse()
-{
-	if (str != 0)
-		str->reverse();
-}
+    void
+    ScoringScheme::reverse() {
+        if (str != 0)
+            str->reverse();
+    }
 
 } // namespace

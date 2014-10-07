@@ -12,150 +12,140 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 #ifndef __AGPFunction_H__
 #define __AGPFunction_H__
 
 #include <GapFunction.h>
 
-namespace Biopool
-{
-/** @brief Implement AGP (Affine Gap Penalty) function.
- * 
-* @Description  
-* @This 
- **/
-class AGPFunction : public GapFunction
-{
+namespace Biopool {
 
-public:
+    /** @brief Implement AGP (Affine Gap Penalty) function.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class AGPFunction : public GapFunction {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	AGPFunction() : o(12.00), e(3.00)
-	{ }
+        /// Default constructor.
 
-	/// Constructor assigning o and e.
-	AGPFunction(double o, double e) : o(o), e(e)
-	{ }
+        AGPFunction() : o(12.00), e(3.00) {
+        }
 
-	/// Copy constructor.
-	AGPFunction(const AGPFunction &orig) : GapFunction(orig)
-	{
-		copy(orig);
-	}
+        /// Constructor assigning o and e.
 
-	/// Destructor.
-	virtual ~AGPFunction()
-	{ }
+        AGPFunction(double o, double e) : o(o), e(e) {
+        }
 
+        /// Copy constructor.
 
-// OPERATORS:
+        AGPFunction(const AGPFunction &orig) : GapFunction(orig) {
+            copy(orig);
+        }
 
-	/// Assignment operator.
-	AGPFunction& operator = (const AGPFunction &orig);
+        /// Destructor.
+
+        virtual ~AGPFunction() {
+        }
 
 
-// PREDICATES:
+        // OPERATORS:
 
-	/// Return open gap penalty for template position p.
-	virtual double getOpenPenalty(int p);
-
-	/// Return extension gap penalty for template position p.
-	virtual double getExtensionPenalty(int p);
+        /// Assignment operator.
+        AGPFunction& operator =(const AGPFunction &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const AGPFunction &orig);
+        /// Return open gap penalty for template position p.
+        virtual double getOpenPenalty(int p);
 
-	/// Construct a new "deep copy" of this object.
-	virtual AGPFunction* newCopy();
-
-	/// Set open gap penalty.
-	virtual void setOpenPenalty(double pen);
-
-	/// Set extension gap penalty.
-	virtual void setExtensionPenalty(double pen);
+        /// Return extension gap penalty for template position p.
+        virtual double getExtensionPenalty(int p);
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const AGPFunction &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual AGPFunction* newCopy();
+
+        /// Set open gap penalty.
+        virtual void setOpenPenalty(double pen);
+
+        /// Set extension gap penalty.
+        virtual void setExtensionPenalty(double pen);
 
 
-private:
-
-// ATTRIBUTES:
-
-	double o;    ///< Open gap penalty.
-	double e;    ///< Extension gap penalty.
-
-};
-
-// -----------------------------------------------------------------------------
-//                                 AGPFunction
-// -----------------------------------------------------------------------------
-
-// OPERATORS:
-
-inline AGPFunction&
-AGPFunction::operator = (const AGPFunction &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
+    protected:
 
 
-// PREDICATES:
+    private:
 
-inline double
-AGPFunction::getOpenPenalty(int p)
-{
-	return o;
-}
+        // ATTRIBUTES:
 
+        double o; ///< Open gap penalty.
+        double e; ///< Extension gap penalty.
 
-inline double
-AGPFunction::getExtensionPenalty(int p)
-{
-	return e;
-}
+    };
 
+    // -----------------------------------------------------------------------------
+    //                                 AGPFunction
+    // -----------------------------------------------------------------------------
 
-// MODIFIERS:
+    // OPERATORS:
 
-inline void
-AGPFunction::copy(const AGPFunction &orig)
-{
-	GapFunction::copy(orig);
-	o = orig.o;
-	e = orig.e;
-}
+    inline AGPFunction&
+            AGPFunction::operator =(const AGPFunction &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-inline AGPFunction*
-AGPFunction::newCopy()
-{
-	AGPFunction *tmp = new AGPFunction(*this);
-	return tmp;
-}
+    // PREDICATES:
+
+    inline double
+    AGPFunction::getOpenPenalty(int p) {
+        return o;
+    }
+
+    inline double
+    AGPFunction::getExtensionPenalty(int p) {
+        return e;
+    }
 
 
-inline void
-AGPFunction::setOpenPenalty(double pen)
-{
-	o = pen;
-}
+    // MODIFIERS:
 
+    inline void
+    AGPFunction::copy(const AGPFunction &orig) {
+        GapFunction::copy(orig);
+        o = orig.o;
+        e = orig.e;
+    }
 
-inline void
-AGPFunction::setExtensionPenalty(double pen)
-{
-	e = pen;
-}
+    inline AGPFunction*
+    AGPFunction::newCopy() {
+        AGPFunction *tmp = new AGPFunction(*this);
+        return tmp;
+    }
+
+    inline void
+    AGPFunction::setOpenPenalty(double pen) {
+        o = pen;
+    }
+
+    inline void
+    AGPFunction::setExtensionPenalty(double pen) {
+        e = pen;
+    }
 
 } // namespace
 

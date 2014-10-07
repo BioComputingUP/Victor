@@ -12,12 +12,12 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef _COMPONENT_H_
 #define _COMPONENT_H_
- 
+
 // Includes:
 #include <vector>
 #include <string>
@@ -31,179 +31,169 @@
 
 
 namespace Biopool {
-/**@brief Base class for composite structures. 
- * 
-*@Description Implementing the Composite pattern.
-*@This 
- **/
-class Component : public Bond
-{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  Component(unsigned int mI = 2, unsigned int mO = 2);
-  Component(const Component& orig);
-  virtual ~Component();
+    /**@brief Base class for composite structures. 
+     * 
+     *@Description Implementing the Composite pattern.
+     *@This 
+     **/
+    class Component : public Bond {
+    public:
 
-// PREDICATES:
-  unsigned int size() const;
-  virtual string getClassName() const = 0;
-  unsigned int getDepth() const;
+        // CONSTRUCTORS/DESTRUCTOR:
+        Component(unsigned int mI = 2, unsigned int mO = 2);
+        Component(const Component& orig);
+        virtual ~Component();
 
-  virtual vgVector3<double> getLowerBound(double dist = 0.0);
-  virtual vgVector3<double> getUpperBound(double dist = 0.0);
-  bool collides(Component& other, double dist = 0.0);  
-  // is other within dist of this' bounding box?
+        // PREDICATES:
+        unsigned int size() const;
+        virtual string getClassName() const = 0;
+        unsigned int getDepth() const;
 
-  virtual vgVector3<double> getTrans() const = 0;
-  virtual vgMatrix3<double> getRot() const = 0;
+        virtual vgVector3<double> getLowerBound(double dist = 0.0);
+        virtual vgVector3<double> getUpperBound(double dist = 0.0);
+        bool collides(Component& other, double dist = 0.0);
+        // is other within dist of this' bounding box?
 
-  Component& getSuperior();
-  bool hasSuperior() const;
-  bool inSync(); // coords in-sync with changes?
+        virtual vgVector3<double> getTrans() const = 0;
+        virtual vgMatrix3<double> getRot() const = 0;
 
-  virtual void save(Saver& s) = 0;  // data saver
+        Component& getSuperior();
+        bool hasSuperior() const;
+        bool inSync(); // coords in-sync with changes?
 
-// MODIFIERS:
+        virtual void save(Saver& s) = 0; // data saver
 
-  virtual void connectIn(Component* c, unsigned int offset = 1);
-  virtual void connectOut(Component* c, unsigned int offset = 1);
-  virtual Component* unconnectIn();
-  virtual Component* unconnectOut();
+        // MODIFIERS:
 
-  virtual void insertComponent(Component* c) = 0;
-  virtual void removeComponent(Component* c) = 0;
-  virtual void deleteComponent(Component* c) = 0;
+        virtual void connectIn(Component* c, unsigned int offset = 1);
+        virtual void connectOut(Component* c, unsigned int offset = 1);
+        virtual Component* unconnectIn();
+        virtual Component* unconnectOut();
 
-  void copy(const Component& orig);
-  virtual Component* clone() = 0;
-  virtual void load(Loader& l) = 0;  // data loader
+        virtual void insertComponent(Component* c) = 0;
+        virtual void removeComponent(Component* c) = 0;
+        virtual void deleteComponent(Component* c) = 0;
 
-  virtual void setTrans(vgVector3<double> t) = 0;
-  virtual void addTrans(vgVector3<double> t) = 0;
-  virtual void setRot(vgMatrix3<double> r) = 0;
-  virtual void addRot(vgMatrix3<double> r) = 0;
-  virtual void sync() = 0; // synchronize coords with structure
-  virtual void setModified();
+        void copy(const Component& orig);
+        virtual Component* clone() = 0;
+        virtual void load(Loader& l) = 0; // data loader
 
-  void setSuperior(Component* c);  
-  // ought to be 'protected' but the compiler will not handle 
-  // it correctly, if it is ?!
+        virtual void setTrans(vgVector3<double> t) = 0;
+        virtual void addTrans(vgVector3<double> t) = 0;
+        virtual void setRot(vgMatrix3<double> r) = 0;
+        virtual void addRot(vgMatrix3<double> r) = 0;
+        virtual void sync() = 0; // synchronize coords with structure
+        virtual void setModified();
 
-  virtual void acceptCalculator(EnergyVisitor* v) = 0;
-  virtual void acceptOptimizer(OptimizationVisitor* v) = 0;
+        void setSuperior(Component* c);
+        // ought to be 'protected' but the compiler will not handle 
+        // it correctly, if it is ?!
 
-// OPERATORS:
-  Component& operator=(const Component& orig);
+        virtual void acceptCalculator(EnergyVisitor* v) = 0;
+        virtual void acceptOptimizer(OptimizationVisitor* v) = 0;
 
-protected:
+        // OPERATORS:
+        Component& operator=(const Component& orig);
 
-// HELPERS:
-  virtual void resetBoundaries() = 0;
+    protected:
 
-  void setLowerBound(vgVector3<double> _lb);
-  void setUpperBound(vgVector3<double> _ub);
+        // HELPERS:
+        virtual void resetBoundaries() = 0;
 
-// ATTRIBUTES:
+        void setLowerBound(vgVector3<double> _lb);
+        void setUpperBound(vgVector3<double> _ub);
 
-  Component* superior;
-  vector<Component*> components;
-  vgVector3<double> lowerBound;  // lower bound for bounding box
-  vgVector3<double> upperBound;  // upper bound for bounding box
-  bool modified;                 // component modified?
-  
-private:
-  
-};
+        // ATTRIBUTES:
+
+        Component* superior;
+        vector<Component*> components;
+        vgVector3<double> lowerBound; // lower bound for bounding box
+        vgVector3<double> upperBound; // upper bound for bounding box
+        bool modified; // component modified?
+
+    private:
+
+    };
 
 
-// ---------------------------------------------------------------------------
-//                                    Component
-// -----------------x-------------------x-------------------x-----------------
+    // ---------------------------------------------------------------------------
+    //                                    Component
+    // -----------------x-------------------x-------------------x-----------------
 
-// PREDICATES:
-inline unsigned int 
-Component::size() const
-{
-  return components.size();
-}
+    // PREDICATES:
 
-inline unsigned int 
-Component::getDepth() const
-{
-  if (superior != NULL)
-    return superior->getDepth() + 1;
-  else
-    return 0;
-}
-
-inline bool 
-Component::collides(Component& other, double dist)
-{
-  return ( (lowerBound.x <= other.upperBound.x+dist) 
-	   || (lowerBound.y <= other.upperBound.y+dist)
-	   || (lowerBound.z <= other.upperBound.z+dist)
-	   || (upperBound.x >= other.lowerBound.x-dist) 
-	   || (upperBound.y >= other.lowerBound.y-dist) 
-	   || (upperBound.z >= other.lowerBound.z-dist) );  
-}  
-
-inline Component& 
-Component::getSuperior()
-{
-  if (superior != NULL)
-    return *superior;
-  else
-    {
-      DEBUG_MSG("Component::getSuperior() Warning: no superior found.");
-      return *this;
+    inline unsigned int
+    Component::size() const {
+        return components.size();
     }
-}
 
-inline bool
-Component::hasSuperior() const
-{
-  return (superior != NULL);
-}
+    inline unsigned int
+    Component::getDepth() const {
+        if (superior != NULL)
+            return superior->getDepth() + 1;
+        else
+            return 0;
+    }
 
-inline bool 
-Component::inSync()
-{
-  return (!modified && ( !hasSuperior() || (getSuperior().inSync()))) ;
-}
+    inline bool
+    Component::collides(Component& other, double dist) {
+        return ( (lowerBound.x <= other.upperBound.x + dist)
+                || (lowerBound.y <= other.upperBound.y + dist)
+                || (lowerBound.z <= other.upperBound.z + dist)
+                || (upperBound.x >= other.lowerBound.x - dist)
+                || (upperBound.y >= other.lowerBound.y - dist)
+                || (upperBound.z >= other.lowerBound.z - dist));
+    }
 
-// MODIFIERS:
+    inline Component&
+    Component::getSuperior() {
+        if (superior != NULL)
+            return *superior;
+        else {
+            DEBUG_MSG("Component::getSuperior() Warning: no superior found.");
+            return *this;
+        }
+    }
 
-inline void Component::setModified()
-{
-  if (modified)
-    return;
-  modified = true;
-  if (hasSuperior())
-    getSuperior().setModified();
-}
+    inline bool
+    Component::hasSuperior() const {
+        return (superior != NULL);
+    }
 
-// OPERATORS:
+    inline bool
+    Component::inSync() {
+        return (!modified && (!hasSuperior() || (getSuperior().inSync())));
+    }
 
-// HELPERS:
+    // MODIFIERS:
 
-inline void 
-Component::setSuperior(Component* c)
-{
-  superior = c;
-}
+    inline void Component::setModified() {
+        if (modified)
+            return;
+        modified = true;
+        if (hasSuperior())
+            getSuperior().setModified();
+    }
 
-inline void 
-Component::setLowerBound(vgVector3<double> _lb)
-{
-  lowerBound = _lb;
-}
+    // OPERATORS:
 
-inline void 
-Component::setUpperBound(vgVector3<double> _ub)
-{
-  upperBound = _ub;
-}
+    // HELPERS:
+
+    inline void
+    Component::setSuperior(Component* c) {
+        superior = c;
+    }
+
+    inline void
+    Component::setLowerBound(vgVector3<double> _lb) {
+        lowerBound = _lb;
+    }
+
+    inline void
+    Component::setUpperBound(vgVector3<double> _ub) {
+        upperBound = _ub;
+    }
 
 } // namespace
 #endif //_COMPONENT_H_

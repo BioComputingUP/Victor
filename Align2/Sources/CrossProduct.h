@@ -12,12 +12,12 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
-              /*************************************************
-               * sub is BLOSUM62 matrix standard log-odds form *
-               *************************************************/
+/*************************************************
+ * sub is BLOSUM62 matrix standard log-odds form *
+ *************************************************/
 
 #ifndef __CrossProduct_H__
 #define __CrossProduct_H__
@@ -26,68 +26,66 @@
 #include <ScoringFunction.h>
 #include <SubMatrix.h>
 
-namespace Biopool
-{
-/** @brief  Calculate scores for profile to profile alignment using
-*                  sum of pairs method. 
- * 
-* @Description  Some explanations can be found in:
-*                  Guoli Wang, Roland L. Dunbrack jr.
-*                  Scoring profile-to-profile sequence alignments.
-*                  Institute for Cancer Research, Fox Chase Cancer Center,
-*                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
-* @This 
- **/
-class CrossProduct : public ScoringFunction
-{
+namespace Biopool {
 
-public:
+    /** @brief  Calculate scores for profile to profile alignment using
+     *                  sum of pairs method. 
+     * 
+     * @Description  Some explanations can be found in:
+     *                  Guoli Wang, Roland L. Dunbrack jr.
+     *                  Scoring profile-to-profile sequence alignments.
+     *                  Institute for Cancer Research, Fox Chase Cancer Center,
+     *                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
+     * @This 
+     **/
+    class CrossProduct : public ScoringFunction {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	CrossProduct(SubMatrix *sub, Profile *pro1, Profile *pro2);
+        /// Default constructor.
+        CrossProduct(SubMatrix *sub, Profile *pro1, Profile *pro2);
 
-	/// Copy constructor.
-	CrossProduct(const CrossProduct &orig);
+        /// Copy constructor.
+        CrossProduct(const CrossProduct &orig);
 
-	/// Destructor.
-	virtual ~CrossProduct();
+        /// Destructor.
+        virtual ~CrossProduct();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	CrossProduct& operator = (const CrossProduct &orig);
-
-
-// PREDICATES:
-
-	/// Calculate scores to create matrix values.
-	virtual double scoringSeq(int i, int j);
+        /// Assignment operator.
+        CrossProduct& operator =(const CrossProduct &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const CrossProduct &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual CrossProduct* newCopy();
+        /// Calculate scores to create matrix values.
+        virtual double scoringSeq(int i, int j);
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const CrossProduct &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual CrossProduct* newCopy();
 
 
-private:
+    protected:
 
-// ATTRIBUTES:
 
-	SubMatrix *sub;    ///< Substitution matrix.
-	Profile *pro1;     ///< Target profile.
-	Profile *pro2;     ///< Template profile.
+    private:
 
-};
+        // ATTRIBUTES:
+
+        SubMatrix *sub; ///< Substitution matrix.
+        Profile *pro1; ///< Target profile.
+        Profile *pro2; ///< Template profile.
+
+    };
 
 } // namespace
 

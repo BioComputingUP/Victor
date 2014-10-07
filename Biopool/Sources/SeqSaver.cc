@@ -12,14 +12,14 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
  *@Description:
-*    Loads components (Atoms, Groups, etc.) in SEQ format.
-*    SEQ format lists the aminoacids, one per line, followed by the 
-*    torsion angle settings. 
-*    Note: saveGroup() is not implemented, as it has no valid use.
-*/
+ *    Loads components (Atoms, Groups, etc.) in SEQ format.
+ *    SEQ format lists the aminoacids, one per line, followed by the 
+ *    torsion angle settings. 
+ *    Note: saveGroup() is not implemented, as it has no valid use.
+ */
 // Includes:
 #include <SeqSaver.h>
 #include <IoTools.h>
@@ -44,20 +44,21 @@ using namespace Biopool;
 //    Saves a sidechain in SEQ format. 
 //
 // ----------------------------------------------------------------------------
-void SeqSaver::saveSideChain(SideChain& sc, bool header){
-  PRINT_NAME;
-  unsigned old_prec = output.precision();
-  ios::fmtflags old_flags = output.flags();
-  output.setf(ios::fixed, ios::floatfield);
-  if (header)
-    output << sc.getType() << "   ";
 
-  if (writeChi)
-    for (unsigned int i = 0; i < sc.getMaxChi(); i++) // write torsion angles
-      output << "   " << setw(8) << setprecision(3) << sc.getChi(i);
-  output << "\n";
-  output.precision(old_prec);
-  output.flags(old_flags);
+void SeqSaver::saveSideChain(SideChain& sc, bool header) {
+    PRINT_NAME;
+    unsigned old_prec = output.precision();
+    ios::fmtflags old_flags = output.flags();
+    output.setf(ios::fixed, ios::floatfield);
+    if (header)
+        output << sc.getType() << "   ";
+
+    if (writeChi)
+        for (unsigned int i = 0; i < sc.getMaxChi(); i++) // write torsion angles
+            output << "   " << setw(8) << setprecision(3) << sc.getChi(i);
+    output << "\n";
+    output.precision(old_prec);
+    output.flags(old_flags);
 }
 
 // -*- C++ -*-----------------------------------------------------------------
@@ -68,18 +69,19 @@ void SeqSaver::saveSideChain(SideChain& sc, bool header){
 //    Saves an aminoacid in SEQ format. 
 //
 // ----------------------------------------------------------------------------
-void SeqSaver::saveAminoAcid(AminoAcid& aa){
-  PRINT_NAME;
-  unsigned old_prec = output.precision();
-  ios::fmtflags old_flags = output.flags();
-  output.setf(ios::fixed, ios::floatfield);
-  output << aa.getType() << "   " // write torsion angles
-	 << setw(8) << setprecision(3) << aa.getPhi() 
-	 << "   " << setw(8) << setprecision(3) << aa.getPsi() 
-	 << "   " << setw(8) << setprecision(3) << aa.getOmega();
-  saveSideChain(aa.getSideChain(), false);
-  output.precision(old_prec);
-  output.flags(old_flags);
+
+void SeqSaver::saveAminoAcid(AminoAcid& aa) {
+    PRINT_NAME;
+    unsigned old_prec = output.precision();
+    ios::fmtflags old_flags = output.flags();
+    output.setf(ios::fixed, ios::floatfield);
+    output << aa.getType() << "   " // write torsion angles
+            << setw(8) << setprecision(3) << aa.getPhi()
+            << "   " << setw(8) << setprecision(3) << aa.getPsi()
+            << "   " << setw(8) << setprecision(3) << aa.getOmega();
+    saveSideChain(aa.getSideChain(), false);
+    output.precision(old_prec);
+    output.flags(old_flags);
 }
 
 // -*- C++ -*-----------------------------------------------------------------
@@ -91,11 +93,11 @@ void SeqSaver::saveAminoAcid(AminoAcid& aa){
 //
 // ----------------------------------------------------------------------------
 
-void SeqSaver::saveSpacer(Spacer& sp){
-  PRINT_NAME;
-  output << sp.getType() << "\n";
-  for (unsigned int i = 0; i < sp.size(); i++)
-    sp[i].save(*this);
+void SeqSaver::saveSpacer(Spacer& sp) {
+    PRINT_NAME;
+    output << sp.getType() << "\n";
+    for (unsigned int i = 0; i < sp.size(); i++)
+        sp[i].save(*this);
 }
 
 // -*- C++ -*-----------------------------------------------------------------
@@ -106,7 +108,8 @@ void SeqSaver::saveSpacer(Spacer& sp){
 //    Saves a Ligand in SEQ format. 
 //
 // ----------------------------------------------------------------------------
-void SeqSaver::saveLigand(Ligand& l){
-  PRINT_NAME;
-  ERROR("Not implemented yet",exception);
+
+void SeqSaver::saveLigand(Ligand& l) {
+    PRINT_NAME;
+    ERROR("Not implemented yet", exception);
 }

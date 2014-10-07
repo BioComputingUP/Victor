@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __Substitution_H__
 #define __Substitution_H__
@@ -23,85 +23,83 @@
 #include <string>
 #include <vector>
 
-namespace Biopool
-{
-/** @brief    Base class for deriving substitution matrices.
- * 
-* @Description  
-* @This 
- **/
-class Substitution
-{
+namespace Biopool {
 
-public:
+    /** @brief    Base class for deriving substitution matrices.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class Substitution {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	Substitution();
+        /// Default constructor.
+        Substitution();
 
-	/// Copy constructor.
-	Substitution(const Substitution &orig);
+        /// Copy constructor.
+        Substitution(const Substitution &orig);
 
-	/// Destructor.
-	virtual ~Substitution();
+        /// Destructor.
+        virtual ~Substitution();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	Substitution& operator = (const Substitution &orig);
+        /// Assignment operator.
+        Substitution& operator =(const Substitution &orig);
 
-	/// Output operator.
-	friend ostream& operator << (ostream &os, const Substitution &object);
+        /// Output operator.
+        friend ostream& operator <<(ostream &os, const Substitution &object);
 
-	/// Input operator.
-	friend istream& operator >> (istream &is, Substitution &object);
-
-
-// PREDICATES:
-
-	/// Dummy implementation.
-	virtual string getResidues() const = 0;
+        /// Input operator.
+        friend istream& operator >>(istream &is, Substitution &object);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const Substitution &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual Substitution* newCopy() = 0;
-
-	/// Build scoring matrix from raw data.
-	virtual void buildscore(const string &residues,
-		const vector< vector<int> > &residuescores);
+        /// Dummy implementation.
+        virtual string getResidues() const = 0;
 
 
-// HELPERS:
+        // MODIFIERS:
 
-	/// Helper function used to write a vector<vector> construct.
-	
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const Substitution &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual Substitution* newCopy() = 0;
+
+        /// Build scoring matrix from raw data.
+        virtual void buildscore(const string &residues,
+                const vector< vector<int> > &residuescores);
+
+
+        // HELPERS:
+
+        /// Helper function used to write a vector<vector> construct.
+
         /*template<class T> static void pWriteDoubleVector(ostream &os,
-		vector<vector<T> > data);
-    */
-        static void pWriteDoubleVector(ostream &os,vector<vector<int> > data);
-	/// Helper function used to read a vector<vector> construct.
-	template<class T> static void pReadDoubleVector(istream &is,
-		vector<vector<T> > &data);
+                vector<vector<T> > data);
+         */
+        static void pWriteDoubleVector(ostream &os, vector<vector<int> > data);
+        /// Helper function used to read a vector<vector> construct.
+        template<class T> static void pReadDoubleVector(istream &is,
+                vector<vector<T> > &data);
 
 
-// ATTRIBUTES:
+        // ATTRIBUTES:
 
-	vector< vector<int> > score;    ///< Substitution score.
-
-
-protected:
+        vector< vector<int> > score; ///< Substitution score.
 
 
-private:
+    protected:
 
-};
+
+    private:
+
+    };
 
 } // namespace
 

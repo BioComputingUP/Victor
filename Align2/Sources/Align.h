@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
 #ifndef __Align_H__
@@ -37,203 +37,193 @@
 /// Numeric approximation of equality for doubles.
 #define EQUALS(a, b)   (fabs(a - b) < EQ_EPS ? true : false)
 
-namespace Biopool
-{
-/** @brief  Pairwise sequence and profile alignment.
- * 
-* @Description   originally based
-*                  on the Java implementation from Peter Sestoft.
-*                  http://www.dina.dk/~sestoft
-* @This 
- **/
-class Align
-{
+namespace Biopool {
 
-public:
+    /** @brief  Pairwise sequence and profile alignment.
+     * 
+     * @Description   originally based
+     *                  on the Java implementation from Peter Sestoft.
+     *                  http://www.dina.dk/~sestoft
+     * @This 
+     **/
+    class Align {
+    public:
 
-	/// Numeric value used to identify invalid alignment positions.
-	enum { INVALID_POS = -1 };
+        /// Numeric value used to identify invalid alignment positions.
 
-
-// CONSTRUCTORS:
-
-	/// Default constructor.
-	Align(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss);
-
-	/// Copy constructor.
-	Align(const Align &orig);
-
-	/// Destructor.
-	virtual ~Align();
+        enum {
+            INVALID_POS = -1
+        };
 
 
-// OPERATORS:
+        // CONSTRUCTORS:
 
-	/// Assignment operator.
-	Align& operator = (const Align &orig);
+        /// Default constructor.
+        Align(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss);
 
+        /// Copy constructor.
+        Align(const Align &orig);
 
-// PREDICATES:
-
-	/// Return AlignmentData pointer.
-	AlignmentData* getAlignmentData();
-
-	/// Return GapFunction pointer.
-	GapFunction* getGapFunction();
-
-	/// Return ScoringScheme pointer.
-	ScoringScheme* getScoringScheme();
-
-	/// Return next Traceback element.
-	virtual Traceback next(const Traceback &tb) const;
-
-	/// Return alignment score.
-	virtual double getScore() const;
-
-	/// Return alignment scores of an ensemble of suboptimal alignments.
-	virtual vector<double> getMultiMatchScore(unsigned int num = 10);
-
-	/// Return two-element array containing an alignment with maximal score.
-	virtual vector<string> getMatch() const;
-
-	/// Return two-element array containing an alignment with maximal score.
-	virtual void getMultiMatch() = 0;
-
-	/// Return subset corresponding to match.
-	virtual vector< vector<int> > getMatchSubset();
-
-	/// Return vector with positions shifted depending on new position.
-	virtual vector<int> shiftMatchSubset(vector<int> inputVector,
-		int newStartPos);
-
-	/// Generate and output an ensemble of suboptimal alignments.
-	virtual void outputMultiMatch(ostream &os, unsigned int num = 10,
-		bool fasta = false);
-
-	/// Generate and return an ensemble of suboptimal alignments.
-	virtual vector<Alignment> generateMultiMatch(unsigned int num = 1);
-
-	/// Generate and return scores of an ensemble of suboptimal alignments.
-	virtual vector<double> generateMultiMatchScore(unsigned int num = 10);
-
-	/// Output of alignment result.
-	virtual void doMatch(ostream &os) const;
-
-	/// Output of alignment result (including headers of the two sequences).
-	virtual void  doMatchPlusHeader(ostream &os, string headerTarget,
-		string headerTemplate) const;
+        /// Destructor.
+        virtual ~Align();
 
 
-// MODIFIERS:
+        // OPERATORS:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const Align &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual Align* newCopy() = 0;
-
-	/// Set penalties for suboptimal alignments.
-	void setPenalties(double mul, double add);
-
-	/// Modify matrix during suboptimal alignment generation.
-	void pModifyMatrix(int i, int j);
-
-	/// Recalculate the alignment matrix.
-	virtual void recalculateMatrix();
+        /// Assignment operator.
+        Align& operator =(const Align &orig);
 
 
-// HELPERS:
+        // PREDICATES:
 
-	/// Update/create matrix values.
-	virtual void pCalculateMatrix(bool update = true) = 0;
+        /// Return AlignmentData pointer.
+        AlignmentData* getAlignmentData();
 
-	/// Update/create weighted matrix values.
-	virtual void pCalculateMatrix(const vector<unsigned int> &v1,
-		const vector<unsigned int> &v2, bool update = true) = 0;
+        /// Return GapFunction pointer.
+        GapFunction* getGapFunction();
 
+        /// Return ScoringScheme pointer.
+        ScoringScheme* getScoringScheme();
 
-// ATTRIBUTES:
+        /// Return next Traceback element.
+        virtual Traceback next(const Traceback &tb) const;
 
-	AlignmentData *ad;                ///< Pointer to AlignmentData.
-	GapFunction *gf;                  ///< Pointer to GapFunction.
-	ScoringScheme *ss;                ///< Pointer to ScoringScheme.
-	vector< vector<double> > F;       ///< Score matrix.
-	vector< vector<Traceback> > B;    ///< Traceback matrix.
-	Traceback B0;                     ///< Starting point of the traceback.
-	unsigned int n;                   ///< Length of target sequence.
-	unsigned int m;                   ///< Length of template sequence.
-	mutable vector<int> res1Pos;      ///< Aligned positions for target sequence.
-	mutable vector<int> res2Pos;      ///< Aligned positions for template sequence.
-	double penaltyMul;                ///< Multiplicative penalty for suboptimal alignment.
-	double penaltyAdd;                ///< Additive penalty for suboptimal alignment.
+        /// Return alignment score.
+        virtual double getScore() const;
 
+        /// Return alignment scores of an ensemble of suboptimal alignments.
+        virtual vector<double> getMultiMatchScore(unsigned int num = 10);
 
-protected:
+        /// Return two-element array containing an alignment with maximal score.
+        virtual vector<string> getMatch() const;
 
+        /// Return two-element array containing an alignment with maximal score.
+        virtual void getMultiMatch() = 0;
 
-private:
+        /// Return subset corresponding to match.
+        virtual vector< vector<int> > getMatchSubset();
 
-};
+        /// Return vector with positions shifted depending on new position.
+        virtual vector<int> shiftMatchSubset(vector<int> inputVector,
+                int newStartPos);
 
-// -----------------------------------------------------------------------------
-//                                    Align
-// -----------------------------------------------------------------------------
+        /// Generate and output an ensemble of suboptimal alignments.
+        virtual void outputMultiMatch(ostream &os, unsigned int num = 10,
+                bool fasta = false);
 
-// PREDICATES:
+        /// Generate and return an ensemble of suboptimal alignments.
+        virtual vector<Alignment> generateMultiMatch(unsigned int num = 1);
 
-inline AlignmentData*
-Align::getAlignmentData()
-{
-	return ad;
-}
+        /// Generate and return scores of an ensemble of suboptimal alignments.
+        virtual vector<double> generateMultiMatchScore(unsigned int num = 10);
 
+        /// Output of alignment result.
+        virtual void doMatch(ostream &os) const;
 
-inline GapFunction*
-Align::getGapFunction()
-{
-	return gf;
-}
+        /// Output of alignment result (including headers of the two sequences).
+        virtual void doMatchPlusHeader(ostream &os, string headerTarget,
+                string headerTemplate) const;
 
 
-inline ScoringScheme*
-Align::getScoringScheme()
-{
-	return ss;
-}
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const Align &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual Align* newCopy() = 0;
+
+        /// Set penalties for suboptimal alignments.
+        void setPenalties(double mul, double add);
+
+        /// Modify matrix during suboptimal alignment generation.
+        void pModifyMatrix(int i, int j);
+
+        /// Recalculate the alignment matrix.
+        virtual void recalculateMatrix();
 
 
-inline Traceback
-Align::next(const Traceback& tb) const
-{
-	if ((B.size() > 0) && (tb.i >= 0) && (tb.j >= 0) &&
-		(tb.i < static_cast<int>(B.size())) &&
-			(tb.j < static_cast<int>(B[tb.i].size())))
-		return B[tb.i][tb.j];
-	return Traceback::getInvalidTraceback();
-}
+        // HELPERS:
+
+        /// Update/create matrix values.
+        virtual void pCalculateMatrix(bool update = true) = 0;
+
+        /// Update/create weighted matrix values.
+        virtual void pCalculateMatrix(const vector<unsigned int> &v1,
+                const vector<unsigned int> &v2, bool update = true) = 0;
 
 
-inline double
-Align::getScore() const
-{
-	return F[B0.i][B0.j];
-}
+        // ATTRIBUTES:
+
+        AlignmentData *ad; ///< Pointer to AlignmentData.
+        GapFunction *gf; ///< Pointer to GapFunction.
+        ScoringScheme *ss; ///< Pointer to ScoringScheme.
+        vector< vector<double> > F; ///< Score matrix.
+        vector< vector<Traceback> > B; ///< Traceback matrix.
+        Traceback B0; ///< Starting point of the traceback.
+        unsigned int n; ///< Length of target sequence.
+        unsigned int m; ///< Length of template sequence.
+        mutable vector<int> res1Pos; ///< Aligned positions for target sequence.
+        mutable vector<int> res2Pos; ///< Aligned positions for template sequence.
+        double penaltyMul; ///< Multiplicative penalty for suboptimal alignment.
+        double penaltyAdd; ///< Additive penalty for suboptimal alignment.
 
 
-// MODIFIERS:
+    protected:
 
-inline void
-Align::setPenalties(double mul, double add)
-{
-	penaltyMul = mul;
-	penaltyAdd = add;
-}
 
-inline void
-Align::pModifyMatrix(int i, int j)
-{
-	F[i][j] = penaltyMul * F[i][j] - penaltyAdd;
-}
+    private:
+
+    };
+
+    // -----------------------------------------------------------------------------
+    //                                    Align
+    // -----------------------------------------------------------------------------
+
+    // PREDICATES:
+
+    inline AlignmentData*
+    Align::getAlignmentData() {
+        return ad;
+    }
+
+    inline GapFunction*
+    Align::getGapFunction() {
+        return gf;
+    }
+
+    inline ScoringScheme*
+    Align::getScoringScheme() {
+        return ss;
+    }
+
+    inline Traceback
+    Align::next(const Traceback& tb) const {
+        if ((B.size() > 0) && (tb.i >= 0) && (tb.j >= 0) &&
+                (tb.i < static_cast<int> (B.size())) &&
+                (tb.j < static_cast<int> (B[tb.i].size())))
+            return B[tb.i][tb.j];
+        return Traceback::getInvalidTraceback();
+    }
+
+    inline double
+    Align::getScore() const {
+        return F[B0.i][B0.j];
+    }
+
+
+    // MODIFIERS:
+
+    inline void
+    Align::setPenalties(double mul, double add) {
+        penaltyMul = mul;
+        penaltyAdd = add;
+    }
+
+    inline void
+    Align::pModifyMatrix(int i, int j) {
+        F[i][j] = penaltyMul * F[i][j] - penaltyAdd;
+    }
 
 } // namespace
 

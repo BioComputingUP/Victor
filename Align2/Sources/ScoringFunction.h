@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __ScoringFunction_H__
 #define __ScoringFunction_H__
@@ -21,84 +21,83 @@
 #include <math.h>
 #include <string>
 
-namespace Biopool
-{
-/** @brief    Base class for scoring functions.
- * 
-* @Description  
-* @This 
- **/
-class ScoringFunction
-{
+namespace Biopool {
 
-public:
+    /** @brief    Base class for scoring functions.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class ScoringFunction {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	ScoringFunction()
-	{ }
+        /// Default constructor.
 
-	/// Copy constructor.
-	ScoringFunction(const ScoringFunction &orig)
-	{
-		copy(orig);
-	}
+        ScoringFunction() {
+        }
 
-	/// Destructor.
-	virtual ~ScoringFunction()
-	{ }
+        /// Copy constructor.
 
+        ScoringFunction(const ScoringFunction &orig) {
+            copy(orig);
+        }
 
-// OPERATORS:
+        /// Destructor.
 
-	/// Assignment operator.
-	ScoringFunction& operator = (const ScoringFunction &orig);
+        virtual ~ScoringFunction() {
+        }
 
 
-// PREDICATES:
+        // OPERATORS:
 
-	/// Calculate scores to create matrix values.
-	virtual double scoringSeq(int i, int j) = 0;
-
-
-// MODIFIERS:
-
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const ScoringFunction &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual ScoringFunction* newCopy() = 0;
+        /// Assignment operator.
+        ScoringFunction& operator =(const ScoringFunction &orig);
 
 
-protected:
+        // PREDICATES:
+
+        /// Calculate scores to create matrix values.
+        virtual double scoringSeq(int i, int j) = 0;
 
 
-private:
+        // MODIFIERS:
 
-};
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const ScoringFunction &orig);
 
-// -----------------------------------------------------------------------------
-//                               ScoringFunction
-// -----------------------------------------------------------------------------
-
-// OPERATORS:
-
-inline ScoringFunction&
-ScoringFunction::operator = (const ScoringFunction &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
+        /// Construct a new "deep copy" of this object.
+        virtual ScoringFunction* newCopy() = 0;
 
 
-// MODIFIERS:
+    protected:
 
-inline void
-ScoringFunction::copy(const ScoringFunction &orig)
-{ }
+
+    private:
+
+    };
+
+    // -----------------------------------------------------------------------------
+    //                               ScoringFunction
+    // -----------------------------------------------------------------------------
+
+    // OPERATORS:
+
+    inline ScoringFunction&
+            ScoringFunction::operator =(const ScoringFunction &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
+
+
+    // MODIFIERS:
+
+    inline void
+    ScoringFunction::copy(const ScoringFunction &orig) {
+    }
 
 } // namespace
 

@@ -12,79 +12,77 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 #ifndef __NWAlignNoTermGaps_H__
 #define __NWAlignNoTermGaps_H__
 
 #include <Align.h>
 
-namespace Biopool
-{
-/** @brief   Implement Needleman-Wunsch global alignment with no penalty
-*                  for the terminal hangouts of the sequence.
- * 
-* @Description  
-* @This 
- **/
-class NWAlignNoTermGaps : public Align
-{
+namespace Biopool {
 
-public:
+    /** @brief   Implement Needleman-Wunsch global alignment with no penalty
+     *                  for the terminal hangouts of the sequence.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class NWAlignNoTermGaps : public Align {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	NWAlignNoTermGaps(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss);
+        /// Default constructor.
+        NWAlignNoTermGaps(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss);
 
-	/// Constructor with weighted alignment positions.
-	NWAlignNoTermGaps(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss,
-		const vector<unsigned int> &v1, const vector<unsigned int> &v2);
+        /// Constructor with weighted alignment positions.
+        NWAlignNoTermGaps(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss,
+                const vector<unsigned int> &v1, const vector<unsigned int> &v2);
 
-	/// Copy constructor.
-	NWAlignNoTermGaps(const NWAlignNoTermGaps &orig);
+        /// Copy constructor.
+        NWAlignNoTermGaps(const NWAlignNoTermGaps &orig);
 
-	/// Destructor.
-	virtual ~NWAlignNoTermGaps();
+        /// Destructor.
+        virtual ~NWAlignNoTermGaps();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	NWAlignNoTermGaps& operator = (const NWAlignNoTermGaps &orig);
-
-
-// PREDICATES:
-
-	/// Return two-element array containing an alignment with maximal score.
-	virtual void getMultiMatch();
+        /// Assignment operator.
+        NWAlignNoTermGaps& operator =(const NWAlignNoTermGaps &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const NWAlignNoTermGaps &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual NWAlignNoTermGaps* newCopy();
+        /// Return two-element array containing an alignment with maximal score.
+        virtual void getMultiMatch();
 
 
-// HELPERS:
+        // MODIFIERS:
 
-	/// Update/create matrix values.
-	virtual void pCalculateMatrix(bool update = true);
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const NWAlignNoTermGaps &orig);
 
-	/// Update/create weighted matrix values.
-	virtual void pCalculateMatrix(const vector<unsigned int> &v1,
-		const vector<unsigned int> &v2, bool update = true);
-
-
-protected:
+        /// Construct a new "deep copy" of this object.
+        virtual NWAlignNoTermGaps* newCopy();
 
 
-private:
+        // HELPERS:
 
-};
+        /// Update/create matrix values.
+        virtual void pCalculateMatrix(bool update = true);
+
+        /// Update/create weighted matrix values.
+        virtual void pCalculateMatrix(const vector<unsigned int> &v1,
+                const vector<unsigned int> &v2, bool update = true);
+
+
+    protected:
+
+
+    private:
+
+    };
 
 } // namespace
 

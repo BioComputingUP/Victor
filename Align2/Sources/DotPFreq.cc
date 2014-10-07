@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
 //
@@ -34,77 +34,67 @@
 
 #include <DotPFreq.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-DotPFreq::DotPFreq(Profile *pro1, Profile *pro2) : ScoringFunction(),
-	pro1(pro1), pro2(pro2)
-{ }
+    DotPFreq::DotPFreq(Profile *pro1, Profile *pro2) : ScoringFunction(),
+    pro1(pro1), pro2(pro2) {
+    }
 
+    DotPFreq::DotPFreq(const DotPFreq &orig) : ScoringFunction(orig) {
+        copy(orig);
+    }
 
-DotPFreq::DotPFreq(const DotPFreq &orig) : ScoringFunction(orig)
-{
-	copy(orig);
-}
-
-
-DotPFreq::~DotPFreq()
-{ }
+    DotPFreq::~DotPFreq() {
+    }
 
 
-// OPERATORS:
+    // OPERATORS:
 
-DotPFreq&
-DotPFreq::operator = (const DotPFreq &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
-
-
-// PREDICATES:
-
-double
-DotPFreq::scoringSeq(int i, int j)
-{
-	const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
-
-	double freq1 = 0.00;
-	double freq2 = 0.00;
-	double s = 0.00;
-
-	for (unsigned int k = 0; k < 20; k++)
-	{
-		freq1 = pro1->getAminoFrequency(residue_indices[k], (i-1));
-		freq2 = pro2->getAminoFrequency(residue_indices[k], (j-1));
-
-		s += (freq1 * freq2);
-	}
-
-	return s;
-}
+    DotPFreq&
+            DotPFreq::operator =(const DotPFreq &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-// MODIFIERS:
+    // PREDICATES:
 
-void
-DotPFreq::copy(const DotPFreq &orig)
-{
-	ScoringFunction::copy(orig);
-	pro1 = orig.pro1->newCopy();
-	pro2 = orig.pro2->newCopy();
-}
+    double
+    DotPFreq::scoringSeq(int i, int j) {
+        const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
+
+        double freq1 = 0.00;
+        double freq2 = 0.00;
+        double s = 0.00;
+
+        for (unsigned int k = 0; k < 20; k++) {
+            freq1 = pro1->getAminoFrequency(residue_indices[k], (i - 1));
+            freq2 = pro2->getAminoFrequency(residue_indices[k], (j - 1));
+
+            s += (freq1 * freq2);
+        }
+
+        return s;
+    }
 
 
-DotPFreq*
-DotPFreq::newCopy()
-{
-	DotPFreq *tmp = new DotPFreq(*this);
-	return tmp;
-}
+    // MODIFIERS:
+
+    void
+    DotPFreq::copy(const DotPFreq &orig) {
+        ScoringFunction::copy(orig);
+        pro1 = orig.pro1->newCopy();
+        pro2 = orig.pro2->newCopy();
+    }
+
+    DotPFreq*
+    DotPFreq::newCopy() {
+        DotPFreq *tmp = new DotPFreq(*this);
+        return tmp;
+    }
 
 } // namespace

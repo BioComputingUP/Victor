@@ -12,11 +12,11 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**  
 @Description  compiler dependent definitions
 
-*/
+ */
 
 #ifndef _TYPES_COMPILERS_H_
 #define _TYPES_COMPILERS_H_

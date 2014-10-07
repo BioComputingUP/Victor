@@ -12,10 +12,10 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
  *@Description:
-*    This class implements a side chain.*/
+ *    This class implements a side chain.*/
 
 #ifndef _SIDECHAIN_H_
 #define _SIDECHAIN_H_
@@ -26,198 +26,202 @@
 #include <Visitor.h>
 
 namespace Biopool {
-/**@brief This class implements a side chain
- * 
-*@Description  
-*@This 
- * */
-class SideChain : public Group {
-public:
-  // CONSTRUCTORS/DESTRUCTOR:
-  SideChain();
-  SideChain(const SideChain& orig);  
-  virtual ~SideChain();  
 
-  // PREDICATES:
-  virtual string getClassName() const
-    { return "SideChain"; }
-  virtual unsigned int getCode() const;
-  virtual string getType() const;         // returns AA 3-L-code
-  virtual string getExtendedType() const;  // returns full code
+    /**@brief This class implements a side chain
+     * 
+     *@Description  
+     *@This 
+     * */
+    class SideChain : public Group {
+    public:
+        // CONSTRUCTORS/DESTRUCTOR:
+        SideChain();
+        SideChain(const SideChain& orig);
+        virtual ~SideChain();
 
-  double getChi(unsigned int n);
-  vector<double> getChi();
-  unsigned int getMaxChi();
+        // PREDICATES:
 
-  AminoAcid* getBackboneRef();
+        virtual string getClassName() const {
+            return "SideChain";
+        }
+        virtual unsigned int getCode() const;
+        virtual string getType() const; // returns AA 3-L-code
+        virtual string getExtendedType() const; // returns full code
 
-  bool isMember(const AtomCode& ac) const;
+        double getChi(unsigned int n);
+        vector<double> getChi();
+        unsigned int getMaxChi();
 
-  void save(Saver& s);  // data saver
+        AminoAcid* getBackboneRef();
 
-  // MODIFIERS:
-  void setChi(unsigned int n, double c);
-  void setChi(vector<double> cv);
-  void setBackboneRef(AminoAcid* br);
+        bool isMember(const AtomCode& ac) const;
 
-  void copy(const SideChain& orig);
-  void load(Loader& l);  // data loader
+        void save(Saver& s); // data saver
 
-  void patchAminoAcidCode(); // determines the 3-letter code from the sidechain
-  bool setBondsFromPdbCode(bool connect, bool permissive = false); 
-  // returns false if failed to connect
+        // MODIFIERS:
+        void setChi(unsigned int n, double c);
+        void setChi(vector<double> cv);
+        void setBackboneRef(AminoAcid* br);
 
-  virtual const SideChain& getInBond(unsigned int n) const;
-  virtual SideChain& getInBond(unsigned int n);
-  virtual const SideChain& getOutBond(unsigned int n) const;
-  virtual SideChain& getOutBond(unsigned int n);
+        void copy(const SideChain& orig);
+        void load(Loader& l); // data loader
 
-  virtual void acceptCalculator(EnergyVisitor* v);
-  virtual void acceptOptimizer(OptimizationVisitor* v);
+        void patchAminoAcidCode(); // determines the 3-letter code from the sidechain
+        bool setBondsFromPdbCode(bool connect, bool permissive = false);
+        // returns false if failed to connect
 
-  // OPERATORS:
-  SideChain& operator=(const SideChain& orig);
-  Atom& operator[](unsigned int n);
-  const Atom& operator[](unsigned int n) const;
-  Atom& operator[](const AtomCode& ac);
-  const Atom& operator[](const AtomCode& ac) const;
+        virtual const SideChain& getInBond(unsigned int n) const;
+        virtual SideChain& getInBond(unsigned int n);
+        virtual const SideChain& getOutBond(unsigned int n) const;
+        virtual SideChain& getOutBond(unsigned int n);
 
-protected:
+        virtual void acceptCalculator(EnergyVisitor* v);
+        virtual void acceptOptimizer(OptimizationVisitor* v);
 
-private:
-  // HELPERS:
-  bool findCode(char c, unsigned int& pos, unsigned int& pos2);
-  void findHCode(char c, char c2, Atom& at, bool connect);
-  void setMaxChiFromCode();
-  void setMaxChi(unsigned int _maxChi);
-  double calculateChi(unsigned int n);
-  void convertChi(unsigned int n, double a);
+        // OPERATORS:
+        SideChain& operator=(const SideChain& orig);
+        Atom& operator[](unsigned int n);
+        const Atom& operator[](unsigned int n) const;
+        Atom& operator[](const AtomCode& ac);
+        const Atom& operator[](const AtomCode& ac) const;
 
-  bool hasB();
-  bool hasG();
-  bool hasD();
-  bool hasE();
-  bool hasZ();
-  bool hasH();
+    protected:
 
-  Atom& firstG();
-  Atom& firstD();
-  Atom& firstE();
-  Atom& firstZ();
-  Atom& firstH();
+    private:
+        // HELPERS:
+        bool findCode(char c, unsigned int& pos, unsigned int& pos2);
+        void findHCode(char c, char c2, Atom& at, bool connect);
+        void setMaxChiFromCode();
+        void setMaxChi(unsigned int _maxChi);
+        double calculateChi(unsigned int n);
+        void convertChi(unsigned int n, double a);
 
-  // ATTRIBUTES:
-  unsigned int maxChi;  // number of chi torsion angles 
-  vector<double> chi;   // torsion angles
-  AminoAcid* backboneRef;  // reference to backbone (aminoacid) of this
+        bool hasB();
+        bool hasG();
+        bool hasD();
+        bool hasE();
+        bool hasZ();
+        bool hasH();
 
-  friend class AminoAcid;
-};
+        Atom& firstG();
+        Atom& firstD();
+        Atom& firstE();
+        Atom& firstZ();
+        Atom& firstH();
 
-// ---------------------------------------------------------------------------
-//                                    Group
-// -----------------x-------------------x-------------------x-----------------
+        // ATTRIBUTES:
+        unsigned int maxChi; // number of chi torsion angles 
+        vector<double> chi; // torsion angles
+        AminoAcid* backboneRef; // reference to backbone (aminoacid) of this
 
-// PREDICATES:
-inline unsigned int SideChain::getCode() const{
-  return aminoAcidThreeLetterTranslator(getType());
-}
+        friend class AminoAcid;
+    };
 
-inline string SideChain::getType() const{ 
-  string tmp = id;
-  return tmp.substr(0,3); 
-}
+    // ---------------------------------------------------------------------------
+    //                                    Group
+    // -----------------x-------------------x-------------------x-----------------
 
-inline string SideChain::getExtendedType() const{ 
-  return id; 
-}
+    // PREDICATES:
 
-inline double  SideChain::getChi(unsigned int n){
-  PRECOND(n < chi.size(), exception);
-  if (chi[n] > 990)
-    chi[n] = RAD2DEG * calculateChi(n);
-  return chi[n];
-}
+    inline unsigned int SideChain::getCode() const {
+        return aminoAcidThreeLetterTranslator(getType());
+    }
 
-inline unsigned int  SideChain::getMaxChi(){
-  return chi.size();
-}
+    inline string SideChain::getType() const {
+        string tmp = id;
+        return tmp.substr(0, 3);
+    }
 
-inline AminoAcid* SideChain::getBackboneRef(){
-  if (backboneRef == NULL)
-    DEBUG_MSG("Sidechain has no assigned backbone.");
-  return backboneRef;
-}
+    inline string SideChain::getExtendedType() const {
+        return id;
+    }
 
-inline bool SideChain::isMember(const AtomCode& ac) const{
-  return (pGetAtom(ac) != NULL);
-}
+    inline double SideChain::getChi(unsigned int n) {
+        PRECOND(n < chi.size(), exception);
+        if (chi[n] > 990)
+            chi[n] = RAD2DEG * calculateChi(n);
+        return chi[n];
+    }
 
-inline void SideChain::save(Saver& s){
-  s.saveGroup(*this);
-}
+    inline unsigned int SideChain::getMaxChi() {
+        return chi.size();
+    }
 
-inline void SideChain::acceptCalculator(EnergyVisitor* v){
-  v->PrepareSideChain(*this);
-}
+    inline AminoAcid* SideChain::getBackboneRef() {
+        if (backboneRef == NULL)
+            DEBUG_MSG("Sidechain has no assigned backbone.");
+        return backboneRef;
+    }
 
-inline void SideChain::acceptOptimizer(OptimizationVisitor* v){
-  v->PrepareSideChain(*this);
-}
+    inline bool SideChain::isMember(const AtomCode& ac) const {
+        return (pGetAtom(ac) != NULL);
+    }
+
+    inline void SideChain::save(Saver& s) {
+        s.saveGroup(*this);
+    }
+
+    inline void SideChain::acceptCalculator(EnergyVisitor* v) {
+        v->PrepareSideChain(*this);
+    }
+
+    inline void SideChain::acceptOptimizer(OptimizationVisitor* v) {
+        v->PrepareSideChain(*this);
+    }
 
 
-// MODIFIERS:
+    // MODIFIERS:
 
-inline void SideChain::setChi(unsigned int n, double c){
-  PRECOND((n < chi.size()) && (c >= -180) && (c <= 180), exception);
-  convertChi(n, DEG2RAD * c);
-  chi[n] = c;
-}
+    inline void SideChain::setChi(unsigned int n, double c) {
+        PRECOND((n < chi.size()) && (c >= -180) && (c <= 180), exception);
+        convertChi(n, DEG2RAD * c);
+        chi[n] = c;
+    }
 
-inline void SideChain::load(Loader& l){
-  l.loadSideChain(*this);
-  resetBoundaries();
-}
+    inline void SideChain::load(Loader& l) {
+        l.loadSideChain(*this);
+        resetBoundaries();
+    }
 
-inline const SideChain& SideChain::getInBond(unsigned int n) const{
-  return dynamic_cast<const SideChain&>(Bond::getInBond(n));
-}
+    inline const SideChain& SideChain::getInBond(unsigned int n) const {
+        return dynamic_cast<const SideChain&> (Bond::getInBond(n));
+    }
 
-inline SideChain& SideChain::getInBond(unsigned int n){
-  return dynamic_cast<SideChain&>(Bond::getInBond(n));
-}
+    inline SideChain& SideChain::getInBond(unsigned int n) {
+        return dynamic_cast<SideChain&> (Bond::getInBond(n));
+    }
 
-inline const SideChain& SideChain::getOutBond(unsigned int n) const{
-  return dynamic_cast<const SideChain&>(Bond::getOutBond(n));
-}
+    inline const SideChain& SideChain::getOutBond(unsigned int n) const {
+        return dynamic_cast<const SideChain&> (Bond::getOutBond(n));
+    }
 
-inline SideChain& SideChain::getOutBond(unsigned int n){
-  return dynamic_cast<SideChain&>(Bond::getOutBond(n));
-}
+    inline SideChain& SideChain::getOutBond(unsigned int n) {
+        return dynamic_cast<SideChain&> (Bond::getOutBond(n));
+    }
 
-// OPERATORS:
-inline Atom& SideChain::operator[](unsigned int n){
-  return (Group::getAtom(n));
-}
+    // OPERATORS:
+    inline Atom& SideChain::operator[](unsigned int n) {
+        return (Group::getAtom(n));
+    }
 
-inline const Atom& SideChain::operator[](unsigned int n) const{
-  return (Group::getAtom(n));
-}
+    inline const Atom& SideChain::operator[](unsigned int n) const {
+        return (Group::getAtom(n));
+    }
 
-inline Atom& SideChain::operator[](const AtomCode& ac){
-  Atom* a = pGetAtom(ac);
-  INVARIANT(a != NULL, exception);
-  return *a;
-}
+    inline Atom& SideChain::operator[](const AtomCode& ac) {
+        Atom* a = pGetAtom(ac);
+        INVARIANT(a != NULL, exception);
+        return *a;
+    }
 
-inline const Atom& SideChain::operator[](const AtomCode& ac) const{
-  Atom* a = pGetAtom(ac);
-  INVARIANT(a != NULL, exception);
-  return *a;
-}
+    inline const Atom& SideChain::operator[](const AtomCode& ac) const {
+        Atom* a = pGetAtom(ac);
+        INVARIANT(a != NULL, exception);
+        return *a;
+    }
 
-// HELPERS:
- 
+    // HELPERS:
+
 } // namespace
 #endif //_SIDECHAIN_H_
 

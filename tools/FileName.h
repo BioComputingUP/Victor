@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // -*- C++ -*---------------------------------------------------------------
 //
 // Description of "fileNamePath": get the path (if existing!!) of
@@ -61,13 +61,13 @@
 #include "String2Number.h" // convert number to string and and vice versa
 
 // input: filename:
-string fileNamePath( const string& );
+string fileNamePath(const string&);
 // input: filename:
-string fileNameEnding( const string& );
+string fileNameEnding(const string&);
 // input: filename:
-string fileNameBase( const string& );
+string fileNameBase(const string&);
 // input: filename:
-string fileName( const string& );
+string fileName(const string&);
 
 #endif // __FILE_NAME_H__
 

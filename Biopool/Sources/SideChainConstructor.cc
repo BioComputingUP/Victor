@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
  *@Description:
  * */
@@ -32,22 +32,22 @@ using namespace Biopool;
 
 // MODIFIERS:
 
-void SideChainConstructor::loadReference(){
-  PdbLoader pl(refInput);
-  refSpacer.load(pl);
-  loaded = true;
+void SideChainConstructor::loadReference() {
+    PdbLoader pl(refInput);
+    refSpacer.load(pl);
+    loaded = true;
 }
 
-SideChain& SideChainConstructor::makeSideChain(string type){
-  if (!loaded)
-    loadReference();
-  for (unsigned int i = 0; i < refSpacer.sizeAmino(); i++)
-    if (refSpacer.getAmino(i).getSideChain().getType() == type)      {
-	SideChain& sc = refSpacer.getAmino(i).getSideChain();
-	return sc;
-      }
-  ERROR("No reference structure found.", exception);
-  SideChain* sc = new SideChain;
-  return *sc;
+SideChain& SideChainConstructor::makeSideChain(string type) {
+    if (!loaded)
+        loadReference();
+    for (unsigned int i = 0; i < refSpacer.sizeAmino(); i++)
+        if (refSpacer.getAmino(i).getSideChain().getType() == type) {
+            SideChain& sc = refSpacer.getAmino(i).getSideChain();
+            return sc;
+        }
+    ERROR("No reference structure found.", exception);
+    SideChain* sc = new SideChain;
+    return *sc;
 }
 

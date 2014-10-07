@@ -12,101 +12,96 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __SubMatrix_H__
 #define __SubMatrix_H__
 
 #include <Substitution.h>
 
-namespace Biopool
-{
-/** @brief     Implement a standard substitution matrix.
- * 
-* @Description  
-* @This 
- **/
-class SubMatrix : public Substitution
-{
+namespace Biopool {
 
-public:
+    /** @brief     Implement a standard substitution matrix.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class SubMatrix : public Substitution {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	SubMatrix();
+        /// Default constructor.
+        SubMatrix();
 
-	/// istream constructor.
-	SubMatrix(istream &is);
+        /// istream constructor.
+        SubMatrix(istream &is);
 
-	/// Copy constructor.
-	SubMatrix(const SubMatrix &orig);
+        /// Copy constructor.
+        SubMatrix(const SubMatrix &orig);
 
-	/// Destructor.
-	virtual ~SubMatrix();
+        /// Destructor.
+        virtual ~SubMatrix();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	SubMatrix& operator = (const SubMatrix &orig);
+        /// Assignment operator.
+        SubMatrix& operator =(const SubMatrix &orig);
 
-	/// Output operator.
-	friend ostream& operator << (ostream &os, const SubMatrix &object);
+        /// Output operator.
+        friend ostream& operator <<(ostream &os, const SubMatrix &object);
 
-	/// Input operator.
-	friend istream& operator >> (istream &is, SubMatrix &object);
-
-
-// PREDICATES:
-
-	/// Implementation of abstract class method.
-	virtual string getResidues() const;
-
-	/// Return the dimension of the matrix.
-	virtual unsigned int size() const;
+        /// Input operator.
+        friend istream& operator >>(istream &is, SubMatrix &object);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const SubMatrix &orig);
+        /// Implementation of abstract class method.
+        virtual string getResidues() const;
 
-	/// Construct a new "deep copy" of this object.
-	virtual SubMatrix* newCopy();
-
-
-protected:
+        /// Return the dimension of the matrix.
+        virtual unsigned int size() const;
 
 
-private:
+        // MODIFIERS:
 
-// ATTRIBUTES:
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const SubMatrix &orig);
 
-	vector< vector<int> > residuescores;    ///< Similarity scores.
-	string residues;                        ///< Alphabet of allowed characters.
-
-};
-
-// -----------------------------------------------------------------------------
-//                                 SubMatrix
-// -----------------------------------------------------------------------------
-
-// PREDICATES:
-
-inline string
-SubMatrix::getResidues() const
-{
-	return residues;
-}
+        /// Construct a new "deep copy" of this object.
+        virtual SubMatrix* newCopy();
 
 
-inline unsigned int
-SubMatrix::size() const
-{
-	return residuescores.size();
-}
+    protected:
+
+
+    private:
+
+        // ATTRIBUTES:
+
+        vector< vector<int> > residuescores; ///< Similarity scores.
+        string residues; ///< Alphabet of allowed characters.
+
+    };
+
+    // -----------------------------------------------------------------------------
+    //                                 SubMatrix
+    // -----------------------------------------------------------------------------
+
+    // PREDICATES:
+
+    inline string
+    SubMatrix::getResidues() const {
+        return residues;
+    }
+
+    inline unsigned int
+    SubMatrix::size() const {
+        return residuescores.size();
+    }
 
 } // namespace
 
