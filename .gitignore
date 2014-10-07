@@ -12,6 +12,8 @@ Biopool/Sources/*.o
 Biopool/Sources/*.a
 Biopool/APPS/*.o
 Biopool/APPS/*.a
+Biopool/Tests/*.a
+Biopool/Tests/*.o
 Energy/data/
 Energy/Sources/*.o
 Energy/Sources/*.a
