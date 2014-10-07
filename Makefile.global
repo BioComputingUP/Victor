@@ -110,7 +110,7 @@ INC_PATH += -I$(UPDIR)/tools -I$(UPDIR)/Energy/Sources   -I$(UPDIR)/Biopool/Sour
 
 ifdef test
   INC_PATH += -I$(UPDIR)/Biopool/Tests
-  SUBDIRS += Biopool/Tests
+  SUBDIRS =  Biopool/Tests
 endif
 
 ####### Implicit rules
