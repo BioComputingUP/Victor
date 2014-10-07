@@ -12,13 +12,13 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- /**
+ */
+/**
  *@Class               EnergyFeatures 
  *@Project        Victor
  *@Description 
-*    Interface/wrapper for energy feature calculation, e.g. in FRST2.
-*/
+ *    Interface/wrapper for energy feature calculation, e.g. in FRST2.
+ */
 #ifndef _ENERGYFEATURE_H_
 #define _ENERGYFEATURE_H_
 
@@ -35,52 +35,56 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief  Interface/wrapper for energy feature calculation, e.g. in FRST2.
- * 
-*@Description 
-*@This 
- * */
-class EnergyFeatures{
-public: 
 
-  // CONSTRUCTORS/DESTRUCTOR:
-  EnergyFeatures();
-  virtual ~EnergyFeatures() { PRINT_NAME; } 
+    /**@brief  Interface/wrapper for energy feature calculation, e.g. in FRST2.
+     * 
+     *@Description 
+     *@This 
+     * */
+    class EnergyFeatures {
+    public:
 
-  // PREDICATES:
-  static void showFeatures();
-  static double calculateBackboneHydrogenBonds(Spacer& sp);
-  static vector<double> calculateAaComposition(Spacer& sp);
-  static vector<double> calculateSecondaryComposition(Spacer& sp);
-  static vector<double> calculateMesoStateComposition(Spacer& sp);
-  static vector<double> calculateChainBreaks(Spacer& sp);
-  static double calculateClashes(Spacer& sp);
+        // CONSTRUCTORS/DESTRUCTOR:
+        EnergyFeatures();
 
-  /// Main function wrapping up feature calculation for FRST2
-  vector<double> calculateFeatures(Spacer& sp);
+        virtual ~EnergyFeatures() {
+            PRINT_NAME;
+        }
 
-  // MODIFIERS:
+        // PREDICATES:
+        static void showFeatures();
+        static double calculateBackboneHydrogenBonds(Spacer& sp);
+        static vector<double> calculateAaComposition(Spacer& sp);
+        static vector<double> calculateSecondaryComposition(Spacer& sp);
+        static vector<double> calculateMesoStateComposition(Spacer& sp);
+        static vector<double> calculateChainBreaks(Spacer& sp);
+        static double calculateClashes(Spacer& sp);
 
-  // OPERATORS:
+        /// Main function wrapping up feature calculation for FRST2
+        vector<double> calculateFeatures(Spacer& sp);
 
-protected:
+        // MODIFIERS:
 
-private:
+        // OPERATORS:
 
-  // HELPERS:
+    protected:
 
-  // ATTRIBUTES:
+    private:
 
-  SolvationPotential solv;
-  RapdfPotential rapdf;
-  TorsionPotential* tors;
-  TorsionPotential* tors2;
+        // HELPERS:
 
-};
+        // ATTRIBUTES:
 
-// ---------------------------------------------------------------------------
-//                                EnergyFeatures
-// -----------------x-------------------x-------------------x-----------------
+        SolvationPotential solv;
+        RapdfPotential rapdf;
+        TorsionPotential* tors;
+        TorsionPotential* tors2;
+
+    };
+
+    // ---------------------------------------------------------------------------
+    //                                EnergyFeatures
+    // -----------------x-------------------x-------------------x-----------------
 
 
 } // namespace

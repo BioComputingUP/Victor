@@ -12,14 +12,14 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
  *@Class               EffectiveSolvationPotential
-  *@Project        Victor
+ *@Project        Victor
  *@Description 
-*    This class implements a knowledge-based solvation with polar/hydrophobic 
-*    information potential.
-*/
+ *    This class implements a knowledge-based solvation with polar/hydrophobic 
+ *    information potential.
+ */
 #ifndef _EFFECTIVESOLVATIONPOTENTIAL_H_
 #define _EFFECTIVESOLVATIONPOTENTIAL_H_
 
@@ -33,68 +33,69 @@
 
 namespace Biopool {
 
-const double SOLVATION_CUTOFF_DISTANCE_EFFECTIVE = 10.0;
-/**@brief class implements a knowledge-based solvation with polar/hydrophobic information potential
- * 
-*@Description  
- * */
-class EffectiveSolvationPotential : public Potential
-{
-public: 
+    const double SOLVATION_CUTOFF_DISTANCE_EFFECTIVE = 10.0;
 
-  // CONSTRUCTORS/DESTRUCTOR:
-  EffectiveSolvationPotential();
-  virtual ~EffectiveSolvationPotential() { PRINT_NAME; } 
+    /**@brief class implements a knowledge-based solvation with polar/hydrophobic information potential
+     * 
+     *@Description  
+     * */
+    class EffectiveSolvationPotential : public Potential {
+    public:
 
-  // PREDICATES:
-  virtual long double calculateEnergy(Spacer& sp);
-  virtual long double calculateEnergy(Spacer& sp, unsigned int index1, 
-				      unsigned int index2);
-  virtual long double calculateEnergy(AminoAcid& aa, Spacer& sp);
+        // CONSTRUCTORS/DESTRUCTOR:
+        EffectiveSolvationPotential();
 
-  // MODIFIERS:
+        virtual ~EffectiveSolvationPotential() {
+            PRINT_NAME;
+        }
 
-  // OPERATORS:
+        // PREDICATES:
+        virtual long double calculateEnergy(Spacer& sp);
+        virtual long double calculateEnergy(Spacer& sp, unsigned int index1,
+                unsigned int index2);
+        virtual long double calculateEnergy(AminoAcid& aa, Spacer& sp);
 
-protected:
+        // MODIFIERS:
 
-  // HELPERS:
-  bool isPolar(AminoAcid& aa);
-  double pCalcFracBuried(unsigned int index, Spacer& sp);
+        // OPERATORS:
 
-private:
+    protected:
 
-  // ATTRIBUTES:
+        // HELPERS:
+        bool isPolar(AminoAcid& aa);
+        double pCalcFracBuried(unsigned int index, Spacer& sp);
 
-  vector<double> solvCoeff;
+    private:
 
-};
+        // ATTRIBUTES:
 
-// ---------------------------------------------------------------------------
-//                          EffectiveSolvationPotential
-// -----------------x-------------------x-------------------x-----------------
+        vector<double> solvCoeff;
 
+    };
 
+    // ---------------------------------------------------------------------------
+    //                          EffectiveSolvationPotential
+    // -----------------x-------------------x-------------------x-----------------
 
-/**
- *@Description Verifies if the amino acid is a polar one
- *@param reference of the aa(aminoAcid&)
- *@return  result of the validation(bool)
- */
+    /**
+     *@Description Verifies if the amino acid is a polar one
+     *@param reference of the aa(aminoAcid&)
+     *@return  result of the validation(bool)
+     */
 
-inline bool EffectiveSolvationPotential::isPolar(AminoAcid& aa){
-  AminoAcidCode c = static_cast<AminoAcidCode>( aa.getCode() );
-  if ( (c == ARG) ||
-       (c == ASN) ||
-       (c == ASP) ||
-       (c == GLN) ||
-       (c == GLU) ||
-       (c == LYS) ||
-       (c == PRO) )
-    return true;
+    inline bool EffectiveSolvationPotential::isPolar(AminoAcid& aa) {
+        AminoAcidCode c = static_cast<AminoAcidCode> (aa.getCode());
+        if ((c == ARG) ||
+                (c == ASN) ||
+                (c == ASP) ||
+                (c == GLN) ||
+                (c == GLU) ||
+                (c == LYS) ||
+                (c == PRO))
+            return true;
 
-  return false;
-}
+        return false;
+    }
 
 
 } // namespace

@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**  
 @Description */
 #include <string>
@@ -22,125 +22,115 @@
 
 using namespace Biopool;
 
-void sShowHelp()
-{
-  cout << "PDB Shifter\n"
-       << "Allows to shift all residues in file by fixed offset.\n"
-       << " Options: \n"
-       << "\t-i <filename> \t\t Input PDB file\n"
-       << "\t-o <filename> \t\t Output PDB file\n"
-       << "\t[-p <number>] \t\t Positive *residue* offset\n"
-       << "\t[-n <number>] \t\t Negative *residue* offset\n"
-       << "\t[-P <number>] \t\t Positive *atom* offset\n"
-       << "\t[-N <number>] \t\t Negative *atom* offset\n"
-       << "\t[--nohydrogen] \t\t Skip hydrogen atoms\n"
-       << "\t[--renum] \t\t Reset residue numbering starting from 1\n"
-       << "\n";
+void sShowHelp() {
+    cout << "PDB Shifter\n"
+            << "Allows to shift all residues in file by fixed offset.\n"
+            << " Options: \n"
+            << "\t-i <filename> \t\t Input PDB file\n"
+            << "\t-o <filename> \t\t Output PDB file\n"
+            << "\t[-p <number>] \t\t Positive *residue* offset\n"
+            << "\t[-n <number>] \t\t Negative *residue* offset\n"
+            << "\t[-P <number>] \t\t Positive *atom* offset\n"
+            << "\t[-N <number>] \t\t Negative *atom* offset\n"
+            << "\t[--nohydrogen] \t\t Skip hydrogen atoms\n"
+            << "\t[--renum] \t\t Reset residue numbering starting from 1\n"
+            << "\n";
 }
 
-void sAddLine()
-{
-  cout << "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\n";
+void sAddLine() {
+    cout << "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\n";
 }
 
-void sRenumberAtoms(Spacer& sp)
-{
-  unsigned int counter = 1;
-  for (unsigned int i = 0; i < sp.sizeAmino(); i++)
-    for (unsigned int j = 0; j < sp.getAmino(i).size(); j++)
-      {
-	sp.getAmino(i)[j].setNumber(counter);
-	counter++;
-      }
+void sRenumberAtoms(Spacer& sp) {
+    unsigned int counter = 1;
+    for (unsigned int i = 0; i < sp.sizeAmino(); i++)
+        for (unsigned int j = 0; j < sp.getAmino(i).size(); j++) {
+            sp.getAmino(i)[j].setNumber(counter);
+            counter++;
+        }
 }
 
+int main(int nArgs, char* argv[]) {
+    // --------------------------------------------------
+    // 0. treat options
+    // --------------------------------------------------
 
-int main(int nArgs, char* argv[])
-{ 
-  // --------------------------------------------------
-  // 0. treat options
-  // --------------------------------------------------
-
-  if (getArg( "h", nArgs, argv))
-    {
-      sShowHelp();
-      return 1;
+    if (getArg("h", nArgs, argv)) {
+        sShowHelp();
+        return 1;
     };
 
-  string inputFile, outputFile;
-  int offset, offsetAtom, tmp;
-  getArg( "i", inputFile, nArgs, argv, "!");
-  getArg( "o", outputFile, nArgs, argv, "!");
+    string inputFile, outputFile;
+    int offset, offsetAtom, tmp;
+    getArg("i", inputFile, nArgs, argv, "!");
+    getArg("o", outputFile, nArgs, argv, "!");
 
-  getArg( "p", offset, nArgs, argv, 0);
-  getArg( "n", tmp, nArgs, argv, 0);
-  offset -= tmp;
-  getArg( "P", offsetAtom, nArgs, argv, 0);
-  getArg( "N", tmp, nArgs, argv, 0);
-  offsetAtom -= tmp;
+    getArg("p", offset, nArgs, argv, 0);
+    getArg("n", tmp, nArgs, argv, 0);
+    offset -= tmp;
+    getArg("P", offsetAtom, nArgs, argv, 0);
+    getArg("N", tmp, nArgs, argv, 0);
+    offsetAtom -= tmp;
 
-  bool noHydrogen = getArg("-nohydrogen", nArgs, argv);
-  bool renumber = getArg("-renum", nArgs, argv);
-  
-  if ((inputFile == "!") || (outputFile == "!"))
-    {
-      cout << "Missing file specification. Aborting. (-h for help)" << endl;
-      return -1;
+    bool noHydrogen = getArg("-nohydrogen", nArgs, argv);
+    bool renumber = getArg("-renum", nArgs, argv);
+
+    if ((inputFile == "!") || (outputFile == "!")) {
+        cout << "Missing file specification. Aborting. (-h for help)" << endl;
+        return -1;
     }
 
-  if ((offset == 0) && (!renumber) && (!noHydrogen))
-  {
-      cout << "Warning: Offset is zero. Mistake? \n";
-  }
-  // --------------------------------------------------
-  // 1. read structure
-  // --------------------------------------------------
+    if ((offset == 0) && (!renumber) && (!noHydrogen)) {
+        cout << "Warning: Offset is zero. Mistake? \n";
+    }
+    // --------------------------------------------------
+    // 1. read structure
+    // --------------------------------------------------
 
-  Spacer sp;
-	
-  ifstream inFile(inputFile.c_str());
+    Spacer sp;
 
-  if (!inFile)
-      ERROR("File does not exist.\n", exception);
-  
-  PdbLoader pl(inFile);
+    ifstream inFile(inputFile.c_str());
 
-  if (noHydrogen)
-    pl.setNoHAtoms();
+    if (!inFile)
+        ERROR("File does not exist.\n", exception);
 
-  sp.load(pl);
-  inFile.close();
+    PdbLoader pl(inFile);
 
-  // --------------------------------------------------
-  // 1.1 renumber residues (if necessary)
-  // --------------------------------------------------
+    if (noHydrogen)
+        pl.setNoHAtoms();
 
-  if (renumber)
-    {
-      cout << "Renumbering...\n";
-      sp.setStartOffset(1);
-      sp.removeAllGaps();
-      sRenumberAtoms(sp);
+    sp.load(pl);
+    inFile.close();
+
+    // --------------------------------------------------
+    // 1.1 renumber residues (if necessary)
+    // --------------------------------------------------
+
+    if (renumber) {
+        cout << "Renumbering...\n";
+        sp.setStartOffset(1);
+        sp.removeAllGaps();
+        sRenumberAtoms(sp);
     }
 
-  // --------------------------------------------------
-  // 2. shift offset
-  // --------------------------------------------------
+    // --------------------------------------------------
+    // 2. shift offset
+    // --------------------------------------------------
 
-  sp.setStartOffset(offset + sp.getStartOffset());
+    sp.setStartOffset(offset + sp.getStartOffset());
 
-  if (offsetAtom != 0)
-      sp.setAtomStartOffset(offsetAtom + sp.getAtomStartOffset());
-    
-  // --------------------------------------------------
-  // 3. write model to disk
-  // --------------------------------------------------
+    if (offsetAtom != 0)
+        sp.setAtomStartOffset(offsetAtom + sp.getAtomStartOffset());
 
-  ofstream outFile(outputFile.c_str());
-  if (!outFile)
-    ERROR("File not found.", exception);
-  PdbSaver ps(outFile);
+    // --------------------------------------------------
+    // 3. write model to disk
+    // --------------------------------------------------
 
-  sp.save(ps);
-  outFile.close();
+    ofstream outFile(outputFile.c_str());
+    if (!outFile)
+        ERROR("File not found.", exception);
+    PdbSaver ps(outFile);
+
+    sp.save(ps);
+    outFile.close();
 }

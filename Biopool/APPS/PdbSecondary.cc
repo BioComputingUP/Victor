@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**  
 @Description */
 #include <Protein.h>
@@ -32,166 +32,165 @@
 
 using namespace Biopool;
 
-
-void sShowHelp(){
-  cout << "Pdb Secondary $Revision: 2.0 $ -- calculate the secondary structure\n"
-       << "(torsion angles) protein structure backbone torsion angles\n"
-       << "\tOptions: \n"
-       << "\t-i <filename> \t Input PDB file\n"
-       << "\t-o <filename> \t Output to file(the chain letter is appended)\n"
-       << "\t-c <id>       \t Chain identifier to read(default is all chains)\n"
-       << "\t-m <number>   \t Model number to read (NMR only, default is first model)\n"
-       << "\t-s <1,2,3>    \t SS calculation(default 3): 1 = PDB fields, 2 = torsion angles, 3 = DSSP\n"
-       << "\t              \t   1,2:\t H = helix, E = extended(strand,sheet), . = other.\n"
-       << "\t              \t     3:\t H = alpha-helix, E = sheet, B = bridge,\n"
-       << "\t                       \t G = 3-10-helix, I = pi-helix, T = n-Turn, S = bend\n" 
-       << "\t--ext         \t Extended output (default false). Write the type of aminoacid:\n"
-       << "\t              \t   N = negative charge, \t P = positive charge\n"
-       << "\t              \t   h = hydrophilic, \t + = hydrophobic\n"
-       << "\t              \t   , = neutral (hydrophobic)\n"
-       << "\t-v            \t verbose output\n\n"
-       << "\tWhen parsing multiple chains, one file for each chain is created\n\n";
+void sShowHelp() {
+    cout << "Pdb Secondary $Revision: 2.0 $ -- calculate the secondary structure\n"
+            << "(torsion angles) protein structure backbone torsion angles\n"
+            << "\tOptions: \n"
+            << "\t-i <filename> \t Input PDB file\n"
+            << "\t-o <filename> \t Output to file(the chain letter is appended)\n"
+            << "\t-c <id>       \t Chain identifier to read(default is all chains)\n"
+            << "\t-m <number>   \t Model number to read (NMR only, default is first model)\n"
+            << "\t-s <1,2,3>    \t SS calculation(default 3): 1 = PDB fields, 2 = torsion angles, 3 = DSSP\n"
+            << "\t              \t   1,2:\t H = helix, E = extended(strand,sheet), . = other.\n"
+            << "\t              \t     3:\t H = alpha-helix, E = sheet, B = bridge,\n"
+            << "\t                       \t G = 3-10-helix, I = pi-helix, T = n-Turn, S = bend\n"
+            << "\t--ext         \t Extended output (default false). Write the type of aminoacid:\n"
+            << "\t              \t   N = negative charge, \t P = positive charge\n"
+            << "\t              \t   h = hydrophilic, \t + = hydrophobic\n"
+            << "\t              \t   , = neutral (hydrophobic)\n"
+            << "\t-v            \t verbose output\n\n"
+            << "\tWhen parsing multiple chains, one file for each chain is created\n\n";
 }
 
+void writeOutput(Spacer* sp, bool ext, int ssType, ostream& os) {
 
-void writeOutput(Spacer* sp, bool ext, int ssType, ostream& os){
-    
-    if (ext){
-        for (unsigned int i = 0; i <= sp->sizeAmino(); i++){
-            if ((i+1) % 10 == 0)
-                os << setw(1) << (((i+1)%100)/10);
-            else 
+    if (ext) {
+        for (unsigned int i = 0; i <= sp->sizeAmino(); i++) {
+            if ((i + 1) % 10 == 0)
+                os << setw(1) << (((i + 1) % 100) / 10);
+            else
                 os << " ";
-            if ((i+1) % 60 == 0)
+            if ((i + 1) % 60 == 0)
                 os << "\n";
         }
         os << "\n";
-    
-        for (unsigned int i = 0; i < sp->sizeAmino(); i++){
+
+        for (unsigned int i = 0; i < sp->sizeAmino(); i++) {
             os << sp->getAmino(i).getType1L();
-            if ((i+1) % 60 == 0)
+            if ((i + 1) % 60 == 0)
                 os << "\n";
         }
         os << "\n";
-        for (unsigned int i = 0; i < sp->sizeAmino(); i++){
-            switch (sp->getAmino(i).getCode()){
+        for (unsigned int i = 0; i < sp->sizeAmino(); i++) {
+            switch (sp->getAmino(i).getCode()) {
                 case ASP:
                 case GLU:
-                    os << "P"; break;
+                    os << "P";
+                    break;
                 case LYS:
                 case ARG:
-                    os << "N"; break;
+                    os << "N";
+                    break;
                 case ASN:
                 case GLN:
                 case SER:
                 case THR:
                 case HIS:
-                    os << "h"; break;
+                    os << "h";
+                    break;
                 case VAL:
                 case LEU:
                 case ILE:
-                    os << "+"; break;
+                    os << "+";
+                    break;
                 default:
                     os << ",";
             };
-            if ((i+1) % 60 == 0)
+            if ((i + 1) % 60 == 0)
                 os << "\n";
         }
         os << "\n";
     }
-    if (ssType!=3){
-        for (unsigned int i = 0; i < sp->sizeAmino(); i++){
+    if (ssType != 3) {
+        for (unsigned int i = 0; i < sp->sizeAmino(); i++) {
             switch (sp->getAmino(i).getState()) {
                 case HELIX:
-                    os << "H"; break;
+                    os << "H";
+                    break;
                 case STRAND:
-                    os << "E"; break;
+                    os << "E";
+                    break;
                 default:
                     os << ".";
             };
-            if ((i+1) % 60 == 0)
+            if ((i + 1) % 60 == 0)
                 os << "\n";
         }
-    }
-    else{
+    } else {
         vector<set<char > > ss = sp->getDSSP();
-        for (unsigned int i = 0; i < ss.size(); i++){
-            if (!ss[i].empty()){
-                for(set<char> :: iterator it = ss[i].begin(); it != ss[i].end();++it){
+        for (unsigned int i = 0; i < ss.size(); i++) {
+            if (!ss[i].empty()) {
+                for (set<char> ::iterator it = ss[i].begin(); it != ss[i].end(); ++it) {
                     os << (*it);
                 }
-            }
-            else{
+            } else {
                 os << ".";
             }
-            if ((i+1) % 60 == 0)
+            if ((i + 1) % 60 == 0)
                 os << "\n";
         }
     }
     os << "\n";
 }
 
+int main(int argc, char* argv[]) {
 
-int main(int argc, char* argv[]){
-    
-    if (getArg( "h", argc, argv)){
+    if (getArg("h", argc, argv)) {
         sShowHelp();
         return 1;
     }
 
-    string inputFile,outputFile,chainID;
+    string inputFile, outputFile, chainID;
     unsigned int modelNum;
     unsigned int ssType;
-    bool extendedOutput,all;
+    bool extendedOutput, all;
 
-    
-    getArg( "i", inputFile, argc, argv, "!");
-    getArg( "o", outputFile, argc, argv, "!");
-    getArg( "c", chainID, argc, argv, "!");
-    getArg( "m", modelNum, argc, argv, 999);
-    getArg( "s", ssType, argc, argv, 3);
+
+    getArg("i", inputFile, argc, argv, "!");
+    getArg("o", outputFile, argc, argv, "!");
+    getArg("c", chainID, argc, argv, "!");
+    getArg("m", modelNum, argc, argv, 999);
+    getArg("s", ssType, argc, argv, 3);
     all = getArg("-all", argc, argv);
     extendedOutput = getArg("-ext", argc, argv);
-    
-    
-    
-    
+
+
+
+
     // Check input file
-    if (inputFile == "!"){
+    if (inputFile == "!") {
         cout << "Missing input file specification. Aborting. (-h for help)" << endl;
         return -1;
     }
     ifstream inFile(inputFile.c_str());
     if (!inFile)
-        ERROR("Input file not found.", exception);   
-    
-    
+        ERROR("Input file not found.", exception);
+
+
     PdbLoader pl(inFile);
-    
+
     // Set PdbLoader variables
-    pl.setModel(modelNum);       
+    pl.setModel(modelNum);
     pl.setNoHetAtoms();
-    
-    if (!getArg( "v", argc, argv)){
+
+    if (!getArg("v", argc, argv)) {
         pl.setNoVerbose();
     }
-    
+
     // Check chain args
-    if ((chainID!="!") && all){
-        ERROR("You can use --all or -c, not both",error);
+    if ((chainID != "!") && all) {
+        ERROR("You can use --all or -c, not both", error);
     }
     // User selected chain
-    if (chainID!="!")  {
-        if (chainID.size()>1)
-            ERROR("You can choose only 1 chain",error);
+    if (chainID != "!") {
+        if (chainID.size() > 1)
+            ERROR("You can choose only 1 chain", error);
         pl.setChain(chainID[0]);
-    }
-    // All chains
-    else if (all){
+    }        // All chains
+    else if (all) {
         pl.setAllChains();
-    }
-    // First chain
-    else{
+    }        // First chain
+    else {
         pl.setChain(pl.getAllChains()[0]);
     }
 
@@ -202,24 +201,23 @@ int main(int argc, char* argv[]){
     // Open the proper output stream (file or stdout)
     std::ostream* os = &cout;
     std::ofstream fout;
-    if (outputFile != "!"){
+    if (outputFile != "!") {
         fout.open(outputFile.c_str());
-        if (!fout){
+        if (!fout) {
             ERROR("Could not open file for writing.", exception);
+        } else {
+            os = &fout;
         }
-        else{
-            os=&fout;
-        }
-    }
-    
-    
-    
-    Spacer* sp;
-    for (unsigned int i=0; i<prot.sizeProtein();i++){                 
-        
-        sp = prot.getSpacer(i);
-        writeOutput(sp,extendedOutput,ssType,(*os));
     }
 
-  return 0;
+
+
+    Spacer* sp;
+    for (unsigned int i = 0; i < prot.sizeProtein(); i++) {
+
+        sp = prot.getSpacer(i);
+        writeOutput(sp, extendedOutput, ssType, (*os));
+    }
+
+    return 0;
 }

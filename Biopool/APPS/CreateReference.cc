@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 #include <Atom.h>
 #include <Spacer.h>
 #include <Group.h>
@@ -30,76 +30,72 @@
 
 using namespace Biopool;
 
-int main()
-{ 
-  cout << "Create Reference \n   $Revision: 1.2 $:\n";
-  cout << "-------------------------------------------------------\n";
-  
-  IntCoordConverter icc;
-  Spacer sp;
+int main() {
+    cout << "Create Reference \n   $Revision: 1.2 $:\n";
+    cout << "-------------------------------------------------------\n";
 
-  ifstream inFile("allaminoacids.pdb");
+    IntCoordConverter icc;
+    Spacer sp;
 
-  if (!inFile)
-    ERROR("File not found.", exception);
+    ifstream inFile("allaminoacids.pdb");
 
-  PdbLoader pl(inFile); 
-  sp.load(pl);
+    if (!inFile)
+        ERROR("File not found.", exception);
 
-  cout << "-------------------------------------------------------\n";
-  PdbSaver ps(cout);
-  sp.save(ps);
-  cout << "-------------------------------------------------------\n";
-  ofstream outFile22("test2.xyz");
+    PdbLoader pl(inFile);
+    sp.load(pl);
 
-  if (!outFile22)
-    ERROR("File not found.", exception);
+    cout << "-------------------------------------------------------\n";
+    PdbSaver ps(cout);
+    sp.save(ps);
+    cout << "-------------------------------------------------------\n";
+    ofstream outFile22("test2.xyz");
 
-  XyzSaver xss2(outFile22);
+    if (!outFile22)
+        ERROR("File not found.", exception);
 
-  cout << "-------------------------------------------------------\n";
-  ofstream outFile("reference.ref");
+    XyzSaver xss2(outFile22);
 
-  if (!outFile)
-    ERROR("File not found.", exception);
+    cout << "-------------------------------------------------------\n";
+    ofstream outFile("reference.ref");
 
-  RelSaver iss(outFile);
+    if (!outFile)
+        ERROR("File not found.", exception);
 
-  for (unsigned int i = 0; i < sp.sizeAmino(); i++)
-    {
-      sp.getAmino(i)[N].bindOut(sp.getAmino(i)[CA]);
-      sp.getAmino(i)[C].bindOut(sp.getAmino(i)[O]);
-      sp.getAmino(i)[CA].bindOut(sp.getAmino(i)[C]);
+    RelSaver iss(outFile);
 
-      AminoAcid aa = sp.getAmino(i);
+    for (unsigned int i = 0; i < sp.sizeAmino(); i++) {
+        sp.getAmino(i)[N].bindOut(sp.getAmino(i)[CA]);
+        sp.getAmino(i)[C].bindOut(sp.getAmino(i)[O]);
+        sp.getAmino(i)[CA].bindOut(sp.getAmino(i)[C]);
 
-      if (i < sp.sizeAmino()-1)
-	{
-	  Atom at = sp.getAmino(i+1)[N];
-	
-	  at.setCode(OXT);
-	  at.unbindIn(at.getInBond(0));
-	  at.bindIn(aa[C]);
-	  aa.addAtom(at);
-	  for (unsigned int j = 0; j < aa[OXT].sizeOutBonds(); j++)
-	    aa[OXT].unbindOut(aa[OXT].getOutBond(j));
-  	  sp.getAmino(i+1)[N].bindIn(sp.getAmino(i)[C]);
-	}
+        AminoAcid aa = sp.getAmino(i);
 
-      vgVector3<double> t1(0,1,0);
-      vgMatrix3<double> res(1);
-      if (aa[N].getTrans().length() != 0)
-	{
-	  alignVectors( t1, aa[N].getTrans(), res);
-	  aa[N].addRot(res);
-  	  res = vgMatrix3<double>::createRotationMatrix( t1, 180 * DEG2RAD );
-	  aa.sync();
-	};
-      
-      aa.save(xss2);  // removing this will make the calculations go wrong???
-      aa.save(iss);
+        if (i < sp.sizeAmino() - 1) {
+            Atom at = sp.getAmino(i + 1)[N];
+
+            at.setCode(OXT);
+            at.unbindIn(at.getInBond(0));
+            at.bindIn(aa[C]);
+            aa.addAtom(at);
+            for (unsigned int j = 0; j < aa[OXT].sizeOutBonds(); j++)
+                aa[OXT].unbindOut(aa[OXT].getOutBond(j));
+            sp.getAmino(i + 1)[N].bindIn(sp.getAmino(i)[C]);
+        }
+
+        vgVector3<double> t1(0, 1, 0);
+        vgMatrix3<double> res(1);
+        if (aa[N].getTrans().length() != 0) {
+            alignVectors(t1, aa[N].getTrans(), res);
+            aa[N].addRot(res);
+            res = vgMatrix3<double>::createRotationMatrix(t1, 180 * DEG2RAD);
+            aa.sync();
+        };
+
+        aa.save(xss2); // removing this will make the calculations go wrong???
+        aa.save(iss);
     }
-  cout << "-------------------------------------------------------\n";
+    cout << "-------------------------------------------------------\n";
 
-  return 0;
+    return 0;
 }

@@ -12,9 +12,9 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
-*/
+ */
 #include <Protein.h>
 #include <PdbLoader.h>
 #include <SeqSaver.h>
@@ -23,81 +23,75 @@
 
 using namespace Biopool;
 
+void sShowHelp() {
+    cout << "Pdb 2 Seq $Revision: 2.0 $ -- converts a PDB file into SEQ\n"
+            << "(torsion angles) protein structure backbone torsion angles\n"
+            << " Options: \n"
+            << "\t-i <filename> \t Input PDB file\n"
+            << "\t-o <filename> \t Output to file (default stdout)\n"
+            << "\t-c <id>       \t Chain identifier to read\n"
+            << "\t--all         \t All chains\n"
+            << "\t-m <number>   \t Model number to read (NMR only, default is first model)\n"
+            << "\t--chi         \t Write Chi angles (default false)\n"
+            << "\t-v            \t verbose output\n\n"
+            << "\tIf both -c and --all are missing, only the first chain is processed.\n\n";
 
-
-void sShowHelp()
-{
-  cout << "Pdb 2 Seq $Revision: 2.0 $ -- converts a PDB file into SEQ\n"
-       << "(torsion angles) protein structure backbone torsion angles\n"
-       << " Options: \n"
-       << "\t-i <filename> \t Input PDB file\n"
-       << "\t-o <filename> \t Output to file (default stdout)\n"
-       << "\t-c <id>       \t Chain identifier to read\n"
-       << "\t--all         \t All chains\n"
-       << "\t-m <number>   \t Model number to read (NMR only, default is first model)\n"
-       << "\t--chi         \t Write Chi angles (default false)\n"
-       << "\t-v            \t verbose output\n\n"
-       << "\tIf both -c and --all are missing, only the first chain is processed.\n\n";
-       
 }
 
+int main(int argc, char* argv[]) {
 
-int main(int argc, char* argv[]){
-    
-    if (getArg( "h", argc, argv)){
+    if (getArg("h", argc, argv)) {
         sShowHelp();
         return 1;
     }
 
-    string inputFile,outputFile,chainID;
+    string inputFile, outputFile, chainID;
     unsigned int modelNum;
-    bool chi,all;
-    
-    getArg( "i", inputFile, argc, argv, "!");
-    getArg( "o", outputFile, argc, argv, "!");
-    getArg( "c", chainID, argc, argv, "!");
-    getArg( "m", modelNum, argc, argv, 999);
+    bool chi, all;
+
+    getArg("i", inputFile, argc, argv, "!");
+    getArg("o", outputFile, argc, argv, "!");
+    getArg("c", chainID, argc, argv, "!");
+    getArg("m", modelNum, argc, argv, 999);
     all = getArg("-all", argc, argv);
     chi = getArg("-chi", argc, argv);
-    
+
     // Check input file
-    if (inputFile == "!"){
+    if (inputFile == "!") {
         cout << "Missing input file specification. Aborting. (-h for help)" << endl;
         return -1;
     }
     ifstream inFile(inputFile.c_str());
     if (!inFile)
-        ERROR("Input file not found.", exception);   
-    
-    
+        ERROR("Input file not found.", exception);
+
+
     PdbLoader pl(inFile);
-    
+
     // Set PdbLoader variables
     pl.setModel(modelNum);
-    pl.setNoHAtoms();           
-    pl.setNoHetAtoms();         
+    pl.setNoHAtoms();
+    pl.setNoHetAtoms();
     pl.setNoSecondary();
-    if (!getArg( "v", argc, argv)){
+    if (!getArg("v", argc, argv)) {
         pl.setNoVerbose();
     }
-    
-    
+
+
     // Check chain args
-    if ((chainID!="!") && all){
-        ERROR("You can use --all or -c, not both",error);
+    if ((chainID != "!") && all) {
+        ERROR("You can use --all or -c, not both", error);
     }
     // User selected chain
-    if (chainID!="!")  {
-        if (chainID.size()>1)
-            ERROR("You can choose only 1 chain",error);
+    if (chainID != "!") {
+        if (chainID.size() > 1)
+            ERROR("You can choose only 1 chain", error);
         pl.setChain(chainID[0]);
-    }
-    // All chains
-    else if (all){
+    }        // All chains
+    else if (all) {
         pl.setAllChains();
-    }
-    // First chain
-    else{
+    }        // First chain
+    else {
         pl.setChain(pl.getAllChains()[0]);
     }
 
@@ -108,20 +102,19 @@ int main(int argc, char* argv[]){
     // Open the proper output stream (file or stdout)
     std::ostream* os = &cout;
     std::ofstream fout;
-    if (outputFile != "!"){
+    if (outputFile != "!") {
         fout.open(outputFile.c_str());
-        if (!fout){
+        if (!fout) {
             ERROR("Could not open file for writing.", exception);
-        }
-        else{
-            os=&fout;
+        } else {
+            os = &fout;
         }
     }
-    
-    
+
+
     Spacer* sp;
-    for (unsigned int i=0; i<prot.sizeProtein();i++){                 
-        
+    for (unsigned int i = 0; i < prot.sizeProtein(); i++) {
+
         sp = prot.getSpacer(i);
 
         // Write the sequence
@@ -131,5 +124,5 @@ int main(int argc, char* argv[]){
         sp->save(ss);
     }
 
-  return 0;
+    return 0;
 }
