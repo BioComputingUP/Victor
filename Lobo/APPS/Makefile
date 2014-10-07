@@ -30,13 +30,11 @@ SOURCES =
 
 OBJECTS =   
 
-TARGETS = loboLUT LoopTablePlot  ClusterLoopTable  \
-     ClusterRama     lobo  \
+TARGETS = loboLUT LoopTablePlot  ClusterLoopTable    ClusterRama     lobo  \
    loop2torsion scatEdit   backboneAnalyzer  loboFull
 # 
 EXECS = loboLUT LoopTablePlot   ClusterLoopTable  \
-     ClusterRama       lobo   \
-   loop2torsion scatEdit  backboneAnalyzer  \
+     ClusterRama       lobo  loop2torsion scatEdit  backboneAnalyzer  \
         loboLUT_all  loboFull
 
 LIBRARY = APPSlibLobo.a
