@@ -1,4 +1,6 @@
 nbproject/
+html/
+latex/
 bin/
 lib/
 Align2/Sources/*.o
