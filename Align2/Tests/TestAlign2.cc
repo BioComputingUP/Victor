@@ -1,7 +1,7 @@
 /*
- * TestBiopool.cc
+ * TestAlign2.cc
  *
- *  Created on: Oct 6, 2014
+ *  Created on: Oct 7, 2014
  *      Author: Manuel Giollo
  */
 
@@ -9,9 +9,7 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/ui/text/TestRunner.h>
 
-#include "TestLin2dSolver.h"
-#include <TestAtom.h>
-#include <TestGroup.h>
+#include <TestAlignmentBase.h>
 using namespace std;
 
 
@@ -19,9 +17,7 @@ int main() {
 	CppUnit::TextUi::TestRunner runner;
 
 	cout << "Creating Test Suites:" << endl;
-	runner.addTest(TestLin2dSolver::suite());
-        runner.addTest(TestAtom::suite());
-        runner.addTest(TestGroup::suite());
+        runner.addTest(TestAlignmentBase::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
