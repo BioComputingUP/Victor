@@ -20,7 +20,7 @@ LIBS =  -lEnergy -lTorsion -lBiopool  -ltools -L/usr/lib/ -lm -ldl -lcppunit
 
 LIB_PATH = -L.
 
-INC_PATH = -I. -I../../tools/ -I../../Biopool/Sources -I../../Energy/Sources -I../../Energy/Sources/TorsionPotential
+INC_PATH = -I.
 
 #
 # Objects and headers
