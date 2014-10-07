@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 #ifndef _SIDECHAIN_CONSTRUCTOR_H_
 #define _SIDECHAIN_CONSTRUCTOR_H_
 
@@ -25,29 +25,35 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief base reference stream
-*@This 
- * */
-class SideChainConstructor {
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  SideChainConstructor(istream& _refInput = cin) :
-    refInput(_refInput), loaded(false), refSpacer() { }
-  virtual ~SideChainConstructor() { PRINT_NAME; }  
+    /**@brief base reference stream
+     *@This 
+     * */
+    class SideChainConstructor {
+    public:
 
-// MODIFIERS:
-  virtual SideChain& makeSideChain(string code); 
+        // CONSTRUCTORS/DESTRUCTOR:
 
-protected:
-  // HELPERS:
-  virtual void loadReference();
+        SideChainConstructor(istream& _refInput = cin) :
+        refInput(_refInput), loaded(false), refSpacer() {
+        }
 
-private:
-  istream& refInput;             // reference stream
-  int loaded;                    
-  Spacer refSpacer;  // reference types
-};
+        virtual ~SideChainConstructor() {
+            PRINT_NAME;
+        }
+
+        // MODIFIERS:
+        virtual SideChain& makeSideChain(string code);
+
+    protected:
+        // HELPERS:
+        virtual void loadReference();
+
+    private:
+        istream& refInput; // reference stream
+        int loaded;
+        Spacer refSpacer; // reference types
+    };
 
 } // namespace
 #endif //_SIDECHAIN_CONSTRUCTOR_H_

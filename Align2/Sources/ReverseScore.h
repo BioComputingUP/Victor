@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __ReverseScore_H__
 #define __ReverseScore_H__
@@ -26,56 +26,54 @@
 #include <string>
 #include <vector>
 
-namespace Biopool
-{
-/** @brief  
- * 
-* @Description  
-* @This 
- **/
-class ReverseScore
-{
+namespace Biopool {
 
-public:
+    /** @brief  
+     * 
+     * @Description  
+     * @This 
+     **/
+    class ReverseScore {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	ReverseScore(Align *a);
+        /// Default constructor.
+        ReverseScore(Align *a);
 
-	/// Copy constructor.
-	ReverseScore(const ReverseScore &orig);
+        /// Copy constructor.
+        ReverseScore(const ReverseScore &orig);
 
-	/// Destructor
-	virtual ~ReverseScore();
+        /// Destructor
+        virtual ~ReverseScore();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	ReverseScore& operator = (const ReverseScore &orig);
-
-
-// MODIFIERS:
-
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const ReverseScore &orig);
-
-	/// Calculate Z-score between ali and its reversal.
-	double getZScore(double &forward, double &reverse, unsigned int n = 50);
+        /// Assignment operator.
+        ReverseScore& operator =(const ReverseScore &orig);
 
 
-protected:
+        // MODIFIERS:
 
-// ATTRIBUTES:
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const ReverseScore &orig);
 
-	Align *ali;    ///< Pointer to initial Align.
-	Align *inv;    ///< Pointer to inverted Align.
+        /// Calculate Z-score between ali and its reversal.
+        double getZScore(double &forward, double &reverse, unsigned int n = 50);
 
 
-private:
+    protected:
 
-};
+        // ATTRIBUTES:
+
+        Align *ali; ///< Pointer to initial Align.
+        Align *inv; ///< Pointer to inverted Align.
+
+
+    private:
+
+    };
 
 } // namespace
 

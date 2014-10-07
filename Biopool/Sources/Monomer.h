@@ -12,12 +12,12 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
 #ifndef _MONOMER_H_
 #define _MONOMER_H_
- 
+
 // Includes:
 #include <Component.h>
 #include <Debug.h>
@@ -25,84 +25,112 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief Base class for components without elements  
- * 
-*@Description  
-*@This 
- * */
-class Monomer : public Component
-{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  Monomer(unsigned int mI = 1, unsigned int mO = 1); 
-  Monomer(const Monomer& orig);
-  ~Monomer();
-  
-// PREDICATES:
-  virtual string getClassName() const
-    { return "Monomer"; };
-  virtual vgVector3<double> getTrans() const
-    { ERROR(" Monomer::getTrans is not a viable method.", exception); };
-  virtual vgMatrix3<double> getRot() const
-    { ERROR("Monomer::getRot is not a viable method.", exception); };
+    /**@brief Base class for components without elements  
+     * 
+     *@Description  
+     *@This 
+     * */
+    class Monomer : public Component {
+    public:
 
-  virtual void save(Saver& s)
-    { ERROR("Monomer::save is not a viable method.", exception); };
+        // CONSTRUCTORS/DESTRUCTOR:
+        Monomer(unsigned int mI = 1, unsigned int mO = 1);
+        Monomer(const Monomer& orig);
+        ~Monomer();
 
-// MODIFIERS:
-  void insertComponent(Component* c)
-    { ERROR("Monomer::insertComponent is not a viable method.", exception); };
- 
-  void removeComponent(Component* c)
-    { ERROR("Monomer::removeComponent is not a viable method.", exception); }; 
+        // PREDICATES:
 
-  void deleteComponent(Component* c)
-    { ERROR("Monomer::deleteComponent is not a viable method.", exception); }; 
+        virtual string getClassName() const {
+            return "Monomer";
+        };
 
-  void copy(const Monomer& orig);
-  virtual Component* clone();
+        virtual vgVector3<double> getTrans() const {
+            ERROR(" Monomer::getTrans is not a viable method.", exception);
+        };
 
-  virtual void load(Loader& l)
-    { ERROR("Monomer::load is not a viable method.", exception); };
-  virtual void setTrans(vgVector3<double> t)
-    { ERROR("Monomer::setTrans is not a viable method.", exception); };
-  virtual void addTrans(vgVector3<double> t)
-    { ERROR("Monomer::addTrans is not a viable method.", exception); };
-  virtual void setRot(vgMatrix3<double> r)
-    { ERROR("Monomer::setRot is not a viable method.", exception); };
-  virtual void addRot(vgMatrix3<double> r)
-    { ERROR("Monomer::addRot is not a viable method.", exception); };
-  virtual void sync()   // synchronize coords with structure
-    { ERROR("Monomer::sync is not a viable method.", exception); };
+        virtual vgMatrix3<double> getRot() const {
+            ERROR("Monomer::getRot is not a viable method.", exception);
+        };
 
-  virtual void acceptCalculator(EnergyVisitor* v)
-    { ERROR("Monomer::acceptCalculator is not a viable method.", exception); };
-  virtual void acceptOptimizer(OptimizationVisitor* v)
-    { ERROR("Monomer::acceptOptimizer is not a viable method.", exception); };
+        virtual void save(Saver& s) {
+            ERROR("Monomer::save is not a viable method.", exception);
+        };
 
-// OPERATORS:
+        // MODIFIERS:
 
-protected:
-  
-// HELPERS:
-  virtual void resetBoundaries()
-    { ERROR("Monomer::resetBoundaries is not a viable method.", exception); };
+        void insertComponent(Component* c) {
+            ERROR("Monomer::insertComponent is not a viable method.", exception);
+        };
 
-private:
-  
-};
+        void removeComponent(Component* c) {
+            ERROR("Monomer::removeComponent is not a viable method.", exception);
+        };
+
+        void deleteComponent(Component* c) {
+            ERROR("Monomer::deleteComponent is not a viable method.", exception);
+        };
+
+        void copy(const Monomer& orig);
+        virtual Component* clone();
+
+        virtual void load(Loader& l) {
+            ERROR("Monomer::load is not a viable method.", exception);
+        };
+
+        virtual void setTrans(vgVector3<double> t) {
+            ERROR("Monomer::setTrans is not a viable method.", exception);
+        };
+
+        virtual void addTrans(vgVector3<double> t) {
+            ERROR("Monomer::addTrans is not a viable method.", exception);
+        };
+
+        virtual void setRot(vgMatrix3<double> r) {
+            ERROR("Monomer::setRot is not a viable method.", exception);
+        };
+
+        virtual void addRot(vgMatrix3<double> r) {
+            ERROR("Monomer::addRot is not a viable method.", exception);
+        };
+
+        virtual void sync() // synchronize coords with structure
+        {
+            ERROR("Monomer::sync is not a viable method.", exception);
+        };
+
+        virtual void acceptCalculator(EnergyVisitor* v) {
+            ERROR("Monomer::acceptCalculator is not a viable method.", exception);
+        };
+
+        virtual void acceptOptimizer(OptimizationVisitor* v) {
+            ERROR("Monomer::acceptOptimizer is not a viable method.", exception);
+        };
+
+        // OPERATORS:
+
+    protected:
+
+        // HELPERS:
+
+        virtual void resetBoundaries() {
+            ERROR("Monomer::resetBoundaries is not a viable method.", exception);
+        };
+
+    private:
+
+    };
 
 
-// ---------------------------------------------------------------------------
-//                                    Monomer
-// -----------------x-------------------x-------------------x-----------------
+    // ---------------------------------------------------------------------------
+    //                                    Monomer
+    // -----------------x-------------------x-------------------x-----------------
 
-// PREDICATES:
+    // PREDICATES:
 
-// MODIFIERS:
+    // MODIFIERS:
 
-// OPERATORS:
+    // OPERATORS:
 
 } // namespace
 #endif //_MONOMER_H_

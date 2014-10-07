@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 #ifndef _XYZ_SAVER_H_
 #define _XYZ_SAVER_H_
@@ -31,37 +31,46 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief Saves components (Atoms, Groups, etc.) in carthesian format 
- * 
-*@Description 
-*    Internal format is made of type, coords & bonds of each atom,
-*    one per line. Keywords "aminoacid" and "sidechain" delimit these
-*    structures.
- * */
-class XyzSaver : public Saver{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  XyzSaver(ostream& _output = cout, int _offset = 1) 
-    : output(_output), delimit(true), offset(_offset) { }
-  // this class uses the implicit copy operator.
-  virtual ~XyzSaver() { PRINT_NAME; }  
+    /**@brief Saves components (Atoms, Groups, etc.) in carthesian format 
+     * 
+     *@Description 
+     *    Internal format is made of type, coords & bonds of each atom,
+     *    one per line. Keywords "aminoacid" and "sidechain" delimit these
+     *    structures.
+     * */
+    class XyzSaver : public Saver {
+    public:
 
-// MODIFIERS:
-  virtual void saveGroup(Group& gr);
-  virtual void saveSideChain(SideChain& sc);
-  virtual void saveAminoAcid(AminoAcid& aa);
-  virtual void saveSpacer(Spacer& sp);
-  virtual void saveLigand(Ligand& l);
-  void setDelimit(bool _d) { delimit = _d; }
+        // CONSTRUCTORS/DESTRUCTOR:
 
-protected:
-  virtual void pSaveAtomVector(vector<Atom>& va);
+        XyzSaver(ostream& _output = cout, int _offset = 1)
+        : output(_output), delimit(true), offset(_offset) {
+        }
+        // this class uses the implicit copy operator.
 
-private:
-  ostream& output;   // output stream
-  bool delimit;      // write delimiters ("aminoacid", "sidechain", etc.)  
-  int offset;        // ID offset for saving (optional) 
-};
+        virtual ~XyzSaver() {
+            PRINT_NAME;
+        }
+
+        // MODIFIERS:
+        virtual void saveGroup(Group& gr);
+        virtual void saveSideChain(SideChain& sc);
+        virtual void saveAminoAcid(AminoAcid& aa);
+        virtual void saveSpacer(Spacer& sp);
+        virtual void saveLigand(Ligand& l);
+
+        void setDelimit(bool _d) {
+            delimit = _d;
+        }
+
+    protected:
+        virtual void pSaveAtomVector(vector<Atom>& va);
+
+    private:
+        ostream& output; // output stream
+        bool delimit; // write delimiters ("aminoacid", "sidechain", etc.)  
+        int offset; // ID offset for saving (optional) 
+    };
 }
 #endif //_XYZ_SAVER_H_

@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
 //
@@ -34,110 +34,97 @@
 
 #include <DotPOdds.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-DotPOdds::DotPOdds(Profile *pro1, Profile *pro2) : ScoringFunction(),
-	pro1(pro1), pro2(pro2)
-{
-	const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
+    DotPOdds::DotPOdds(Profile *pro1, Profile *pro2) : ScoringFunction(),
+    pro1(pro1), pro2(pro2) {
+        const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
 
-	for (unsigned int k = 0; k < 20; k++)
-	{
-		p1[k] = 0.00001;
-		for (unsigned int n = 0; n < pro1->getSequenceLength(); n++)
-			p1[k] += (pro1->getAminoFrequency(residue_indices[k], n) / pro1->getSequenceLength());
-	}
-
-	for (unsigned int k = 0; k < 20; k++)
-	{
-		p2[k] = 0.00001;
-		for (unsigned int n = 0; n < pro2->getSequenceLength(); n++)
-			p2[k] += (pro2->getAminoFrequency(residue_indices[k], n) / pro2->getSequenceLength());
-	}
-}
-
-
-DotPOdds::DotPOdds(const DotPOdds &orig) : ScoringFunction(orig)
-{
-	copy(orig);
-}
-
-
-DotPOdds::~DotPOdds()
-{ }
-
-
-// OPERATORS:
-
-DotPOdds&
-DotPOdds::operator = (const DotPOdds &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
-
-
-// PREDICATES:
-
-double
-DotPOdds::scoringSeq(int i, int j)
-{
-	const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
-
-	double freq1 = 0.00;
-	double freq2 = 0.00;
-	double odds1 = 0.00;
-	double odds2 = 0.00;
-	double s = 0.00;
-
-	for (unsigned int k = 0; k < 20; k++)
-	{
-		freq1 = pro1->getAminoFrequency(residue_indices[k], (i-1)) + 0.00001;
-		freq2 = pro2->getAminoFrequency(residue_indices[k], (j-1)) + 0.00001;
-
-		odds1 = log(freq1/p1[k]);
-		odds2 = log(freq2/p2[k]);
-
-		s += (odds1 * odds2);
-	}
-
-	return s;
-}
-
-
-// MODIFIERS:
-
-void
-DotPOdds::copy(const DotPOdds &orig)
-{
-	ScoringFunction::copy(orig);
-	pro1 = orig.pro1->newCopy();
-	pro2 = orig.pro2->newCopy();
-        cout<<"DotODDs";
-	double p1[20];
-	for (unsigned int k = 0; k < 20; k++){
-		p1[k] = orig.p1[k];
-                cout<<p1[k];
+        for (unsigned int k = 0; k < 20; k++) {
+            p1[k] = 0.00001;
+            for (unsigned int n = 0; n < pro1->getSequenceLength(); n++)
+                p1[k] += (pro1->getAminoFrequency(residue_indices[k], n) / pro1->getSequenceLength());
         }
-	double p2[20];
-	for (unsigned int k = 0; k < 20; k++){
-		p2[k] = orig.p2[k];
-                   cout<<p2[k];
+
+        for (unsigned int k = 0; k < 20; k++) {
+            p2[k] = 0.00001;
+            for (unsigned int n = 0; n < pro2->getSequenceLength(); n++)
+                p2[k] += (pro2->getAminoFrequency(residue_indices[k], n) / pro2->getSequenceLength());
         }
-        
-}
+    }
+
+    DotPOdds::DotPOdds(const DotPOdds &orig) : ScoringFunction(orig) {
+        copy(orig);
+    }
+
+    DotPOdds::~DotPOdds() {
+    }
 
 
-DotPOdds*
-DotPOdds::newCopy()
-{
-	DotPOdds *tmp = new DotPOdds(*this);
-	return tmp;
-}
+    // OPERATORS:
+
+    DotPOdds&
+            DotPOdds::operator =(const DotPOdds &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
+
+
+    // PREDICATES:
+
+    double
+    DotPOdds::scoringSeq(int i, int j) {
+        const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
+
+        double freq1 = 0.00;
+        double freq2 = 0.00;
+        double odds1 = 0.00;
+        double odds2 = 0.00;
+        double s = 0.00;
+
+        for (unsigned int k = 0; k < 20; k++) {
+            freq1 = pro1->getAminoFrequency(residue_indices[k], (i - 1)) + 0.00001;
+            freq2 = pro2->getAminoFrequency(residue_indices[k], (j - 1)) + 0.00001;
+
+            odds1 = log(freq1 / p1[k]);
+            odds2 = log(freq2 / p2[k]);
+
+            s += (odds1 * odds2);
+        }
+
+        return s;
+    }
+
+
+    // MODIFIERS:
+
+    void
+    DotPOdds::copy(const DotPOdds &orig) {
+        ScoringFunction::copy(orig);
+        pro1 = orig.pro1->newCopy();
+        pro2 = orig.pro2->newCopy();
+        cout << "DotODDs";
+        double p1[20];
+        for (unsigned int k = 0; k < 20; k++) {
+            p1[k] = orig.p1[k];
+            cout << p1[k];
+        }
+        double p2[20];
+        for (unsigned int k = 0; k < 20; k++) {
+            p2[k] = orig.p2[k];
+            cout << p2[k];
+        }
+
+    }
+
+    DotPOdds*
+    DotPOdds::newCopy() {
+        DotPOdds *tmp = new DotPOdds(*this);
+        return tmp;
+    }
 
 } // namespace

@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __Structure_H__
 #define __Structure_H__
@@ -22,95 +22,94 @@
 #include <math.h>
 #include <string>
 
-namespace Biopool
-{
-/** @brief   Base class for structural scores.
- * 
-* @Description  
-* @This 
- **/
-class Structure
-{
+namespace Biopool {
 
-public:
+    /** @brief   Base class for structural scores.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class Structure {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	Structure(SubMatrix *subStr) : subStr(subStr)
-	{ }
+        /// Default constructor.
 
-	/// Copy constructor.
-	Structure(const Structure &orig)
-	{
-		copy(orig);
-	}
+        Structure(SubMatrix *subStr) : subStr(subStr) {
+        }
 
-	/// Destructor.
-	virtual ~Structure()
-	{ }
+        /// Copy constructor.
 
+        Structure(const Structure &orig) {
+            copy(orig);
+        }
 
-// OPERATORS:
+        /// Destructor.
 
-	/// Assignment operator.
-	Structure& operator = (const Structure &orig);
+        virtual ~Structure() {
+        }
 
 
-// PREDICATES:
+        // OPERATORS:
 
-	/// Calculate scores to create matrix values.
-	virtual double scoringStr(int i, int j) = 0;
-
-
-// MODIFIERS:
-
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const Structure &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual Structure* newCopy() = 0;
-
-	/// Reverse template structural components.
-	virtual void reverse()
-	{ }
+        /// Assignment operator.
+        Structure& operator =(const Structure &orig);
 
 
-// ATTRIBUTES:
+        // PREDICATES:
 
-	SubMatrix *subStr;    ///< Structural substitution matrix.
-
-
-protected:
+        /// Calculate scores to create matrix values.
+        virtual double scoringStr(int i, int j) = 0;
 
 
-private:
+        // MODIFIERS:
 
-};
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const Structure &orig);
 
-// -----------------------------------------------------------------------------
-//                                  Structure
-// -----------------------------------------------------------------------------
+        /// Construct a new "deep copy" of this object.
+        virtual Structure* newCopy() = 0;
 
-// OPERATORS:
+        /// Reverse template structural components.
 
-inline Structure&
-Structure::operator = (const Structure &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
+        virtual void reverse() {
+        }
 
 
-// MODIFIERS:
+        // ATTRIBUTES:
 
-inline void
-Structure::copy(const Structure &orig)
-{
-	subStr = orig.subStr->newCopy();
-}
+        SubMatrix *subStr; ///< Structural substitution matrix.
+
+
+    protected:
+
+
+    private:
+
+    };
+
+    // -----------------------------------------------------------------------------
+    //                                  Structure
+    // -----------------------------------------------------------------------------
+
+    // OPERATORS:
+
+    inline Structure&
+            Structure::operator =(const Structure &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
+
+
+    // MODIFIERS:
+
+    inline void
+    Structure::copy(const Structure &orig) {
+        subStr = orig.subStr->newCopy();
+    }
 
 } // namespace
 

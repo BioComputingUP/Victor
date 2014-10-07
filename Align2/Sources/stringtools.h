@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // stringtools.h
 
 #ifndef __stringtools_H__
@@ -41,11 +41,10 @@ int seq_length(const std::string);
 // template<class T>
 // std::string to_string(const T&);
 
-template<class T> std::string to_string(const T &x)
-{
-	std::ostringstream oss;
-	oss << x;
-	return oss.str();
+template<class T> std::string to_string(const T &x) {
+    std::ostringstream oss;
+    oss << x;
+    return oss.str();
 }
 
 std::string StringToLower(std::string);

@@ -12,14 +12,14 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
-*@Description:
-*    Saves components (Atoms, Groups, etc.) in XYZ (carthesian) format.
-*    Internal format is made of type, coords & bonds of each atom,
-*    one per line. Keywords "aminoacid" and "sidechain" delimit these
-*    structures.
-*/
+ *@Description:
+ *    Saves components (Atoms, Groups, etc.) in XYZ (carthesian) format.
+ *    Internal format is made of type, coords & bonds of each atom,
+ *    one per line. Keywords "aminoacid" and "sidechain" delimit these
+ *    structures.
+ */
 
 // Includes:
 #include <XyzSaver.h>
@@ -42,11 +42,11 @@ using namespace Biopool;
  *@return  changes are made internally (void)
  */
 
-void XyzSaver::saveGroup(Group& gr){  
-  PRINT_NAME;
-  gr.sync();
-  output << gr.getType() << "\n";
-  pSaveAtomVector(gr.giveAtoms()); 
+void XyzSaver::saveGroup(Group& gr) {
+    PRINT_NAME;
+    gr.sync();
+    output << gr.getType() << "\n";
+    pSaveAtomVector(gr.giveAtoms());
 }
 
 /**
@@ -54,13 +54,13 @@ void XyzSaver::saveGroup(Group& gr){
  *@param   Side chain reference(SideChain&)
  *@return  changes are made internally (void)
  */
- 
-void XyzSaver::saveSideChain(SideChain& sc){
-  PRINT_NAME;
-  sc.sync();
-  if (delimit)
-    output << sc.getType() << "\n";
-  pSaveAtomVector(sc.giveAtoms()); 
+
+void XyzSaver::saveSideChain(SideChain& sc) {
+    PRINT_NAME;
+    sc.sync();
+    if (delimit)
+        output << sc.getType() << "\n";
+    pSaveAtomVector(sc.giveAtoms());
 }
 
 /**
@@ -68,15 +68,15 @@ void XyzSaver::saveSideChain(SideChain& sc){
  *@param  Amino acid reference(AminoAcid&)
  *@return  changes are made internally (void)
  */
-void XyzSaver::saveAminoAcid(AminoAcid& aa){
-  PRINT_NAME;
-  aa.sync();
-  if (delimit)
-    output << aa.getType() << "\n";
-  pSaveAtomVector(aa.giveAtoms()); 
-  if (delimit)
-    output << "  sidechain\n  ";
-  saveSideChain(aa.getSideChain());
+void XyzSaver::saveAminoAcid(AminoAcid& aa) {
+    PRINT_NAME;
+    aa.sync();
+    if (delimit)
+        output << aa.getType() << "\n";
+    pSaveAtomVector(aa.giveAtoms());
+    if (delimit)
+        output << "  sidechain\n  ";
+    saveSideChain(aa.getSideChain());
 }
 
 /**
@@ -84,27 +84,27 @@ void XyzSaver::saveAminoAcid(AminoAcid& aa){
  *@param   Spacer reference(Spacer&)
  *@return  changes are made internally (void)
  */
-      
-void XyzSaver::saveSpacer(Spacer& sp){
-  PRINT_NAME;
-  if (delimit){
-    output << sp.getType() << "\n";
-  }
-  else    {  // write number of atoms
-      unsigned int size = 0;
-      for (unsigned int i = 0; i < sp.sizeAmino(); i++)
-	size += sp.getAmino(i).size();
-      output << size << "\n\n";
+
+void XyzSaver::saveSpacer(Spacer& sp) {
+    PRINT_NAME;
+    if (delimit) {
+        output << sp.getType() << "\n";
+    } else { // write number of atoms
+        unsigned int size = 0;
+        for (unsigned int i = 0; i < sp.sizeAmino(); i++)
+            size += sp.getAmino(i).size();
+        output << size << "\n\n";
     }
-  for (unsigned int i = 0; i < sp.size(); i++)    {
-      if (delimit)
-	output << "aminoacid\n";
-      sp[i].save(*this);
+    for (unsigned int i = 0; i < sp.size(); i++) {
+        if (delimit)
+            output << "aminoacid\n";
+        sp[i].save(*this);
     }
 }
-void XyzSaver::saveLigand(Ligand& l){
-  PRINT_NAME;
-  ERROR("Not implemented yet",exception);
+
+void XyzSaver::saveLigand(Ligand& l) {
+    PRINT_NAME;
+    ERROR("Not implemented yet", exception);
 }
 
 // HELPER:
@@ -114,28 +114,28 @@ void XyzSaver::saveLigand(Ligand& l){
  *@param   reference to the vector that contains atoms(vector<Atom>&)
  *@return  changes are made internally (void)
  */
- 
-void XyzSaver::pSaveAtomVector(vector<Atom>& va){  // warning: don't copy atom vector as it would lose the original bonds
-  unsigned old_prec = output.precision();
-  ios::fmtflags old_flags = output.flags();
-  output.setf(ios::fixed, ios::floatfield);
- 
-  for (unsigned int k = 0; k < va.size(); k++) { // write all entries
-      string atName = va[k].getType();
-      if (!isdigit(atName[0]))
-	atName = ' ' + atName;
-      while (atName.size() < 4)
-	atName += ' ';
 
-      if (delimit)
-	output << "  " << setw(4) << va[k].getNumber() << "   ";
-      output << atName << "  " << va[k].getCoords() << "   ";
-      for (unsigned int i = 0; i < va[k].sizeInBonds(); i++)
- 	  output << "   " << setw(3) << va[k].getInBond(i).getNumber();
-      for (unsigned int i = 0; i < va[k].sizeOutBonds(); i++)
- 	  output << "   " << setw(3) << va[k].getOutBond(i).getNumber();
-      output << "\n";
+void XyzSaver::pSaveAtomVector(vector<Atom>& va) { // warning: don't copy atom vector as it would lose the original bonds
+    unsigned old_prec = output.precision();
+    ios::fmtflags old_flags = output.flags();
+    output.setf(ios::fixed, ios::floatfield);
+
+    for (unsigned int k = 0; k < va.size(); k++) { // write all entries
+        string atName = va[k].getType();
+        if (!isdigit(atName[0]))
+            atName = ' ' + atName;
+        while (atName.size() < 4)
+            atName += ' ';
+
+        if (delimit)
+            output << "  " << setw(4) << va[k].getNumber() << "   ";
+        output << atName << "  " << va[k].getCoords() << "   ";
+        for (unsigned int i = 0; i < va[k].sizeInBonds(); i++)
+            output << "   " << setw(3) << va[k].getInBond(i).getNumber();
+        for (unsigned int i = 0; i < va[k].sizeOutBonds(); i++)
+            output << "   " << setw(3) << va[k].getOutBond(i).getNumber();
+        output << "\n";
     }
-   output.precision(old_prec);
-  output.flags(old_flags);
+    output.precision(old_prec);
+    output.flags(old_flags);
 }

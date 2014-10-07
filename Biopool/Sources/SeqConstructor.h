@@ -12,12 +12,12 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
  *@Description:
-*    This class builds a spacer by concatenating the same aminoacid type for 
-*    n times.
-*/
+ *    This class builds a spacer by concatenating the same aminoacid type for 
+ *    n times.
+ */
 #ifndef _SIDECHAIN_CONSTRUCTOR_H_
 #define _SIDECHAIN_CONSTRUCTOR_H_
 
@@ -31,35 +31,41 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief This class builds a spacer by concatenating the same aminoacid type for 
-*    n times.
- * 
-*@Description  
-*@This 
- * */
-class SeqConstructor{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  SeqConstructor(istream& _refInput = cin) :
-    refInput(_refInput), loaded(false), refAmino() { }
-  virtual ~SeqConstructor() { PRINT_NAME; }  
+    /**@brief This class builds a spacer by concatenating the same aminoacid type for 
+     *    n times.
+     * 
+     *@Description  
+     *@This 
+     * */
+    class SeqConstructor {
+    public:
 
-// MODIFIERS:
-  virtual Spacer& makeSpacer(string type, unsigned int n); 
-  // make spacer by concatenating code n-times 
+        // CONSTRUCTORS/DESTRUCTOR:
 
-protected:
-  // HELPERS:
-  virtual void loadReference();
-  void searchReference(AminoAcid& aa, string type);
-  void buildAminoAcid(AminoAcid& aa, AminoAcid* prev);
+        SeqConstructor(istream& _refInput = cin) :
+        refInput(_refInput), loaded(false), refAmino() {
+        }
 
-private:
-  istream& refInput;             // reference stream
-  bool loaded;                   // is reference loaded yet?
-  vector<AminoAcid> refAmino;    // reference types
-};
- 
+        virtual ~SeqConstructor() {
+            PRINT_NAME;
+        }
+
+        // MODIFIERS:
+        virtual Spacer& makeSpacer(string type, unsigned int n);
+        // make spacer by concatenating code n-times 
+
+    protected:
+        // HELPERS:
+        virtual void loadReference();
+        void searchReference(AminoAcid& aa, string type);
+        void buildAminoAcid(AminoAcid& aa, AminoAcid* prev);
+
+    private:
+        istream& refInput; // reference stream
+        bool loaded; // is reference loaded yet?
+        vector<AminoAcid> refAmino; // reference types
+    };
+
 } // namespace
 #endif //_SEQ_CONSTRUCTOR_H_

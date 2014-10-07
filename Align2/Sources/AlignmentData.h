@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __AlignmentData_H__
 #define __AlignmentData_H__
@@ -25,107 +25,102 @@
 #include <iostream>
 #include <string>
 
-namespace Biopool
-{
-/** @brief   Base class for printing alignments.
- * 
-* @Description  
-* @This 
- **/
-class AlignmentData
-{
+namespace Biopool {
 
-public:
+    /** @brief   Base class for printing alignments.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class AlignmentData {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	AlignmentData(int n, const string &name1 = "Seq1",
-		const string &name2 = "Seq2");
+        /// Default constructor.
+        AlignmentData(int n, const string &name1 = "Seq1",
+                const string &name2 = "Seq2");
 
-	/// Copy constructor.
-	AlignmentData(const AlignmentData &orig);
+        /// Copy constructor.
+        AlignmentData(const AlignmentData &orig);
 
-	/// Destructor.
-	virtual ~AlignmentData();
+        /// Destructor.
+        virtual ~AlignmentData();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	AlignmentData& operator = (const AlignmentData &orig);
-
-
-// PREDICATES:
-
-	/// Define if two residues are similar.
-	virtual bool similar(char a, char b);
-
-	/// Return the sequence at position n of the vector.
-	virtual string getSequence(int n) = 0;
-
-	/// Calculate single match positions.
-	virtual void calculateMatch(int i, int tbi, int j, int tbj) = 0;
-
-	/// Reverse the strings of the vector.
-	virtual void getMatch() = 0;
-
-	/// Control if the strings of the vector are similar and print them.
-	virtual void outputMatch(ostream &os, bool fasta = false) = 0;
-
-	/// Generate and return an ensemble of suboptimal alignments.
-	virtual Alignment& generateMatch(double score = 0.00) = 0;
+        /// Assignment operator.
+        AlignmentData& operator =(const AlignmentData &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const AlignmentData &orig);
+        /// Define if two residues are similar.
+        virtual bool similar(char a, char b);
 
-	/// Construct a new "deep copy" of this object.
-	virtual AlignmentData* newCopy() = 0;
+        /// Return the sequence at position n of the vector.
+        virtual string getSequence(int n) = 0;
 
-	/// Insert a sequence at position n of the vector.
-	virtual void add(string s, int n);
+        /// Calculate single match positions.
+        virtual void calculateMatch(int i, int tbi, int j, int tbj) = 0;
 
-	/// Insert a void string in all positions of the vector.
-	virtual void clear();
+        /// Reverse the strings of the vector.
+        virtual void getMatch() = 0;
 
+        /// Control if the strings of the vector are similar and print them.
+        virtual void outputMatch(ostream &os, bool fasta = false) = 0;
 
-// ATTRIBUTES:
-
-	vector<string> match;    ///< Matching alignment positions.
-	int n;                   ///< Number of strings in the alignment.
-	string name1;            ///< Name of target sequence.
-	string name2;            ///< Name of template sequence.
+        /// Generate and return an ensemble of suboptimal alignments.
+        virtual Alignment& generateMatch(double score = 0.00) = 0;
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const AlignmentData &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual AlignmentData* newCopy() = 0;
+
+        /// Insert a sequence at position n of the vector.
+        virtual void add(string s, int n);
+
+        /// Insert a void string in all positions of the vector.
+        virtual void clear();
 
 
-private:
+        // ATTRIBUTES:
 
-};
-
-// -----------------------------------------------------------------------------
-//                                AlignmentData
-// -----------------------------------------------------------------------------
-
-// MODIFIERS:
-
-inline void
-AlignmentData::add(string s, int n)
-{
-	match[n] += s;
-}
+        vector<string> match; ///< Matching alignment positions.
+        int n; ///< Number of strings in the alignment.
+        string name1; ///< Name of target sequence.
+        string name2; ///< Name of template sequence.
 
 
-inline void
-AlignmentData::clear()
-{
-	for(int i = 0; i < n; i++)
-		match[i] = "";
-}
+    protected:
+
+
+    private:
+
+    };
+
+    // -----------------------------------------------------------------------------
+    //                                AlignmentData
+    // -----------------------------------------------------------------------------
+
+    // MODIFIERS:
+
+    inline void
+    AlignmentData::add(string s, int n) {
+        match[n] += s;
+    }
+
+    inline void
+    AlignmentData::clear() {
+        for (int i = 0; i < n; i++)
+            match[i] = "";
+    }
 
 } // namespace
 

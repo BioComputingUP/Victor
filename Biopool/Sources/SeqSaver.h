@@ -12,14 +12,14 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
-*@Description:
-*    Loads components (Atoms, Groups, etc.) in SEQ format.
-*    SEQ format lists the aminoacids, one per line, followed by the 
-*    torsion angle settings. 
-*    Note: saveGroup() is not implemented, as it has no valid use.
-*/
+ *@Description:
+ *    Loads components (Atoms, Groups, etc.) in SEQ format.
+ *    SEQ format lists the aminoacids, one per line, followed by the 
+ *    torsion angle settings. 
+ *    Note: saveGroup() is not implemented, as it has no valid use.
+ */
 
 #ifndef _SEQ_SAVER_H_
 #define _SEQ_SAVER_H_
@@ -37,34 +37,43 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief Loads components (Atoms, Groups, etc.) in SEQ format.
- * 
-*@Description SEQ format lists the aminoacids, one per line, followed by the 
-*    torsion angle settings. 
-*@This 
- * */
-class SeqSaver : public Saver{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  SeqSaver(ostream& _output = cout) 
-    : output(_output), writeChi(true) { }
-  // this class uses the implicit copy operator.
-  virtual ~SeqSaver() { PRINT_NAME; }  
+    /**@brief Loads components (Atoms, Groups, etc.) in SEQ format.
+     * 
+     *@Description SEQ format lists the aminoacids, one per line, followed by the 
+     *    torsion angle settings. 
+     *@This 
+     * */
+    class SeqSaver : public Saver {
+    public:
 
-// MODIFIERS:
-  void setWriteChi(bool _w) { writeChi = _w; }
-  virtual void saveSideChain(SideChain& sc, bool header = 1);
-  virtual void saveAminoAcid(AminoAcid& aa);
-  virtual void saveSpacer(Spacer& sp);
-  virtual void saveLigand(Ligand& l);
+        // CONSTRUCTORS/DESTRUCTOR:
 
-protected:
+        SeqSaver(ostream& _output = cout)
+        : output(_output), writeChi(true) {
+        }
+        // this class uses the implicit copy operator.
 
-private:
-  ostream& output;   // output stream
-  bool writeChi;     // switch: write chi angles?
-};
+        virtual ~SeqSaver() {
+            PRINT_NAME;
+        }
+
+        // MODIFIERS:
+
+        void setWriteChi(bool _w) {
+            writeChi = _w;
+        }
+        virtual void saveSideChain(SideChain& sc, bool header = 1);
+        virtual void saveAminoAcid(AminoAcid& aa);
+        virtual void saveSpacer(Spacer& sp);
+        virtual void saveLigand(Ligand& l);
+
+    protected:
+
+    private:
+        ostream& output; // output stream
+        bool writeChi; // switch: write chi angles?
+    };
 
 } // namespace
 #endif //_SEQ_SAVER_H_

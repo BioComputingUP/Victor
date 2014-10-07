@@ -12,10 +12,10 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
- 
+
 //
 // Description:     Calculate structural scores with info derived from secondary
 //                  structure.
@@ -24,74 +24,63 @@
 
 #include <Sec.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-Sec::Sec(SubMatrix *subStr, AlignmentData *ad, double cSec) : Structure(subStr),
-	sec1(ad->getSequence(3)), sec2(ad->getSequence(4)), cSec(cSec)
-{ }
+    Sec::Sec(SubMatrix *subStr, AlignmentData *ad, double cSec) : Structure(subStr),
+    sec1(ad->getSequence(3)), sec2(ad->getSequence(4)), cSec(cSec) {
+    }
 
+    Sec::Sec(const Sec &orig) : Structure(orig) {
+        copy(orig);
+    }
 
-Sec::Sec(const Sec &orig) : Structure(orig)
-{
-	copy(orig);
-}
-
-
-Sec::~Sec()
-{ }
+    Sec::~Sec() {
+    }
 
 
-// OPERATORS:
+    // OPERATORS:
 
-Sec&
-Sec::operator = (const Sec &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
-
-
-// PREDICATES:
-
-double
-Sec::scoringStr(int i, int j)
-{
-	return cSec * subStr->score[sec1[i-1]][sec2[j-1]];
-}
+    Sec&
+            Sec::operator =(const Sec &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-// MODIFIERS:
+    // PREDICATES:
 
-void
-Sec::copy(const Sec &orig)
-{
-	Structure::copy(orig);
-	sec1 = orig.sec1;
-	sec2 = orig.sec2;
-	cSec = orig.cSec;
-}
+    double
+    Sec::scoringStr(int i, int j) {
+        return cSec * subStr->score[sec1[i - 1]][sec2[j - 1]];
+    }
 
 
-Sec*
-Sec::newCopy()
-{
-	Sec *tmp = new Sec(*this);
-	return tmp;
-}
+    // MODIFIERS:
 
+    void
+    Sec::copy(const Sec &orig) {
+        Structure::copy(orig);
+        sec1 = orig.sec1;
+        sec2 = orig.sec2;
+        cSec = orig.cSec;
+    }
 
-void
-Sec::reverse()
-{
-	string tmp = "";
-	for (unsigned int i = sec2.length(); i > 0; i--)
-		tmp.push_back(sec2[i-1]);
-	sec2 = tmp;
-}
+    Sec*
+    Sec::newCopy() {
+        Sec *tmp = new Sec(*this);
+        return tmp;
+    }
+
+    void
+    Sec::reverse() {
+        string tmp = "";
+        for (unsigned int i = sec2.length(); i > 0; i--)
+            tmp.push_back(sec2[i - 1]);
+        sec2 = tmp;
+    }
 
 } // namespace

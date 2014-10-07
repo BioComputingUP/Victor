@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 // Includes:
 #include <Monomer.h>
@@ -23,46 +23,43 @@
 using namespace Biopool;
 
 // CONSTRUCTORS/DESTRUCTOR:
-Monomer::Monomer(unsigned int mI, unsigned int mO) : Component(mI, mO) 
-{ PRINT_NAME; }
 
-Monomer::Monomer(const Monomer& orig)
-{
-  PRINT_NAME;
-  this->copy(orig);  
+Monomer::Monomer(unsigned int mI, unsigned int mO) : Component(mI, mO) {
+    PRINT_NAME;
 }
 
-Monomer::~Monomer()
-{ 
-  PRINT_NAME;
-  if ( hasSuperior() )
-    {
-      getSuperior().removeComponent(this);
-      setSuperior(NULL);
+Monomer::Monomer(const Monomer& orig) {
+    PRINT_NAME;
+    this->copy(orig);
+}
+
+Monomer::~Monomer() {
+    PRINT_NAME;
+    if (hasSuperior()) {
+        getSuperior().removeComponent(this);
+        setSuperior(NULL);
     }
-} 
+}
 
 
 // PREDICATES:
 
 // MODIFIERS:
 
-void 
-Monomer::copy(const Monomer& orig)
-{
-  PRINT_NAME; 
-  
+void
+Monomer::copy(const Monomer& orig) {
+    PRINT_NAME;
+
 
 }
 
-Component* 
-Monomer::clone()
-{
-  return new Monomer;
+Component*
+Monomer::clone() {
+    return new Monomer;
 }
 
 // OPERATORS:
 
 // HELPERS:
 
- 
+

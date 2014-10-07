@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __Profile_H__
 #define __Profile_H__
@@ -25,275 +25,240 @@
 #include <string>
 #include <vector>
 
-namespace Biopool
-{
-/** @brief  Calculate a frequency profile or PSSM.
- * 
-* @Description  
-* @This 
- **/
-class Profile
-{
+namespace Biopool {
 
-public:
+    /** @brief  Calculate a frequency profile or PSSM.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class Profile {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	Profile();
+        /// Default constructor.
+        Profile();
 
-	/// Copy constructor.
-	Profile(const Profile &orig);
+        /// Copy constructor.
+        Profile(const Profile &orig);
 
-	/// Destructor.
-	virtual ~Profile();
+        /// Destructor.
+        virtual ~Profile();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	Profile& operator = (const Profile &orig);
+        /// Assignment operator.
+        Profile& operator =(const Profile &orig);
 
 
-// PREDICATES:
+        // PREDICATES:
 
-	/// Return the frequency of the aminoacid amino for position i.
-	virtual double getAminoFrequencyFromCode(AminoAcidCode amino,
-		unsigned int i);
+        /// Return the frequency of the aminoacid amino for position i.
+        virtual double getAminoFrequencyFromCode(AminoAcidCode amino,
+                unsigned int i);
 
-	/// Return the frequency of the aminoacid amino for position i.
-	virtual double getAminoFrequency(char amino, unsigned int i);
+        /// Return the frequency of the aminoacid amino for position i.
+        virtual double getAminoFrequency(char amino, unsigned int i);
 
-	/// Return the frequency of the most frequent aminoacid for position i.
-	virtual double getFreqMaxAminoFrequency(unsigned int i);
+        /// Return the frequency of the most frequent aminoacid for position i.
+        virtual double getFreqMaxAminoFrequency(unsigned int i);
 
-	/// Return the most frequent aminoacid for position i.
-	virtual AminoAcidCode getAminoMaxFrequencyCode(unsigned int i);
+        /// Return the most frequent aminoacid for position i.
+        virtual AminoAcidCode getAminoMaxFrequencyCode(unsigned int i);
 
-	/// Return the most frequent aminoacid for position i.
-	virtual char getAminoMaxFrequency(unsigned int i);
+        /// Return the most frequent aminoacid for position i.
+        virtual char getAminoMaxFrequency(unsigned int i);
 
-	/// Return the number of gaps for position i.
-	virtual unsigned int getNumGap(unsigned int i);
+        /// Return the number of gaps for position i.
+        virtual unsigned int getNumGap(unsigned int i);
 
-	/// Return the number of sequences in the profile.
-	virtual unsigned int getNumSequences();
+        /// Return the number of sequences in the profile.
+        virtual unsigned int getNumSequences();
 
-	/// Return the lenght of sequences in the profile.
-	virtual unsigned int getSequenceLength();
+        /// Return the lenght of sequences in the profile.
+        virtual unsigned int getSequenceLength();
 
-	/// Return the master sequence.
-	virtual const string getSeq();
+        /// Return the master sequence.
+        virtual const string getSeq();
 
-	/// Return the consensus of the profile.
-	virtual string getConsensus();
+        /// Return the consensus of the profile.
+        virtual string getConsensus();
 
 
-// MODIFIERS:
+        // MODIFIERS:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const Profile &orig);
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const Profile &orig);
 
-	/// Construct a new "deep copy" of this object.
-	virtual Profile* newCopy();
+        /// Construct a new "deep copy" of this object.
+        virtual Profile* newCopy();
 
-	/// Set the frequency of the aminoacid amino for position i.
-	virtual void setFrequency(double freq, AminoAcidCode amino, int i);
+        /// Set the frequency of the aminoacid amino for position i.
+        virtual void setFrequency(double freq, AminoAcidCode amino, int i);
 
-	/// Set the frequency of the aminoacid amino for position i.
-	virtual void setFrequency(double freq, char amino, int i);
+        /// Set the frequency of the aminoacid amino for position i.
+        virtual void setFrequency(double freq, char amino, int i);
 
-	/// Set the number of gaps for position i.
-	virtual void setNumGap(int numGap, int j);
+        /// Set the number of gaps for position i.
+        virtual void setNumGap(int numGap, int j);
 
-	/// Set the number of sequences in the profile.
-	virtual void setNumSequences(int i);
+        /// Set the number of sequences in the profile.
+        virtual void setNumSequences(int i);
 
-	/// Set the master sequence.
-	virtual void setSeq(string master);
+        /// Set the master sequence.
+        virtual void setSeq(string master);
 
-	/// Set the profile with or without gaps in the master sequence.
-	virtual void setProfile(Alignment &ali);
+        /// Set the profile with or without gaps in the master sequence.
+        virtual void setProfile(Alignment &ali);
 
-	/// Set the profile with or without gaps in the master sequence.
-	virtual void setProfile(Alignment &ali, istream &is);
+        /// Set the profile with or without gaps in the master sequence.
+        virtual void setProfile(Alignment &ali, istream &is);
 
-	/// Set wether to include/exclude gaps in the master sequence.
-	virtual void setAllowGaps(bool g);
+        /// Set wether to include/exclude gaps in the master sequence.
+        virtual void setAllowGaps(bool g);
 
-	/// Reverse profile.
-	virtual void reverse();
+        /// Reverse profile.
+        virtual void reverse();
 
 
-// HELPERS:
+        // HELPERS:
 
-	/// Calculate the raw (ie. unnormalized) aminoacids frequencies for position i.
-	virtual void pCalculateRawFrequency(vector<double> &freq, double &gapFreq,
-		Alignment &ali, unsigned int i);
+        /// Calculate the raw (ie. unnormalized) aminoacids frequencies for position i.
+        virtual void pCalculateRawFrequency(vector<double> &freq, double &gapFreq,
+                Alignment &ali, unsigned int i);
 
-	/// Construct data from alignment.
-	virtual void pConstructData(Alignment &ali);
+        /// Construct data from alignment.
+        virtual void pConstructData(Alignment &ali);
 
-	/// Reset all data.
-	virtual void pResetData();
+        /// Reset all data.
+        virtual void pResetData();
 
 
-// ATTRIBUTES:
+        // ATTRIBUTES:
 
-	vector< vector<double> > profAliFrequency;    ///< Aminoacids frequencies.
-	vector<double> gapFreq;                       ///< Gaps frequencies.
-	string seq;                                   ///< Master sequence.
-	unsigned int seqLen;                          ///< Lenght of sequences.
-	unsigned int numSeq;                          ///< Number of sequences.
-	bool gap;                                     ///< If true, consider gaps in the master sequence.
+        vector< vector<double> > profAliFrequency; ///< Aminoacids frequencies.
+        vector<double> gapFreq; ///< Gaps frequencies.
+        string seq; ///< Master sequence.
+        unsigned int seqLen; ///< Lenght of sequences.
+        unsigned int numSeq; ///< Number of sequences.
+        bool gap; ///< If true, consider gaps in the master sequence.
 
 
-protected:
+    protected:
 
 
-private:
+    private:
 
-};
+    };
 
-// -----------------------------------------------------------------------------
-//                                   Profile
-// -----------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------
+    //                                   Profile
+    // -----------------------------------------------------------------------------
 
-// PREDICATES:
+    // PREDICATES:
 
-inline double
-Profile::getAminoFrequencyFromCode(AminoAcidCode amino, unsigned int i)
-{
-	return profAliFrequency[i][amino];
-}
+    inline double
+    Profile::getAminoFrequencyFromCode(AminoAcidCode amino, unsigned int i) {
+        return profAliFrequency[i][amino];
+    }
 
+    inline double
+    Profile::getAminoFrequency(char amino, unsigned int i) {
+        return getAminoFrequencyFromCode(aminoAcidOneLetterTranslator(amino), i);
+    }
 
-inline double
-Profile::getAminoFrequency(char amino, unsigned int i)
-{
-	return getAminoFrequencyFromCode(aminoAcidOneLetterTranslator(amino), i);
-}
+    inline double
+    Profile::getFreqMaxAminoFrequency(unsigned int i) {
+        return profAliFrequency[i][getAminoMaxFrequencyCode(i)];
+    }
 
+    inline AminoAcidCode
+    Profile::getAminoMaxFrequencyCode(unsigned int i) {
+        AminoAcidCode amino = XXX;
+        double max = 0;
 
-inline double
-Profile::getFreqMaxAminoFrequency(unsigned int i)
-{
-	return profAliFrequency[i][getAminoMaxFrequencyCode(i)];
-}
+        for (AminoAcidCode j = ALA; j <= TYR; j++) {
+            double tmp = profAliFrequency[i][j];
+            if (tmp > max) {
+                amino = j;
+                max = tmp;
+            }
+        }
 
+        return amino;
+    }
 
-inline AminoAcidCode
-Profile::getAminoMaxFrequencyCode(unsigned int i)
-{
-	AminoAcidCode amino = XXX;
-	double max = 0;
+    inline char
+    Profile::getAminoMaxFrequency(unsigned int i) {
+        return aminoAcidOneLetterTranslator(getAminoMaxFrequencyCode(i));
+    }
 
-	for (AminoAcidCode j = ALA; j <= TYR; j++)
-	{
-		double tmp = profAliFrequency[i][j];
-		if (tmp > max)
-		{
-			amino = j;
-			max = tmp;
-		}
-	}
+    inline unsigned int
+    Profile::getNumGap(unsigned int i) {
+        return static_cast<int> (gapFreq[i]);
+    }
 
-	return amino;
-}
+    inline unsigned int
+    Profile::getNumSequences() {
+        return numSeq;
+    }
 
+    inline unsigned int
+    Profile::getSequenceLength() {
+        return profAliFrequency.size();
+    }
 
-inline char
-Profile::getAminoMaxFrequency(unsigned int i)
-{
-	return aminoAcidOneLetterTranslator(getAminoMaxFrequencyCode(i));
-}
+    inline const string
+    Profile::getSeq() {
+        return seq;
+    }
 
+    inline string
+    Profile::getConsensus() {
+        string consensus;
 
-inline unsigned int
-Profile::getNumGap(unsigned int i)
-{
-	return static_cast<int>(gapFreq[i]);
-}
+        for (unsigned int i = 0; i < getSequenceLength(); i++) {
+            char amino = getAminoMaxFrequency(i);
+            consensus += amino;
+        }
 
+        return consensus;
+    }
 
-inline unsigned int
-Profile::getNumSequences()
-{
-	return numSeq;
-}
 
+    // MODIFIERS:
 
-inline unsigned int
-Profile::getSequenceLength()
-{
-	return profAliFrequency.size();
-}
+    inline void
+    Profile::setFrequency(double freq, AminoAcidCode amino, int i) {
+        profAliFrequency[i][amino] = freq;
+    }
 
+    inline void
+    Profile::setFrequency(double freq, char amino, int i) {
+        setFrequency(freq, aminoAcidOneLetterTranslator(amino), i);
+    }
 
-inline const string
-Profile::getSeq()
-{
-	return seq;
-}
+    inline void
+    Profile::setNumGap(int numGap, int j) {
+        gapFreq[j] = numGap;
+    }
 
+    inline void
+    Profile::setNumSequences(int i) {
+        numSeq = i;
+    }
 
-inline string
-Profile::getConsensus()
-{
-	string consensus;
+    inline void
+    Profile::setSeq(string master) {
+        seq = master;
+    }
 
-	for (unsigned int i = 0; i < getSequenceLength(); i++)
-	{
-		char amino = getAminoMaxFrequency(i);
-		consensus += amino;
-	}
-
-	return consensus;
-}
-
-
-// MODIFIERS:
-
-inline void
-Profile::setFrequency(double freq, AminoAcidCode amino, int i)
-{
-	profAliFrequency[i][amino] = freq;
-}
-
-
-inline void
-Profile::setFrequency(double freq, char amino, int i)
-{
-	setFrequency(freq, aminoAcidOneLetterTranslator(amino), i);
-}
-
-
-inline void
-Profile::setNumGap(int numGap, int j)
-{
-	gapFreq[j] = numGap;
-}
-
-
-inline void
-Profile::setNumSequences(int i)
-{
-	numSeq = i;
-}
-
-
-inline void
-Profile::setSeq(string master)
-{
-	seq = master;
-}
-
-
-inline void
-Profile::setAllowGaps(bool g)
-{
-	gap = g;
-}
+    inline void
+    Profile::setAllowGaps(bool g) {
+        gap = g;
+    }
 
 } // namespace
 

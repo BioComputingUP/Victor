@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 #ifndef _SAVER_H_
 #define _SAVER_H_
@@ -24,41 +24,62 @@
 
 namespace Biopool {
 
-class Group;
-class SideChain;
-class AminoAcid;
-class Spacer;
-class Ligand;
-class LigandSet;
-class Protein;
-class Nucleotide;
-/**@brief Base class for saving components (Atoms, Groups, etc.).
- * 
-*@Description  
-*@This 
- * */
-class Saver{
-public: 
+    class Group;
+    class SideChain;
+    class AminoAcid;
+    class Spacer;
+    class Ligand;
+    class LigandSet;
+    class Protein;
+    class Nucleotide;
 
-// CONSTRUCTORS/DESTRUCTOR:
-  Saver() {};
-  // this class uses the implicit copy operator.
-  virtual ~Saver() {};  
+    /**@brief Base class for saving components (Atoms, Groups, etc.).
+     * 
+     *@Description  
+     *@This 
+     * */
+    class Saver {
+    public:
 
-// MODIFIERS:
-  virtual void saveGroup(Group& group) {};
-  virtual void saveSideChain(SideChain& node) {};
-  virtual void saveAminoAcid(AminoAcid& node) {};
-  virtual void saveSpacer(Spacer& node) {};
-  virtual void saveLigand(Ligand& node) {};
-  virtual void saveLigandSet(LigandSet& node) {};
-  virtual void saveProtein(Protein& node) {};
-  virtual void saveNucleotide(Nucleotide& node) {};
-protected:
+        // CONSTRUCTORS/DESTRUCTOR:
 
-private:
+        Saver() {
+        };
+        // this class uses the implicit copy operator.
 
-};
+        virtual ~Saver() {
+        };
+
+        // MODIFIERS:
+
+        virtual void saveGroup(Group& group) {
+        };
+
+        virtual void saveSideChain(SideChain& node) {
+        };
+
+        virtual void saveAminoAcid(AminoAcid& node) {
+        };
+
+        virtual void saveSpacer(Spacer& node) {
+        };
+
+        virtual void saveLigand(Ligand& node) {
+        };
+
+        virtual void saveLigandSet(LigandSet& node) {
+        };
+
+        virtual void saveProtein(Protein& node) {
+        };
+
+        virtual void saveNucleotide(Nucleotide& node) {
+        };
+    protected:
+
+    private:
+
+    };
 
 } // namespace
 #endif //_SAVER_H_

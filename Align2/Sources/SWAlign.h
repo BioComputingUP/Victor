@@ -12,79 +12,77 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __SWAlign_H__
 #define __SWAlign_H__
 
 #include <Align.h>
 
-namespace Biopool
-{
-/** @brief  Implement Smith-Waterman local alignment.
- * 
-* @Description  
-* @This 
- **/
-class SWAlign : public Align
-{
+namespace Biopool {
 
-public:
+    /** @brief  Implement Smith-Waterman local alignment.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class SWAlign : public Align {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	SWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss);
+        /// Default constructor.
+        SWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss);
 
-	/// Constructor with weighted alignment positions.
-	SWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss,
-		const vector<unsigned int> &v1, const vector<unsigned int> &v2);
+        /// Constructor with weighted alignment positions.
+        SWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss,
+                const vector<unsigned int> &v1, const vector<unsigned int> &v2);
 
-	/// Copy constructor.
-	SWAlign(const SWAlign &orig);
+        /// Copy constructor.
+        SWAlign(const SWAlign &orig);
 
-	/// Destructor.
-	virtual ~SWAlign();
+        /// Destructor.
+        virtual ~SWAlign();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	SWAlign& operator = (const SWAlign &orig);
-
-
-// PREDICATES:
-
-	/// Return two-element array containing an alignment with maximal score.
-	virtual void getMultiMatch();
+        /// Assignment operator.
+        SWAlign& operator =(const SWAlign &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const SWAlign &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual SWAlign* newCopy();
+        /// Return two-element array containing an alignment with maximal score.
+        virtual void getMultiMatch();
 
 
-// HELPERS:
+        // MODIFIERS:
 
-	/// Update/create matrix values.
-	virtual void pCalculateMatrix(bool update = true);
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const SWAlign &orig);
 
-	/// Update/create weighted matrix values.
-	virtual void pCalculateMatrix(const vector<unsigned int> &v1,
-		const vector<unsigned int> &v2, bool update = true);
-
-
-protected:
+        /// Construct a new "deep copy" of this object.
+        virtual SWAlign* newCopy();
 
 
-private:
+        // HELPERS:
 
-};
+        /// Update/create matrix values.
+        virtual void pCalculateMatrix(bool update = true);
+
+        /// Update/create weighted matrix values.
+        virtual void pCalculateMatrix(const vector<unsigned int> &v1,
+                const vector<unsigned int> &v2, bool update = true);
+
+
+    protected:
+
+
+    private:
+
+    };
 
 } // namespace
 

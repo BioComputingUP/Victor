@@ -12,11 +12,11 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
-*@Class:           Identity
-*@Project name:    Victor
-*@Description:     Implements object id.
+ *@Class:           Identity
+ *@Project name:    Victor
+ *@Description:     Implements object id.
  */
 
 #ifndef __IDENTITY_H__
@@ -31,47 +31,49 @@
 class Identity {
 public:
 
-  Identity(const string& name="", long number=0);
-  Identity(const Identity& orig);
+    Identity(const string& name = "", long number = 0);
+    Identity(const Identity& orig);
 
-  /* OPERATORS */
+    /* OPERATORS */
 
-  /** Assigment. */
-  Identity& operator = (const Identity& orig);
+    /** Assigment. */
+    Identity& operator =(const Identity& orig);
 
-  /** Comparison. */
-  bool operator == (const Identity& other) const;
-  bool operator != (const Identity& other) const { 
-    return !((*this) == other); };
+    /** Comparison. */
+    bool operator ==(const Identity& other) const;
 
-  /** Cast to int. */
-  operator long() const;
+    bool operator !=(const Identity& other) const {
+        return !((*this) == other);
+    };
 
-  /** Cast to string. */
-  //  operator string() const;
+    /** Cast to int. */
+    operator long() const;
 
-  /** Cast to string&. */
-  operator const string&() const;
+    /** Cast to string. */
+    //  operator string() const;
 
-  /** Set a new name. */
-  void setName(string _name);
+    /** Cast to string&. */
+    operator const string&() const;
 
-  /** Set a new number. */
-  void setNumber(long _number);
+    /** Set a new name. */
+    void setName(string _name);
+
+    /** Set a new number. */
+    void setNumber(long _number);
 
 
 
-  /* FRIENDS */
+    /* FRIENDS */
 
-  friend ostream& operator << (ostream& os, const Identity& id);
+    friend ostream& operator <<(ostream& os, const Identity& id);
 
-  friend istream& operator >> (istream& is, Identity& id);
+    friend istream& operator >>(istream& is, Identity& id);
 
 private:
-  long   number;
-  string name;
+    long number;
+    string name;
 
-  static long counter;
+    static long counter;
 };
 
 // ---------------------------------------------------------------------------
@@ -79,69 +81,56 @@ private:
 // -----------------x-------------------x-------------------x-----------------
 
 inline
-Identity::Identity(const string& s, long n) : name(s)
-{
-  if (n != 0)
-    {
-      number = n;
-    }
-  else
-    {
-      number = ++counter;
+Identity::Identity(const string& s, long n) : name(s) {
+    if (n != 0) {
+        number = n;
+    } else {
+        number = ++counter;
     }
 }
 
 inline
-Identity::Identity(const Identity& orig) 
-  : name(orig.name)
-{
-  number = ++counter;
+Identity::Identity(const Identity& orig)
+: name(orig.name) {
+    number = ++counter;
 }
 
 inline
-Identity& 
-Identity::operator = (const Identity& orig)
-{
-  name   = orig.name;
+Identity&
+        Identity::operator =(const Identity& orig) {
+    name = orig.name;
 
-  return *this;
+    return *this;
 }
 
 inline
-bool 
-Identity::operator == (const Identity& other) const
-{
-  return number == other.number;
+bool
+Identity::operator ==(const Identity& other) const {
+    return number == other.number;
 }
 
 inline
-Identity::operator long() const
-{
-  return number;
-}
-
-
-
-inline
-Identity::operator const string&() const
-{
-  return name;
+Identity::operator long() const {
+    return number;
 }
 
 inline
-void 
-Identity::setName(string _name)
-{
-  name = _name;
+Identity::operator const string&() const {
+    return name;
 }
 
 inline
-void 
-Identity::setNumber(long _number)
-{
-  number = _number;
-  if (_number >= counter)
-    counter = _number;
+void
+Identity::setName(string _name) {
+    name = _name;
+}
+
+inline
+void
+Identity::setNumber(long _number) {
+    number = _number;
+    if (_number >= counter)
+        counter = _number;
 }
 
 // ---------------------------------------------------------------------------
@@ -149,29 +138,26 @@ Identity::setNumber(long _number)
 // -----------------x-------------------x-------------------x-----------------
 
 inline
-ostream& 
-operator << (ostream& os, const Identity& id)
-{
-  return os << "(Id " << id.name << " " << id.number << " ) ";
+ostream&
+operator <<(ostream& os, const Identity& id) {
+    return os << "(Id " << id.name << " " << id.number << " ) ";
 }
 
 inline
-istream& 
-operator >> (istream& is, Identity& id)
-{
-  string tag;
+istream&
+operator >>(istream& is, Identity& id) {
+    string tag;
 
-  is >> tag;
-  
-  if (tag != "(Id")
-    {
-      DEBUG_MSG("Identity::operator >> : bad input.");
+    is >> tag;
 
-      is.clear(ios::badbit);
-      return is;
+    if (tag != "(Id") {
+        DEBUG_MSG("Identity::operator >> : bad input.");
+
+        is.clear(ios::badbit);
+        return is;
     }
 
-  return is >> id.name >> id.number >> tag;
+    return is >> id.name >> id.number >> tag;
 }
 
 

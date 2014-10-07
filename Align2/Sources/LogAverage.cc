@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // --*- C++ -*------x-----------------------------------------------------------
 //
 //
@@ -26,87 +26,77 @@
 //
 // -----------------x-----------------------------------------------------------
 
-              /*************************************************
-               * sub is BLOSUM62 matrix standard log-odds form *
-               *************************************************/
+/*************************************************
+ * sub is BLOSUM62 matrix standard log-odds form *
+ *************************************************/
 
 #include <LogAverage.h>
 
-namespace Biopool
-{
+namespace Biopool {
 
-// CONSTRUCTORS:
+    // CONSTRUCTORS:
 
-LogAverage::LogAverage(SubMatrix *sub, Profile *pro1, Profile *pro2)
-	: ScoringFunction(), sub(sub), pro1(pro1), pro2(pro2)
-{ }
+    LogAverage::LogAverage(SubMatrix *sub, Profile *pro1, Profile *pro2)
+    : ScoringFunction(), sub(sub), pro1(pro1), pro2(pro2) {
+    }
 
+    LogAverage::LogAverage(const LogAverage &orig) : ScoringFunction(orig) {
+        copy(orig);
+    }
 
-LogAverage::LogAverage(const LogAverage &orig) : ScoringFunction(orig)
-{
-	copy(orig);
-}
-
-
-LogAverage::~LogAverage()
-{ }
+    LogAverage::~LogAverage() {
+    }
 
 
-// OPERATORS:
+    // OPERATORS:
 
-LogAverage&
-LogAverage::operator = (const LogAverage &orig)
-{
-	if (&orig != this)
-		copy(orig);
-	POSTCOND((orig == *this), exception);
-	return *this;
-}
-
-
-// PREDICATES:
-
-double
-LogAverage::scoringSeq(int i, int j)
-{
-	double s = 0.00;
-
-	for (AminoAcidCode amino1 = ALA; amino1 <= TYR; amino1++)
-	{
-		double tmp = 0.00;
-
-		for (AminoAcidCode amino2 = ALA; amino2 <= TYR; amino2++)
-			tmp += exp(sub->score[aminoAcidOneLetterTranslator(amino1)]
-				[aminoAcidOneLetterTranslator(amino2)]) *
-					pro2->getAminoFrequencyFromCode(amino2, (j-1));
-		ostringstream convert;   // stream used for the conversion
-		convert << amino1;
-		 
-		s += (pro1->getAminoFrequencyFromCode(amino1, (i-1)) * tmp);
-	}
+    LogAverage&
+            LogAverage::operator =(const LogAverage &orig) {
+        if (&orig != this)
+            copy(orig);
+        POSTCOND((orig == *this), exception);
+        return *this;
+    }
 
 
-	return log(s);
-}
+    // PREDICATES:
+
+    double
+    LogAverage::scoringSeq(int i, int j) {
+        double s = 0.00;
+
+        for (AminoAcidCode amino1 = ALA; amino1 <= TYR; amino1++) {
+            double tmp = 0.00;
+
+            for (AminoAcidCode amino2 = ALA; amino2 <= TYR; amino2++)
+                tmp += exp(sub->score[aminoAcidOneLetterTranslator(amino1)]
+                    [aminoAcidOneLetterTranslator(amino2)]) *
+                pro2->getAminoFrequencyFromCode(amino2, (j - 1));
+            ostringstream convert; // stream used for the conversion
+            convert << amino1;
+
+            s += (pro1->getAminoFrequencyFromCode(amino1, (i - 1)) * tmp);
+        }
 
 
-// MODIFIERS:
-
-void
-LogAverage::copy(const LogAverage &orig)
-{
-	ScoringFunction::copy(orig);
-	sub = orig.sub->newCopy();
-	pro1 = orig.pro1->newCopy();
-	pro2 = orig.pro2->newCopy();
-}
+        return log(s);
+    }
 
 
-LogAverage*
-LogAverage::newCopy()
-{
-	LogAverage *tmp = new LogAverage(*this);
-	return tmp;
-}
+    // MODIFIERS:
+
+    void
+    LogAverage::copy(const LogAverage &orig) {
+        ScoringFunction::copy(orig);
+        sub = orig.sub->newCopy();
+        pro1 = orig.pro1->newCopy();
+        pro2 = orig.pro2->newCopy();
+    }
+
+    LogAverage*
+    LogAverage::newCopy() {
+        LogAverage *tmp = new LogAverage(*this);
+        return tmp;
+    }
 
 } // namespace

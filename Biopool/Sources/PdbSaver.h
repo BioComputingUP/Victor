@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 #ifndef _PDB_SAVER_H_
 #define _PDB_SAVER_H_
@@ -32,61 +32,90 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief Saves components (Atoms, Groups, etc.) in standard PDB format
- * 
-*@Description 
-*@This 
- * */
-class PdbSaver : public Saver
-{
-public: 
 
-// CONSTRUCTORS/DESTRUCTOR:
-  PdbSaver(ostream& _output = cout) 
-    : output(_output), writeSeq(true), writeSecStr(true), writeTer(true), 
-      atomOffset(0), aminoOffset(0), ligandOffset(0), chain(' ') { }
-  // this class uses the implicit copy operator.
-  virtual ~PdbSaver() { PRINT_NAME; }  
+    /**@brief Saves components (Atoms, Groups, etc.) in standard PDB format
+     * 
+     *@Description 
+     *@This 
+     * */
+    class PdbSaver : public Saver {
+    public:
 
-// PREDICATES:
-    void endFile() { output << "END\n"; }
+        // CONSTRUCTORS/DESTRUCTOR:
 
-// MODIFIERS:
-  void setWriteSecondaryStructure() { writeSecStr = true; }
-  void setDoNotWriteSecondaryStructure() { writeSecStr = false; }
+        PdbSaver(ostream& _output = cout)
+        : output(_output), writeSeq(true), writeSecStr(true), writeTer(true),
+        atomOffset(0), aminoOffset(0), ligandOffset(0), chain(' ') {
+        }
+        // this class uses the implicit copy operator.
 
-  void setWriteSeqRes() { writeSeq = true; }
-  void setDoNotWriteSeqRes() { writeSeq = false; }
+        virtual ~PdbSaver() {
+            PRINT_NAME;
+        }
 
-  void setWriteAtomOnly() { writeSecStr = false; writeSeq = false; 
-                            writeTer = false; }
-  void setWriteAll()  { writeSecStr = true; writeSeq = true; 
-                        writeTer = true; }
-  void setChain(char _ch) { chain = _ch; }
-  virtual void saveGroup(Group& gr);
-  virtual void saveSideChain(SideChain& sc);
-  virtual void saveAminoAcid(AminoAcid& aa);
-  virtual void saveSpacer(Spacer& sp);
-  virtual void saveLigand(Ligand& l);
-  virtual void saveLigandSet(LigandSet& l);
-  virtual void saveProtein(Protein& prot);
+        // PREDICATES:
 
-protected:
+        void endFile() {
+            output << "END\n";
+        }
 
-private:
+        // MODIFIERS:
 
-  // HELPERS:
-  void writeSeqRes(Spacer& sp); // writes SEQRES entry
-  void writeSecondary(Spacer& sp); 
-     // writes secondary entries (SHEET, HELIX, etc.)
-  // ATTRIBUTES 
-  ostream& output;   // output stream
-  bool writeSeq, writeSecStr, writeTer;  
-  unsigned int atomOffset, ligandOffset;
-  int aminoOffset;
-  char chain;      // chain ID
-  // offsets that determine at which atom, aminoacid and ligand number to start
-};
+        void setWriteSecondaryStructure() {
+            writeSecStr = true;
+        }
+
+        void setDoNotWriteSecondaryStructure() {
+            writeSecStr = false;
+        }
+
+        void setWriteSeqRes() {
+            writeSeq = true;
+        }
+
+        void setDoNotWriteSeqRes() {
+            writeSeq = false;
+        }
+
+        void setWriteAtomOnly() {
+            writeSecStr = false;
+            writeSeq = false;
+            writeTer = false;
+        }
+
+        void setWriteAll() {
+            writeSecStr = true;
+            writeSeq = true;
+            writeTer = true;
+        }
+
+        void setChain(char _ch) {
+            chain = _ch;
+        }
+        virtual void saveGroup(Group& gr);
+        virtual void saveSideChain(SideChain& sc);
+        virtual void saveAminoAcid(AminoAcid& aa);
+        virtual void saveSpacer(Spacer& sp);
+        virtual void saveLigand(Ligand& l);
+        virtual void saveLigandSet(LigandSet& l);
+        virtual void saveProtein(Protein& prot);
+
+    protected:
+
+    private:
+
+        // HELPERS:
+        void writeSeqRes(Spacer& sp); // writes SEQRES entry
+        void writeSecondary(Spacer& sp);
+        // writes secondary entries (SHEET, HELIX, etc.)
+        // ATTRIBUTES 
+        ostream& output; // output stream
+        bool writeSeq, writeSecStr, writeTer;
+        unsigned int atomOffset, ligandOffset;
+        int aminoOffset;
+        char chain; // chain ID
+        // offsets that determine at which atom, aminoacid and ligand number to start
+    };
 
 } // namespace
 #endif //_PDB_SAVER_H_

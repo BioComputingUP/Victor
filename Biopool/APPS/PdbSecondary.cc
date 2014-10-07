@@ -186,10 +186,10 @@ int main(int argc, char* argv[]) {
         if (chainID.size() > 1)
             ERROR("You can choose only 1 chain", error);
         pl.setChain(chainID[0]);
-    }        // All chains
+    }// All chains
     else if (all) {
         pl.setAllChains();
-    }        // First chain
+    }// First chain
     else {
         pl.setChain(pl.getAllChains()[0]);
     }

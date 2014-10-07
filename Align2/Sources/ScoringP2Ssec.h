@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __ScoringP2Ssec_H__
 #define __ScoringP2Ssec_H__
@@ -22,56 +22,55 @@
 #include <Profile.h>
 #include <string>
 
-namespace Biopool
-{
-/** @brief   Calculate score for profile to sequence alignment with
-*                  secondary structure.
- * 
-* @Description  
-* @This 
- **/
+namespace Biopool {
 
-class ScoringP2Ssec : public ScoringScheme
-{
-public:
+    /** @brief   Calculate score for profile to sequence alignment with
+     *                  secondary structure.
+     * 
+     * @Description  
+     * @This 
+     **/
 
-// CONSTRUCTORS:
-  /// Default constructor.
-  ScoringP2Ssec(Blosum* sub, Blosum* sec, AlignmentData *a, 
-		Profile* p);
-  /// Copy constructor.
-  ScoringP2Ssec(const ScoringP2Ssec& orig);
-  /// Destructor.
-  virtual ~ScoringP2Ssec();
-  
-// OPERATORS:
-  /// Assignment operator.
-  ScoringP2Ssec& operator = (const ScoringP2Ssec& orig);
-  
-// PREDICATES:
-  /// Calculate scores to create Matrix values.
-  double scoring(int i, int j);
-  
-// MODIFIERS:
-  /// Copies orig object to this object ("deep copy").
-  virtual void copy(const ScoringP2Ssec& orig);
-  /// Constructs a new ("deep") copy of this object.
-  virtual ScoringP2Ssec* newCopy();
-  /// Reverse second component (sequence or profile)
-  virtual void reverse();
+    class ScoringP2Ssec : public ScoringScheme {
+    public:
 
-protected:
-  
-private:
+        // CONSTRUCTORS:
+        /// Default constructor.
+        ScoringP2Ssec(Blosum* sub, Blosum* sec, AlignmentData *a,
+                Profile* p);
+        /// Copy constructor.
+        ScoringP2Ssec(const ScoringP2Ssec& orig);
+        /// Destructor.
+        virtual ~ScoringP2Ssec();
 
-// ATTRIBUTES:
-  Blosum* secstr;	///< Secondary structure substitution matrix.
-  string seq1;          ///< First sequence.
-  string seq2; 	        ///< Second sequence.
-  Profile* profile;	///< (First) profile.
-  string sec1;          ///< First  secondary structure.
-  string sec2;	        ///< Second secondary structure.
-};
+        // OPERATORS:
+        /// Assignment operator.
+        ScoringP2Ssec& operator =(const ScoringP2Ssec& orig);
+
+        // PREDICATES:
+        /// Calculate scores to create Matrix values.
+        double scoring(int i, int j);
+
+        // MODIFIERS:
+        /// Copies orig object to this object ("deep copy").
+        virtual void copy(const ScoringP2Ssec& orig);
+        /// Constructs a new ("deep") copy of this object.
+        virtual ScoringP2Ssec* newCopy();
+        /// Reverse second component (sequence or profile)
+        virtual void reverse();
+
+    protected:
+
+    private:
+
+        // ATTRIBUTES:
+        Blosum* secstr; ///< Secondary structure substitution matrix.
+        string seq1; ///< First sequence.
+        string seq2; ///< Second sequence.
+        Profile* profile; ///< (First) profile.
+        string sec1; ///< First  secondary structure.
+        string sec2; ///< Second secondary structure.
+    };
 
 }
 #endif

@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 // -*-C++-*-------------------------------------------------------------------
 //
 //
@@ -35,30 +35,30 @@
 #include <limits>
 #include <cmath>
 // changes string into integer:
-int stoi( const string& );
+int stoi(const string&);
 // changes string into unsigned integer:
-unsigned int stoui( const string& );
+unsigned int stoui(const string&);
 // changes string into long:
-long stol( const string& );
+long stol(const string&);
 // changes string into float:
-float stof( const string& );
+float stof(const string&);
 // changes string into double:
-double stod( const string& );
+double stod(const string&);
 // changes string to vector of integer. Format: n1,n2,n3, ...
-vector<int> sToVectorOfInt( const string&);
+vector<int> sToVectorOfInt(const string&);
 // changes string to vector of unsigned integer. Format: n1,n2,n3, ...
-vector<unsigned int> sToVectorOfUInt( const string&);
+vector<unsigned int> sToVectorOfUInt(const string&);
 
 // changes integer into string:
-string itos( const int& );
+string itos(const int&);
 // changes unsigned integer into string:
-string uitos( const unsigned int& );
+string uitos(const unsigned int&);
 // changes long into string;
-string ltos( const long& );
+string ltos(const long&);
 // changes float into string:
-string ftos( const float& );
+string ftos(const float&);
 // changes double into string:
-string dtos( const double& );
+string dtos(const double&);
 /** tokenize text line */
 vector<string> getTokens(const string& s);
 

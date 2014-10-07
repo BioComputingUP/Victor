@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef _AMINOACIDHYDROGEN_H_
 #define	_AMINOACIDHYDROGEN_H_
@@ -27,22 +27,23 @@
 
 
 namespace Biopool {
-/**@brief class implements hydrogens.
- * 
-*@Description Includes methods that allow to hydrogens to aminoacids.
- * */
-class AminoAcidHydrogen {
-public: 
 
-    static void loadParam(string inputFile);
-    static void setHydrogen(AminoAcid* aa, bool verbose);
-    
-private:
-   
-    static map<AminoAcidCode,vector<vector<string> > > paramH;
-    
-};
-    
+    /**@brief class implements hydrogens.
+     * 
+     *@Description Includes methods that allow to hydrogens to aminoacids.
+     * */
+    class AminoAcidHydrogen {
+    public:
+
+        static void loadParam(string inputFile);
+        static void setHydrogen(AminoAcid* aa, bool verbose);
+
+    private:
+
+        static map<AminoAcidCode, vector<vector<string> > > paramH;
+
+    };
+
 
 } // namespace
 

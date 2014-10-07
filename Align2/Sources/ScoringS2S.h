@@ -12,74 +12,72 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __ScoringS2S_H__
 #define __ScoringS2S_H__
 
 #include <ScoringScheme.h>
 
-namespace Biopool
-{
-/** @brief  Calculate scores for sequence to sequence alignment.
- * 
-* @Description  
-* @This 
- **/
-class ScoringS2S : public ScoringScheme
-{
+namespace Biopool {
 
-public:
+    /** @brief  Calculate scores for sequence to sequence alignment.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class ScoringS2S : public ScoringScheme {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	ScoringS2S(SubMatrix *sub, AlignmentData *ad, Structure *str, double cSeq);
+        /// Default constructor.
+        ScoringS2S(SubMatrix *sub, AlignmentData *ad, Structure *str, double cSeq);
 
-	/// Copy constructor.
-	ScoringS2S(const ScoringS2S &orig);
+        /// Copy constructor.
+        ScoringS2S(const ScoringS2S &orig);
 
-	/// Destructor.
-	virtual ~ScoringS2S();
+        /// Destructor.
+        virtual ~ScoringS2S();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	ScoringS2S& operator = (const ScoringS2S &orig);
-
-
-// PREDICATES:
-
-	/// Calculate scores to create matrix values.
-	virtual double scoring(int i, int j);
+        /// Assignment operator.
+        ScoringS2S& operator =(const ScoringS2S &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const ScoringS2S &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual ScoringS2S* newCopy();
-
-	/// Reverse template sequence.
-	virtual void reverse();
+        /// Calculate scores to create matrix values.
+        virtual double scoring(int i, int j);
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const ScoringS2S &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual ScoringS2S* newCopy();
+
+        /// Reverse template sequence.
+        virtual void reverse();
 
 
-private:
+    protected:
 
-// ATTRIBUTES:
 
-	string seq1;    ///< Target sequence.
-	string seq2;    ///< Template sequence.
-	double cSeq;    ///< Coefficient for sequence alignment.
+    private:
 
-};
+        // ATTRIBUTES:
+
+        string seq1; ///< Target sequence.
+        string seq2; ///< Template sequence.
+        double cSeq; ///< Coefficient for sequence alignment.
+
+    };
 
 } // namespace
 

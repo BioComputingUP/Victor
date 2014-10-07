@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
 #ifndef _ATOM_H_
@@ -26,283 +26,259 @@
 
 namespace Biopool {
 
-    
-// Global constants, typedefs, etc. (to avoid):
 
-class Group;
-/**@brief class implements a simple atom type.
-* 
-*@Description Includes methods that allow to get and set type, bind, unbind,coordinates , code,  etc.NB Angles are in degrees.
- **/
-class Atom : public SimpleBond
-{
-public: 
+    // Global constants, typedefs, etc. (to avoid):
 
-// CONSTRUCTORS/DESTRUCTOR:
-  Atom(unsigned int mI = 1, unsigned int mO = 4);
-  Atom(const Atom& orig); 
-  virtual ~Atom();
+    class Group;
 
-// PREDICATES:
-  AtomCode getCode() const;
-  unsigned long getNumber() const;
+    /**@brief class implements a simple atom type.
+     * 
+     *@Description Includes methods that allow to get and set type, bind, unbind,coordinates , code,  etc.NB Angles are in degrees.
+     **/
+    class Atom : public SimpleBond {
+    public:
 
-  vgVector3<double> getCoords();
+        // CONSTRUCTORS/DESTRUCTOR:
+        Atom(unsigned int mI = 1, unsigned int mO = 4);
+        Atom(const Atom& orig);
+        virtual ~Atom();
 
-  double getBFac() { return Bfac; }
+        // PREDICATES:
+        AtomCode getCode() const;
+        unsigned long getNumber() const;
 
-  double distance(Atom& other);
+        vgVector3<double> getCoords();
 
-  bool hasSuperior();
-  Group& getSuperior();
-  const Group& getSuperior() const;
+        double getBFac() {
+            return Bfac;
+        }
 
-  vgVector3<double> getTrans() const;
-  vgMatrix3<double> getRot() const;
-  virtual bool inSync(); // coords in-sync with changes?
+        double distance(Atom& other);
 
-// MODIFIERS:
-  void clear();
-  void copy(const Atom& orig);
-  void bindStructure(Atom& before, bool connect); 
-  // sets this relative to before if connect == true, otherwise like bindIn
-  virtual void bindIn(SimpleBond& c);
-  virtual void bindOut(SimpleBond& c);
-  virtual void unbindIn(SimpleBond& c);
-  virtual void unbindOut(SimpleBond& c);
-  void setType(string _name);
-  void setCode(AtomCode ac);
-  void setNumber(unsigned long _number);
+        bool hasSuperior();
+        Group& getSuperior();
+        const Group& getSuperior() const;
 
-  void setCoords(double _x, double _y, double _z);
-  void setCoords(vgVector3<double> c);
+        vgVector3<double> getTrans() const;
+        vgMatrix3<double> getRot() const;
+        virtual bool inSync(); // coords in-sync with changes?
 
-  void setBFac(double _b) { Bfac = _b; }
+        // MODIFIERS:
+        void clear();
+        void copy(const Atom& orig);
+        void bindStructure(Atom& before, bool connect);
+        // sets this relative to before if connect == true, otherwise like bindIn
+        virtual void bindIn(SimpleBond& c);
+        virtual void bindOut(SimpleBond& c);
+        virtual void unbindIn(SimpleBond& c);
+        virtual void unbindOut(SimpleBond& c);
+        void setType(string _name);
+        void setCode(AtomCode ac);
+        void setNumber(unsigned long _number);
 
-  void setTrans(vgVector3<double> t);
-  void addTrans(vgVector3<double> t);
-  void setRot(vgMatrix3<double> r);
-  void addRot(vgMatrix3<double> r);
-  virtual void sync(); // synchronize coords with structure
+        void setCoords(double _x, double _y, double _z);
+        void setCoords(vgVector3<double> c);
 
-  virtual const Atom& getInBond(unsigned n) const;
-  virtual Atom& getInBond(unsigned n);
-  virtual const Atom& getOutBond(unsigned n) const;
-  virtual Atom& getOutBond(unsigned n);
+        void setBFac(double _b) {
+            Bfac = _b;
+        }
 
-  void setSuperior(Group* gr);
-  void setModified();
-  void setUnModified();   //used in Qmean: this flag cause problem there.
+        void setTrans(vgVector3<double> t);
+        void addTrans(vgVector3<double> t);
+        void setRot(vgMatrix3<double> r);
+        void addRot(vgMatrix3<double> r);
+        virtual void sync(); // synchronize coords with structure
 
-// OPERATORS:
-  Atom& operator=(const Atom& orig);
+        virtual const Atom& getInBond(unsigned n) const;
+        virtual Atom& getInBond(unsigned n);
+        virtual const Atom& getOutBond(unsigned n) const;
+        virtual Atom& getOutBond(unsigned n);
 
-protected:
+        void setSuperior(Group* gr);
+        void setModified();
+        void setUnModified(); //used in Qmean: this flag cause problem there.
 
-private:
+        // OPERATORS:
+        Atom& operator=(const Atom& orig);
 
-// HELPERS: 
-  bool isNotFirstAtomInStructure();
-  void propagateRotation(); // pass on rotation matrix to following atoms
+    protected:
 
+    private:
 
-// ATTRIBUTES:
-  Group* superior;           // structure to which atom belongs,
-  AtomCode type;	         // Atom type
-  vgVector3<double> coords;      // xyz-Coords
-
-  double Bfac;                   // B-factor
-
-  vgVector3<double> trans;       // relative translation
-  vgMatrix3<double> rot;         // relative rotation
-  bool modified;                 // --""--  modified?  
-};
-
- 
-
-// ---------------------------------------------------------------------------
-//                                    Atom
-// -----------------x-------------------x-------------------x-----------------
-
-// PREDICATES:
-
-inline AtomCode
-Atom::getCode() const
-{ 
-  return type; 
-}
-
-inline unsigned long
-Atom::getNumber() const 
-{ 
-  return id; 
-}
-
-inline vgVector3<double> 
-Atom::getCoords()
-{
-  if (!inSync())
-    sync();
-  return coords;
-}
+        // HELPERS: 
+        bool isNotFirstAtomInStructure();
+        void propagateRotation(); // pass on rotation matrix to following atoms
 
 
-inline Group& 
-Atom::getSuperior()
-{
-  PRECOND( superior != NULL, exception);
-  return *superior;
-}
- 
-inline const Group& 
-Atom::getSuperior() const
-{
-  PRECOND( superior != NULL, exception);
-  return *superior;
-}
- 
-inline bool 
-Atom::hasSuperior()
-{
-  return (superior != NULL);
-}
+        // ATTRIBUTES:
+        Group* superior; // structure to which atom belongs,
+        AtomCode type; // Atom type
+        vgVector3<double> coords; // xyz-Coords
 
-inline vgVector3<double> 
-Atom::getTrans() const
-{
-  return trans;
-}
+        double Bfac; // B-factor
 
-inline vgMatrix3<double> 
-Atom::getRot() const
-{
-  return rot;
-}
-
-inline bool 
-Atom::inSync()
-{
-  return (!modified); 
-}
-
-// MODIFIERS:
- 
-inline void  
-Atom::bindStructure(Atom& before, bool connect)
-{
-  if (connect)
-    this->setTrans( this->getCoords() - before.getCoords() );
-  this->bindIn(before);
-}
-
-inline void 
-Atom::bindIn(SimpleBond& c)
-{
-  SimpleBond::bindIn(c);
-  setModified();  
-}
-
-inline void 
-Atom::bindOut(SimpleBond& c)
-{
-  SimpleBond::bindOut(c);
-  setModified();  
-}
-
-inline void 
-Atom::unbindIn(SimpleBond& c)
-{
-  SimpleBond::unbindIn(c);
-  setModified();  
-}
-
-inline void 
-Atom::unbindOut(SimpleBond& c)
-{
-  SimpleBond::unbindOut(c);
-  setModified();  
-}
-
-inline void 
-Atom::setType(string _name) 
-{ 
-  id.setName(_name); 
-  type = AtomTranslator(_name); 
-}
-
-inline void 
-Atom::setCode(AtomCode ac) 
-{ 
-  type = ac;
-  id.setName(AtomTranslator(ac)); 
-}
-
-inline void 
-Atom::setNumber(unsigned long _number) 
-{ 
-  id.setNumber(_number); 
-}
-
-inline void 
-Atom::setTrans(vgVector3<double> t)
-{
-  trans = t;
-  setModified();
-}
-
-inline void 
-Atom::addTrans(vgVector3<double> t)
-{
-  trans += t;
-  setModified();
-}
-
-inline void 
-Atom::setRot(vgMatrix3<double> r)
-{
-  rot = r;
-  setModified();
-}
-
-inline void 
-Atom::addRot(vgMatrix3<double> r)
-{
-  rot = r * rot;
-  setModified();
-}
-
-inline const Atom& 
-Atom::getInBond(unsigned n) const
-{
-  return dynamic_cast<const Atom&>(SimpleBond::getInBond(n));
-}
-
-inline Atom& 
-Atom::getInBond(unsigned n)
-{
-  return dynamic_cast<Atom&>(SimpleBond::getInBond(n));
-}
-
-inline const Atom& 
-Atom::getOutBond(unsigned n) const
-{
-  return dynamic_cast<const Atom&>(SimpleBond::getOutBond(n));
-}
-
-inline Atom& 
-Atom::getOutBond(unsigned n)
-{
-  return dynamic_cast<Atom&>(SimpleBond::getOutBond(n));
-}
+        vgVector3<double> trans; // relative translation
+        vgMatrix3<double> rot; // relative rotation
+        bool modified; // --""--  modified?  
+    };
 
 
-inline void 
-Atom::setSuperior(Group* gr)
-{
-  this->superior = gr;
-}
 
-// OPERATORS:
+    // ---------------------------------------------------------------------------
+    //                                    Atom
+    // -----------------x-------------------x-------------------x-----------------
+
+    // PREDICATES:
+
+    inline AtomCode
+    Atom::getCode() const {
+        return type;
+    }
+
+    inline unsigned long
+    Atom::getNumber() const {
+        return id;
+    }
+
+    inline vgVector3<double>
+    Atom::getCoords() {
+        if (!inSync())
+            sync();
+        return coords;
+    }
+
+    inline Group&
+    Atom::getSuperior() {
+        PRECOND(superior != NULL, exception);
+        return *superior;
+    }
+
+    inline const Group&
+    Atom::getSuperior() const {
+        PRECOND(superior != NULL, exception);
+        return *superior;
+    }
+
+    inline bool
+    Atom::hasSuperior() {
+        return (superior != NULL);
+    }
+
+    inline vgVector3<double>
+    Atom::getTrans() const {
+        return trans;
+    }
+
+    inline vgMatrix3<double>
+    Atom::getRot() const {
+        return rot;
+    }
+
+    inline bool
+    Atom::inSync() {
+        return (!modified);
+    }
+
+    // MODIFIERS:
+
+    inline void
+    Atom::bindStructure(Atom& before, bool connect) {
+        if (connect)
+            this->setTrans(this->getCoords() - before.getCoords());
+        this->bindIn(before);
+    }
+
+    inline void
+    Atom::bindIn(SimpleBond& c) {
+        SimpleBond::bindIn(c);
+        setModified();
+    }
+
+    inline void
+    Atom::bindOut(SimpleBond& c) {
+        SimpleBond::bindOut(c);
+        setModified();
+    }
+
+    inline void
+    Atom::unbindIn(SimpleBond& c) {
+        SimpleBond::unbindIn(c);
+        setModified();
+    }
+
+    inline void
+    Atom::unbindOut(SimpleBond& c) {
+        SimpleBond::unbindOut(c);
+        setModified();
+    }
+
+    inline void
+    Atom::setType(string _name) {
+        id.setName(_name);
+        type = AtomTranslator(_name);
+    }
+
+    inline void
+    Atom::setCode(AtomCode ac) {
+        type = ac;
+        id.setName(AtomTranslator(ac));
+    }
+
+    inline void
+    Atom::setNumber(unsigned long _number) {
+        id.setNumber(_number);
+    }
+
+    inline void
+    Atom::setTrans(vgVector3<double> t) {
+        trans = t;
+        setModified();
+    }
+
+    inline void
+    Atom::addTrans(vgVector3<double> t) {
+        trans += t;
+        setModified();
+    }
+
+    inline void
+    Atom::setRot(vgMatrix3<double> r) {
+        rot = r;
+        setModified();
+    }
+
+    inline void
+    Atom::addRot(vgMatrix3<double> r) {
+        rot = r * rot;
+        setModified();
+    }
+
+    inline const Atom&
+    Atom::getInBond(unsigned n) const {
+        return dynamic_cast<const Atom&> (SimpleBond::getInBond(n));
+    }
+
+    inline Atom&
+    Atom::getInBond(unsigned n) {
+        return dynamic_cast<Atom&> (SimpleBond::getInBond(n));
+    }
+
+    inline const Atom&
+    Atom::getOutBond(unsigned n) const {
+        return dynamic_cast<const Atom&> (SimpleBond::getOutBond(n));
+    }
+
+    inline Atom&
+    Atom::getOutBond(unsigned n) {
+        return dynamic_cast<Atom&> (SimpleBond::getOutBond(n));
+    }
+
+    inline void
+    Atom::setSuperior(Group* gr) {
+        this->superior = gr;
+    }
+
+    // OPERATORS:
 
 
 } // namespace

@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 // Includes:
 
@@ -27,55 +27,54 @@
 using namespace Biopool;
 
 double BOND_LENGTH_H_TO_ALL = 1.00;
-map<AminoAcidCode,vector<vector<string> > > AminoAcidHydrogen::paramH;
+map<AminoAcidCode, vector<vector<string> > > AminoAcidHydrogen::paramH;
 
 /**
  *@Description   Load a file with arguments for building hydrogens thank of
  * the IntCoordConverter class
  *@param   void
  *@return  void
-*/
-void 
+ */
+void
 AminoAcidHydrogen::loadParam(string inputFile) {
     ifstream input(inputFile.c_str());
     if (!input)
         ERROR("File not found.", exception);
 
-    input.clear();  // reset file to previous content 
-    input.seekg( 0, ios::beg );
+    input.clear(); // reset file to previous content 
+    input.seekg(0, ios::beg);
 
-    string tok="";
+    string tok = "";
     vector<string> tokens; // One parsed line splitted by white spaces
-    AminoAcidCode aaCode;       
-    
+    AminoAcidCode aaCode;
+
     string line;
     line = readLine(input); // header
     //line = readLine(input);
     // read all lines
     do {
-        if (line[0]!='#'){
-            for (unsigned int i=0;i<line.size();i++){
-                if (line[i]==' '){
+        if (line[0] != '#') {
+            for (unsigned int i = 0; i < line.size(); i++) {
+                if (line[i] == ' ') {
                     tokens.push_back(tok);
                     tok.clear();
-                }
-                else{
-                    tok+=line[i];
+                } else {
+                    tok += line[i];
                 }
             }
             // last tok
             tokens.push_back(tok);
             tok.clear();
 
-            aaCode=aminoAcidThreeLetterTranslator(tokens.front());
+            aaCode = aminoAcidThreeLetterTranslator(tokens.front());
 
-            if (paramH.find(aaCode) == paramH.end() ){
-                paramH[aaCode]= vector<vector<string > >();
+            if (paramH.find(aaCode) == paramH.end()) {
+                paramH[aaCode] = vector<vector<string > >();
             }
             paramH[aaCode].push_back(tokens);
             tokens.clear();
         }
-        
+
         line = readLine(input);
     } while (input);
 
@@ -85,64 +84,61 @@ AminoAcidHydrogen::loadParam(string inputFile) {
             cout << i << " " << j << " " << paramH[aaCode][i][j] << "\n";
         }
     }*/
-    
+
 }
-
-
 
 /**
  *@Description   Add Hydrogen to an AminoAcid
  *@param   void
  *@return  void
-*/
-void 
+ */
+void
 AminoAcidHydrogen::setHydrogen(AminoAcid* aa, bool verbose) {
-    
-   
-    
-    if (aa->isMember(H) || aa->isMember(HA)){
-       return;
+
+
+
+    if (aa->isMember(H) || aa->isMember(HA)) {
+        return;
     }
-    
+
     AminoAcidCode aaCode = AminoAcidCode(aa->getCode());
     string aaName = aminoAcidThreeLetterTranslator(aaCode);
-    
-    if (verbose){
+
+    if (verbose) {
         cout << aaName << "\n";
-    
+
     }
 
     vector<vector<string > > paramList = paramH[aaCode];
     vector<string> args;
 
-    
+
     //TRP z H N CA 118.50 C 119.50 -1
     // Add H-N backbone, it takes previus aminoacid reference
-    
-    
-    
-    if (((*aa).sizeInBonds()>0) && ((*aa).getType1L()!='P') ){
+
+
+
+    if (((*aa).sizeInBonds() > 0) && ((*aa).getType1L() != 'P')) {
         IntCoordConverter icc;
         Atom atH;
         atH.setType("H");
-        
+
         AminoAcid before = (*aa).getInBond(0);
         atH.bindIn((*aa)[N]);
-        (*aa).addAtom(atH); 
-        
-        
-        icc.zAtomToCartesian((*aa)[N],BOND_LENGTH_H_TO_ALL,(*aa)[CA],118.50,before[C],119.50,-1,(*aa)[H]);
-                
-    }
-    else{
-        if (verbose){
+        (*aa).addAtom(atH);
+
+
+        icc.zAtomToCartesian((*aa)[N], BOND_LENGTH_H_TO_ALL, (*aa)[CA], 118.50, before[C], 119.50, -1, (*aa)[H]);
+
+    } else {
+        if (verbose) {
             cout << "First residue, undefined H rotation!\n";
         }
     }
-    
+
     AminoAcid aaCopy = (*aa);
 
-    for (unsigned int i=0; i<paramList.size(); i++){
+    for (unsigned int i = 0; i < paramList.size(); i++) {
 
         args.clear();
         args = paramList[i];
@@ -150,27 +146,25 @@ AminoAcidHydrogen::setHydrogen(AminoAcid* aa, bool verbose) {
         IntCoordConverter icc;
 
         int chiral;
-        
+
         AtomCode atHCod = AtomTranslator(args[2]);
         AtomCode atBindCod = AtomTranslator(args[3]); // Binding atom
         AtomCode atAngle1Cod = AtomTranslator(args[4]); // Angle partner 1
         AtomCode atAngle2Cod;
 
-        if (args[1]=="z"){
+        if (args[1] == "z") {
             atAngle2Cod = AtomTranslator(args[6]); // Angle partner 2
-        }
-        else if (args[1]=="t") {
+        } else if (args[1] == "t") {
             atAngle2Cod = AtomTranslator(args[5]); // Angle partner 2
-        }
-        else{
+        } else {
             if (verbose)
                 cout << args[1] << " Wrong H function type!\n";
         }
 
         if (verbose)
             cout << args[2] << "\n";
-        
-        if (args[1]=="z"){
+
+        if (args[1] == "z") {
 
             Atom atH;
 
@@ -178,100 +172,85 @@ AminoAcidHydrogen::setHydrogen(AminoAcid* aa, bool verbose) {
 
             atH.setType(args[2]);
 
-            if (aa->getSideChain().isMember(atBindCod)){
+            if (aa->getSideChain().isMember(atBindCod)) {
 
                 atH.bindIn(aa->getSideChain()[atBindCod]);
                 // WARNING: It changes coords when it shouldn't
-                aa->getSideChain().addAtom(atH); 
+                aa->getSideChain().addAtom(atH);
                 // PATCH: to prevent coords shift caused by addAtom (ex. CZ in PHE)
-                for (unsigned int i=0; i<aa->getSideChain().size(); i++){
-                    if (!isHAtom(aa->getSideChain().getAtom(i).getCode())){
-                        if (isKnownAtom(aa->getSideChain().getAtom(i).getCode())){
+                for (unsigned int i = 0; i < aa->getSideChain().size(); i++) {
+                    if (!isHAtom(aa->getSideChain().getAtom(i).getCode())) {
+                        if (isKnownAtom(aa->getSideChain().getAtom(i).getCode())) {
                             aa->getSideChain().getAtom(i).setCoords(aaCopy.getSideChain()[aa->getSideChain().getAtom(i).getCode()].getCoords());
-                        }
-                        else{
+                        } else {
                             if (verbose)
-                                cout << aa->getSideChain().getAtom(i).getCode() << " " << aa->getSideChain().getAtom(i).getNumber() << " " << AtomTranslator(aa->getSideChain().getAtom(i).getCode()) <<  "\n";
+                                cout << aa->getSideChain().getAtom(i).getCode() << " " << aa->getSideChain().getAtom(i).getNumber() << " " << AtomTranslator(aa->getSideChain().getAtom(i).getCode()) << "\n";
                         }
                     }
                 }
 
-                if (aa->getSideChain().isMember(atAngle1Cod)){
-                    if (aa->getSideChain().isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod],BOND_LENGTH_H_TO_ALL,aa->getSideChain()[atAngle1Cod],atof(args[5].c_str()),aa->getSideChain()[atAngle2Cod],atof(args[7].c_str()),chiral,aa->getSideChain()[atHCod]);
-                    }
-                    else if ((*aa).isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod],BOND_LENGTH_H_TO_ALL,aa->getSideChain()[atAngle1Cod],atof(args[5].c_str()),(*aa)[atAngle2Cod],atof(args[7].c_str()),chiral,aa->getSideChain()[atHCod]);
-                    }
-                    else{
-                        aa->getSideChain().removeAtom(atH); 
+                if (aa->getSideChain().isMember(atAngle1Cod)) {
+                    if (aa->getSideChain().isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod], BOND_LENGTH_H_TO_ALL, aa->getSideChain()[atAngle1Cod], atof(args[5].c_str()), aa->getSideChain()[atAngle2Cod], atof(args[7].c_str()), chiral, aa->getSideChain()[atHCod]);
+                    } else if ((*aa).isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod], BOND_LENGTH_H_TO_ALL, aa->getSideChain()[atAngle1Cod], atof(args[5].c_str()), (*aa)[atAngle2Cod], atof(args[7].c_str()), chiral, aa->getSideChain()[atHCod]);
+                    } else {
+                        aa->getSideChain().removeAtom(atH);
                         if (verbose)
                             cout << " Wrong partner2 atom!\n";
                     }
-                }
-                else if ((*aa).isMember(atAngle1Cod)){
-                    if (aa->getSideChain().isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod],BOND_LENGTH_H_TO_ALL,(*aa)[atAngle1Cod],atof(args[5].c_str()),aa->getSideChain()[atAngle2Cod],atof(args[7].c_str()),chiral,aa->getSideChain()[atHCod]);
-                    }
-                    else if ((*aa).isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod],BOND_LENGTH_H_TO_ALL,(*aa)[atAngle1Cod],atof(args[5].c_str()),(*aa)[atAngle2Cod],atof(args[7].c_str()),chiral,aa->getSideChain()[atHCod]);
-                    }
-                    else{
-                        aa->getSideChain().removeAtom(atH); 
+                } else if ((*aa).isMember(atAngle1Cod)) {
+                    if (aa->getSideChain().isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod], BOND_LENGTH_H_TO_ALL, (*aa)[atAngle1Cod], atof(args[5].c_str()), aa->getSideChain()[atAngle2Cod], atof(args[7].c_str()), chiral, aa->getSideChain()[atHCod]);
+                    } else if ((*aa).isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian(aa->getSideChain()[atBindCod], BOND_LENGTH_H_TO_ALL, (*aa)[atAngle1Cod], atof(args[5].c_str()), (*aa)[atAngle2Cod], atof(args[7].c_str()), chiral, aa->getSideChain()[atHCod]);
+                    } else {
+                        aa->getSideChain().removeAtom(atH);
                         if (verbose)
                             cout << " Wrong partner2 atom!\n";
                     }
-                }
-                else{
-                    aa->getSideChain().removeAtom(atH); 
+                } else {
+                    aa->getSideChain().removeAtom(atH);
                     if (verbose)
                         cout << " Wrong partner1 atom!\n";
                 }
-            }
-            else if ((*aa).isMember(atBindCod)){
+            } else if ((*aa).isMember(atBindCod)) {
 
                 atH.bindIn((*aa)[atBindCod]);
-                (*aa).addAtom(atH); 
+                (*aa).addAtom(atH);
 
-                if (aa->getSideChain().isMember(atAngle1Cod)){
+                if (aa->getSideChain().isMember(atAngle1Cod)) {
 
-                    if (aa->getSideChain().isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian((*aa)[atBindCod],BOND_LENGTH_H_TO_ALL,aa->getSideChain()[atAngle1Cod],atof(args[5].c_str()),aa->getSideChain()[atAngle2Cod],atof(args[7].c_str()),chiral,(*aa)[atHCod]);
-                    }
-                    else if ((*aa).isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian((*aa)[atBindCod],BOND_LENGTH_H_TO_ALL,aa->getSideChain()[atAngle1Cod],atof(args[5].c_str()),(*aa)[atAngle2Cod],atof(args[7].c_str()),chiral,(*aa)[atHCod]);
-                    }
-                    else{
-                        (*aa).removeAtom(atH); 
+                    if (aa->getSideChain().isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian((*aa)[atBindCod], BOND_LENGTH_H_TO_ALL, aa->getSideChain()[atAngle1Cod], atof(args[5].c_str()), aa->getSideChain()[atAngle2Cod], atof(args[7].c_str()), chiral, (*aa)[atHCod]);
+                    } else if ((*aa).isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian((*aa)[atBindCod], BOND_LENGTH_H_TO_ALL, aa->getSideChain()[atAngle1Cod], atof(args[5].c_str()), (*aa)[atAngle2Cod], atof(args[7].c_str()), chiral, (*aa)[atHCod]);
+                    } else {
+                        (*aa).removeAtom(atH);
                         if (verbose)
                             cout << " Wrong partner2 atom!\n";
                     }
-                }
-                else if ((*aa).isMember(atAngle1Cod)){
-                    if (aa->getSideChain().isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian((*aa)[atBindCod],BOND_LENGTH_H_TO_ALL,(*aa)[atAngle1Cod],atof(args[5].c_str()),aa->getSideChain()[atAngle2Cod],atof(args[7].c_str()),chiral,(*aa)[atHCod]);
-                    }
-                    else if ((*aa).isMember(atAngle2Cod)){
-                        icc.zAtomToCartesian((*aa)[atBindCod],BOND_LENGTH_H_TO_ALL,(*aa)[atAngle1Cod],atof(args[5].c_str()),(*aa)[atAngle2Cod],atof(args[7].c_str()),chiral,(*aa)[atHCod]);
-                    }
-                    else{
-                        (*aa).removeAtom(atH); 
+                } else if ((*aa).isMember(atAngle1Cod)) {
+                    if (aa->getSideChain().isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian((*aa)[atBindCod], BOND_LENGTH_H_TO_ALL, (*aa)[atAngle1Cod], atof(args[5].c_str()), aa->getSideChain()[atAngle2Cod], atof(args[7].c_str()), chiral, (*aa)[atHCod]);
+                    } else if ((*aa).isMember(atAngle2Cod)) {
+                        icc.zAtomToCartesian((*aa)[atBindCod], BOND_LENGTH_H_TO_ALL, (*aa)[atAngle1Cod], atof(args[5].c_str()), (*aa)[atAngle2Cod], atof(args[7].c_str()), chiral, (*aa)[atHCod]);
+                    } else {
+                        (*aa).removeAtom(atH);
                         if (verbose)
                             cout << " Wrong partner2 atom!\n";
                     }
-                }
-                else{
-                    (*aa).removeAtom(atH); 
+                } else {
+                    (*aa).removeAtom(atH);
                     if (verbose)
                         cout << " Wrong partner1 atom!\n";
                 }
-            }
-            else{
+            } else {
                 if (verbose)
                     cout << args[3] << " Wrong binding atom!\n";
-            }    
+            }
         }
-       
+
     }
 
     if (verbose)

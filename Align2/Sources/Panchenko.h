@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __Panchenko_H__
 #define __Panchenko_H__
@@ -22,76 +22,74 @@
 #include <PssmInput.h>
 #include <ScoringFunction.h>
 
-namespace Biopool
-{
-/** @brief  Calculate scores for profile to profile alignment using
-*                  Panchenko method. 
- * 
-* @Description  Some explanations can be found in:
-*
-*                  Panchenko AR.
-*                  Finding weak similarities between proteins by sequence
-*                  profile comparison.
-*                  Nucleic Acids Res. 2003 Jan 15;31(2):683-9.
-* @This 
- **/
-class Panchenko : public ScoringFunction
-{
+namespace Biopool {
 
-public:
+    /** @brief  Calculate scores for profile to profile alignment using
+     *                  Panchenko method. 
+     * 
+     * @Description  Some explanations can be found in:
+     *
+     *                  Panchenko AR.
+     *                  Finding weak similarities between proteins by sequence
+     *                  profile comparison.
+     *                  Nucleic Acids Res. 2003 Jan 15;31(2):683-9.
+     * @This 
+     **/
+    class Panchenko : public ScoringFunction {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	Panchenko(Profile *pro1, Profile *pro2, PssmInput *pssm1, PssmInput *pssm2);
+        /// Default constructor.
+        Panchenko(Profile *pro1, Profile *pro2, PssmInput *pssm1, PssmInput *pssm2);
 
-	/// Copy constructor.
-	Panchenko(const Panchenko &orig);
+        /// Copy constructor.
+        Panchenko(const Panchenko &orig);
 
-	/// Destructor.
-	virtual ~Panchenko();
+        /// Destructor.
+        virtual ~Panchenko();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	Panchenko& operator = (const Panchenko &orig);
-
-
-// PREDICATES:
-
-	/// Calculate scores to create matrix values.
-	virtual double scoringSeq(int i, int j);
-
-	/// Return the number of different aminoacids in column i.
-	int returnAaColumnTarget(int i);
-
-	/// Return the number of different aminoacids in column i.
-	int returnAaColumnTemplate(int i);
+        /// Assignment operator.
+        Panchenko& operator =(const Panchenko &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const Panchenko &orig);
+        /// Calculate scores to create matrix values.
+        virtual double scoringSeq(int i, int j);
 
-	/// Construct a new "deep copy" of this object.
-	virtual Panchenko* newCopy();
+        /// Return the number of different aminoacids in column i.
+        int returnAaColumnTarget(int i);
+
+        /// Return the number of different aminoacids in column i.
+        int returnAaColumnTemplate(int i);
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const Panchenko &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual Panchenko* newCopy();
 
 
-private:
+    protected:
 
-// ATTRIBUTES:
 
-	Profile *pro1;       ///< Target profile.
-	Profile *pro2;       ///< Template profile.
-	PssmInput *pssm1;    ///< Target PSSM.
-	PssmInput *pssm2;    ///< Template PSSM.
+    private:
 
-};
+        // ATTRIBUTES:
+
+        Profile *pro1; ///< Target profile.
+        Profile *pro2; ///< Template profile.
+        PssmInput *pssm1; ///< Target PSSM.
+        PssmInput *pssm2; ///< Template PSSM.
+
+    };
 
 } // namespace
 

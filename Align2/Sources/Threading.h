@@ -12,8 +12,8 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
- 
+ */
+
 
 #ifndef __Threading_H__
 #define __Threading_H__
@@ -22,64 +22,62 @@
 #include <Structure.h>
 #include <ThreadingInput.h>
 
-namespace Biopool
-{
-/** @brief    Calculate structural scores with info derived from
-*                  threading.
- * 
-* @Description  
-* @This 
- **/
-class Threading : public Structure
-{
+namespace Biopool {
 
-public:
+    /** @brief    Calculate structural scores with info derived from
+     *                  threading.
+     * 
+     * @Description  
+     * @This 
+     **/
+    class Threading : public Structure {
+    public:
 
-// CONSTRUCTORS:
+        // CONSTRUCTORS:
 
-	/// Default constructor.
-	Threading(AlignmentData *ad, ThreadingInput *thread, double cThr);
+        /// Default constructor.
+        Threading(AlignmentData *ad, ThreadingInput *thread, double cThr);
 
-	/// Copy constructor.
-	Threading(const Threading &orig);
+        /// Copy constructor.
+        Threading(const Threading &orig);
 
-	/// Destructor.
-	virtual ~Threading();
+        /// Destructor.
+        virtual ~Threading();
 
 
-// OPERATORS:
+        // OPERATORS:
 
-	/// Assignment operator.
-	Threading& operator = (const Threading &orig);
-
-
-// PREDICATES:
-
-	/// Calculate structural scores to create matrix values.
-	virtual double scoringStr(int i, int j);
+        /// Assignment operator.
+        Threading& operator =(const Threading &orig);
 
 
-// MODIFIERS:
+        // PREDICATES:
 
-	/// Copy orig object to this object ("deep copy").
-	virtual void copy(const Threading &orig);
-
-	/// Construct a new "deep copy" of this object.
-	virtual Threading* newCopy();
+        /// Calculate structural scores to create matrix values.
+        virtual double scoringStr(int i, int j);
 
 
-protected:
+        // MODIFIERS:
+
+        /// Copy orig object to this object ("deep copy").
+        virtual void copy(const Threading &orig);
+
+        /// Construct a new "deep copy" of this object.
+        virtual Threading* newCopy();
 
 
-private:
+    protected:
 
-// ATTRIBUTES:
 
-	string seq1;               ///< Target sequence.
-	ThreadingInput *thread;    ///< Template threading input file.
-	double cThr;               ///< Coefficient for threading.
+    private:
 
-};
+        // ATTRIBUTES:
+
+        string seq1; ///< Target sequence.
+        ThreadingInput *thread; ///< Template threading input file.
+        double cThr; ///< Coefficient for threading.
+
+    };
 
 } // namespace
 

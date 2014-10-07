@@ -12,10 +12,10 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 /**
-* @Description:        Library of auxiliary I/O functions.
-*/
+ * @Description:        Library of auxiliary I/O functions.
+ */
 
 #ifndef _IO_TOOLS_H_
 
@@ -30,10 +30,10 @@
 #include <String2Number.h>
 
 /// Writes a line separator.
-inline void 
-fillLine(ostream& out)
-{
-  out << "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\n";
+
+inline void
+fillLine(ostream& out) {
+    out << "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\n";
 }
 
 /// Checks if subsequent line is empty.

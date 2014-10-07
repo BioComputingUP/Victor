@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 
 #ifndef _NUCLEOTIDE_H_
@@ -29,178 +29,164 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Biopool {
-/**@brief class implements a simple nucleotide.
- * 
-*@Description Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
-*@This NB Angles are in degrees.
- * */
-class Nucleotide : public Group
-{
-public: 
 
-  // CONSTRUCTORS/DESTRUCTOR:
-  Nucleotide();
-  Nucleotide(const Nucleotide& orig);
-  virtual ~Nucleotide(); 
-  
-  // PREDICATES:
-  virtual string getClassName() const
-    { return "Nucleotide"; }
-  virtual unsigned int getCode() const;
-   unsigned int size() const;
+    /**@brief class implements a simple nucleotide.
+     * 
+     *@Description Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
+     *@This NB Angles are in degrees.
+     * */
+    class Nucleotide : public Group {
+    public:
 
-   unsigned int sizeNucleotide() const;
- 
-  
-  bool isMember(const AtomCode& ac) const;
+        // CONSTRUCTORS/DESTRUCTOR:
+        Nucleotide();
+        Nucleotide(const Nucleotide& orig);
+        virtual ~Nucleotide();
 
-  void save(Saver& s);   // data saver
+        // PREDICATES:
 
-  // MODIFIERS:
-  
+        virtual string getClassName() const {
+            return "Nucleotide";
+        }
+        virtual unsigned int getCode() const;
+        unsigned int size() const;
 
-  void copy(const Nucleotide& orig);
-  void setType(string _name);
-  
-  void setBonds(double NToCaLen, double CaToCLen, double CToOLen, double atCaToCAng, double CaToOAng); 
-  bool setBondsFromPdbCode(bool connect, Nucleotide* prev, bool permissive);
-  
-  virtual void sync(); // synchronize coords with structure
-  virtual void setModified();
-
-  void load(Loader& l);  // data loader
-
-  virtual Component* clone();
-   
-  // OPERATORS:
-  bool operator==(const Nucleotide& other) const;
-  bool operator!=(const Nucleotide& other) const;
-  Nucleotide& operator=(const Nucleotide& orig);
-  Atom& operator[](unsigned int n);
-  const Atom& operator[](unsigned int n) const;
-  Atom& operator[](const AtomCode& ac);
-  const Atom& operator[](const AtomCode& ac) const;
-
-protected:
-
-private:
-
-  // ATTRIBUTES:
-
-  NucleotideCode type;	         // Nucleotide type
-  // vector atoms (inherited from Group) contains the backbone
-  IntCoordConverter icc; // should be static, but compiler won't accept it?
-};
-
-// ---------------------------------------------------------------------------
-//                                    Nucleotide
-// -----------------x-------------------x-------------------x-----------------
-
-// PREDICATES:
-inline unsigned int 
-Nucleotide::getCode() const
-{
-  return nucleotideThreeLetterTranslator(id);
-}
+        unsigned int sizeNucleotide() const;
 
 
-inline unsigned int 
-Nucleotide::size() const 
-{
-  return Group::size();
-}
+        bool isMember(const AtomCode& ac) const;
 
-inline unsigned int 
- Nucleotide::sizeNucleotide() const
- {
-   return Group::size();
- }
+        void save(Saver& s); // data saver
 
-inline bool 
-Nucleotide::isMember(const AtomCode& ac) const
-{
-  return (pGetAtom(ac) != NULL);
-}
-
-inline void 
-Nucleotide::save(Saver& s)
-{
-  s.saveNucleotide(*this);
-}
+        // MODIFIERS:
 
 
-// MODIFIERS:
+        void copy(const Nucleotide& orig);
+        void setType(string _name);
 
-inline void 
-Nucleotide::setType(string _name)
-{ 
-  type = nucleotideThreeLetterTranslator(_name);
-  id.setName(_name);
-}
+        void setBonds(double NToCaLen, double CaToCLen, double CToOLen, double atCaToCAng, double CaToOAng);
+        bool setBondsFromPdbCode(bool connect, Nucleotide* prev, bool permissive);
+
+        virtual void sync(); // synchronize coords with structure
+        virtual void setModified();
+
+        void load(Loader& l); // data loader
+
+        virtual Component* clone();
+
+        // OPERATORS:
+        bool operator==(const Nucleotide& other) const;
+        bool operator!=(const Nucleotide& other) const;
+        Nucleotide& operator=(const Nucleotide& orig);
+        Atom& operator[](unsigned int n);
+        const Atom& operator[](unsigned int n) const;
+        Atom& operator[](const AtomCode& ac);
+        const Atom& operator[](const AtomCode& ac) const;
+
+    protected:
+
+    private:
+
+        // ATTRIBUTES:
+
+        NucleotideCode type; // Nucleotide type
+        // vector atoms (inherited from Group) contains the backbone
+        IntCoordConverter icc; // should be static, but compiler won't accept it?
+    };
+
+    // ---------------------------------------------------------------------------
+    //                                    Nucleotide
+    // -----------------x-------------------x-------------------x-----------------
+
+    // PREDICATES:
+
+    inline unsigned int
+    Nucleotide::getCode() const {
+        return nucleotideThreeLetterTranslator(id);
+    }
+
+    inline unsigned int
+    Nucleotide::size() const {
+        return Group::size();
+    }
+
+    inline unsigned int
+    Nucleotide::sizeNucleotide() const {
+        return Group::size();
+    }
+
+    inline bool
+    Nucleotide::isMember(const AtomCode& ac) const {
+        return (pGetAtom(ac) != NULL);
+    }
+
+    inline void
+    Nucleotide::save(Saver& s) {
+        s.saveNucleotide(*this);
+    }
 
 
-inline void 
-Nucleotide::load(Loader& l)
-{
-  l.loadNucleotide(*this);
-  resetBoundaries();
-}
+    // MODIFIERS:
 
-inline void 
-Nucleotide::setModified()
-{
-  Group::setModified();
-}
+    inline void
+    Nucleotide::setType(string _name) {
+        type = nucleotideThreeLetterTranslator(_name);
+        id.setName(_name);
+    }
+
+    inline void
+    Nucleotide::load(Loader& l) {
+        l.loadNucleotide(*this);
+        resetBoundaries();
+    }
+
+    inline void
+    Nucleotide::setModified() {
+        Group::setModified();
+    }
 
 
 
 
-// OPERATORS:
+    // OPERATORS:
 
-inline bool 
-Nucleotide::operator==(const Nucleotide& other) const
-{
-  return (dynamic_cast<const Identity*>(this)) == 
-    dynamic_cast<const Identity*>(&other);
-}
-  
+    inline bool
+    Nucleotide::operator==(const Nucleotide& other) const {
+        return (dynamic_cast<const Identity*> (this)) ==
+                dynamic_cast<const Identity*> (&other);
+    }
 
-inline bool 
-Nucleotide::operator!=(const Nucleotide& other) const
-{
-  return (dynamic_cast<const Identity*>(this)) != 
-    dynamic_cast<const Identity*>(&other);
-}
+    inline bool
+    Nucleotide::operator!=(const Nucleotide& other) const {
+        return (dynamic_cast<const Identity*> (this)) !=
+                dynamic_cast<const Identity*> (&other);
+    }
 
 
-inline Atom& 
-Nucleotide::operator[](unsigned int n)
-{
-  PRECOND(n < this->size(), exception);
-  return Group::getAtom(n);
-}
+    inline Atom&
+    Nucleotide::operator[](unsigned int n) {
+        PRECOND(n < this->size(), exception);
+        return Group::getAtom(n);
+    }
 
-inline const Atom& 
-Nucleotide::operator[](unsigned int n) const
-{
-  PRECOND(n < this->size(), exception);
-  return Group::getAtom(n);
-}
+    inline const Atom&
+    Nucleotide::operator[](unsigned int n) const {
+        PRECOND(n < this->size(), exception);
+        return Group::getAtom(n);
+    }
 
-inline Atom& 
-Nucleotide::operator[](const AtomCode& ac)
-{
-  Atom* a = pGetAtom(ac);
-  INVARIANT(a != NULL, exception);
-  return *a;
-}
+    inline Atom&
+    Nucleotide::operator[](const AtomCode& ac) {
+        Atom* a = pGetAtom(ac);
+        INVARIANT(a != NULL, exception);
+        return *a;
+    }
 
-inline const Atom& 
-Nucleotide::operator[](const AtomCode& ac) const
-{
-  Atom* a = pGetAtom(ac);
-  INVARIANT(a != NULL, exception);
-  return *a;
-}
+    inline const Atom&
+    Nucleotide::operator[](const AtomCode& ac) const {
+        Atom* a = pGetAtom(ac);
+        INVARIANT(a != NULL, exception);
+        return *a;
+    }
 }
 #endif //_NUCLEOTIDE_H_
