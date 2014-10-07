@@ -18,7 +18,6 @@
 #include <Group.h>
 #include <SideChain.h>
 #include <vector3.h>
-#include <XyzLoader.h>
 #include <PdbLoader.h>
 #include <PdbSaver.h>
 #include <XyzSaver.h>

@@ -12,6 +12,7 @@
 #include "TestLin2dSolver.h"
 #include <TestAtom.h>
 #include <TestGroup.h>
+#include <TestAminoAcid.h>
 using namespace std;
 
 
@@ -22,6 +23,7 @@ int main() {
 	runner.addTest(TestLin2dSolver::suite());
         runner.addTest(TestAtom::suite());
         runner.addTest(TestGroup::suite());
+        runner.addTest(TestAminoAcid::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
