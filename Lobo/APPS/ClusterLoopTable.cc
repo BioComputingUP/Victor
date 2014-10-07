@@ -22,7 +22,7 @@
 #include <IntCoordConverter.h>
 
 using namespace Biopool;
-
+  
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv))
         cout << "This program clusters tables of protein entries for the Lobo "
@@ -51,7 +51,7 @@ int main(int nArgs, char* argv[]) {
     }
 
     if (verbose)
-        cout << "Verify: \n" << "Input from: " << inputFile << "\n"
+        cout << "Verify: \n" << " Input from: " << inputFile << "\n"
             << "Output to: " << outputFile << "\t Cutoff: " << cutoff << endl;
 
     RamachandranData* ramaData = new RamachandranData;

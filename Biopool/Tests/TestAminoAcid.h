@@ -11,7 +11,7 @@
 #include <cppunit/TestCaller.h>
 #include <cppunit/TestSuite.h>
 #include <cppunit/TestCase.h>
-
+#include <AminoAcid.h>
 #include <Atom.h>
 
 using namespace std;
@@ -27,17 +27,17 @@ public:
 	}
 
 	static CppUnit::Test *suite() {
-		CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestAtom");
+		CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestAminoAcid");
 
-		suiteOfTests->addTest(new CppUnit::TestCaller<TestAminoAcid>("Test1 - distance greater than zero.",
+		suiteOfTests->addTest(new CppUnit::TestCaller<TestAminoAcid>("Test1 - Initialize the object.",
 				&TestAminoAcid::testTestAminoAcid_A ));
 
-		suiteOfTests->addTest(new CppUnit::TestCaller<TestAminoAcid>("Test2 - zero distance.",
+	/*	suiteOfTests->addTest(new CppUnit::TestCaller<TestAminoAcid>("Test2 - zero distance.",
 				&TestAminoAcid::testTestAminoAcid_B ));
                 
                 suiteOfTests->addTest(new CppUnit::TestCaller<TestAtom>("Test3 - rotation.",
 				&TestAminoAcid::testTestAminoAcid_C ));
-
+*/
 		return suiteOfTests;
 	}
 
@@ -50,19 +50,11 @@ public:
 protected:
 	void testTestAminoAcid_A() {
 		// Calculate the distance between the two atoms
-                Atom atom0;
-                atom0.setCoords(0,0,0);
-                Atom atom1;
-                atom1.setCoords(1,1,0);
-                //this is the expected value
-                double distance = sqrt(2);
                 
-		cout << endl << "Solution is: x=" << atom0.distance(atom1)
-                        << ", y=" << distance << endl;
-		CPPUNIT_ASSERT( atom0.distance(atom1) == distance );
+                CPPUNIT_ASSERT(  );
 	}
 
-	void testTestAtom_B() {
+	/*void testTestAtom_B() {
                 // Calculate the distance between the two atoms
 		Atom atom0;
                 atom0.setCoords(0,0,0);
@@ -88,7 +80,7 @@ protected:
 		cout << endl << "Solution is: x=" << atom0.distance(atom1)
                         << ", y=" << distance << endl;
 		CPPUNIT_ASSERT( atom0.distance(atom1) == distance );
-	}
+	}*/
 
 
 };

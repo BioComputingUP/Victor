@@ -27,7 +27,7 @@ int main(int nArgs, char* argv[]) {
         cout << "This program clusters the data contained in a Ramachandran"
             << " distribution file.\n"
             << "Usage: \n"
-            << " LoopTableTest -A<src1> -B<src2> -O<file> -R<rama> -S<size> "
+            << "  LoopTableTest -A<src1> -B<src2> -O<file> -R<rama> -S<size> "
             << "[-v] [-h] \n"
             << "\t -i<file> \t Name of input file.\n"
             << "\t -o<file> \t Name of the output file.\n"
