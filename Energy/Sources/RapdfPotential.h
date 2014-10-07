@@ -30,10 +30,13 @@ const unsigned int MAX_TYPES = 168;
 
 namespace Biopool {
 
-    /**@brief class implements the all-atom residue.
+    /**@brief Distance-dependent residue-specific all-atom probability discriminatory function.
      * 
-     *@Description Includes methods that allow to manipulate the all-atom residue specific probability 
-    //    discriminatory function from Samudrala & Moult (JMB 1998).
+     *@Description
+     * The RAPDF potential (Samudrala and Moult, 1998) is a distance-dependent residue-specific all-atom probability discriminatory function. It discriminates between 167 protein heavy atom types, meaning that
+     * different types are assigned to each common atom of the 20 amino acids. E.g. the Cα of an isoleucine is a different type from the Cα of a glycine. Interactions are divided based on distance (d) into 18
+     * bins (b), covering distances of up to 20 Å (d → b := [0,..., 3]→ 1, (3,..., 4]→ 2,(4,..., 5]→ 3,...,(19,..., 20]→ 18). The originally published parameters (Samudrala et al., 1998), as downloaded from the ProStar website (URL: http://prostar.carb.nist.gov/) were used. 
+     * 
      * */
     class RapdfPotential : public Potential {
     public:

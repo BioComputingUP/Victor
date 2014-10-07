@@ -27,19 +27,19 @@ INC_PATH = -I. -I../Sources/TorsionPotential/ -I../../tools/ -I../../Biopool/Sou
 #
  
 
-SOURCES =   
+SOURCES =  
            
-OBJECTS =    
+OBJECTS =  
  
 
 TARGETS =  frst  correlation  energy2zscore   frstZscore  mutationGenerator   \
               pdb2tor    tap2plot  pdb2solv  \
-          solv2energy  pdb2contact  tapRef  pdb2energy taptable pdb2tap pdb2torenergy
+          solv2energy  pdb2contact  tapRef  pdb2energy taptable pdb2tap pdb2torenergy 
  
 
 EXECS =  frst  correlation  energy2zscore   frstZscore  mutationGenerator   \
               pdb2tor    tap2plot    pdb2solv \
-          solv2energy  pdb2contact  tapRef  pdb2energy taptable pdb2tap pdb2torenergy
+          solv2energy  pdb2contact  tapRef  pdb2energy taptable pdb2tap pdb2torenergy 
            
 LIBRARY = APPSlibEnergy.a
 

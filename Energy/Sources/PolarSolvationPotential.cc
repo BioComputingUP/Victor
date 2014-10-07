@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *  
- *@Class               PolarSolvationPotential
- *@Project        Victor
- *@Description    This class implements a knowledge-based solvation with polar/hydrophobic 
- *    information potential.
- */
+
 // Includes:
 #include <PolarSolvationPotential.h>
 
@@ -33,7 +27,7 @@ unsigned int PolarSolvationPotential::BIN_POLAR = 1;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description  basic constructor, allocate the information from the solv.par file
+ *@Description  Basic constructor, allocate the information from the solv.par file
  */
 PolarSolvationPotential::PolarSolvationPotential() : sumPolar() {
     char *victor = getenv("VICTOR_ROOT");

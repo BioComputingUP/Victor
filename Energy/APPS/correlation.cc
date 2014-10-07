@@ -13,13 +13,15 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
 */
-/**
- @Description Tools used for calculating the correlation coefficient of  two sets od data contained in a unique file.
- */
+
 #include <string>
 #include <GetArg.h>
 #include <IoTools.h>
 #include <StatTools.h>
+
+/**
+ @Description Tools used for calculating the correlation coefficient of  two sets od data contained in a unique file.
+ */
 
 void sShowHelp(){
   cout << "Correlation\n"

@@ -32,11 +32,14 @@
 
 namespace Biopool {
 
-    /**@brief class implements a simple amino acid.
+    /**@brief It mplements a simple amino acid.
      * 
      *@Description Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
-     *@This NB Angles are in degrees.
+     * NB: Angles are in degrees.
      * */
+    
+    
+    
     class AminoAcid : public Group {
     public:
 

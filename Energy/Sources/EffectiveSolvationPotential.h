@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               EffectiveSolvationPotential
- *@Project        Victor
- *@Description 
- *    This class implements a knowledge-based solvation with polar/hydrophobic 
- *    information potential.
- */
+
 #ifndef _EFFECTIVESOLVATIONPOTENTIAL_H_
 #define _EFFECTIVESOLVATIONPOTENTIAL_H_
 
@@ -35,9 +29,11 @@ namespace Biopool {
 
     const double SOLVATION_CUTOFF_DISTANCE_EFFECTIVE = 10.0;
 
-    /**@brief class implements a knowledge-based solvation with polar/hydrophobic information potential
+    /**@brief Implements a knowledge-based solvation with polar/hydrophobic information potential. 
+     * A coefficient is used to normalize the propensity.
      * 
-     *@Description  
+     *@Description  This class implements a knowledge-based solvation with polar/hydrophobic 
+     *    information potential. The final values are normalized by an hardcoded coefficient (see source)
      * */
     class EffectiveSolvationPotential : public Potential {
     public:

@@ -30,10 +30,13 @@
 
 namespace Biopool {
 
-    /**@brief class contains the angle structure and a vector with the ordered energies 
+    /**@brief Abstract class for the energy potential.
      * 
      *@Description Includes methods that allow to obtain propensity. 
+     * It also defines a "struct" variable with angles and energy associated to an aminoacid.
+     * 
      * */
+    
     class Potential {
     public:
 
@@ -95,8 +98,12 @@ namespace Biopool {
     //                                  Potential
     // -----------------x-------------------x-------------------x-----------------
 
-/**@brief Energy operator
+    /**@Description Energy operator. It compares enrgies of two Potential::ANGLES structures
+     * @param    Two ANGLES structures associated to two aminoacids
+     * @return    True, if the energy of the object 1 is greater than the energy of the object 2 (bool)  
+     * 
      * */
+            
     struct EnergyGreater : public binary_function<const Potential::ANGLES &, const Potential::ANGLES &, bool> {
 
         bool operator()(const Potential::ANGLES &ref1, const Potential::ANGLES &ref2) {

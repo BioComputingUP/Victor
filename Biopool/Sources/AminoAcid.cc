@@ -21,10 +21,8 @@
  *  
  * For a general introduction visit the following wiki http://protein.bio.unipd.it/victor
  *
- */
-
-/**  @namespace Biopool
- *   @brief This library contains methods that will allow you to representate one aminoacidic string in a efficient way. 
+ *  @namespace Biopool
+ *  @brief This library contains methods that will allow you to representate one aminoacidic string in a efficient way. 
  *    
  *  @Description Including the ableness of reading the lineal sequence of aminoacids or to process one PDB structure.
  */

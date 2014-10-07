@@ -27,7 +27,8 @@ unsigned int SolvationPotential::MAX_BINS = 30;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description    basic constructor, allocate the information from the solv.par file, and set min and max propensities values
+ *@Description    Basic constructor, allocate information from the "solv.par" file, and set the min and max propensities values.
+ *@param      _resol is the number of bins to calculate the statistics. 1 = max resulution.
  */
 SolvationPotential::SolvationPotential(unsigned int _resol) : sum(), binResolution(_resol) {
     char *victor = getenv("VICTOR_ROOT");

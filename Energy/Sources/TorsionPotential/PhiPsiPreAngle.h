@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               PhiPsiPreAngle 
- *@Project      Victor
- */
+
 
 #ifndef _PHIPSIPREANGLE_H_
 #define _PHIPSIPREANGLE_H_

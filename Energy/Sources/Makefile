@@ -27,15 +27,15 @@ INC_PATH = -I. -I./TorsionPotential/ -I../../tools/
 #
  
 
-SOURCES =   PolarSolvationPotential.cc SolvationPotential.cc RapdfPotential.cc   EnergyAnalyzer.cc   \
+SOURCES =   PolarSolvationPotential.cc SolvationPotential.cc RapdfPotential.cc  \
             EnergyFeatures.cc \
           EffectiveSolvationPotential.cc   
            
            
 
-OBJECTS = PolarSolvationPotential.o SolvationPotential.o RapdfPotential.o  EnergyAnalyzer.o   \
+OBJECTS = PolarSolvationPotential.o SolvationPotential.o RapdfPotential.o  \
             EnergyFeatures.o \
-          EffectiveSolvationPotential.o   
+          EffectiveSolvationPotential.o  
 
  
 

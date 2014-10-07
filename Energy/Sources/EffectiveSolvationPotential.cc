@@ -13,14 +13,8 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *  
- *@Class:              EffectiveSolvationPotential
- *@Project Name:       Victor
- *@Description:
- *    This class implements a knowledge-based solvation with polar/hydrophobic 
- *    information potential.
- */
+
+
 // Includes:
 #include <EffectiveSolvationPotential.h>
 #include <AminoAcidCode.h>
@@ -32,7 +26,7 @@ using namespace Biopool;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description    basic constructor, sets the efective solvation potential for the aa
+ *@Description    Basic constructor, sets the efective solvation potential for a chain.
  */
 EffectiveSolvationPotential::EffectiveSolvationPotential() {
 

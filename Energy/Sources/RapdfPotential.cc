@@ -13,15 +13,8 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               RapdfPotential 
- *@Project   Victor
- *@Description 
- *    The RAPDF potential (Samudrala and Moult, 1998) is a distance-dependent residue-specific all-atom probability discriminatory function. It discriminates between 167 protein heavy atom types, meaning that
- *    different types are assigned to each common atom of the 20 amino acids. E.g. the Cα of an isoleucine is a different type from the Cα of a glycine. Interactions are divided based on distance (d) into 18
- *    bins (b), covering distances of up to 20 Å (d → b := [0,..., 3]→ 1, (3,..., 4]→ 2,(4,..., 5]→ 3,...,(19,..., 20]→ 18). The originally published parameters (Samudrala et al., 1998), as downloaded from the ProStar website (URL: http://prostar.carb.nist.gov/) were used.
- * 
- */
+
+
 // Includes:
 #include <RapdfPotential.h>
 #include <AminoAcidCode.h>
@@ -36,7 +29,7 @@ using namespace Biopool;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description    basic constructor, allocate the information from the ram.par file 
+ *@Description    Basic constructor, allocate the information from the ram.par file 
  */
 RapdfPotential::RapdfPotential() {
 

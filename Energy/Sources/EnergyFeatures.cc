@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               EnergyFeatures
- *@Project    Victor
- *@Description 
- *    Interface/wrapper for energy feature calculation, e.g. in FRST2.
- *
- */
+
 // Includes:
 #include <EnergyFeatures.h>
 #include <AminoAcidCode.h>

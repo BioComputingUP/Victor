@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class              PhiPsi
- *@Project         Victor
- */
+
 
 #ifndef _PHIPSI_H_
 #define _PHIPSI_H_

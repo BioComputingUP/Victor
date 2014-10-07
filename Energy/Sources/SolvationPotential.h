@@ -33,11 +33,12 @@ namespace Biopool {
    
     /**@brief Includes methods that allow to  calculate solvation, energy and propensity. 
      * 
-    *@Description:
-    *    A simple solvation potential is derived in analogy to the one described for GenTHREADER
-    *    (Jones, 1999). The likelihood for each of the 20 amino acids to adopt a given relative solvent accessibility is used to derive the pseudo-energy. The relative solvent accessibility is estimated as the number of other
-    *    Cβ atoms within a sphere of radius 10 Å centered on the residue’s Cβ atom. This computationally simple measure was reported to correlate very well (cc > 0.85) with the accessible surface of the residue (Jones, 1999). Since up to 40 surrounding Cβ atoms were encountered in the database, individual propensity bins
-    *    were chosen for each number i of surrounding Cβ atoms (i = 0,..., 40). The energy for a given structure is calculated by summing the individual energies over all residues in the protein.
+     *@Description
+     *   A simple solvation potential is derived in analogy to the one described for GenTHREADER
+     *   (Jones, 1999). The likelihood for each of the 20 amino acids to adopt a given relative solvent accessibility is used to derive the pseudo-energy. The relative solvent accessibility is estimated as the number of other
+     *   Cβ atoms within a sphere of radius 10 Å centered on the residue’s Cβ atom. This computationally simple measure was reported to correlate very well (cc > 0.85) with the accessible surface of the residue (Jones, 1999). 
+     *   Since up to 40 surrounding Cβ atoms were encountered in the database, individual propensity bins
+     *   were chosen for each number i of surrounding Cβ atoms (i = 0,..., 40). The energy for a given structure is calculated by summing the individual energies over all residues in the protein.
     */
     class SolvationPotential : public Potential {
     public:

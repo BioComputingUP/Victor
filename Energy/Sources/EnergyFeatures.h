@@ -13,12 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               EnergyFeatures 
- *@Project        Victor
- *@Description 
- *    Interface/wrapper for energy feature calculation, e.g. in FRST2.
- */
+
 #ifndef _ENERGYFEATURE_H_
 #define _ENERGYFEATURE_H_
 
@@ -36,11 +31,12 @@
 
 namespace Biopool {
 
-    /**@brief  Interface/wrapper for energy feature calculation, e.g. in FRST2.
+    /**@brief  Interface/wrapper for energy and feature calculation for a protein chain. 
      * 
-     *@Description 
-     *@This 
+     *@Description It calculates and prints: energies (RAPDF, solvation, torsional, torsional normalized), aminoacid composition, chain breaks, 
+     * secondary structure composition, hydrogen bonds, residue mesostate composition, clashes.
      * */
+    
     class EnergyFeatures {
     public:
 

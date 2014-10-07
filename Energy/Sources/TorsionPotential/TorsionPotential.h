@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class              TorsionPotential
- *@Project        Victor
- */
+
 
 #ifndef _TORSIONPOTENTIAL_H_
 #define _TORSIONPOTENTIAL_H_
