@@ -30,15 +30,11 @@ SOURCES =
 
 OBJECTS =  
 
-TARGETS = AtomTest GroupTest AminoAcidTest SpacerTest LigandSetTest \
-	ReferenceTest SideChainTest BuildTest IntSpacerTest \
-	PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover  addCbTest ProteinTest ProteinTestLoadAllchains CreateReference InsertTest
+TARGETS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
+	pdbMover  CreateReference
 
-EXECS = AtomTest GroupTest AminoAcidTest SpacerTest LigandSetTest \
-	ReferenceTest SideChainTest BuildTest IntSpacerTest \
-	PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover  addCbTest ProteinTest ProteinTestLoadAllchains CreateReference InsertTest
+EXECS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
+	pdbMover   CreateReference 
 
 LIBRARY = APPSlibBiopool.a
 
