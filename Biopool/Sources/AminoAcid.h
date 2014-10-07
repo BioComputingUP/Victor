@@ -154,7 +154,7 @@ namespace Biopool {
         double phi, psi, omega; // torsion angles
         SideChain sideChain;
         // vector atoms (inherited from Group) contains the backbone
-        IntCoordConverter icc; // should be static, but compiler won't accept it?
+        IntCoordConverter icc;  
     };
 
     // ---------------------------------------------------------------------------

@@ -55,6 +55,6 @@ int main(int nArgs, char* argv[]) {
 
     PdbSaver pss2(outFile2);
     sp.save(pss2);
-
+    
     return 0;
 }

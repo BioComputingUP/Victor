@@ -11,7 +11,7 @@
 
 #include "TestLin2dSolver.h"
 #include <TestAtom.h>
-
+#include <TestGroup.h>
 using namespace std;
 
 
@@ -21,6 +21,7 @@ int main() {
 	cout << "Creating Test Suites:" << endl;
 	runner.addTest(TestLin2dSolver::suite());
         runner.addTest(TestAtom::suite());
+        runner.addTest(TestGroup::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
