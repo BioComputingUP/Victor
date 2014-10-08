@@ -32,9 +32,9 @@ namespace Biopool {
     /** @brief class manages the angle qualities and the energy, torsion potential. 
      * 
      * @Description This class implements a simple torsion potential based on the 
-  //    statistical preference of aminoacid types for phi , psi and
-  //    prephi and prepsi angles..
-     * @This 
+     *   statistical preference of aminoacid types for phi , psi and
+     *   prephi and prepsi angles..
+     * 
      * */
     class PhiPsiPreAngle : public TorsionPotential {
     public:

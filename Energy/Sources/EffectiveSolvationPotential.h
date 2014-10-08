@@ -29,7 +29,8 @@ namespace Biopool {
 
     const double SOLVATION_CUTOFF_DISTANCE_EFFECTIVE = 10.0;
 
-    /**@brief Implements a knowledge-based solvation with polar/hydrophobic information potential. 
+    /**
+     * @brief Implements a knowledge-based solvation with polar/hydrophobic information potential. 
      * A coefficient is used to normalize the propensity.
      * 
      *@Description  This class implements a knowledge-based solvation with polar/hydrophobic 

@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class             Potential 
- *@Description 
- *    Base class for energy calculation
- */
+
 #ifndef _POTENTIAL_H_
 #define _POTENTIAL_H_
 
@@ -30,7 +26,8 @@
 
 namespace Biopool {
 
-    /**@brief Abstract class for the energy potential.
+    /**
+     * @brief Abstract class for the energy potential.
      * 
      *@Description Includes methods that allow to obtain propensity. 
      * It also defines a "struct" variable with angles and energy associated to an aminoacid.

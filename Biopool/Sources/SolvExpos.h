@@ -21,29 +21,31 @@
 
 namespace Biopool {
 
-    /**
-     * @Description A module to determine the solvent exposure/accessibility of residues in a
-     *   protein fragment.
-     */
-    
-    enum SolvExpos {
-        CORE, EXPOSED
+    class SolvExpos {
+    public:
+
+        enum SolvExposEnum {
+            CORE, EXPOSED
+        };
+        SolvExpos();
+        ~SolvExpos();
+        
+        SolvExposEnum getSolvExpos(Spacer &chain, const unsigned int tgt,
+                const unsigned int start, const unsigned int end);
+
+        vector<SolvExposEnum>* getSolvExposVec(Spacer &chain,
+                const unsigned int tgtS, const unsigned int tgtE,
+                const unsigned int envS, const unsigned int envE);
+
+        double getSolvAccess(Spacer &chain, unsigned int tgt,
+                unsigned int start, unsigned int end);
+
+        vector<double> getSolvAccessVec(Spacer &chain,
+                unsigned int tgtS, unsigned int tgtE,
+                unsigned int envS, unsigned int envE);
+    private:
+        
     };
-
-    SolvExpos getSolvExpos(Spacer &chain, const unsigned int tgt,
-            const unsigned int start, const unsigned int end);
-
-    vector<SolvExpos>* getSolvExposVec(Spacer &chain,
-            const unsigned int tgtS, const unsigned int tgtE,
-            const unsigned int envS, const unsigned int envE);
-
-    double getSolvAccess(Spacer &chain, unsigned int tgt,
-            unsigned int start, unsigned int end);
-
-    vector<double> getSolvAccessVec(Spacer &chain,
-            unsigned int tgtS, unsigned int tgtE,
-            unsigned int envS, unsigned int envE);
-
 } // namespace
 
 #endif

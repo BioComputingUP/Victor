@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class:              PhiPsiOmega 
- *@Project Name:       Victor
- *@Description:        See .h file
- */
+
 // Includes:
 #include <PhiPsiOmega.h>
 #include <float.h>

@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    Loads components (Atoms, Groups, etc.) in SEQ format.
- *    SEQ format lists the aminoacids, one per line, followed by the 
- *    torsion angle settings. 
- *    Note: saveGroup() is not implemented, as it has no valid use.
- */
+
 // Includes:
 #include <SeqSaver.h>
 #include <IoTools.h>

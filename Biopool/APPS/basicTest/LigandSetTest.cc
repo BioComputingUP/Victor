@@ -164,7 +164,7 @@ int main(int nArgs, char* argv[])
   {
       //PdbLoader pl(inFile2);
       //pl.setModel(modelNum);
-      //pl.setNoHAtoms(); //ha effetto solo per loadSpacer
+      //pl.setNoHAtoms(); 
       os<<"Catena "<<allCh[i]<<":"<<endl;
       pl.setChain(allCh[i]);
       

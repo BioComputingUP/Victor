@@ -32,7 +32,6 @@ namespace Biopool {
 /** @brief class manages the angle qualities and the energy 
      * 
      * @Description This class implements a simple torsion potential based on the statistical preference of aminoacid types for omega angles.
-     * @This 
      * */
     class Omega : public TorsionPotential {
     public:

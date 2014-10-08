@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class              PhiPsiOmegaPreAngle
- *@Base Class(es)     TorsionPotential 
- *@Project        Victor
- */
+
 //---------------------------------------------------------------------------
 // Includes:
 #include <PhiPsiOmegaPreAngle.h>

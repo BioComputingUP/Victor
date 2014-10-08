@@ -31,7 +31,8 @@
 
 namespace Biopool {
 
-    /**@brief  Interface/wrapper for energy and feature calculation for a protein chain. 
+    /**
+     * @brief  Interface/wrapper for energy and feature calculation for a protein chain. 
      * 
      *@Description It calculates and prints: energies (RAPDF, solvation, torsional, torsional normalized), aminoacid composition, chain breaks, 
      * secondary structure composition, hydrogen bonds, residue mesostate composition, clashes.

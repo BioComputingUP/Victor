@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               Chi1Chi2
- *@Project        Victor
- *@Description 
- *    This class implements a simple torsion potential based on the 
- *    statistical preference of aminoacid types for certain Chi1 and Chi2 angles.
- */
+
 
 // Includes:
 #include <Chi1Chi2.h>

@@ -33,8 +33,7 @@ namespace Biopool {
      * 
      * @Description This class implements a simple torsion potential based on the 
      *    statistical preference of aminoacid types for certain
-     *    phi, psi, chi1, chi2 and omega angles.
-     * @This 
+     *    phi, psi, chi1, chi2 and omega angles. 
      * */
     class PhiPsiOmegaChi1Chi2 : public TorsionPotential {
     public:

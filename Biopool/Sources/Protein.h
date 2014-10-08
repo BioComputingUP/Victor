@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class            Protein
- *@Base Class(es):    Polymer
- *@Containing:        LigandSet, Spacer
- *@Project Name:      Victor
- *  Warning:           Copy and delete methods needs more work
- */
+
 
 #ifndef PROTEIN_H
 #define	PROTEIN_H

@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class               RapdfPotential 
- *@Project       Victor 
- **/
+
 
 #ifndef _RAPDFPOTENTIAL_H_
 #define _RAPDFPOTENTIAL_H_
@@ -30,7 +27,8 @@ const unsigned int MAX_TYPES = 168;
 
 namespace Biopool {
 
-    /**@brief Distance-dependent residue-specific all-atom probability discriminatory function.
+    /**
+     * @brief Distance-dependent residue-specific all-atom probability discriminatory function.
      * 
      *@Description
      * The RAPDF potential (Samudrala and Moult, 1998) is a distance-dependent residue-specific all-atom probability discriminatory function. It discriminates between 167 protein heavy atom types, meaning that

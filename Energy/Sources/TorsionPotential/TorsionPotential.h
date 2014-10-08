@@ -31,7 +31,6 @@ namespace Biopool {
      *    statistical preference of aminoacid types for certain angles.
      * 
      * @Description Is a generic class for administrate different angles. Includes methods that allow to calculate max and min energy, also contains virtual methods that will be defined in the differents angles classes.
-     * @This 
      * */
     class TorsionPotential : public Potential {
     public:
