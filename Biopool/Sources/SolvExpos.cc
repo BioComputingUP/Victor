@@ -18,7 +18,7 @@
  *                              protein fragment.
  */
 #include <SolvExpos.h>
-
+using namespace Biopool;
 namespace Biopool {
 
     Atom& getReprAtom(AminoAcid &amino);
@@ -97,7 +97,10 @@ unsigned int Biopool::getNumNeighbours(Spacer &chain, const unsigned int tgt,
 
     return tot;
 }
-
+SolvExpos::SolvExpos(){
+}
+SolvExpos::~SolvExpos(){
+}
 /**
  *@Description in the case of a C-terminal fragment, 'end' is assumed to be the index of
  *    a fictitious residue after the entire protein chain.
@@ -112,7 +115,7 @@ unsigned int Biopool::getNumNeighbours(Spacer &chain, const unsigned int tgt,
  *         fragment.
  *@return solvent exposure of the target residue with respect to the fragment.
  */
-Biopool::SolvExpos Biopool::getSolvExpos(Spacer &chain, const unsigned int tgt,
+SolvExpos::SolvExposEnum SolvExpos::getSolvExpos(Spacer &chain, const unsigned int tgt,
         const unsigned int start, const unsigned int end) {
     const unsigned int NGB_MIN = 20;
 
@@ -146,11 +149,11 @@ Biopool::SolvExpos Biopool::getSolvExpos(Spacer &chain, const unsigned int tgt,
  *    this vector is the solvent exposure of the i-th target residue
  *    (i = 0, ... , tgtNum-1).
  */
-vector<Biopool::SolvExpos>* Biopool::getSolvExposVec(Spacer& chain,
+vector<SolvExpos::SolvExposEnum>* SolvExpos::getSolvExposVec(Spacer& chain,
         const unsigned int tgtS, const unsigned int tgtE,
         const unsigned int envS, const unsigned int envE) {
     const unsigned int tgtNum = tgtE - tgtS;
-    vector<SolvExpos>* seVec = new vector<SolvExpos>(tgtNum);
+    vector<SolvExpos::SolvExposEnum>* seVec = new vector<SolvExpos::SolvExposEnum>(tgtNum);
 
     for (unsigned int t = 0; t < tgtNum; ++t)
         (*seVec)[t] = getSolvExpos(chain, tgtS + t, envS, envE);
@@ -176,7 +179,7 @@ vector<Biopool::SolvExpos>* Biopool::getSolvExposVec(Spacer& chain,
  * 
  *    solvent accessibility of the target residue with respect to the fragment.
  */
-double Biopool::getSolvAccess(Spacer &chain, unsigned int tgt,
+double SolvExpos::getSolvAccess(Spacer &chain, unsigned int tgt,
         unsigned int start, unsigned int end) {
     const double NGB_MAX = 30;
 
@@ -224,7 +227,7 @@ double Biopool::getSolvAccess(Spacer &chain, unsigned int tgt,
 //
 // ---------------------------------------------------------------------------
 
-vector<double> Biopool::getSolvAccessVec(Spacer &chain, unsigned int tgtS,
+vector<double> SolvExpos::getSolvAccessVec(Spacer &chain, unsigned int tgtS,
         unsigned int tgtE, unsigned int envS, unsigned int envE) {
     const unsigned int tgtNum = tgtE - tgtS;
 

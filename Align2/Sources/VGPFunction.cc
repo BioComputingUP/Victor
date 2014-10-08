@@ -29,6 +29,7 @@
 // -----------------x-----------------------------------------------------------
 
 #include <VGPFunction.h>
+#include <SolvExpos.h>
 
 namespace Biopool {
 
@@ -237,7 +238,8 @@ namespace Biopool {
 
             // Solvent accessibility
             try {
-                double solvAcc = getSolvAccess(*sp, k, 0, sp->sizeAmino());
+                SolvExpos solv;
+                double solvAcc = solv.getSolvAccess(*sp, k, 0, sp->sizeAmino());
                 solvAccess.push_back(solvAcc);
                 //previousSolvAcc = solvAcc;
             } catch (const char* exc) {
