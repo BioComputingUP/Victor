@@ -74,7 +74,7 @@ void SideChain::setBackboneRef(AminoAcid* br) {
     backboneRef = br;
     if ((backboneRef == NULL) || (size() == 0))
         return;
-    if ((*this)[0].sizeInBonds())
+   z if ((*this)[0].sizeInBonds())
         (*this)[0].unbindIn((*this)[0].getInBond(0));
     if (backboneRef->isMember(CA))
         (*this)[0].bindIn((*backboneRef)[CA]);
