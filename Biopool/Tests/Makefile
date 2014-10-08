@@ -26,7 +26,7 @@ INC_PATH = -I.
 # Objects and headers
 #
 
-SOURCES =  TestBiopool.cc Lin2dSolver.h TestLin2dSolver.h TestAtom.h TestAminoAcid.h TestGroup.h
+SOURCES =  TestBiopool.cc Lin2dSolver.h TestLin2dSolver.h TestAtom.h TestAminoAcid.h TestGroup.h TestSpacer.h
 
 OBJECTS =  $(SOURCES:.cpp=.o)
 

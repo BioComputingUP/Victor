@@ -13,6 +13,7 @@
 #include <TestAtom.h>
 #include <TestGroup.h>
 #include <TestAminoAcid.h>
+#include <TestSpacer.h>
 using namespace std;
 
 
@@ -24,6 +25,7 @@ int main() {
         runner.addTest(TestAtom::suite());
         runner.addTest(TestGroup::suite());
         runner.addTest(TestAminoAcid::suite());
+        runner.addTest(TestSpacer::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
