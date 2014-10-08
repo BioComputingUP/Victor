@@ -13,9 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    This class implements a side chain.*/
+
 
 #ifndef _SIDECHAIN_H_
 #define _SIDECHAIN_H_
@@ -27,7 +25,8 @@
 
 namespace Biopool {
 
-    /**@brief This class implements a side chain
+    /**
+     * @brief This class implements a side chain
      * 
      * */
     class SideChain : public Group {

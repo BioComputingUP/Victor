@@ -13,19 +13,20 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- 
- *@Description:     Defines chemical and abstract bonds between objects.
- *                  eg.: covalent bonds.
- *                  Attention: copy() strips orig from its SimpleBonds and 
- *                  attaches them to the new SimpleBond. 
- */
+
 
 #include <algorithm>
 #include <SimpleBond.h>
 
+using namespace Biopool;
+
 // CONSTRUCTORS/DESTRUCTOR:
 
+/**
+ * @Descripton Basic constructor
+ * @param mI, maximum in bonds
+ * @param mO, maximum out bonds
+ */
 SimpleBond::SimpleBond(unsigned int mI, unsigned int mO) : inBonds(),
 outBonds(), maxIn(mI), maxOut(mO), id("X") {
     PRINT_NAME;
@@ -50,7 +51,7 @@ SimpleBond::~SimpleBond() {
 // PREDICATES:
 
 /**
- *@Description:
+ *@Description
  *    Checks if this is indirectly bonded to c.
  *    (ie. A to C if A bond B and B bond C) 
  */
@@ -66,7 +67,7 @@ bool SimpleBond::isIndirectBond(const SimpleBond& c) const {
 }
 
 /**
- *@Description:
+ *@Description
  *    Checks if this is indirectly bonded to c.
  *    (ie. A to C if A bond B and B bond C) */
 bool SimpleBond::isIndirectInBond(const SimpleBond& c) const {
@@ -78,7 +79,7 @@ bool SimpleBond::isIndirectInBond(const SimpleBond& c) const {
 }
 
 /**
- *@ Description:
+ *@Description
  *    Checks if this is indirectly bonded to c.
  *    (ie. A to C if A bond B and B bond C) */
 bool SimpleBond::isIndirectOutBond(const SimpleBond& c) const {
@@ -90,7 +91,7 @@ bool SimpleBond::isIndirectOutBond(const SimpleBond& c) const {
 }
 
 /**
- *@Description:
+ *@Description
  *    Checks if this is torsion bond to c.
  *    (ie. A to D if A indirect bond C and C bond D) */
 bool SimpleBond::isTorsionBond(const SimpleBond& c) const {
@@ -108,8 +109,9 @@ bool SimpleBond::isTorsionBond(const SimpleBond& c) const {
 // MODIFIERS:
 
 /**
- *@Description:
- *    Sets and in-bond from this to c.*/
+ * @Description
+ *    Sets and in-bond from this to c.
+ */
 void SimpleBond::bindIn(SimpleBond& c) {
     PRINT_NAME;
     if (isInBond(c))
@@ -121,8 +123,8 @@ void SimpleBond::bindIn(SimpleBond& c) {
 }
 
 /**
- *@Description:
- *    Sets and out-bond from this to c.*/
+ * @Description Sets and out-bond from this to c
+ */
 void SimpleBond::bindOut(SimpleBond& c) {
     PRINT_NAME;
     if (isOutBond(c))
@@ -134,7 +136,7 @@ void SimpleBond::bindOut(SimpleBond& c) {
 }
 
 /**
- *@Description:
+ *@Description
  *    Removes an in-bond from this to c.*/
 void SimpleBond::unbindIn(SimpleBond& c) {
     PRINT_NAME;
@@ -143,7 +145,7 @@ void SimpleBond::unbindIn(SimpleBond& c) {
 }
 
 /**
- *@Description:
+ *@Description
  *    Removes an out-bond from this to c.*/
 void SimpleBond::unbindOut(SimpleBond& c) {
     PRINT_NAME;
@@ -152,7 +154,7 @@ void SimpleBond::unbindOut(SimpleBond& c) {
 }
 
 /**
- *@Description:
+ *@Description
  *    Private method to find the matching in-bond from c to this to remove.*/
 void SimpleBond::pUnbindIn(SimpleBond& c) {
     PRINT_NAME;
@@ -165,8 +167,7 @@ void SimpleBond::pUnbindIn(SimpleBond& c) {
 }
 
 /**
- *@Description:
-//    Private method to find the matching out-bond from c to this to remove.
+ *@Description  Private method to find the matching out-bond from c to this to remove.
  */
 void SimpleBond::pUnbindOut(SimpleBond& c) {
     PRINT_NAME;
@@ -179,7 +180,7 @@ void SimpleBond::pUnbindOut(SimpleBond& c) {
 }
 
 /** 
- *@Description:
+ *@Description
  *    Copy operator.
  *    Attention: copy() strips orig from its bonds and attaches them to 
  *               the new bond. 

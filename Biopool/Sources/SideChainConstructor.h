@@ -13,6 +13,8 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
 #ifndef _SIDECHAIN_CONSTRUCTOR_H_
 #define _SIDECHAIN_CONSTRUCTOR_H_
 
@@ -26,8 +28,9 @@
 
 namespace Biopool {
 
-    /**@brief base reference stream
-     *@This 
+    /**
+     * @brief base reference stream
+     * 
      * */
     class SideChainConstructor {
     public:

@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description A module to determine the solvent exposure/accessibility of residues in a
- *                              protein fragment.
- */
+
 #ifndef __SolvExpos_H__
 #define __SolvExpos_H__
 
@@ -24,6 +21,11 @@
 
 namespace Biopool {
 
+    /**
+     * @Description A module to determine the solvent exposure/accessibility of residues in a
+     *   protein fragment.
+     */
+    
     enum SolvExpos {
         CORE, EXPOSED
     };

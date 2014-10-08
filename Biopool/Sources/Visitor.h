@@ -13,6 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 #ifndef _VISITOR_H_
 #define _VISITOR_H_
 
@@ -28,9 +29,11 @@ namespace Biopool {
     class AminoAcid;
     class Spacer;
 
-    /**@brief Base class implementing the visitor pattern  
+    /**
+     * @brief Base class implementing the visitor pattern  
      * 
-     *@Description   This class uses the implicit copy operator. This is mostly used for implementing optimizers not contained in  the Biopool  module (e.g. EnergyCalculator, SideChainPlacement).
+     * @Description   Uses the implicit copy operator. 
+     * This is mostly used for implementing optimizers not contained in the Biopool module (e.g. EnergyCalculator, SideChainPlacement).
      **/
     class EnergyVisitor {
     public:
@@ -55,9 +58,10 @@ namespace Biopool {
 
     };
 
-        /**@brief base class  Optimizacion Patter. 
+    /**@brief Base class Optimizacion Patter. 
      * 
-     *@Description   This class uses the implicit copy operator.This is mostly used for implementing optimizers not contained in  the Biopool  module (e.g. EnergyCalculator, SideChainPlacement).
+     * @Description  Uses the implicit copy operator. This is mostly used for implementing 
+     * optimizers not contained in  the Biopool module (e.g. EnergyCalculator, SideChainPlacement).
      **/
     class OptimizationVisitor {
     public:

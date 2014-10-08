@@ -31,12 +31,13 @@
 
 namespace Biopool {
 
-    /**@brief This class implements a "Spacer" for a protein chain. Include methods to obtain values from the atoms and its pdb information.
+    /**@brief Implements a "Spacer" for a protein chain. Includes methods to obtain values from the atoms and its pdb information.
      * 
-     *@Description The current implementation allows for "1 to 1" spacers,
+     *@Description ***Attention*** The current implementation allows for "1 to 1" spacers,
      *    ie. spacers composed of a single aminoacid chain. Class that develop the virtual methods from the parent class
      *   Polymer.
      * */
+   
 
     class Spacer : public Polymer {
     public:
@@ -88,13 +89,16 @@ namespace Biopool {
 
         // MODIFIERS:
 
-        ///inserts a new aminoacid after given position setting given torsion angles and atomic distances
+       
+        
         void insertAminoAfter(string code, unsigned int n = 9999, double phi = -62,
                 double psi = -41, double omega = 180,
                 double NToCaLen = 1.458, double CaToCLen = 1.52, double CToOLen = 1.231,
                 double atCaToCAng = 111.6, double CaToOAng = 120.80,
                 double CtoNLen = 1.33, double atCToNAng = 116.4,
                 double OToNAng = 123.2, double atNToCaAng = 121.9);
+        
+       
         void insertAminoAfterWithGaps(string code, unsigned int n = 9999, double phi = -62,
                 double psi = -41, double omega = 180,
                 int beginHole = 0, int endHole = 0,
@@ -104,7 +108,9 @@ namespace Biopool {
                 double atCaToCAng = 111.6, double CaToOAng = 120.80,
                 double CtoNLen = 1.33, double atCToNAng = 116.4,
                 double OToNAng = 123.2, double atNToCaAng = 121.9);
-        ///inserts a new aminoacid before given position setting given torsion angles and atomic distances
+        
+       
+        
         void insertAminoBefore(string code, unsigned int p = 0, double phi = -62,
                 double psi = -41, double omega = 180,
                 double NToCaLen = 1.458, double CaToCLen = 1.52, double CToOLen = 1.231,
@@ -113,6 +119,10 @@ namespace Biopool {
                 double OToNAng = 123.2, double atNToCaAng = 121.9);
         void setStartOffset(int _offset);
 
+        /**
+         * @Description Set the atom offset
+         * @param _offset
+         */
         void setAtomStartOffset(int _offset) {
             startAtomOffset = _offset;
         }
@@ -226,8 +236,7 @@ namespace Biopool {
 
     /**
      *@Description Saves the information from the saver into the Spacer
-     *@param reference to the saver(Saver&)
-     *@return changes are made internally(void)
+     *@param s, reference to the saver
      */
     inline void Spacer::save(Saver& s) {
         s.saveSpacer(*this);
@@ -235,8 +244,7 @@ namespace Biopool {
 
     /**
      *@Description Allows to know if there is a spacer in the protein or not. 
-     *@param none
-     *@return quantity of spacers, possible values are 0 or 1(const unsigned int).
+     *@return quantity of spacers, possible values are 0 or 1
      */
     inline const unsigned int Spacer::sizeSpacer() const {
         return subSpacerList.size();
@@ -246,8 +254,7 @@ namespace Biopool {
 
     /**
      *@Description Removes the corresponding component
-     *@param pointer to the component to remove(Component*), usually the object that is calling the method.
-     *@return  changes are made internally(void)
+     *@param c, pointer to the component to remove, usually the object that is calling the method.
      */
     inline void Spacer::removeComponent(Component* c) {
         Polymer::removeComponent(c);
@@ -256,8 +263,7 @@ namespace Biopool {
 
     /**
      *@Description Removes the corresponding component in the corresponding index
-     *@param index to the component to remove(unsigned int), usually the index of the object that is calling the method.
-     *@return  changes are made internally(void)
+     *@param i, index to the component to remove, usually the index of the object that is calling the method.
      */
     inline void Spacer::removeComponentFromIndex(unsigned int i) {
         Polymer::removeComponentFromIndex(i);
@@ -266,8 +272,7 @@ namespace Biopool {
 
              /**
      *@Description Similar to removeComponent but also free the component's memory space
-     *@param pointer to the Component to delete(Component*)
-     *@return changes are made internally(void)
+     *@param c, pointer to the Component to delete
      */inline void Spacer::deleteComponent(Component* c) {
         Polymer::deleteComponent(c);
         setModified();
@@ -275,8 +280,7 @@ namespace Biopool {
 
     /**
      *@Description Loads the Spacer from a Loader
-     *@param reference of the Loader(Loader&)
-     *@return changes are made internally(void)
+     *@param l, reference of the Loader
      */
     inline void Spacer::load(Loader& l) {
         l.loadSpacer(*this);
@@ -285,8 +289,7 @@ namespace Biopool {
 
     /**
      *@Description Sets the translation vector
-     *@param the translation vector to set(vgVector3<double>)
-     *@return changes are made internally(void)
+     *@param t, the translation vector to set
      */
     inline void Spacer::setTrans(vgVector3<double> t) {
         if (sizeAmino())
@@ -295,8 +298,7 @@ namespace Biopool {
 
     /**
      *@Description Adds a the translation vector
-     *@param the translation vector to add(vgVector3<double>)
-     *@return changes are made internally(void)
+     *@param t, the translation vector to add
      */
     inline void Spacer::addTrans(vgVector3<double> t) {
         if (sizeAmino())
@@ -305,8 +307,7 @@ namespace Biopool {
 
     /**
      *@Description Sets the rotation matrix
-     *@param the rotation matrix to set(vgMatrix3<double>)
-     *@return changes are made internally(void)
+     *@param r, the rotation matrix to set
      */
     inline void Spacer::setRot(vgMatrix3<double> r) {
         if (sizeAmino())
@@ -315,8 +316,7 @@ namespace Biopool {
 
     /**
      *@Description Adds a rotation matrix
-     *@param the rotation matrix to add(vgMatrix3<double>)
-     *@return changes are made internally(void)
+     *@param r, the rotation matrix to add
      */
     inline void Spacer::addRot(vgMatrix3<double> r) {
         if (sizeAmino())
@@ -325,8 +325,8 @@ namespace Biopool {
 
     /**
      *@Description Returns the reference to the spacer that contains the inBond for the n Atom
-     *@param index of the atom(unsigned int)
-     *@return reference to the spacer that contains the inBond information (const Spacer& )
+     *@param n, index of the atom
+     *@return reference to the spacer that contains the inBond information
      */
     inline const Spacer& Spacer::getInBond(unsigned int n) const {
         return dynamic_cast<const Spacer&> (Bond::getInBond(n));
@@ -334,8 +334,8 @@ namespace Biopool {
 
     /**
      *@Description Returns the reference to the spacer that contains the inBond for the n Atom
-     *@param index of the atom(unsigned int)
-     *@return reference to the spacer that contains the inBond information (const Spacer& )
+     *@param n, index of the atom
+     *@return reference to the spacer that contains the inBond information
      */
     inline Spacer& Spacer::getInBond(unsigned int n) {
         return dynamic_cast<Spacer&> (Bond::getInBond(n));
@@ -343,8 +343,8 @@ namespace Biopool {
 
     /**
      *@Description Returns the reference to the spacer that contains the outBond for the n Atom
-     *@param index of the atom(unsigned int)
-     *@return reference to the spacer that contains the outBond information (const Spacer& )
+     *@param n, index of the atom
+     *@return reference to the spacer that contains the outBond information
      */
     inline const Spacer& Spacer::getOutBond(unsigned int n) const {
         return dynamic_cast<const Spacer&> (Bond::getOutBond(n));
@@ -352,8 +352,8 @@ namespace Biopool {
 
     /**
      *@Description Returns the reference to the spacer that contains the outBond for the n Atom
-     *@param index of the atom(unsigned int)
-     *@return reference to the spacer that contains the outBond information (const Spacer& )
+     *@param n, index of the atom
+     *@return reference to the spacer that contains the outBond information 
      */
     inline Spacer& Spacer::getOutBond(unsigned int n) {
         return dynamic_cast<Spacer&> (Bond::getOutBond(n));
@@ -361,8 +361,7 @@ namespace Biopool {
 
     /**
      *@Description Sets the Spacer as part of the Energy Visitor object
-     *@param pointer to the Energy visitor object(EnergyVisitor* )
-     *@return changes are made internally(void)
+     *@param v, pointer to the Energy visitor object
      */
     inline void Spacer::acceptCalculator(EnergyVisitor* v) {
         v->PrepareSpacer(*this);
@@ -370,8 +369,7 @@ namespace Biopool {
 
     /**
      *@Description Sets the Spacer as part of the Optimization Visitor object
-     *@param pointer to the Optimization Visitor(OptimizationVisitor*)
-     *@return changes are made internally(void)
+     *@param v, pointer to the Optimization Visitor
      */
     inline void Spacer::acceptOptimizer(OptimizationVisitor* v) {
         v->PrepareSpacer(*this);
