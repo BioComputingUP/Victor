@@ -13,14 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class:             Ligand
- *@Project Name:      Victor
- *@ATTENTION:         This class is *NOT* finished yet.
- *                     There are many methods which have only a head
- *                     declaration and no code inside.
- *                     2012-Francesco Lovo: load and save methods are completed
- */
+
 
 #ifndef _Ligand_H_
 #define _Ligand_H_
@@ -38,11 +31,10 @@
 
 namespace Biopool {
 
-    /**@brief class implements methods to verify the ligand qualities
+    /**@brief Implements methods to verify the ligand properties
      * 
-     *@Description  
-     *@This 
      * */
+ 
     class Ligand : public Group {
     public:
 
@@ -56,8 +48,8 @@ namespace Biopool {
         }
 
         // PREDICATES:
-        bool isMetalCompound(); //I don't understans which was the purpose of thoose
-        bool isCommonMetal(); //two functions (their lists of IDs appears uncorrect)
+        bool isMetalCompound(); 
+        bool isCommonMetal(); 
 
         bool isSimpleMetalIon(); //so I introduced thoose to distinguish between 
         bool isWater(); //water, metal ions and other cofactors

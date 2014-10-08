@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    Loads components (Atoms, Groups, etc.) in relative format.
- *    Relative format is similiar in structure to XYZ format.
- *    The only difference is that the coordinates here are relative 
- *    to the previous atom rather absolute.
- */
+
 
 // Includes:
 #include <RelLoader.h>
@@ -36,14 +30,6 @@ using namespace Biopool;
 
 // MODIFIERS:
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        XyzLoader::loadGroup
-//
-//  Description:
-//    Loads a group in relative format. 
-//
-// ----------------------------------------------------------------------------
 
 void RelLoader::loadGroup(Group& gr) {
     PRINT_NAME;
@@ -69,15 +55,11 @@ void RelLoader::loadGroup(Group& gr) {
     }
 }
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        XyzLoader::loadSideChain
-//
-//  Description:
-//    Loads a sidechain in relative format. 
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * @Description    Loads a sidechain in relative format. 
+ * @param sc (SideChain&)
+ * @param aaRef (AminoAcid*)
+ */
 void RelLoader::loadSideChain(SideChain& sc, AminoAcid* aaRef) {
     PRINT_NAME;
     if (!input)

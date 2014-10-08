@@ -13,13 +13,6 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    Loads components (Atoms, Groups, etc.) in relative format.
- *    Relative format is similiar in structure to XYZ format.
- *    The only difference is that the coordinates here are relative 
- *    to the previous atom rather absolute.
- */
 
 
 // Includes:
@@ -37,14 +30,10 @@ using namespace Biopool;
 
 // MODIFIERS:
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        RelSaver::saveGroup
-//  Description:
-//    Saves a group in relative format. 
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * @Description Saves a group in relative format. 
+ * @param gr
+ */
 void RelSaver::saveGroup(Group& gr) {
     PRINT_NAME;
     gr.sync();
@@ -52,15 +41,10 @@ void RelSaver::saveGroup(Group& gr) {
     pSaveAtomVector(gr.giveAtoms());
 }
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        RelSaver::saveSideChain
-//
-//  Description:
-//    Saves a sidechain in relative format. 
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * @Description Saves a sidechain in relative format. 
+ * @param sc
+ */
 void RelSaver::saveSideChain(SideChain& sc) {
     PRINT_NAME;
     sc.sync();
@@ -68,15 +52,11 @@ void RelSaver::saveSideChain(SideChain& sc) {
     pSaveAtomVector(sc.giveAtoms());
 }
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        RelSaver::saveAminoAcid
-//
-//  Description:
-//    Saves an aminoacid in relative format. 
-//
-// ----------------------------------------------------------------------------
 
+/**
+ * @Description   Saves an aminoacid in relative format. 
+ * @param aa
+ */
 void RelSaver::saveAminoAcid(AminoAcid& aa) {
     PRINT_NAME;
     aa.sync();

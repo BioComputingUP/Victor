@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    This class builds a spacer by concatenating the same aminoacid type for 
- *    n times.
- */
+
 #ifndef _SIDECHAIN_CONSTRUCTOR_H_
 #define _SIDECHAIN_CONSTRUCTOR_H_
 
@@ -35,8 +31,6 @@ namespace Biopool {
     /**@brief This class builds a spacer by concatenating the same aminoacid type for 
      *    n times.
      * 
-     *@Description  
-     *@This 
      * */
     class SeqConstructor {
     public:

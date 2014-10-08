@@ -13,20 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**  
- *  @Class:             IntLoader
- *@Base Class(es):     Loader
- *@Project Name:       Victor
- *@Description:
- *    Loads components (Atoms, Groups, etc.) in internal format.
- *    Internal format is defined by listing type, bond length partner &
- *    bond length, bond angle partner & bond angle, torsion angle partner
- *    & torsion angle plus a chirality (0 if it is a 'true' torsion angle,
- *    +1 or -1 if the 'torsion angle' is a second bond angle), for each
- *    atom, one per line.
- *    NB: Only chirality 0 is currently supported.
- *    Attention: This class is *NOT* finished yet!
- */
+
 
 // Includes:
 #include <IntLoader.h>
@@ -52,12 +39,23 @@ IntLoader::setBonds(Spacer& sp) {
 }
 
 /**
- *@Description  Converts from Tinker format in cartesian. 
- *@param  atblP  : atombondLengthPartner
- *                 atbAP  : atombondAnglePartner
- *                 attAP  : atomtorsionAnglePartner
- *                 at     : result atom
- *@return  void
+ * @Description Converts from Tinker format into cartesian. Place the Atom "at" in the 3D space given a distance, an angle, the chirality and a torsion angle.
+ * The input Atoms need to be connected in this order: atbLP -> atbAP -> attAP -> at
+ * chiral can be 0,1,-1. If chiral == 0 the torsionAngle is a Dihedral angle. Otherwise is a bondLength angle.
+ * All angles for this function are in *DEGREES* not radiants!
+ * 
+ * @param 
+ *        atblP (Atom&) = atombondLengthPartner
+ *        bondLength (const double) 
+ *        atbAP (Atom&) = atombondAnglePartner
+ *        bondAngle (const double)
+ *        attAP (Atom&) = atomtorsionAnglePartner
+ *        tosionAngle (const double)
+ *        chiral (const int)
+ *        at (Atom&) = modified atom
+ * 
+ * 
+ * 
  */
 
 void IntLoader::zAtomToCartesian(Atom& atbLP, double bondLength, Atom& atbAP,

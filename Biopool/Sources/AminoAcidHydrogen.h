@@ -28,9 +28,9 @@
 
 namespace Biopool {
 
-    /**@brief class implements hydrogens.
+    /**@brief Implements aminoacid hydrogens.
      * 
-     *@Description Includes methods that allow to hydrogens to aminoacids.
+     *@Description Includes methods that allow to add hydrogens to STANDARD aminoacids.
      * */
     class AminoAcidHydrogen {
     public:

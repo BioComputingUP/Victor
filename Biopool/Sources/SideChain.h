@@ -29,8 +29,6 @@ namespace Biopool {
 
     /**@brief This class implements a side chain
      * 
-     *@Description  
-     *@This 
      * */
     class SideChain : public Group {
     public:

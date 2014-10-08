@@ -31,18 +31,21 @@
 
 namespace Biopool {
 
-    /**@brief Loads components (Atoms, Groups, etc.) in relative format 
+    /**@brief Save components (Atoms, Groups, etc.) in relative format 
      * 
-     *@Description Relative format is similiar in structure to XYZ format.
-     *    The only difference is that the coordinates here are relative 
-     *    to the previous atom rather absolute.
-     *@This 
+     *@Description The coordinates here are relative to the previous connected Component (Atom, Group, etc..:) 
+     * rather than to the absolute Cartesian coordinate system.
+     * 
      * */
     class RelSaver : public Saver {
     public:
 
         // CONSTRUCTORS/DESTRUCTOR:
-
+        /**
+         * @Description Basic constructor.
+         * @param _output The output stream object
+         * @param _offset Not implemented
+         */
         RelSaver(ostream& _output = cout, int _offset = 1)
         : output(_output), offset(_offset) {
         }

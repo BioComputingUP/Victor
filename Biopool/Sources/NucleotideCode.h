@@ -13,17 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Author:          Damiano Piovesan
- *@Description:     Translator: PDB names to internal one-word-code and 
- *                  vice versa. Provides some simple predicates dealing with 
- *                  one-word-code. 
- *@ Copyright:       This file contains information from the Bioinformatics 
- *                  Template Library (BTL).
- *
- *                  Copyright (C) 1997,1998 Birkbeck College, Malet Street, 
- *                  London WC1E 7HX, U.K. (classlib@mail.cryst.bbk.ac.uk)
- */
+
 
 #ifndef __Nucleotide_CODE_H__
 #define __Nucleotide_CODE_H__
@@ -33,8 +23,17 @@
 #include <string>
 #include <Debug.h>
 
+
 /**
+ *@Description     Translator: PDB names to internal one-word-code and 
+ *                  vice versa. Provides some simple predicates dealing with 
+ *                  one-word-code. 
+ * Copyright:       This file contains information from the Bioinformatics Template Library (BTL).
+ *
+ *                  Copyright (C) 1997,1998 Birkbeck College, Malet Street, 
+ *                  London WC1E 7HX, U.K. (classlib@mail.cryst.bbk.ac.uk)
  */
+
 enum NucleotideCode {
     ADENINE = 0,
     THYMINE,
@@ -46,8 +45,8 @@ enum NucleotideCode {
 };
 
 /**
-   true, if Nucleotide type name is known 
-   magic code XXX corresponds to an unknown Nucleotide code
+ * @Description Return true, if Nucleotide type name is known.
+ *  The magic code XXX corresponds to an unknown Nucleotide code
  */
 inline
 bool
@@ -55,7 +54,9 @@ isKnownNucleotide(NucleotideCode code) {
     return !(code == XX);
 }
 
-/** Translate string into Nucleotide code enum. */
+/** 
+ * @Description Translate string into Nucleotide code enum. 
+ */
 inline
 NucleotideCode
 nucleotideOneLetterTranslator(char name) {
@@ -81,7 +82,9 @@ nucleotideOneLetterTranslator(char name) {
     return XX; // Nucleotide type name is unknown
 }
 
-/** Translate string into Nucleotide code enum. */
+/** 
+ * @Description Translate string into Nucleotide code enum. 
+ */
 inline
 NucleotideCode
 nucleotideThreeLetterTranslator(const string& name) {

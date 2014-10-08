@@ -28,8 +28,6 @@ namespace Biopool {
 
     /**@brief Base class for components without elements  
      * 
-     *@Description  
-     *@This 
      * */
     class Monomer : public Component {
     public:

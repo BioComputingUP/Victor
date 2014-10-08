@@ -35,14 +35,15 @@ namespace Biopool {
 
     /**@brief Saves components (Atoms, Groups, etc.) in standard PDB format
      * 
-     *@Description 
-     *@This 
      * */
     class PdbSaver : public Saver {
     public:
 
         // CONSTRUCTORS/DESTRUCTOR:
-
+        /**
+         * @Description Basic constructor. By default it writes sequence, secondary structure and the term line. 
+         * @param _output (ostream&) the output file object
+         */
         PdbSaver(ostream& _output = cout)
         : output(_output), writeSeq(true), writeSecStr(true), writeTer(true),
         atomOffset(0), aminoOffset(0), ligandOffset(0), chain(' ') {

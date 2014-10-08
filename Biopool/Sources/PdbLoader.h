@@ -30,16 +30,28 @@
 
 namespace Biopool {
 
-    /**@brief Loads components (Atoms, Groups, etc.) in standard PDB format.
-     * 
-     *@Description  
-     *@This 
+    /**@brief Loads components (Atoms, Groups, Spacer, etc.) in standard PDB format.
+     *   
      * */
     class PdbLoader : public Loader {
     public:
 
         // CONSTRUCTORS/DESTRUCTOR:
-
+        /**
+         * @Description Constructor.
+         * @param _input = the PDB file object
+         * @param _permissive = if true, allows loading residues with missing atoms
+         * @param _noHAtoms = if true, doesn't load Hydrogens
+         * @param _noHetAtoms = if true, doesn't load het atoms
+         * @param _noSecondary = if true, doesn't load secondary structure (neither the one calculated from torsional angles nor the DSSP)
+         * @param _noConnection = if true, doesn't connect residues
+         * @param _noWater = if true, doesn't load water atoms
+         * @param _verb = if true, verbose mode
+         * @param _allChains = if true, loads all chains
+         * @param _NULL = the name of the chain to be loaded, if not provided only loads the first chain
+         * @param _onlyMetal = if true, load only metals as ligands
+         * @param _noNucleotideChains = if true, doesn't load DNA/RNA chains
+         */
         PdbLoader(istream& _input = cin, bool _permissive = false,
                 bool _noHAtoms = false, bool _noHetAtoms = false, bool _noSecondary = false,
                 bool _noConnection = false, bool _noWater = true,

@@ -13,19 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**   
 
- *@Description:
- *   Loads components (Atoms, Groups, etc.) in internal format.
- *    Internal format is defined by listing type, bond length partner &
- *    bond length, bond angle partner & bond angle, torsion angle partner
- *    & torsion angle plus a chirality (0 if it is a 'true' torsion angle,
- *    +1 or -1 if the 'torsion angle' is a second bond angle), for each
- *    atom, one per line.
- *    NB: Only chirality 0 is currently supported.
- *
- *    Attention: This class is *NOT* finished yet!
- */
 
 // Includes:
 #include <IntSaver.h>

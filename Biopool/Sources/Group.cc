@@ -41,7 +41,11 @@ Group::~Group() {
 // PREDICATES:
 
 // MODIFIERS:
-
+/**
+ * @Description Parses all the Atoms in the Group and sets new boundaries if the Atom coordinates
+ * exceed the Group ones.
+ * 
+ */
 void
 Group::resetBoundaries() {
     if (size() < 1)
@@ -73,7 +77,10 @@ Group::setModified() {
     if (atoms.size())
         atoms[0].setModified();
 }
-
+/**
+ * @Description Removes an atom from the group.
+ * @param a (Atom)
+ */
 void
 Group::removeAtom(Atom& a) {
     PRINT_NAME;
@@ -92,6 +99,13 @@ Group::removeAtom(Atom& a) {
     }
 }
 
+
+/**
+ * @Description Copy a Group. See comments in the source.
+ * @param orig (Group&)
+ * 
+ * 
+ */
 void
 Group::copy(const Group& orig) {
     PRINT_NAME;
@@ -129,9 +143,11 @@ Group::copy(const Group& orig) {
     for (unsigned int i = 0; i < atoms.size(); i++)
         atoms[i].Atom::setSuperior(this);
 }
-
+/**
+ * @Description Synchronizes coords with structure
+ */
 void
-Group::sync() // synchronize coords with structure
+Group::sync() 
 {
     if (!modified)
         return;
@@ -145,7 +161,10 @@ Group::sync() // synchronize coords with structure
 
     resetBoundaries();
 }
-
+/**
+ * @Description Add an Atom the the Group. Sets the superior, and the lower/upperBound.
+ * @param a (Atom&)
+ */
 void
 Group::addAtom(Atom& a) {
     PRINT_NAME;
@@ -172,7 +191,11 @@ Group&
 }
 
 // HELPERS:
-
+/**
+ * @Description Returns the reference to the Atom with the corresponding AtomCode
+ * @param ac (AtomCode)
+ * @return  Atom reference
+ */
 Atom*
 Group::pGetAtom(const AtomCode& ac) const {
     for (unsigned int i = 0; i < atoms.size(); i++)
@@ -181,6 +204,11 @@ Group::pGetAtom(const AtomCode& ac) const {
     return NULL;
 }
 
+/**
+ * @Description Returns the position of the Atom in the atoms vector searching by its identification number.
+ * @param cmp (const unsigned long)
+ * @return  Position in the atoms vector if the atom is found, otherwise the size of the atoms vector plus 1 (unsigned int)
+ */
 unsigned int
 Group::pGetIndex(const unsigned long cmp) const {
     for (unsigned int i = 0; i < atoms.size(); i++) {

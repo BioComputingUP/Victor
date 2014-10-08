@@ -26,7 +26,7 @@
 
 namespace Biopool {
 
-    /**@brief class implements methods to manage a polymer created by components.
+    /**@brief Implements methods to manage a polymer created by components.
      * 
      *@Description Includes methods that allow to insert and remove components.
      */

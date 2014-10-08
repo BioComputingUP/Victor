@@ -28,23 +28,40 @@ using namespace Biopool;
 
 // CONSTRUCTORS/DESTRUCTOR:
 
+/**
+ * @Description Initialize the Atom object with the following attributes: type, coords, Bfac, trans, rot, modified, superior
+ * @param Number of in Bonds (unsigned int), number of out Bonds (unsigned Int)
+ */
 Atom::Atom(unsigned int mI, unsigned int mO) : SimpleBond(mI, mO),
 superior(NULL), type(X), coords(0, 0, 0), Bfac(0.0), trans(0, 0, 0), rot(1),
 modified(false) {
     PRINT_NAME;
 }
 
+/**
+ *@Description Constructor. Copy another Atom object.
+ *@param Atom
+ */
 Atom::Atom(const Atom& orig) {
     PRINT_NAME;
     this->copy(orig);
 }
 
+/**
+ *@Description DESTRUCTOR
+ *@param none
+ */
 Atom::~Atom() {
     PRINT_NAME;
 }
 
 // PREDICATES:
 
+/**
+ * @Description Calculate the Euclidean distance
+ * @param A partner Atom
+ * @return The Euclidean distance from the partner atom (double)
+ */
 double
 Atom::distance(Atom& other) {
     sync();
@@ -61,11 +78,22 @@ Atom::distance(Atom& other) {
 
 // MODIFIERS:
 
+
+
+/**
+ * @Description Set the 3D coordinates of the Atom
+ * @param X, Y and Z (double)
+ */
 void
 Atom::setCoords(double _x, double _y, double _z) {
     vgVector3<double> tmp(_x, _y, _z);
     setCoords(tmp);
 }
+
+/**
+ * @Description Set the 3D coordinates of the Atom
+ * @param Vector with the X, Y, Z coordinates (vgVector3<double>)
+ */
 
 void
 Atom::setCoords(vgVector3<double> c) {
@@ -89,6 +117,11 @@ Atom::setCoords(vgVector3<double> c) {
     setModified();
 }
 
+/**
+ * @Description Copy an Atom object
+ * @param Atom
+ */
+
 void
 Atom::copy(const Atom& orig) {
     PRINT_NAME;
@@ -106,8 +139,13 @@ Atom::copy(const Atom& orig) {
     modified = orig.modified;
 }
 
+/**
+ * @Description Synchronize coords with structure
+ *
+ */
+
 void
-Atom::sync() // synchronize coords with structure
+Atom::sync() 
 {
     if (inSync())
         return;
@@ -134,6 +172,11 @@ Atom::sync() // synchronize coords with structure
     modified = false;
 }
 
+
+/**
+ * @Description Set the "Modified" flag. Sync() will syncronize only if "Modified" is true.
+ *
+ */
 void
 Atom::setModified() {
     if (modified)
@@ -145,6 +188,10 @@ Atom::setModified() {
 
 }
 
+/**
+ * @Description Set the "Modified" flag to false. Sync() will syncronize only if "Modified" is true.
+ *
+ */
 void
 Atom::setUnModified() {
     modified = false;
@@ -164,6 +211,15 @@ Atom&
 
 
 // HELPERS:
+
+/**
+ * @Description Propagate the "rot" matrix to all the outbonds. 
+ * The "rot" of this atom is multiplied with the "rot" of the out atom.
+ *
+ * NB:  Cyclic structures (PRO, PHE, TYR, TRP & HIS) are special cases 
+ *  when propagating the rotation, because the the re-conjunction of 
+ *  two branches, the rotation would be added twice.
+ */
 
 void
 Atom::propagateRotation() {
@@ -189,19 +245,23 @@ Atom::propagateRotation() {
                 ) {
             getOutBond(i).addRot(rot);
         }
-    // Cyclic structures (PRO, PHE, TYR, TRP & HIS) are special cases 
-    // when propagating the rotation, because the the re-conjunction of 
-    // two branches the rotation would be added twice.
+   
     rot = tmpMatrix;
 }
+
+/**
+ * @Description Check if an atom is the first atom in the structure. Meaning that it does not have any in bond.
+ *
+ * NB: Proline's N is a special case because unbound PRO 
+ *  (ie. not part of a Spacer) has CD as the 1st inBond of N,
+ *  which would crash the program
+ */
 
 inline bool
 Atom::isNotFirstAtomInStructure() {
     if (sizeInBonds() && !((getSuperior().getType() == "PRO")
             && (getCode() == N) && (getInBond(0).getCode() == CD)))
-        // NB: Proline's N is a special case because unbound PRO 
-        // (ie. not part of a Spacer) has CD as the 1st inBond of N,
-        // which would crash the program
+        
         return true;
     else
         return false;

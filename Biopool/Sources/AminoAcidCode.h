@@ -13,17 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- 
- *@Description:     Translator: PDB names to internal one-word-code and 
- *                  vice versa. Provides some simple predicates dealing with 
- *                  one-word-code. 
- *@ Copyright:       This file contains information from the Bioinformatics 
- *                  Template Library (BTL).
- *
- *                  Copyright (C) 1997,1998 Birkbeck College, Malet Street, 
- *                  London WC1E 7HX, U.K. (classlib@mail.cryst.bbk.ac.uk)
- */
+
 
 #ifndef __AminoAcid_CODE_H__
 #define __AminoAcid_CODE_H__
@@ -32,6 +22,17 @@
 
 #include <string>
 #include <Debug.h>
+
+
+/**
+ 
+ *@Description     Translator: PDB names to internal one-word-code and 
+ *                  vice versa. Provides some simple predicates dealing with 
+ *                  one-word-code. 
+ *       This file contains information from the Bioinformatics Template Library (BTL).
+ *                  Copyright (C) 1997,1998 Birkbeck College, Malet Street, 
+ *                  London WC1E 7HX, U.K. (classlib@mail.cryst.bbk.ac.uk)
+ */
 
 enum AminoAcidCode {
     ALA = 0,

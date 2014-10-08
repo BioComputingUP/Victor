@@ -31,12 +31,14 @@
 #include <LigandSet.h>
 
 namespace Biopool {
-
-/**@brief This class is a container of Polymers
-     * 
-     *@Description Each one storing a Spacer and (eventually) a LigandSet for each
-     *                     valid chain in the PDB input file.
-     * */
+    
+    /**
+    * @brief Is a container of Polymers (a component of components).
+    * @Description      Each chain in a PDB a Protein object
+    *                   corresponds to a Polymers. Each Polymer corresponds to a Spacer and a LigandSet (if present).
+    *  
+    */
+    
     class Protein : public Polymer {
     public:
 
@@ -87,8 +89,7 @@ namespace Biopool {
         // ATTRIBUTES 
     private:
         vector<char> chains;
-        //true: user selected a particular chain or all chains
-        //false: first chain selected by default
+        
     };
     // ---------------------------------------------------------------------------
     //                                    Protein

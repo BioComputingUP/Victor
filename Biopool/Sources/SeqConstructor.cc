@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    This class builds a spacer by concatenating the same aminoacid type for 
- *    n times.
- */
+
 
 // Includes:
 #include <SeqConstructor.h>
@@ -34,15 +30,9 @@ using namespace Biopool;
 
 // MODIFIERS:
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        SeqConstructor::loadReference()
-//
-//  Description:
-//    Helper function to load the reference file. (same as in SeqLoader)
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * @Description Helper function to load the reference file. (same as in SeqLoader)
+ */
 void SeqConstructor::loadReference() {
     RelLoader relL(refInput);
     relL.connectSegments(false);
@@ -56,7 +46,12 @@ void SeqConstructor::loadReference() {
             loaded = true;
     }
 }
-
+/**
+ * @Description Creates a Spacer with only one type of AminoAcid
+ * @param type The type of the AminoAcid
+ * @param n The length of the Spacer
+ * @return The Spacer
+ */
 Spacer& SeqConstructor::makeSpacer(string type, unsigned int n) {
     if (!loaded)
         loadReference();
@@ -75,6 +70,11 @@ Spacer& SeqConstructor::makeSpacer(string type, unsigned int n) {
     return *sp;
 }
 
+/**
+ * @Description Binds the AminoAcid with the previous one.
+ * @param aa
+ * @param prev
+ */
 void SeqConstructor::buildAminoAcid(AminoAcid& aa, AminoAcid* prev) {
     IntCoordConverter icc;
 

@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    This class implements a simple side chain.
- */
+
 
 // Includes:
 #include <string>
@@ -43,6 +40,10 @@ SideChain::~SideChain() {
 
 // PREDICATES:
 
+/**
+ * @Description Calculate the Chi angles if not already set.
+ * @return The vector of "chi" angles (a SideChain can have more than 1 "chi" angle)
+ */
 vector<double> SideChain::getChi() {
     for (unsigned int i = 0; i < chi.size(); i++)
         if (chi[i] > 990)
@@ -52,6 +53,10 @@ vector<double> SideChain::getChi() {
 
 // MODIFIERS:
 
+/**
+ * @Description Sets the Chi angles of a SideChain
+ * @param cv The vector of Chi angles
+ */
 void SideChain::setChi(vector<double> cv) {
     PRECOND(cv.size() <= chi.size(), exception);
 
@@ -70,6 +75,10 @@ void SideChain::copy(const SideChain& orig) {
     backboneRef = orig.backboneRef; // orig keeps its backbone reference
 }
 
+/**
+ * @Description Sets the "backboneRer" and binds the SideChain (CB atom) to the BackBone (CA atom).
+ * @param br, a pointer to the "backboneRef" AminoAcid
+ */
 void SideChain::setBackboneRef(AminoAcid* br) {
     backboneRef = br;
     if ((backboneRef == NULL) || (size() == 0))
@@ -80,7 +89,11 @@ void SideChain::setBackboneRef(AminoAcid* br) {
         (*this)[0].bindIn((*backboneRef)[CA]);
 }
 
-void SideChain::patchAminoAcidCode() { // determines the 3-letter code from the sidechain
+/**
+ * @Description Determines the 3-letter code from sidechain atoms and sets the AminoAcid Type
+ */
+
+void SideChain::patchAminoAcidCode() { 
     if (!isMember(CB)) {
         if (size() > 1)
             ERROR("SideChain::patchAminoAcidCode() : Unknown sidechain.",
@@ -149,6 +162,12 @@ void SideChain::patchAminoAcidCode() { // determines the 3-letter code from the 
 
 }
 
+/**
+ * @Description Binds the SideChain to the corresponding "backboneRef"  * 
+ * @param connect, if True, it creates the "connection" (trans and rot)
+ * @param permissive, Not used
+ * @return True if bonds are created
+ */
 bool SideChain::setBondsFromPdbCode(bool connect, bool permissive) {
     if (getType() == "X")
         patchAminoAcidCode();
@@ -286,7 +305,13 @@ bool SideChain::setBondsFromPdbCode(bool connect, bool permissive) {
 
     return true;
 }
-
+/**
+ * @Description Search for the type of atom in the side chain
+ * @param c, the type of atom
+ * @param pos, position passed by reference
+ * @param pos2, position passed by reference
+ * @return True, if it finds something
+ */
 bool SideChain::findCode(char c, unsigned int &pos, unsigned int &pos2) {
     pos = INT_MAX;
     pos2 = INT_MAX;
@@ -306,6 +331,13 @@ bool SideChain::findCode(char c, unsigned int &pos, unsigned int &pos2) {
     return ((pos != INT_MAX) ? true : false);
 }
 
+/**
+ * @Description Finds, binds and connects the H Atom.
+ * @param c, Atom name
+ * @param c2, the pos1 as a string
+ * @param at, the H partner Atom
+ * @param connect, if True it connects the H atom
+ */
 void SideChain::findHCode(char c, char c2, Atom& at, bool connect) {
     for (unsigned int i = 0; i < (*this).size(); i++) {
         string tmp;
@@ -328,7 +360,11 @@ SideChain& SideChain::operator=(const SideChain& orig) {
 }
 
 // HELPERS:
-
+/**
+ * @Description Calculates the Chi angle
+ * @param n, the SideChain atom index
+ * @return the Chi angle in radiants 
+ */
 double SideChain::calculateChi(unsigned int n) {
     PRECOND((n < 5), exception);
     IntCoordConverter icc;
@@ -349,6 +385,11 @@ double SideChain::calculateChi(unsigned int n) {
     return 999.0 * DEG2RAD;
 }
 
+/**
+ * @Description Sets the Chi angle.
+ * @param n, the SideChain atom position
+ * @param c, the Chi angle in radiants
+ */
 void SideChain::convertChi(unsigned int n, double c) {
     PRECOND((n < 5), exception);
     IntCoordConverter icc;
@@ -480,7 +521,9 @@ bool SideChain::hasH() {
         return true;
     return false;
 }
-
+/**
+ * @Description Sets the MaxChi according to the SydeChain type.
+ */
 void SideChain::setMaxChiFromCode() {
     unsigned int tMaxChi = 0;
     switch (getCode()) {
@@ -534,6 +577,11 @@ void SideChain::setMaxChiFromCode() {
     setMaxChi(tMaxChi);
 }
 
+
+/**
+ * @Description Sets the maximum Chi angle.
+ * @param _maxChi, Chi angle in radiants
+ */
 void SideChain::setMaxChi(unsigned int _maxChi) {
     maxChi = _maxChi;
     chi.resize(_maxChi);

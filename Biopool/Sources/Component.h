@@ -35,7 +35,6 @@ namespace Biopool {
     /**@brief Base class for composite structures. 
      * 
      *@Description Implementing the Composite pattern.
-     *@This 
      **/
     class Component : public Bond {
     public:
@@ -53,7 +52,7 @@ namespace Biopool {
         virtual vgVector3<double> getLowerBound(double dist = 0.0);
         virtual vgVector3<double> getUpperBound(double dist = 0.0);
         bool collides(Component& other, double dist = 0.0);
-        // is other within dist of this' bounding box?
+        
 
         virtual vgVector3<double> getTrans() const = 0;
         virtual vgMatrix3<double> getRot() const = 0;
@@ -135,6 +134,14 @@ namespace Biopool {
         else
             return 0;
     }
+    
+    
+    /**
+     * @Description Is other within dist of this' bounding box?
+     * @param other (Component)
+     * @param dist (double)
+     * @return True, if the component collides with "OTHER" 
+     */
 
     inline bool
     Component::collides(Component& other, double dist) {
@@ -161,6 +168,11 @@ namespace Biopool {
         return (superior != NULL);
     }
 
+    /**
+     * @Description Checks the "Modified" flag in the component.
+     * @return True, if the component coordinates have been already syncronized.
+     * Checks also for the "superior" class status. 
+     */
     inline bool
     Component::inSync() {
         return (!modified && (!hasSuperior() || (getSuperior().inSync())));

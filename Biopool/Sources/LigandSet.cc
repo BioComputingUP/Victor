@@ -13,15 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class:             LigandSet 
- *@Project Name:      Victor
- *@ATTENTION:         This class is *NOT* finished yet.
- *                     There are many methods which have only a head
- *                     declaration and no code inside.
- *                     2012-Francesco Lovo: insert, delete, getLigand, load and save
- *                     methods are completed
- */
+
 //Includes:
 #include <LigandSet.h>
 #include <Debug.h>

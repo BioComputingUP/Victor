@@ -30,9 +30,8 @@ double BOND_LENGTH_H_TO_ALL = 1.00;
 map<AminoAcidCode, vector<vector<string> > > AminoAcidHydrogen::paramH;
 
 /**
- *@Description   Load a file with arguments for building hydrogens thank of
- * the IntCoordConverter class
- *@param   void
+ *@Description   Load a file "AminoAcidHydrogenData.txt", containing angles and reference atoms to build hydrogens. 
+ *@param   string inputFile name
  *@return  void
  */
 void
@@ -89,7 +88,7 @@ AminoAcidHydrogen::loadParam(string inputFile) {
 
 /**
  *@Description   Add Hydrogen to an AminoAcid
- *@param   void
+ *@param   One AminoAcid pointer
  *@return  void
  */
 void

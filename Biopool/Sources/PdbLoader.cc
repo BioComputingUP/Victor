@@ -13,18 +13,8 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class:             PdbLoader
- *@Base Class(es):    Loader
- *@Derived Class(es): -
- *@Containing:        -
- *@Author:            Silvio Tosatto
- *@Project Name:      Victor
- *@Reviewed By:       Francesco Lovo 03/12
- *@Reviewed By:       Damiano Piovesan 04/14
- *@Description:
- *  Loads components (Atoms, Groups, etc.) in standard PDB format.
- */
+
+
 // Includes:
 #include <PdbLoader.h>
 #include <IoTools.h>
@@ -196,12 +186,11 @@ bool PdbLoader::inSideChain(const AminoAcid& aa, const Atom& at) {
 
 
 /**
- *@Description   Assigns the secondary structure (if any) loaded in loadSecondary() or
- *  uses AminoAcid's setStateFromTorsionAngles() if no structure was found.
+ *@Description   Try to assigns the secondary structure from the PDB header. If not present
+ *  uses Spacer's setStateFromTorsionAngles().
  *@param   Spacer reference
- *@return  bool
  */
-// DEBUG: it fails with some pdbs 1a0o, 1a0r , and other ~4k ... 
+
 
 void PdbLoader::assignSecondary(Spacer& sp) {
     if (helixData.size() + sheetData.size() == 0) {
@@ -258,6 +247,11 @@ PdbLoader::loadSpacer(Spacer& sp){
     PdbLoader::loadProtein(prot);
     sp = prot.getSpacer(0);    
 }
+ */
+
+/**
+ * @Description Core function for PDB file parsing. 
+ * @param prot (Protein&)
  */
 
 void
@@ -398,13 +392,8 @@ PdbLoader::loadProtein(Protein& prot) {
 
                                     }
 
-
                                     sp->insertComponent(aa);
 
-                                    //if (oldAaNum<sp->maxPdbNumber()){
-                                    //    oldAaNum=sp->maxPdbNumber();
-                                    //}
-                                    //lastAa=oldAaNum;
                                 }
 
                                 // Ligand
@@ -432,14 +421,17 @@ PdbLoader::loadProtein(Protein& prot) {
 
             } while (input);
 
-            // last residue/ligand
-            // AminoAcid
+            
             /*
+            // Print some indexes for the debug
             cout << aa->getType1L() << " offset:" << sp->getStartOffset() << " gaps:" 
                 << sp->sizeGaps() << " sizeAmino:" <<  sp->sizeAmino() <<  " maxPdbNum:" 
                 << sp->maxPdbNumber() << " aaNum:" << aaNum  
                 << " oldAaNum:" << oldAaNum << " lastAa:" << lastAa << "\n";
              */
+            
+            // last residue/ligand
+            // AminoAcid
             if ((aa->size() > 0) && (aa->getType1L() != 'X')) {
                 if (sp->sizeAmino() == 0) {
                     sp->setStartOffset(oldAaNum - 1);
@@ -570,6 +562,14 @@ PdbLoader::loadProtein(Protein& prot) {
 
 }
 
+/**
+ * @Description Parse a single line of a PDB file.
+ * @param atomLine (string) the whole PDB line as it is
+ * @param tag (string) = the first field (keyword) in a PDB line
+ * @param lig (Ligand) pointer
+ * @param aa (AminoAcid) pointer
+ * @return Residue number read from the PDB line (int)
+ */
 int
 PdbLoader::parsePDBline(string atomLine, string tag, Ligand* lig, AminoAcid* aa) {
 

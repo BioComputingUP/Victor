@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Class:           Identity
- *@Project name:    Victor
- *@Description:     Implements object id.
- */
+
 
 #ifndef __IDENTITY_H__
 #define __IDENTITY_H__
@@ -31,6 +27,9 @@
 class Identity {
 public:
 
+    /**
+    *@Description   Implements object id. With a "number" a "name" and a "counter".
+    */
     Identity(const string& name = "", long number = 0);
     Identity(const Identity& orig);
 

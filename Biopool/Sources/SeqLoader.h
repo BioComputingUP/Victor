@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description:
- *    Loads components (Atoms, Groups, etc.) in SEQ format.
- *    SEQ format lists the aminoacids, one per line, followed by the 
- *    torsion angle settings. In order to construct the protein, a 
- *    reference file with sample aminoacids has to be loaded first.
- */
+
 
 #ifndef _SEQ_LOADER_H_
 #define _SEQ_LOADER_H_
@@ -40,8 +34,7 @@ namespace Biopool {
      * 
      *@Description SEQ format lists the aminoacids, one per line, followed by the 
      *    torsion angle settings. In order to construct the protein, a 
-     *    reference file with sample aminoacids has to be loaded first. .
-     *@This 
+     *    reference file with sample aminoacids has to be loaded first. 
      * */
     class SeqLoader : public Loader {
     public:

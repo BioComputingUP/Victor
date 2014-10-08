@@ -30,10 +30,9 @@
 
 namespace Biopool {
 
-    /**@brief class implements a simple nucleotide.
+    /**@brief Implements a simple nucleotide.
      * 
      *@Description Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
-     *@This NB Angles are in degrees.
      * */
     class Nucleotide : public Group {
     public:

@@ -25,6 +25,7 @@
 #include <vglMath.h>
 
 namespace Biopool {
+    
     class AminoAcid;
 
 
@@ -36,11 +37,11 @@ namespace Biopool {
 
     const double UNDEFINED_ANGLE = DEG2RAD * 999;
 
-    /**@brief class implements methods to manage translation vector and angles between vectors
+    /**@brief Implements methods to manage translation vector and angles between vectors
      * 
      *@Description Includes methods that allow to get, calculate angels and traslation vector, rotation matrix, etc .
-     *@This 
      * */
+    
     class IntCoordConverter {
     public:
         // CONSTRUCTORS/DESTRUCTOR:
@@ -105,6 +106,11 @@ namespace Biopool {
 
     // HELPERS:
 
+    /**
+     * @Description Returns the angle between two vectors of coordinates
+     * @param a and b contain the 3D coordinates (vgVector3<double>)
+     * @return The angle in RADIANTS (double)
+     */
     inline
     double
     angle(const vgVector3<double>& a, const vgVector3<double>& b) {
@@ -123,7 +129,11 @@ namespace Biopool {
 
         return acos(d);
     }
-
+    /**
+     * @Description Returns the angle between two vectors of coordinates
+     * @param a and b contain the 3D coordinates (vgVector3<float>)
+     * @return The angle in RADIANTS (double)
+     */
     inline
     double
     angle(const vgVector3<float>& a, const vgVector3<float>& b) {
@@ -143,7 +153,11 @@ namespace Biopool {
         return acos(d);
     }
 
-    // Align (ie. move) v2 with (to) v1.
+    /**
+     * @Description Align (ie. move) v2 with (to) v1.
+     * @param v1 and v2 contain the 3D coordinates (vgVector3<double>)
+     */
+    
 
     inline void alignVectors(vgVector3<double> v1, vgVector3<double> v2,
             vgMatrix3<double>& res) {
@@ -162,6 +176,10 @@ namespace Biopool {
 #endif
     }
 
+    /**
+     * @Description Align (ie. move) v2 with (to) v1.
+     * @param v1 and v2 contain the 3D coordinates (vgVector3<float>)
+     */
     inline void
     alignVectors(vgVector3<float> v1, vgVector3<float> v2,
             vgMatrix3<float>& res) {

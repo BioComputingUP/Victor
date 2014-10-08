@@ -13,15 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**   
- *@Class:             Ligand
- *@Project Name:      Victor
- *@ATTENTION:         This class is *NOT* finished yet.
- *                     There are many methods which have only a head
- *                     declaration and no code inside.
- *                     2012-Francesco Lovo: load and save methods are completed
- *
- */
+
 //Includes:
 #include <Ligand.h>
 #include <Debug.h>
@@ -130,7 +122,6 @@ bool Ligand::isMetalCompound() //not used
 
 /**
  *@Description 
- *@param 
  */
 bool Ligand::isCommonMetal() {
     return ((size() == 1) && (

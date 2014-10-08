@@ -34,6 +34,10 @@ IntCoordConverter::~IntCoordConverter() {
 
 // PREDICATES:
 
+/**
+ * @Description Return the angle between two vectors
+ * @param p11, p12, p21, p22 represent start-end points of two vectors in the 3D space (vgVector3<double>).
+ */
 double
 IntCoordConverter::getAngle(vgVector3<double>& p11, vgVector3<double>& p12,
         vgVector3<double>& p21, vgVector3<double>& p22) {
@@ -43,17 +47,31 @@ IntCoordConverter::getAngle(vgVector3<double>& p11, vgVector3<double>& p12,
     return angle(v1, v2);
 }
 
+/**
+* @Description Returns the angle between two vectors of coordinates
+* @param a and b contain the 3D coordinates (vgVector3<double>)
+* @return The angle in RADIANTS (double)
+*/
 double
 IntCoordConverter::getAngle(vgVector3<double>& v1, vgVector3<double>& v2) {
     return angle(v1, v2);
 }
 
+/**
+* @Description Returns the translational vector from p1 to p2
+* @param p1 and p1 are 2 points in the 3D space (vgVector3<double>)
+* @return t (vgVector3<double>)
+*/
 vgVector3<double>
 IntCoordConverter::calculateTrans(vgVector3<double>& p1, vgVector3<double>& p2) {
     vgVector3<double> t = p2 - p1;
     return t;
 }
-
+/**
+* @Description Returns the rotation matrix between two vectors defined by 4 points 
+* @param p11, p12, p21, p22 represent start-end points of two vectors in the 3D space (vgVector3<double>).
+* @return A 3x3 rotational matrix (vgVector3<double>)
+*/
 vgMatrix3<double>
 IntCoordConverter::calculateRot(vgVector3<double>& p11, vgVector3<double>& p12,
         vgVector3<double>& p21, vgVector3<double>& p22) {
@@ -68,6 +86,11 @@ IntCoordConverter::calculateRot(vgVector3<double>& p11, vgVector3<double>& p12,
     return vgMatrix3<double>::createRotationMatrix(axis, ang);
 }
 
+/**
+* @Description Returns the angle between 3 bound Atoms a1 -> a2 -> a3
+* @param a1, a2 and a3 are three Atoms (Atom&)
+* @return The angle (in radiants) between the three atoms (double)
+*/
 double
 IntCoordConverter::getBondAngle(Atom& a1, Atom& a2, Atom& a3) {
     PRECOND((&a1 != &a2) && (&a2 != &a3) && (a1.isBond(a2))
@@ -80,15 +103,26 @@ IntCoordConverter::getBondAngle(Atom& a1, Atom& a2, Atom& a3) {
 
     return angle(v1, v2);
 }
-
+/**
+* @Description Calculate the distance between two Atoms
+* @param a1, a2 are two Atoms (Atom&)
+* @return The distance between the two atoms (double)
+*/
 double
 IntCoordConverter::getBondLength(Atom& a1, Atom& a2) {
     PRECOND((&a1 != &a2) && (a1.isBond(a2)), exception);
     return (a1.getCoords() - a2.getCoords()).length();
 }
 
-/* I took the definition of a torsion angle from the Babel package. 
-   Copyright (C) 1992-96 W. Patrick Walters and Matthew T. Stahl */
+/**
+* @Description Calculate the torsion angle between 4 connected Atoms. a1 -> a2 -> a3 -> a4 
+*  The definition of a torsion angle was took from the Babel package. 
+*  Copyright (C) 1992-96 W. Patrick Walters and Matthew T. Stahl 
+*  
+* @param a1, a2, a3 and a4 are Atoms (Atom&)
+* @return The angle (in radiants) (double).
+*/
+
 double
 IntCoordConverter::getTorsionAngle(Atom& a1, Atom& a2, Atom& a3, Atom& a4) {
     PRECOND((&a1 != &a2) && (&a2 != &a3) && (&a3 != &a4) && (a1.isBond(a2))
@@ -113,6 +147,7 @@ IntCoordConverter::getTorsionAngle(Atom& a1, Atom& a2, Atom& a3, Atom& a4) {
         return ang;
 }
 
+
 double
 IntCoordConverter::normalize(double angle) const {
     while (angle < -M_PI)
@@ -124,7 +159,11 @@ IntCoordConverter::normalize(double angle) const {
     POSTCOND(-M_PI <= angle && angle < M_PI, exception);
     return angle;
 }
-
+/**
+* @Description Calculates the difference between two angles.
+* @param a and b are angles in radiants (double)
+* @return The angle difference (double)
+*/
 double
 IntCoordConverter::getAngleDifference(double a, double b) const {
     normalize(a);
@@ -135,12 +174,18 @@ IntCoordConverter::getAngleDifference(double a, double b) const {
 
 // MODIFIERS:
 
+/**
+* @Description Add the rotaional matrix in C given A -> B -> C and an angle.
+* @param a1, a2 and a3 are connected Atoms (Atom&)
+* @param angle (double), is the angle between A -> B and B -> C 
+*/
 void
 IntCoordConverter::setBondAngle(Atom& a1, Atom& a2, Atom& a3, double angle) {
     vgVector3<double> v1 = a1.getCoords() - a2.getCoords();
     vgVector3<double> v2 = a3.getCoords() - a2.getCoords();
     setBondAngle(a1, a2, a3, angle, -(::angle(v1, v2)));
 }
+
 
 void
 IntCoordConverter::setBondAngle(Atom& a1, Atom& a2, Atom& a3, double angle,
@@ -163,6 +208,13 @@ IntCoordConverter::setBondAngle(Atom& a1, Atom& a2, Atom& a3, double angle,
 
     POSTCOND(fabs(getBondAngle(a1, a2, a3) - angle) < EPSILON, exception);
 }
+
+
+/**
+* @Description Add the rotaional matrix in C given A -> B -> C -> D and a TORSION angle.
+* @param a1, a2, a3 and a4 are connected Atoms (Atom&)
+* @param angle (double), is the TORSION angle between A -> B and C -> D 
+*/
 
 void
 IntCoordConverter::setTorsionAngle(Atom& a1, Atom& a2, Atom& a3, Atom& a4,
@@ -291,12 +343,23 @@ IntCoordConverter::connectReverseStructure(AminoAcid& aa, AminoAcid& prev) {
 }
 
 /**
- *@Description Converts from Tinker format in cartesian. WARNING: All angles for this function are in *DEGREES* not radians!
- *  @param atblP  : atombondLengthPartner
- *                 atbAP  : atombondAnglePartner
- *                 attAP  : atomtorsionAnglePartner
- *                 at     : result atom
- *@return void
+ * @Description Converts from Tinker format into cartesian. Place the Atom "at" in the 3D space given a distance, an angle, the chirality and a torsion angle.
+ * The input Atoms need to be connected in this order: atbLP -> atbAP -> attAP -> at
+ * chiral can be 0,1,-1. If chiral == 0 the torsionAngle is a Dihedral angle. Otherwise is a bondLength angle.
+ * All angles for this function are in *DEGREES* not radiants!
+ * 
+ * @param 
+ *        atblP (Atom&) = atombondLengthPartner
+ *        bondLength (const double) 
+ *        atbAP (Atom&) = atombondAnglePartner
+ *        bondAngle (const double)
+ *        attAP (Atom&) = atomtorsionAnglePartner
+ *        tosionAngle (const double)
+ *        chiral (const int)
+ *        at (Atom&) = modified atom
+ * 
+ * 
+ * 
  */
 
 void

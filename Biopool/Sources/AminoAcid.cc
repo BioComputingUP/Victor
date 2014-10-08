@@ -671,9 +671,11 @@ AminoAcid::setBonds(double NToCaLen, double CaToCLen, double CToOLen, double atC
 }
 
 /**
- *@Description  sets the bond structure for an aminoacid, coords only if connect is true
- *@param bool connect, AminoAcid* prev, bool permissive
- *@return  bool
+ * @Description  sets the bond structure for an aminoacid, and connect it (if connect is true)
+ * @param connect, if True connect the AminoAcid with previous AminoAcid (set "Trans" and "Coords")
+ * @param prev, the previous AminoAcid 
+ * @param permissive, allows to operate on an incomplete AminoAcid
+ * @return True, if the AminoAcid has been connected with the previous AminoAcid
  */
 bool
 AminoAcid::setBondsFromPdbCode(bool connect, AminoAcid* prev, bool permissive) {

@@ -13,11 +13,6 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- 
- *@Description:       Base class for composite structures. 
- *                     Implementing the Composite pattern.
- */
 
 // Includes:
 #include <Component.h>
@@ -47,7 +42,11 @@ Component::~Component() {
 
 
 // PREDICATES:
-
+/**
+ * @Description Return the lower bound coordinates.
+ * @param dist
+ * @return The lowerBound vector (vgVector2<double>)
+ */
 vgVector3<double>
 Component::getLowerBound(double dist) {
     sync();
@@ -57,7 +56,11 @@ Component::getLowerBound(double dist) {
 
     return lowerBound;
 }
-
+/**
+ * @Description Return the upper bound coordinates.
+ * @param dist
+ * @return The upperBound vector (vgVector2<double>)
+ */
 vgVector3<double>
 Component::getUpperBound(double dist) {
     sync();
@@ -87,9 +90,16 @@ Component* Component::unconnectOut() {
     ERROR("unconnectOut() undefined for this class.", exception);
 }
 
+
+/**
+ * @Description Copy the component.
+ *  Attention: new elements have to be copied also in Monomer::copy()
+ *  since it does *NOT* invoke this function (segmentation fault if it does).
+ * @param orig
+ */
+
 void Component::copy(const Component& orig) {
-    // Attention: new elements have to be copied also in Monomer::copy()
-    // since it does *NOT* invoke this function (segmentation fault if it does).
+    
 
     PRINT_NAME;
 

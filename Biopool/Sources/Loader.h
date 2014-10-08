@@ -35,8 +35,6 @@ namespace Biopool {
 
     /**@brief Base class for loading components (Atoms, Groups, etc.).
      * 
-     *@Description  
-     *@This 
      * */
     class Loader {
     public:

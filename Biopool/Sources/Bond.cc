@@ -13,15 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- 
- *@Description:     Defines chemical and abstract bonds between objects 
- *                  which are compositions of atoms. Eg. 'bond' between 
- *                  two amino acids.
- *                  Attention: copy() strips orig from its bonds and 
- *                  attaches them to the new bond. 
- * 
- */
+
 
 #include <algorithm>
 #include <Bond.h>

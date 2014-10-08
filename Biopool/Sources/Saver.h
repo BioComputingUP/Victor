@@ -35,8 +35,6 @@ namespace Biopool {
 
     /**@brief Base class for saving components (Atoms, Groups, etc.).
      * 
-     *@Description  
-     *@This 
      * */
     class Saver {
     public:

@@ -13,21 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/*
- 
- *@Description:     Translator: PDB names to internal one-word-code and 
- *                  vice versa. Provides some simple predicates dealing with 
- *                  one-word-code. 
- *
- *@NB: AtomTranslator converts some "illegal" entries (eg. 1HD, 2HE, ...)
- * to their "legal" equivalent (eg. HD, HE, ...)
- *@Copyright:       This file contains information from the Bioinformatics 
- *                  Template Library (BTL).
- *
- *                  Copyright (C) 1997,1998 Birkbeck College, Malet Street, 
- *                  London WC1E 7HX, U.K. (classlib@mail.cryst.bbk.ac.uk)
- *
- */
+
 
 #ifndef __ATOM_CODE_H__
 #define __ATOM_CODE_H__
@@ -37,18 +23,36 @@
 #include <string>
 #include <Debug.h>
 
-/** Internal one-word-code for PDB names.
+/*
+ 
+ * @Description    Translator: PDB names to internal one-word-code and 
+ *                  vice versa. Provides some simple predicates dealing with 
+ *                  one-word-code. 
+ *
+ * @NB AtomTranslator converts some "illegal" entries (eg. 1HD, 2HE, ...)
+ * to their "legal" equivalent (eg. HD, HE, ...)
+ * 
+ * This file contains information from the Bioinformatics Template Library (BTL).
+ *
+ * Copyright (C) 1997,1998 Birkbeck College, Malet Street, 
+ * London WC1E 7HX, U.K. (classlib@mail.cryst.bbk.ac.uk)
+ *
+ */
 
-    This table is taken from the Bioinformatics Template Library (BTL).
 
-    The order of this table is the standard order in which atoms of an
-    AminoAcid are stored. The idea is that if you point at atom i then
-    all atoms with indices > i "follow" atom[i] in a natural sense. Of
-    course there are some special cases, but in general I think this
-    is a good idea. ;-)
-
-    The default AtomCode X is moved to the very back of this list.
-
+/** 
+ * @Description Internal one-word-code for PDB names.
+ *
+ *  This table is taken from the Bioinformatics Template Library (BTL).
+ *
+ *  The order of this table is the standard order in which atoms of an
+ *  AminoAcid are stored. The idea is that if you point at atom i then
+ *  all atoms with indices > i "follow" atom[i] in a natural sense. Of
+ *  course there are some special cases, but in general I think this
+ *  is a good idea. ;-)
+ *
+ *  The default AtomCode X is moved to the very back of this list.
+ *
  */
 enum AtomCode {
     // Backbone atoms
@@ -198,11 +202,14 @@ enum AtomCode {
 //                                AtomTranslator
 // -----------------x-------------------x-------------------x-----------------
 
-/** Is second behind first in amino acid? This predicate is used to
-    determine if atom second is to be moved if atom first changed its
-    position. 
+/** 
+ * @Description Is second behind first in amino acid? This predicate is used to
+ *  determine if atom second is to be moved if atom first changed its
+ *  position. 
+ *
+ *  NOT COMPLETE YET! SPECIAL HANDLING FOR SIDE CHAIN REQUIRED! 
+ */
 
-    NOT COMPLETE YET! SPECIAL HANDLING FOR SIDE CHAIN REQUIRED! */
 inline
 bool
 follows(AtomCode first, AtomCode second) {
@@ -213,7 +220,9 @@ follows(AtomCode first, AtomCode second) {
     }
 }
 
-///check if atom is side chain beta atom
+/** 
+ * @Description Checks if atom is side chain beta atom
+ * */
 
 inline
 bool
@@ -221,7 +230,9 @@ isBetaAtom(AtomCode code) {
     return ( code == CB);
 }
 
-///check if atom is side chain gamma atom
+/** 
+ * @Description Checks if atom is side chain gamma atom.
+ * */
 
 inline
 bool
@@ -230,7 +241,9 @@ isGammaAtom(AtomCode code) {
             || (code == OG1) || (code == CG1) || (code == CG2));
 }
 
-///check if atom is side chain delta atom
+/** 
+ * @Description Check if atom is side chain delta atom
+ * */
 
 inline
 bool
@@ -240,7 +253,9 @@ isDeltaAtom(AtomCode code) {
             || (code == CD2) || (code == OD2) || (code == ND2));
 }
 
-///check if atom is side chain epsilon atom
+/** 
+ * @Description Check if atom is side chain epsilon atom
+ * */
 
 inline
 bool
@@ -250,7 +265,9 @@ isEpsilonAtom(AtomCode code) {
             || (code == OE2) || (code == NE2) || (code = CE3));
 }
 
-///check if atom is side chain zeta atom
+/** 
+ * @Description Check if atom is side chain zeta atom
+ * */
 
 inline
 bool
@@ -259,7 +276,9 @@ isZetaAtom(AtomCode code) {
             || (code == CZ3));
 }
 
-///check if atom is side chain eta atom
+/** 
+ * @Description Check if atom is side chain eta atom.
+ * */
 
 inline
 bool
@@ -268,8 +287,10 @@ isEtaAtom(AtomCode code) {
             || (code == CH2));
 }
 
-/** is atom a C atom ?  */
-// To be verified! 
+/** 
+ * @Description Is atom a C atom ?  
+ * To be verified!
+ * */ 
 
 inline
 bool
@@ -285,8 +306,10 @@ isCAtom(AtomCode code) {
             || (code == C4) || (code == C5M));
 }
 
-/** is atom a C atom ?  */
-// To be verified! 
+/** 
+ * @Description Is atom a C atom ?  
+ * To be verified! 
+ * */
 
 inline
 bool
@@ -299,8 +322,10 @@ isNAtom(AtomCode code) {
             || (code == N));
 }
 
-/** is atom a C atom ?  */
-// To be verified! 
+/** 
+ * @Description Is atom a C atom ?  
+ * To be verified! 
+ * */
 
 inline
 bool
@@ -314,8 +339,10 @@ isOAtom(AtomCode code) {
             || (code == OD));
 }
 
-/** is code specifying an H atom ? */
-// Updated 2014 by Damiano Piovesan
+/** 
+ * @Description Is code specifying an H atom ? 
+ * Updated 2014 by Damiano Piovesan
+ * */
 
 inline
 bool
@@ -335,9 +362,9 @@ isHAtom(AtomCode code) {
             );
 }
 
-/**
-   true, if atom type name is known 
-   magic code X corresponds to an unknown atom code
+/** 
+ * @Description True, if atom type name is known 
+ *  magic code X corresponds to an unknown atom code
  */
 inline
 bool
@@ -345,14 +372,21 @@ isKnownAtom(AtomCode code) {
     return !(code == X);
 }
 
-/** Is code a non-H atom? */
+/** 
+ * @Description Is code a non-H atom? 
+ */
+
 inline
 bool
 isHeavyAtom(AtomCode code) {
     return (isKnownAtom(code))&&(!isHAtom(code));
 }
 
-// To be verified! 
+/** 
+ * @Description Is code a non-H atom? 
+ * To be verified! 
+ * 
+ **/
 
 inline
 bool
@@ -360,7 +394,10 @@ isBackboneAtom(AtomCode code) {
     return code == C || code == CA || code == N || code == O || code == OXT;
 }
 
-/** Translate string into atom code enum. */
+/** 
+ * @Description Translate string into atom code enum. 
+ **/
+
 inline
 AtomCode
 AtomTranslator(const string& name) {
@@ -960,9 +997,9 @@ inline istream& operator>>(istream& is, AtomCode& rval) {
     return is;
 }
 
-//*******
-// imported from Qmean (aa_map.cpp)
-//*******
+/** 
+ * @Description Another Atom enumeration NOT USED in BioPool, imported from Qmean (aa_map.cpp).
+ * */
 
 inline int get_all_atom_bin(string group_name) {
     switch (group_name[0]) {

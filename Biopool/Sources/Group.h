@@ -25,10 +25,11 @@
 #include <Visitor.h>
 
 namespace Biopool {
+    
     /**@brief This class implements a simple chemical group
      * 
-     *@This 
      * */
+    
     // Global constants, typedefs, etc. (to avoid):
 
     class Group : public Monomer {

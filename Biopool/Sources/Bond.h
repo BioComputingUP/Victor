@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- 
- *                  Attention: copy() strips orig from its bonds and 
- *                  attaches them to the new bond. 
- */
+
 
 #ifndef _BOND_H_
 #define _BOND_H_
@@ -30,10 +26,12 @@
 
 namespace Biopool {
     class Atom;
+    
     /**@brief Defines chemical and abstract bonds between objects which are compositions of atoms.
      * 
      *@Description Eg. 'bond' between two amino acids.
      * */
+    
     // Global constants, typedefs, etc. (to avoid):
 
     class Bond : public SimpleBond {

@@ -31,9 +31,10 @@ namespace Biopool {
 
     class Group;
 
-    /**@brief class implements a simple atom type.
+    /**@brief Implements a simple atom type.
      * 
-     *@Description Includes methods that allow to get and set type, bind, unbind,coordinates , code,  etc.NB Angles are in degrees.
+     *@Description Includes methods that allow you to get and set type, bind, unbind, coordinates , code,  etc.
+     * NB: Angles are in degrees.
      **/
     class Atom : public SimpleBond {
     public:

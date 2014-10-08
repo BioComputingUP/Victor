@@ -29,12 +29,12 @@
 
 namespace Biopool {
 
-    /**@brief Loads components (Atoms, Groups, etc.) in relative format.
+    /**
+     * @brief Loads components (Atoms, Groups, etc.) in relative format.
      * 
-     *@Description Relative format is similiar in structure to XYZ format.
-     *    The only difference is that the coordinates here are relative 
-     *    to the previous atom rather absolute.
-     *@This 
+     * @Description The coordinates here are relative to the previous connected Component (Atom, Group, etc..:) 
+     * rather than to the absolute Cartesian coordinate system.
+     *  
      * */
     class RelLoader : public Loader {
     public:
