@@ -81,37 +81,18 @@ protected:
             ERROR("File not found.", exception);
         XyzLoader il(inFile);
         aa->load(il);
-         cout<<aa->getAtom(0).getType()<<aa->getAtom(0).getCoords().x<<"\n";
-         cout<<aa->getAtom(1).getType()<<"\n";
-         cout<<aa->getAtom(2).getType()<<"\n"; 
-         cout<<aa->getAtom(3).getType()<<"\n"; 
-         cout<<aa->getAtom(4).getType()<<aa->getSideChain().size()<<"\n"; 
-         SideChain aa1=aa->getSideChain();
-          cout<<aa1.getAtom(0).getCoords().x<<"\n";
-        cout<<aa->getSideChain().getAtom(0).getType()<<"\n";//->getPhi();//->getPsi()<<" "<<aa->getPhi() <<" "<<aa->getOmega();
-        cout<< aa->getSideChain().getAtom(0).getCoords().x<<"\n";
-        cout<< aa->getSideChain().getAtom(1).getType()<<"\n";//->getPhi();//->getPsi()<<" "<<aa->getPhi() <<" "<<aa->getOmega();
-        cout<<aa->getSideChain().getAtom(0).getCoords().y<<"\n";
-        cout<< aa->getSideChain().getAtom(2).getType()<<"\n";//->getPhi();//->getPsi()<<" "<<aa->getPhi() <<" "<<aa->getOmega();
-        cout<< aa->getSideChain().getAtom(0).getCoords().z<<"\n";
-      //  cout << endl << "Solution is: x=" << atom0.distance(atom1)
-        //        << ", y=" << distance << endl;
-        CPPUNIT_ASSERT(1 == 1);
+        AminoAcid *aa1=new AminoAcid();
+        Atom atom1,atom2;
+        atom1.setCoords(55.895,39.622,14.803);
+        atom1.setCode(N);
+        atom2.setCoords(56.598,38.679,13.941);
+        atom2.setCode(CA);
+        aa1->addAtom(atom1);
+        aa1->addAtom(atom2);
+        CPPUNIT_ASSERT((aa->getAtom(0).getCoords()== aa1->getAtom(0).getCoords())&&(aa->getAtom(1).getCoords()== aa1->getAtom(1).getCoords())&&
+                (aa->getAtom(0).getCode()== aa1->getAtom(0).getCode())&&(aa->getAtom(1).getCode()== aa1->getAtom(1).getCode()));
     }
-    /*
-    void testTestAtom_C() {
-            // Calculate the distance between the two atoms
-            Atom atom0;
-            atom0.setCoords(0,0,0);
-            Atom atom1;
-            atom1.setCoords(0,0,0);
-            //this is the expected value
-            double distance = sqrt(0);
-                
-            cout << endl << "Solution is: x=" << atom0.distance(atom1)
-                    << ", y=" << distance << endl;
-            CPPUNIT_ASSERT( atom0.distance(atom1) == distance );
-    }*/
+
 
 
 };
