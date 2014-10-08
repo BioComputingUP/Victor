@@ -7,11 +7,15 @@ Align2/Sources/*.o
 Align2/Sources/*.a
 Align2/APPS/*.o
 Align2/APPS/*.a
+Align2/Tests/*.a
+Align2/Tests/*.o
 Biopool/data/
 Biopool/Sources/*.o
 Biopool/Sources/*.a
 Biopool/APPS/*.o
 Biopool/APPS/*.a
+Biopool/Tests/*.a
+Biopool/Tests/*.o
 Energy/data/
 Energy/Sources/*.o
 Energy/Sources/*.a
@@ -22,6 +26,8 @@ Energy/Sources/TorsionPotential/*.lt
 Energy/APPS/*.o
 Energy/APPS/*.a
 Energy/APPS/*.lt
+Energy/Tests/*.a
+Energy/Tests/*.o
 Lobo/data/
 Lobo/APPS/*.o
 Lobo/APPS/*.a
@@ -29,5 +35,7 @@ Lobo/APPS/loboAuto_all
 Lobo/APPS/loboLUT_all
 Lobo/Sources/*.o
 Lobo/Sources/*.a
+Lobo/Tests/*.a
+Lobo/Tests/*.o
 tools/*.o
 tools/*.a

@@ -26,7 +26,7 @@ using namespace Biopool;
 
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv)) {
-        cout << "Loop Table Plot\n"
+        cout << "Loop  Table Plot\n"
                 << "This program generates GNU compatible plots of protein entries"
                 << " for the Lobo algorithm.\n"
                 << " Options: \n"

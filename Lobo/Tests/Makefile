@@ -16,38 +16,37 @@ BINPATH = ../../bin
 # Libraries and paths (which are not defined globally).
 #
 
-LIBS =  -lEnergy -lTorsion -lBiopool  -ltools
+LIBS =  -L$(LIB) -lLobo -lBiopool  -ltools -lEnergy -lTorsion -L/usr/lib/ -lm -ldl -lcppunit
 
 LIB_PATH = -L.
 
-INC_PATH = -I. -I../../tools/ -I../../Biopool/Sources -I../../Energy/Sources -I../../Energy/Sources/TorsionPotential
+INC_PATH = -I.  -I../../Energy/Sources -I../../Energy/TorsionPotential/Sources -I../../Biopool/Sources  -I../../tools -I../../Lobo/Sources
 
 #
 # Objects and headers
 #
 
-SOURCES =  
+SOURCES =  TestLobo.cc TestVectorTransformation.h
 
-OBJECTS =  
+OBJECTS =  $(SOURCES:.cpp=.o)
 
-TARGETS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover  CreateReference
+TARGETS = TestLobo
 
-EXECS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover   CreateReference 
+EXECS = TestLobo
 
-LIBRARY = APPSlibBiopool.a
+LIBRARY = TESTlibLobo.a
 
 #
 # Install rule
 #
 
 compile: all
-
+	
 all: install
+
 install: $(LIBRARY) $(TARGETS)
-	mv $(EXECS) $(UPDIR)/bin/
-	mv $(LIBRARY) $(UPDIR)/lib/
+	mv $(EXECS) $(UPDIR)/bin
+	mv $(LIBRARY) $(UPDIR)/lib
 	
 #
 # Call global Makefile to do the job.

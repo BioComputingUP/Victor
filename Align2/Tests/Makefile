@@ -16,38 +16,37 @@ BINPATH = ../../bin
 # Libraries and paths (which are not defined globally).
 #
 
-LIBS =  -lEnergy -lTorsion -lBiopool  -ltools
+LIBS =  -lAlign2 -lBiopool -ltools -L/usr/lib/ -lm -ldl -lcppunit
 
 LIB_PATH = -L.
 
-INC_PATH = -I. -I../../tools/ -I../../Biopool/Sources -I../../Energy/Sources -I../../Energy/Sources/TorsionPotential
+INC_PATH = -I. -I ../../Biopool/ -I../../tools/ -I../../Align2/Sources
 
 #
 # Objects and headers
 #
 
-SOURCES =  
+SOURCES =  TestAlign2.cc TestAlignmentBase.h
 
-OBJECTS =  
+OBJECTS =  $(SOURCES:.cpp=.o)
 
-TARGETS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover  CreateReference
+TARGETS = TestAlign2
 
-EXECS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover   CreateReference 
+EXECS = TestAlign2
 
-LIBRARY = APPSlibBiopool.a
+LIBRARY = TESTlibAlign2.a
 
 #
 # Install rule
 #
 
 compile: all
-
+	
 all: install
+
 install: $(LIBRARY) $(TARGETS)
-	mv $(EXECS) $(UPDIR)/bin/
-	mv $(LIBRARY) $(UPDIR)/lib/
+	mv $(EXECS) $(UPDIR)/bin
+	mv $(LIBRARY) $(UPDIR)/lib
 	
 #
 # Call global Makefile to do the job.

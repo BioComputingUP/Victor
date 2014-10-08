@@ -26,7 +26,7 @@ using namespace Biopool;
 int main(int nArgs, char* argv[]) {
     char *victor = getenv("VICTOR_ROOT");
     if (victor == NULL)
-        ERROR("Environment variable VICTOR_ROOT was not found.\n Use the command:\n export VICTOR_ROOT=......", exception);
+        ERROR(" Environment variable VICTOR_ROOT was not found.\n Use the command:\n export VICTOR_ROOT=......", exception);
     string dataPath = getenv("VICTOR_ROOT");
     if (dataPath.length() < 3)
         cout << "Warning: Environment variable VICTOR_ROOT is not set." << endl;

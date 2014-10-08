@@ -1,8 +1,8 @@
 /*
- * TestRunner.cpp
+ * TestBiopool.cc
  *
- *  Created on: Feb 16, 2013
- *      Author: Arvind A de Menezes Pereira
+ *  Created on: Oct 6, 2014
+ *      Author: Manuel Giollo
  */
 
 #include <iostream>
@@ -12,6 +12,7 @@
 #include "TestLin2dSolver.h"
 #include <TestAtom.h>
 #include <TestGroup.h>
+#include <TestAminoAcid.h>
 using namespace std;
 
 
@@ -22,6 +23,7 @@ int main() {
 	runner.addTest(TestLin2dSolver::suite());
         runner.addTest(TestAtom::suite());
         runner.addTest(TestGroup::suite());
+        runner.addTest(TestAminoAcid::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
