@@ -37,7 +37,11 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description 
+     * @param pro1
+     * @param pro2
+     */
     DotPOdds::DotPOdds(Profile *pro1, Profile *pro2) : ScoringFunction(),
     pro1(pro1), pro2(pro2) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -54,17 +58,26 @@ namespace Biopool {
                 p2[k] += (pro2->getAminoFrequency(residue_indices[k], n) / pro2->getSequenceLength());
         }
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     DotPOdds::DotPOdds(const DotPOdds &orig) : ScoringFunction(orig) {
         copy(orig);
     }
-
+    /**
+     * 
+     */
     DotPOdds::~DotPOdds() {
     }
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     DotPOdds&
             DotPOdds::operator =(const DotPOdds &orig) {
         if (&orig != this)
@@ -75,7 +88,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     DotPOdds::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -101,7 +119,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     DotPOdds::copy(const DotPOdds &orig) {
         ScoringFunction::copy(orig);
@@ -120,7 +141,10 @@ namespace Biopool {
         }
 
     }
-
+    /**
+     * @description 
+     * @return 
+     */
     DotPOdds*
     DotPOdds::newCopy() {
         DotPOdds *tmp = new DotPOdds(*this);

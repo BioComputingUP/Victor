@@ -150,7 +150,9 @@ namespace Biopool {
 
         return newInputVector;
     }
-
+    /**
+     * @Description Generate and output an ensemble of suboptimal alignments.
+     */
     void
     Align::outputMultiMatch(ostream &os, unsigned int num, bool fasta) {
         if (!fasta) {
@@ -166,7 +168,11 @@ namespace Biopool {
             ad->outputMatch(cout, fasta);
         }
     }
-
+    /**
+     * @Description  Generate and return an ensemble of suboptimal alignments.
+     * @param num
+     * @return 
+     */
     vector<Alignment>
     Align::generateMultiMatch(unsigned int num) {
         vector<Alignment> va;
@@ -181,7 +187,11 @@ namespace Biopool {
 
         return va;
     }
-
+    /**
+     * @Description Generate and return scores of an ensemble of suboptimal alignments.
+     * @param num
+     * @return 
+     */
     vector<double>
     Align::generateMultiMatchScore(unsigned int num) {
         vector<double> score;
@@ -217,7 +227,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+/**
+ * @Description Copy orig object to this object ("deep copy").
+ * @param orig
+ */
     void
     Align::copy(const Align &orig) {
         ad = orig.ad->newCopy();
@@ -255,8 +268,10 @@ namespace Biopool {
         penaltyMul = orig.penaltyMul;
         penaltyAdd = orig.penaltyAdd;
     }
-
-    void
+/**
+ * @Description Recalculate the alignment matrix.
+ */
+     void
     Align::recalculateMatrix() {
         for (unsigned int i = 0; i < F.size(); i++)
             for (unsigned int j = 0; j < F[i].size(); j++)

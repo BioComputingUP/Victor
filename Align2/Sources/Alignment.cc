@@ -68,7 +68,10 @@ namespace Biopool {
             output << " ";
         output << t << endl;
     }
-
+/**
+ * @description Save as MSAF (Mannheim Sequence Alignment Format) like output.
+ * @param output
+ */
     void
     Alignment::saveMSAF(ostream &output) const {
         sSaveMSAF(target, targetName, startAaTarget, output);
@@ -76,7 +79,10 @@ namespace Biopool {
             sSaveMSAF(seqTemplate[j], seqTemplateName[j], startAaTemplates[j],
                 output);
     }
-
+/**
+ * @description Save as FASTA like output.
+ * @param output
+ */
     void
     Alignment::saveFasta(ostream &output) const {
         AlignmentBase::saveFasta(target, targetName, output);
@@ -89,7 +95,11 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+/**
+ * @description Swap templates index1 and index2.
+ * @param index1
+ * @param index2
+ */
     void
     Alignment::swapTemplate(unsigned int index1, unsigned int index2) {
         AlignmentBase::swapTemplate(index1, index2);
@@ -117,14 +127,34 @@ namespace Biopool {
             ERROR("Index out of scope.", exception);
         evalue[index] = val;
     }
-
+/**
+ * @description  Remove all templates below index.
+ * @param index
+ */
     void
     Alignment::cutTemplate(unsigned int index) {
         AlignmentBase::cutTemplate(index);
         score.resize(index);
         evalue.resize(index);
     }
-
+/**
+ * @description Output of alignment including headers of the 2 sequences.
+ * @param os
+ * @param headerTarget
+ * @param startTarget
+ * @param endTarget
+ * @param headerTemplate
+ * @param startTemplate
+ * @param endTemplate
+ * @param alignType
+ * @param gapOpen
+ * @param gapExtension
+ * @param pWeigth
+ * @param sWeigth
+ * @param tWeigth
+ * @param seqTarget
+ * @param seqTemplate
+ */
     void
     Alignment::doMatchPlusHeader(ostream &os, string headerTarget, int startTarget,
             int endTarget, string headerTemplate, int startTemplate, int endTemplate,
@@ -158,7 +188,10 @@ namespace Biopool {
 
         return t2;
     }
-
+/**
+ * @description Read FASTA format input.
+ * @param input
+ */
     void
     Alignment::loadFasta(istream &input) {
         string tmp;
@@ -170,7 +203,7 @@ namespace Biopool {
         target = "";
 
         while (input) {
-            tmp = readLine(input);
+            tmp = readLine(input); 
 
             if (tmp[0] != '>')
                 target += sRemoveIllegalChars(tmp);
@@ -248,7 +281,10 @@ namespace Biopool {
         if (!input)
             ERROR("Abnormal input file end.", exception);
     }
-
+/**
+ * @description Read output of CE program.
+ * @param input
+ */
     void
     Alignment::loadCEBody(istream &input) {
         PRECOND(input, exception);

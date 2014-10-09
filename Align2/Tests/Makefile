@@ -26,7 +26,7 @@ INC_PATH = -I. -I ../../Biopool/ -I../../tools/ -I../../Align2/Sources
 # Objects and headers
 #
 
-SOURCES =  TestAlign2.cc TestAlignmentBase.h
+SOURCES =  TestAlign2.cc TestAlignmentBase.h TestAlign.h TestAlignment.h
 
 OBJECTS =  $(SOURCES:.cpp=.o)
 

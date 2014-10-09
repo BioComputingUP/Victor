@@ -35,11 +35,19 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description 
+     * @param sub
+     * @param pro1
+     * @param pro2
+     */
     CrossProduct::CrossProduct(SubMatrix *sub, Profile *pro1, Profile *pro2)
     : ScoringFunction(), sub(sub), pro1(pro1), pro2(pro2) {
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     CrossProduct::CrossProduct(const CrossProduct &orig) : ScoringFunction(orig) {
         copy(orig);
     }
@@ -49,7 +57,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     CrossProduct&
             CrossProduct::operator =(const CrossProduct &orig) {
         if (&orig != this)
@@ -60,7 +72,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     CrossProduct::scoringSeq(int i, int j) {
         double s = 0.00;
@@ -81,7 +98,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     CrossProduct::copy(const CrossProduct &orig) {
         ScoringFunction::copy(orig);
@@ -89,7 +109,10 @@ namespace Biopool {
         pro1 = orig.pro1->newCopy();
         pro2 = orig.pro2->newCopy();
     }
-
+    /**
+     * @description 
+     * @return 
+     */
     CrossProduct*
     CrossProduct::newCopy() {
         CrossProduct *tmp = new CrossProduct(*this);
