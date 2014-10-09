@@ -55,6 +55,7 @@ public:
 	void tearDown() {}
 
 protected:
+    
 	void testRapdfPotential_spacer() {
                 Spacer s;
                 string p = path + "Energy/Tests/data/test.pdb";
