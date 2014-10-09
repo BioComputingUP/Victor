@@ -30,13 +30,10 @@ public:
 		CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestAtom");
 
 		suiteOfTests->addTest(new CppUnit::TestCaller<TestAtom>("Test1 - distance greater than zero.",
-				&TestAtom::testTestAtom_A ));
+				&TestAtom::testTestAtom_Distance ));
 
 		suiteOfTests->addTest(new CppUnit::TestCaller<TestAtom>("Test2 - zero distance.",
-				&TestAtom::testTestAtom_B ));
-                
-                suiteOfTests->addTest(new CppUnit::TestCaller<TestAtom>("Test3 - rotation.",
-				&TestAtom::testTestAtom_C ));
+				&TestAtom::testTestAtom_ZeroDistance ));
 
 		return suiteOfTests;
 	}
@@ -48,7 +45,7 @@ public:
 	void tearDown() {}
 
 protected:
-	void testTestAtom_A() {
+	void testTestAtom_Distance() {
 		// Calculate the distance between the two atoms
                 Atom atom0;
                 atom0.setCoords(0,0,0);
@@ -62,21 +59,7 @@ protected:
 		CPPUNIT_ASSERT( atom0.distance(atom1) == distance );
 	}
 
-	void testTestAtom_B() {
-                // Calculate the distance between the two atoms
-		Atom atom0;
-                atom0.setCoords(0,0,0);
-                Atom atom1;
-                atom1.setCoords(0,0,0);
-                //this is the expected value
-                double distance = sqrt(0);
-                
-		cout << endl << "Solution is: x=" << atom0.distance(atom1)
-                        << ", y=" << distance << endl;
-		CPPUNIT_ASSERT( atom0.distance(atom1) == distance );
-	}
-        
-        void testTestAtom_C() {
+	void testTestAtom_ZeroDistance() {
                 // Calculate the distance between the two atoms
 		Atom atom0;
                 atom0.setCoords(0,0,0);
