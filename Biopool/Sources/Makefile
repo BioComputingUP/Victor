@@ -29,18 +29,20 @@ INC_PATH = -I.   -I../../tools
 
 SOURCES = Identity.cc SimpleBond.cc Bond.cc \
  Component.cc Monomer.cc Polymer.cc Atom.cc Group.cc SideChain.cc \
- AminoAcid.cc Spacer.cc IntSaver.cc IntLoader.cc XyzLoader.cc \
- XyzSaver.cc SeqSaver.cc PdbLoader.cc PdbSaver.cc SeqLoader.cc \
- IntCoordConverter.cc SideChainConstructor.cc RelLoader.cc RelSaver.cc \
- SeqConstructor.cc Ligand.cc LigandSet.cc SolvExpos.cc AminoAcidHydrogen.cc Nucleotide.cc
+ AminoAcid.cc Spacer.cc IntSaver.cc IntLoader.cc SeqSaver.cc PdbLoader.cc \
+ PdbSaver.cc SeqLoader.cc IntCoordConverter.cc SeqConstructor.cc Ligand.cc \
+ LigandSet.cc SolvExpos.cc AminoAcidHydrogen.cc Nucleotide.cc \
+ RelLoader.cc XyzSaver.cc RelSaver.cc XyzLoader.cc
+
 
 OBJECTS = Identity.o SimpleBond.o Bond.o \
  Component.o Monomer.o Polymer.o Atom.o Group.o SideChain.o \
- AminoAcid.o Spacer.o IntSaver.o IntLoader.o XyzLoader.o \
- XyzSaver.o SeqSaver.o PdbLoader.o PdbSaver.o SeqLoader.o \
- IntCoordConverter.o SideChainConstructor.o RelLoader.o RelSaver.o \
- SeqConstructor.o Ligand.o LigandSet.o SolvExpos.o Protein.o   AminoAcidHydrogen.o Nucleotide.o
- 
+ AminoAcid.o Spacer.o IntSaver.o IntLoader.o \
+ SeqSaver.o PdbLoader.o PdbSaver.o SeqLoader.o \
+ IntCoordConverter.o SeqConstructor.o Ligand.o LigandSet.o \
+ SolvExpos.o Protein.o AminoAcidHydrogen.o Nucleotide.o \
+ RelLoader.o XyzSaver.o RelSaver.o XyzLoader.o
+
 
 TARGETS =   
 

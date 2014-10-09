@@ -118,7 +118,7 @@ namespace Biopool {
     /**
      *@Description    Is c bonded to this ?
      */
-
+    
     inline bool SimpleBond::isBond(const SimpleBond& c) const {
         return (isInBond(c) || isOutBond(c));
     }

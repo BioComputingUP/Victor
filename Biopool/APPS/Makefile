@@ -31,10 +31,10 @@ SOURCES =
 OBJECTS =  
 
 TARGETS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover  CreateReference
+	pdbMover
 
 EXECS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover   CreateReference 
+	pdbMover
 
 LIBRARY = APPSlibBiopool.a
 
