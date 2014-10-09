@@ -15,4 +15,6 @@
  */
 #include <Identity.h>
 
+using namespace Biopool;
+
 long Identity::counter = 0;
