@@ -30,7 +30,12 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * 
+     *@description 
+     * @param pro1
+     * @param pro2
+     */
     JensenShannon::JensenShannon(Profile *pro1, Profile *pro2) : ScoringFunction(),
     pro1(pro1), pro2(pro2) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -57,7 +62,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     JensenShannon&
             JensenShannon::operator =(const JensenShannon &orig) {
         if (&orig != this)
@@ -68,7 +77,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     JensenShannon::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -103,7 +117,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     JensenShannon::copy(const JensenShannon &orig) {
         ScoringFunction::copy(orig);
@@ -122,7 +139,10 @@ namespace Biopool {
             cout << p2[k];
         }
     }
-
+    /**
+     * @description
+     * @return 
+     */
     JensenShannon*
     JensenShannon::newCopy() {
         JensenShannon *tmp = new JensenShannon(*this);

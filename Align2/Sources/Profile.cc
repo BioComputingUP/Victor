@@ -50,7 +50,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Profile::copy(const Profile &orig) {
         profAliFrequency.clear();
@@ -76,7 +79,10 @@ namespace Biopool {
         Profile *tmp = new Profile(*this);
         return tmp;
     }
-
+    /**
+     * @description
+     * @param ali
+     */
     void
     Profile::setProfile(Alignment &ali) {
         struct tm* newtime;
@@ -89,7 +95,11 @@ namespace Biopool {
         cout << "ready for pConstructData " << newtime->tm_hour << "/" << newtime->tm_min << endl;
         pConstructData(ali);
     }
-
+    /**
+     * @description
+     * @param ali
+     * @param is
+     */
     void
     Profile::setProfile(Alignment &ali, istream &is) {
         pResetData();
@@ -118,7 +128,9 @@ namespace Biopool {
 
         setSeq(ali.getTarget());
     }
-
+    /**
+     * @description
+     */
     void
     Profile::reverse() {
         vector< vector<double> > tmpPAF;
@@ -145,7 +157,13 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param freq
+     * @param freqGap
+     * @param ali
+     * @param i
+     */
     void
     Profile::pCalculateRawFrequency(vector<double> &freq, double &freqGap,
             Alignment &ali, unsigned int i) {
@@ -160,7 +178,10 @@ namespace Biopool {
             else
                 freqGap++;
     }
-
+    /**
+     * @description
+     * @param ali
+     */
     void
     Profile::pConstructData(Alignment &ali) {
         if (!gap) {
@@ -182,7 +203,9 @@ namespace Biopool {
         }
         setSeq(ali.getTarget());
     }
-
+    /**
+     * @description
+     */
     void
     Profile::pResetData() {
         for (unsigned int i = 0; i < profAliFrequency.size(); i++)

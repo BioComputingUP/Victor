@@ -41,7 +41,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     ProfInput&
             ProfInput::operator =(const ProfInput &orig) {
         if (&orig != this)
@@ -49,14 +53,24 @@ namespace Biopool {
         POSTCOND((orig == *this), exception);
         return *this;
     }
-
+    /**
+     * @description
+     * @param os
+     * @param object
+     * @return 
+     */
     ostream&
     operator <<(ostream &os, const ProfInput &object) {
         ProfInput::pWriteString(os, object.seq, object.profSSPred,
                 object.profBEPred);
         return os;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param object
+     * @return 
+     */
     istream&
     operator >>(istream &is, ProfInput &object) {
         ProfInput::pReadString(is, object.seq, object.profSSPred,
@@ -66,7 +80,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param ssChar
+     * @param beChar
+     * @return 
+     */
     char
     ProfInput::getProfMixSSBE(char ssChar, char beChar) {
         char correctChar;
@@ -95,14 +114,20 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ProfInput::copy(const ProfInput &orig) {
         seq = orig.seq;
         profSSPred = orig.profSSPred;
         profBEPred = orig.profBEPred;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     ProfInput*
     ProfInput::newCopy() {
         ProfInput *tmp = new ProfInput(*this);
@@ -111,7 +136,13 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param os
+     * @param data1
+     * @param data2
+     * @param data3
+     */
     void
     ProfInput::pWriteString(ostream &os, string data1, string data2, string data3) {
         os << "     #    AA   Pss   Pbe\n" << endl;
@@ -124,7 +155,13 @@ namespace Biopool {
         }
         os << endl;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param data1
+     * @param data2
+     * @param data3
+     */
     void
     ProfInput::pReadString(istream &is, string &data1, string &data2, string &data3) {
         string line;

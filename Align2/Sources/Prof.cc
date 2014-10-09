@@ -25,7 +25,13 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param subStr
+     * @param phd1
+     * @param phd2
+     * @param cPrf
+     */
     Prof::Prof(SubMatrix *subStr, ProfInput *phd1, ProfInput *phd2, double cPrf)
     : Structure(subStr), phd1(phd1), phd2(phd2), cPrf(cPrf) {
     }
@@ -39,7 +45,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     Prof&
             Prof::operator =(const Prof &orig) {
         if (&orig != this)
@@ -50,7 +60,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Prof::scoringStr(int i, int j) {
         // ProfSEC prediction
@@ -69,7 +84,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Prof::copy(const Prof &orig) {
         Structure::copy(orig);
@@ -77,7 +95,10 @@ namespace Biopool {
         phd2 = orig.phd2->newCopy();
         cPrf = orig.cPrf;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     Prof*
     Prof::newCopy() {
         Prof *tmp = new Prof(*this);

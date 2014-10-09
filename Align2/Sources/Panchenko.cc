@@ -31,7 +31,13 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param pro1
+     * @param pro2
+     * @param pssm1
+     * @param pssm2
+     */
     Panchenko::Panchenko(Profile *pro1, Profile *pro2, PssmInput *pssm1,
             PssmInput *pssm2) : ScoringFunction(), pro1(pro1), pro2(pro2), pssm1(pssm1),
     pssm2(pssm2) {
@@ -46,7 +52,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     Panchenko&
             Panchenko::operator =(const Panchenko &orig) {
         if (&orig != this)
@@ -57,7 +67,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Panchenko::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -85,7 +100,11 @@ namespace Biopool {
 
         return ((ni * s1) + (nj * s2)) / (ni + nj);
     }
-
+    /**
+     * @description
+     * @param i
+     * @return 
+     */
     int
     Panchenko::returnAaColumnTarget(int i) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -102,7 +121,11 @@ namespace Biopool {
 
         return aaColumn;
     }
-
+    /**
+     * @description
+     * @param i
+     * @return 
+     */
     int
     Panchenko::returnAaColumnTemplate(int i) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -122,7 +145,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Panchenko::copy(const Panchenko &orig) {
         ScoringFunction::copy(orig);
@@ -131,7 +157,10 @@ namespace Biopool {
         pssm1 = orig.pssm1->newCopy();
         pssm2 = orig.pssm2->newCopy();
     }
-
+    /**
+     * @description
+     * @return 
+     */
     Panchenko*
     Panchenko::newCopy() {
         Panchenko *tmp = new Panchenko(*this);
