@@ -1,5 +1,5 @@
 /*
- * TestAlignmentBase.cpp
+ * TestAlign.cpp
  *
  *  Created on: Oct 6th, 2014
  *      Author: Manuel Giollo
