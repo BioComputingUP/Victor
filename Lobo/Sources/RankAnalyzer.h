@@ -24,9 +24,8 @@
 // Includes:
 #include <string>
 #include <vector>
-using namespace std;
-
-namespace Biopool {
+using namespace std; 
+namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
@@ -74,7 +73,7 @@ namespace Biopool {
         vector< vector<double> > resScore; // score of the RMSD results
     };
 
-} // namespace
+}} // namespace
 #endif //_RANKANALYZER_H_
 
 

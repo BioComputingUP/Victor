@@ -24,7 +24,7 @@
 #include <matrix3.h>
 #include <SimpleBond.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
 
     // Global constants, typedefs, etc. (to avoid):
@@ -282,5 +282,5 @@ namespace Biopool {
     // OPERATORS:
 
 
-} // namespace
+}} //namespace
 #endif //_ATOM_H_

@@ -19,7 +19,7 @@
 #include <Atom.h>
 #include <IoTools.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 int main()
 { 

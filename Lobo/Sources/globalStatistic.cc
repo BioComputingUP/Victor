@@ -26,12 +26,13 @@
 
 
 // Global constants, typedefs, etc. (to avoid):
-
-using namespace Biopool;
-
+using namespace Victor;
+using namespace Victor::Biopool;
+using namespace Victor::Lobo;
 const int globalStatistic::BAD_PROPENSITY = 0;
 const int globalStatistic::BAD_VDW = 3000;
 const int globalStatistic::BAD_CONSISTENCY = 1000;
+
 
 // CONSTRUCTORS/DESTRUCTOR:
 

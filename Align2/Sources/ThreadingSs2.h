@@ -23,7 +23,7 @@
 #include <Structure.h>
 #include <ThreadingInput.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Calculate structural scores with info derived from
      *                  threading and PSI-PRED.
@@ -86,6 +86,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

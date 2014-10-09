@@ -25,7 +25,7 @@
 #include <string>
 #include <vector>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Calculate a frequency profile or PSSM.
      * 
@@ -260,6 +260,6 @@ namespace Biopool {
         gap = g;
     }
 
-} // namespace
+}} // namespace
 
 #endif

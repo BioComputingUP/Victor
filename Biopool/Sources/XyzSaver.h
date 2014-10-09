@@ -30,7 +30,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Saves components (Atoms, Groups, etc.) in carthesian format 
      * 
@@ -72,5 +72,5 @@ namespace Biopool {
         bool delimit; // write delimiters ("aminoacid", "sidechain", etc.)  
         int offset; // ID offset for saving (optional) 
     };
-}
+}}
 #endif //_XYZ_SAVER_H_

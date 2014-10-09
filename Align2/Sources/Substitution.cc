@@ -23,7 +23,7 @@
 
 #include <Substitution.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -169,4 +169,4 @@ namespace Biopool {
     template void
     Substitution::pReadDoubleVector(istream &is, vector< vector<double> > &data);
 
-} // namespace
+}} // namespace

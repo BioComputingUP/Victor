@@ -21,7 +21,7 @@
 
 #include <AlignmentData.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -127,4 +127,4 @@ namespace Biopool {
         name2 = orig.name2;
     }
 
-} // namespace
+}} // namespace

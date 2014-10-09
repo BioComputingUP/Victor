@@ -24,8 +24,8 @@
 
 
 // Global constants, typedefs, etc. (to avoid):
-using namespace Biopool;
-
+using namespace Victor; using namespace Victor::Biopool;
+using namespace Victor::Biopool;
 double BOND_LENGTH_H_TO_ALL = 1.00;
 map<AminoAcidCode, vector<vector<string> > > AminoAcidHydrogen::paramH;
 

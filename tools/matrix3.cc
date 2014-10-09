@@ -26,7 +26,7 @@ static const char __use_rcsid__ = (&__use_rcsid__ - __rcsid__);
 #include <matrix3.h>
 #include <vglSwap.h>
 #include <vglMath.h>
-using namespace Biopool;
+using namespace Victor;
 
 template <class T> vgMatrix3<T>& vgMatrix3<T>::operator =(const vgMatrix3<T>& other) {
     x = other.x;

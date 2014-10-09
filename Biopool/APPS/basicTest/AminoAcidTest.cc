@@ -22,7 +22,7 @@
 #include <IoTools.h>
 #include <IntSaver.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 int main()
 { 

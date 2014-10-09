@@ -36,7 +36,7 @@
 const unsigned int MAX_INDEL = 15;
 
 
-using namespace Biopool;
+using namespace Victor;
 
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv)) {

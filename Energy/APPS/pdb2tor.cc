@@ -21,8 +21,8 @@
 #include <PdbLoader.h>
 #include <AminoAcid.h>
 #include <String2Number.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool; 
+using namespace Victor;
 
 void sShowHelp(){
   cout << "pdb2tor - Pdb Torsion Angles\n\n"

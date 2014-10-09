@@ -24,7 +24,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Lobo {
     /**
      *@Brief This class implements the container for ramachandran plot-like 
      *    phi/psi angle combinations for the LoopTable class(es).
@@ -198,4 +198,4 @@ namespace Biopool {
         return *this;
     }
 
-}
+}}

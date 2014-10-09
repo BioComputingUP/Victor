@@ -37,7 +37,7 @@
 /// Numeric approximation of equality for doubles.
 #define EQUALS(a, b)   (fabs(a - b) < EQ_EPS ? true : false)
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Pairwise sequence and profile alignment.
      * 
@@ -234,6 +234,6 @@ namespace Biopool {
         F[i][j] = penaltyMul * F[i][j] - penaltyAdd;
     }
 
-} // namespace
+}} // namespace
 
 #endif

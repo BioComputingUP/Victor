@@ -21,7 +21,7 @@
 
 #include <ScoringP2S.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -103,4 +103,4 @@ namespace Biopool {
         seq2 = tmp;
     }
 
-} // namespace
+}} // namespace

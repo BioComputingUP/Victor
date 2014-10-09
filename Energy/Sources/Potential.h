@@ -23,8 +23,8 @@
 #include <Spacer.h>
 
 // Global constants, typedefs, etc. (to avoid):
-
-namespace Biopool {
+using namespace Victor::Biopool;
+ namespace Victor{ namespace Energy{
 
     /**
      * @brief Abstract class for the energy potential.
@@ -108,5 +108,5 @@ namespace Biopool {
         }
     };
 
-} // namespace
+}} // namespace
 #endif //_POTENTIAL_H_

@@ -18,15 +18,17 @@
  *                              protein fragment.
  */
 #include <SolvExpos.h>
-using namespace Biopool;
-namespace Biopool {
+using namespace Victor; using namespace Victor::Biopool;
+using namespace Victor::Biopool;
+
+namespace Victor { namespace Biopool { 
 
     Atom& getReprAtom(AminoAcid &amino);
 
     unsigned int getNumNeighbours(Spacer &chain, const unsigned int tgt,
             const unsigned int start, const unsigned int end);
 
-} // namespace
+}} //namespace
 
 /**
  *@Description Returns the atom corresponding to C, 
@@ -35,7 +37,7 @@ namespace Biopool {
  *@return the representative atom of that residue as to solvent exposure. Such atom
  *    is CA for Glycine and CB for all other amino acid types.
  */
-Biopool::Atom& Biopool::getReprAtom(AminoAcid &amino) {
+Victor::Biopool::Atom& Victor::Biopool::getReprAtom(AminoAcid &amino) {
     if (amino.getCode() == XXX) throw "errore amino type XXX\n";
 
     // Glycine
@@ -71,7 +73,7 @@ Biopool::Atom& Biopool::getReprAtom(AminoAcid &amino) {
     residue.
  */
 
-unsigned int Biopool::getNumNeighbours(Spacer &chain, const unsigned int tgt,
+unsigned int Victor::Biopool::getNumNeighbours(Spacer &chain, const unsigned int tgt,
         const unsigned int start, const unsigned int end) {
     const double CUTOFF = 10; // Angstrom
 

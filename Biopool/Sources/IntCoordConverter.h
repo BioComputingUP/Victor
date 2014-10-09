@@ -24,7 +24,7 @@
 #include <IoTools.h>
 #include <vglMath.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
     
     class AminoAcid;
 
@@ -198,6 +198,6 @@ namespace Biopool {
 #endif
     }
 
-} // namespace
+}} //namespace
 #endif //_INTCOORDCONVERTER_H_
 

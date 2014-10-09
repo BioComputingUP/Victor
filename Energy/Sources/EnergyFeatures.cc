@@ -19,7 +19,7 @@
 #include <AminoAcidCode.h>
 #include <Spacer.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 // Global constants, typedefs, etc. (to avoid):
 

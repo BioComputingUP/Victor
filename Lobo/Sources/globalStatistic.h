@@ -28,7 +28,7 @@
 #include "ranking_helper2.h"
 
 // Global constants, typedefs, etc. (to avoid):
-namespace Biopool {
+namespace Victor { namespace Lobo {
 
 /**@brief  Methods to manages the global statistic data.
      * 
@@ -136,5 +136,5 @@ namespace Biopool {
     };
 
 
-}
+}}
 #endif

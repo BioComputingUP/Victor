@@ -28,8 +28,8 @@
 #include<ranking_helper2.h>
 
 // Global constants, typedefs, etc. (to avoid):
-
-namespace Biopool {
+using namespace Victor::Biopool;
+namespace Victor { namespace Lobo {
 
 /**@brief  Extracts all the loop regions (by numbers) from a given spacer.
 
@@ -73,5 +73,5 @@ namespace Biopool {
         // searching for the next loop)
     };
 
-} // Namespace
+}} // namespace
 #endif

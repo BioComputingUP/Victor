@@ -24,7 +24,7 @@
 #include <Spacer.h>
 #include <LigandSet.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
     
     /**
     * @brief Is a container of Polymers (a component of components).
@@ -123,6 +123,6 @@ namespace Biopool {
 
     // HELPERS:
 
-}//namespace
+}}//namespace
 #endif	/* PROTEIN2_H */
 

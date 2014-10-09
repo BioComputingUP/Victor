@@ -28,7 +28,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**
      * @brief Loads components (Atoms, Groups, etc.) in SEQ format. 
@@ -71,5 +71,5 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} //namespace
 #endif //_SEQ_LOADER_H_

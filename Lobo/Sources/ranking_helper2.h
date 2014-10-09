@@ -29,7 +29,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Lobo {
 
 /**@brief the class contains methods to manage the ranking
      * 
@@ -72,5 +72,5 @@ namespace Biopool {
     }
 
 
-} // Namespace
+}} // namespace
 #endif

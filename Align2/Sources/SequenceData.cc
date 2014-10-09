@@ -23,7 +23,7 @@
 
 #include <SequenceData.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -201,4 +201,4 @@ namespace Biopool {
             seq2 = s;
     }
 
-} // namespace
+}} // namespace

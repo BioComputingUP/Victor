@@ -19,7 +19,7 @@
 
 #include <Spacer.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     class SolvExpos {
     public:
@@ -46,6 +46,6 @@ namespace Biopool {
     private:
         
     };
-} // namespace
+}} //namespace
 
 #endif

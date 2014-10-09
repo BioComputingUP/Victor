@@ -23,7 +23,7 @@
 #include <matrix3.h>
 #include <IntCoordConverter.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 const double LAMBDA = 1.5; // minimum distance between neighbouring CAs
 

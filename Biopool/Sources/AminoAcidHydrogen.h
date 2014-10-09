@@ -26,7 +26,7 @@
 
 
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Implements aminoacid hydrogens.
      * 
@@ -45,7 +45,7 @@ namespace Biopool {
     };
 
 
-} // namespace
+}} //namespace
 
 
 #endif	/* _AMINOACIDHYDROGEN_H_ */

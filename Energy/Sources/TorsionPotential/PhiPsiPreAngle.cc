@@ -16,7 +16,7 @@
 
 // Includes:
 #include <PhiPsiPreAngle.h>
-using namespace Biopool;
+using namespace Victor;
 // Global constants, typedefs, etc. (to avoid):
 // CONSTRUCTORS/DESTRUCTOR:
 

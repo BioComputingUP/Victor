@@ -25,7 +25,12 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+using namespace Victor::Energy;
+
+using namespace Victor::Biopool;
+
+using namespace Victor;
+ namespace Victor { namespace Energy {
 
     /** @brief This class implements a simple torsion potential based on the 
      *    statistical preference of aminoacid types for certain angles.
@@ -156,7 +161,7 @@ namespace Biopool {
     }
 
 
-} // namespace
+}} // namespace
 #endif// _TORSIONPOTENTIAL_H_
 
 

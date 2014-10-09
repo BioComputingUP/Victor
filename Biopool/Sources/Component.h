@@ -30,7 +30,7 @@
 // Global constants, typedefs, etc. (to avoid):
 
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Base class for composite structures. 
      * 
@@ -207,6 +207,6 @@ namespace Biopool {
         upperBound = _ub;
     }
 
-} // namespace
+}} //namespace
 #endif //_COMPONENT_H_
 

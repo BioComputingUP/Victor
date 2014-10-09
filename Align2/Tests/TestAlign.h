@@ -16,7 +16,7 @@
 #include <Alignment.h>
 #include <Align.h>
 using namespace std;
-using namespace Biopool;
+using namespace Victor;
 
 class TestAlign : public CppUnit::TestFixture {
 private:

@@ -31,7 +31,10 @@
 #include <VGPFunction.h>
 #include <SolvExpos.h>
 
-namespace Biopool {
+using namespace Victor;
+using namespace Victor::Biopool;
+
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -310,4 +313,4 @@ namespace Biopool {
 
     }
 
-} // namespace
+}} // namespace

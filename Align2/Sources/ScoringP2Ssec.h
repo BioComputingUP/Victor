@@ -22,7 +22,7 @@
 #include <Profile.h>
 #include <string>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Calculate score for profile to sequence alignment with
      *                  secondary structure.

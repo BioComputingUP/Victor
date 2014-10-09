@@ -22,7 +22,7 @@
 
 #include <ThreadingInput.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -142,4 +142,4 @@ namespace Biopool {
     template void
     ThreadingInput::pReadDoubleVector(istream &is, vector< vector<double> > &data);
 
-} // namespace
+}} // namespace

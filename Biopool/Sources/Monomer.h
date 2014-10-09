@@ -24,7 +24,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Base class for components without elements  
      * 
@@ -130,5 +130,5 @@ namespace Biopool {
 
     // OPERATORS:
 
-} // namespace
+}} //namespace
 #endif //_MONOMER_H_

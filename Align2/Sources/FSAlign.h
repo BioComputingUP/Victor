@@ -20,7 +20,7 @@
 
 #include <Align.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief Implement free-shift "glocal" alignment.
      * 
@@ -84,6 +84,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

@@ -21,7 +21,7 @@
 
 #include <FSAlign.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -303,4 +303,4 @@ namespace Biopool {
         B0 = Traceback(maxI, maxJ);
     }
 
-} // namespace
+}} // namespace

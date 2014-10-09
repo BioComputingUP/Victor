@@ -21,7 +21,7 @@
 #include <PdbSaver.h>
 #include <IoTools.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 int main(int nArgs, char* argv[]) {
     if (nArgs != 3) {

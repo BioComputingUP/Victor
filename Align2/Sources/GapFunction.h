@@ -21,7 +21,7 @@
 #include <Debug.h>
 #include <iostream>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief Base class for gap functions.
      * 
@@ -108,6 +108,6 @@ namespace Biopool {
     GapFunction::copy(const GapFunction &orig) {
     }
 
-} // namespace
+}} // namespace
 
 #endif

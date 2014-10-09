@@ -22,7 +22,8 @@
 #include <IoTools.h>
 #include <StatTools.h>
     
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor;
 
 void sShowHelp(){
   cout << "Energy to Z-score\n"

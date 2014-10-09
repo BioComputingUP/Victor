@@ -19,7 +19,7 @@
 
 #include <Profile.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief Calculate a frequency profile or PSSM using Henikoff
      *                  weighting scheme. 
@@ -85,6 +85,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

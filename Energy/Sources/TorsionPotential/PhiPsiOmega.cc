@@ -18,7 +18,7 @@
 #include <PhiPsiOmega.h>
 #include <float.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 // Global constants, typedefs, etc. (to avoid):
 vector< vector<Potential::ANGLES> > luca;

@@ -23,7 +23,7 @@
 #include <SWAlign.h>
 #include <limits.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -254,4 +254,4 @@ namespace Biopool {
             }
     }
 
-} // namespace
+}} // namespace

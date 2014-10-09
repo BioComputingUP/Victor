@@ -22,7 +22,7 @@
 #include <math.h>
 #include <string>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Base class for structural scores.
      * 
@@ -111,6 +111,6 @@ namespace Biopool {
         subStr = orig.subStr->newCopy();
     }
 
-} // namespace
+}} // namespace
 
 #endif

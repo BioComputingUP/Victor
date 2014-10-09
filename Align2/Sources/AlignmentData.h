@@ -25,7 +25,7 @@
 #include <iostream>
 #include <string>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Base class for printing alignments.
      * 
@@ -122,6 +122,6 @@ namespace Biopool {
             match[i] = "";
     }
 
-} // namespace
+}} // namespace
 
 #endif

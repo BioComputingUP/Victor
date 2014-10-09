@@ -22,10 +22,12 @@
 
 // Includes:
 #include "LoopExtractor.h"
-
+using namespace Victor;
+using namespace Victor::Lobo;
+using namespace Victor::Biopool;
 // Global constants, typedefs, etc. (to avoid):
-//using namespace Biopool;
-namespace Biopool {
+//using namespace Victor;
+namespace Victor { namespace Lobo {
     const int LoopExtractor::BEST_COUNT = 6;
 
 
@@ -278,4 +280,4 @@ namespace Biopool {
         }
         return -1;
     }
-}
+}}

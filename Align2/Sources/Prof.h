@@ -21,7 +21,7 @@
 #include <ProfInput.h>
 #include <Structure.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Calculate structural scores with info derived from PHD.
      * 
@@ -77,6 +77,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

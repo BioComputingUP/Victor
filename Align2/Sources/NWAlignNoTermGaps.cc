@@ -22,7 +22,7 @@
 
 #include <NWAlignNoTermGaps.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -266,4 +266,4 @@ namespace Biopool {
         B0 = Traceback(n, m);
     }
 
-} // namespace
+}} // namespace

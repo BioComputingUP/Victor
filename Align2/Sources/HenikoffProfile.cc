@@ -29,7 +29,7 @@
 
 #include <HenikoffProfile.h>
 #include <ctime>
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -369,4 +369,4 @@ namespace Biopool {
         setSeq(ali.getTarget());
     }
 
-} // namespace
+}} // namespace

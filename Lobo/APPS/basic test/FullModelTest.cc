@@ -29,7 +29,7 @@
 #include <XyzSaver.h>
 
 #include <limits.h>    
-using namespace Biopool;
+using namespace Victor;
 
 void sShowHelp() {
     LoopModel lm;

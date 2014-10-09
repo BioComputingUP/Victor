@@ -22,7 +22,7 @@
 
 #include <PssmInput.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     
@@ -187,4 +187,4 @@ namespace Biopool {
     PssmInput::pReadDoubleVector(istream &is, vector< vector<double> > &data,
             vector<string> &data1, vector<string> &data2);
 
-} // namespace
+}} // namespace

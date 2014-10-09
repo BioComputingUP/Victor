@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
 /** @brief   Implement VGP (Variable Gap Penalty) function.
      * 
@@ -128,6 +128,6 @@ namespace Biopool {
         e = pen;
     }
 
-} // namespace
+}} // namespace
 
 #endif

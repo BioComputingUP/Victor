@@ -26,8 +26,9 @@
 #include <PhiPsi.h>
 #include <PhiPsiOmegaChi1Chi2.h>
 #include <AminoAcidCode.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
 
 void sShowHelp(){
   cout << "tap2plot\n\n"

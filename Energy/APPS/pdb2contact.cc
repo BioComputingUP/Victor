@@ -21,8 +21,8 @@
 #include <GetArg.h>
 #include <PdbLoader.h>
 #include <Spacer.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool; 
+using namespace Victor;
 
 void sShowHelp(){
   cout << "PDB to Contacts\n"

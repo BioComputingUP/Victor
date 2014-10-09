@@ -22,7 +22,7 @@
 #include <iostream>
 #include <string>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief    Implement I/O objects for handling threading files.
      * 
@@ -115,6 +115,6 @@ namespace Biopool {
         return residuescores.size();
     }
 
-} // namespace
+}} // namespace
 
 #endif

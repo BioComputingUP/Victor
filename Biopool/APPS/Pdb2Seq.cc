@@ -21,7 +21,7 @@
 #include <IoTools.h>
 #include <GetArg.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 void sShowHelp() {
     cout << "Pdb 2 Seq $Revision: 2.0 $ -- converts a PDB file into SEQ\n"

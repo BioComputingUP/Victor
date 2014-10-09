@@ -16,7 +16,7 @@ using namespace std;
 int main() {
 	CppUnit::TextUi::TestRunner runner;
 
-	cout << "Creating Test Suites for Energy:" << endl;
+	cout << "Creating Test Suites:" << endl;
         runner.addTest(TestRapdfPotential::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();

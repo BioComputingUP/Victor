@@ -25,7 +25,10 @@
 #include <PhiPsi.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+
 
  
 void printAlpha( PhiPsi &pp, long phiAlphaBegin, long phiAlphaEnd, long psiAlphaBegin, 	long psiAlphaEnd ){		

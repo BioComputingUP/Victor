@@ -28,7 +28,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Loads components (Atoms, Groups, Spacer, etc.) in standard PDB format.
      *   
@@ -191,6 +191,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} //namespace
 #endif //_PDB_LOADER_H_
 

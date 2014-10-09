@@ -22,7 +22,7 @@
 
 #include <ScoringScheme.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -114,4 +114,4 @@ namespace Biopool {
             str->reverse();
     }
 
-} // namespace
+}} // namespace

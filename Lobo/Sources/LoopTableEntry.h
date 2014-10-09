@@ -27,7 +27,7 @@
 #include <matrix3.h>
 #include <Debug.h>
 
-namespace Biopool {
+namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
@@ -250,7 +250,7 @@ namespace Biopool {
     }
 
 
-} // namespace
+}} // namespace
 
 #endif //_LOOPTABLEENTRY_H_
 

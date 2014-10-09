@@ -19,7 +19,11 @@
 #include <float.h>
 #include <SolvationPotential.h>
 
-using namespace Biopool;
+using namespace Victor;
+
+using namespace Victor::Biopool;
+
+using namespace Victor::Energy;
 
 // Global constants, typedefs, etc. (to avoid):
 unsigned int SolvationPotential::MAX_BINS = 30;
@@ -228,7 +232,7 @@ long double SolvationPotential::pGetMinPropensity(const AminoAcidCode type) cons
  *@param   none 
  *@return    changes the object internally (void)  
  */
-void Biopool::SolvationPotential::pConstructMaxPropensities() {
+void Victor::Energy::SolvationPotential::pConstructMaxPropensities() {
     amino_max_propensities.clear();
     amino_max_propensities.reserve(AminoAcid_CODE_SIZE - 1);
 
@@ -249,7 +253,7 @@ void Biopool::SolvationPotential::pConstructMaxPropensities() {
  *@param   none 
  *@return     changes the object internally (void)  
  */
-void Biopool::SolvationPotential::pConstructMinPropensities() {
+void Victor::Energy::SolvationPotential::pConstructMinPropensities() {
     amino_min_propensities.clear();
     amino_min_propensities.reserve(AminoAcid_CODE_SIZE - 1);
 

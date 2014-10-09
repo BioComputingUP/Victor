@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <SimpleBond.h>
 
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 
 // CONSTRUCTORS/DESTRUCTOR:
 

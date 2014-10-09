@@ -17,7 +17,7 @@
 #include <SecSequenceData.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor;
 
 class TestAlignmentData : public CppUnit::TestFixture {
 private:

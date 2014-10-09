@@ -33,8 +33,9 @@
 #include <PhiPsiOmegaChi1Chi2PreAngle.h>
 #include <Omega.h>
 #include <Chi1Chi2.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
 
 void sShowHelp()
 {

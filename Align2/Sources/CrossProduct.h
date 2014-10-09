@@ -26,7 +26,7 @@
 #include <ScoringFunction.h>
 #include <SubMatrix.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Calculate scores for profile to profile alignment using
      *                  sum of pairs method. 
@@ -87,6 +87,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

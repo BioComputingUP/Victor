@@ -25,7 +25,10 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
+namespace Victor { namespace Energy {
 
     const double SOLVATION_CUTOFF_DISTANCE_EFFECTIVE = 10.0;
 
@@ -95,5 +98,5 @@ namespace Biopool {
     }
 
 
-} // namespace
+}} // namespace
 #endif //_EFFECTIVESOLVATIONPOTENTIAL_H_

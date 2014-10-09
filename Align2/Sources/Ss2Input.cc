@@ -20,7 +20,7 @@
 
 #include <Ss2Input.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -160,4 +160,4 @@ namespace Biopool {
     template void
     Ss2Input::pReadDoubleVector(istream &is, vector< vector<double> > &data);
 
-} // namespace
+}} // namespace

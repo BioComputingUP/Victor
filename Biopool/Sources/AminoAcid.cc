@@ -21,7 +21,7 @@
  *  
  * For a general introduction visit the following wiki http://protein.bio.unipd.it/victor
  *
- *  @namespace Biopool
+ *  @namespace Victor
  *  @brief This library contains methods that will allow you to representate one aminoacidic string in a efficient way. 
  *    
  *  @Description Including the ableness of reading the lineal sequence of aminoacids or to process one PDB structure.
@@ -38,7 +38,7 @@
 #include <AtomCode.h>
 
 // Global constants, typedefs, etc. (to avoid):
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 double AminoAcid::BOND_ANGLE_N_TO_CB = 110.5;
 double AminoAcid::BOND_ANGLE_CB_TO_C = 110.1;
 double AminoAcid::BOND_LENGTH_CA_TO_CB = 1.53;

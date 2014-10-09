@@ -28,7 +28,8 @@
 // Global constants, typedefs, etc. (to avoid):
 const double SOLVATION_CUTOFF_DISTANCE = 10.0;
 
-namespace Biopool {
+using namespace Victor;
+namespace Victor { namespace Energy {
 
    
     /**@brief Includes methods that allow to  calculate solvation, energy and propensity. 
@@ -139,5 +140,5 @@ namespace Biopool {
     }
 
 
-} // namespace
+}} // namespace
 #endif //_SOLVATIONPOTENTIAL_H_

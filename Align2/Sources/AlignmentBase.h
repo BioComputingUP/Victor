@@ -22,7 +22,7 @@
 #include <string>
 #include <vector>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief      Abstract base class for all sorts of alignments.
      * 
@@ -368,6 +368,6 @@ namespace Biopool {
         clearTemplate();
     }
 
-} // namespace
+}} // namespace
 
 #endif

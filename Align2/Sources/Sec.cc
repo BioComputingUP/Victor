@@ -24,7 +24,7 @@
 
 #include <Sec.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -101,4 +101,4 @@ namespace Biopool {
         sec2 = tmp;
     }
 
-} // namespace
+}} // namespace

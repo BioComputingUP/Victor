@@ -23,7 +23,7 @@
 
 #include <std.h>
 
-namespace Biopool {
+namespace Victor {
 
     /* exchange values */
 

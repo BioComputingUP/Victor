@@ -17,7 +17,7 @@
 // Includes:
 #include <PhiPsiOmegaChi1.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 // Global constants, typedefs, etc. (to avoid):
 

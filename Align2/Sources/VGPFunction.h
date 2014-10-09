@@ -25,7 +25,7 @@
 #include <vector3.h>
 #include <math.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Implement VGP (Variable Gap Penalty) function. 
      * 
@@ -134,6 +134,6 @@ namespace Biopool {
         e = pen;
     }
 
-} // namespace
+}} // namespace
 
 #endif

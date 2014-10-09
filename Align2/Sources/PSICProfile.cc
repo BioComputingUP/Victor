@@ -28,7 +28,7 @@
 
 #include <PSICProfile.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -324,4 +324,4 @@ namespace Biopool {
         setSeq(ali.getTarget());
     }
 
-} // namespace
+}} // namespace

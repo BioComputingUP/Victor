@@ -28,7 +28,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Implements a simple nucleotide.
      * 
@@ -187,5 +187,5 @@ namespace Biopool {
         INVARIANT(a != NULL, exception);
         return *a;
     }
-}
+}}
 #endif //_NUCLEOTIDE_H_

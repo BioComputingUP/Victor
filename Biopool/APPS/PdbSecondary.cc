@@ -29,7 +29,7 @@
 #include <IntSaver.h>
 #include <GetArg.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 void sShowHelp() {
     cout << "Pdb Secondary $Revision: 2.0 $ -- calculate the secondary structure\n"

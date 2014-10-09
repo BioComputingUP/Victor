@@ -25,7 +25,7 @@
 #include <SubMatrix.h>
 #include <math.h>
 
-namespace Biopool {/** @brief    Calculate a frequency profile or PSSM using SeqDivergence
+namespace Victor { namespace Align2{/** @brief    Calculate a frequency profile or PSSM using SeqDivergence
 *                  weighting scheme.
  * 
 * @Description  Some explanations can be found in:
@@ -90,6 +90,6 @@ namespace Biopool {/** @brief    Calculate a frequency profile or PSSM using Seq
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

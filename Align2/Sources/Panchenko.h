@@ -22,7 +22,7 @@
 #include <PssmInput.h>
 #include <ScoringFunction.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Calculate scores for profile to profile alignment using
      *                  Panchenko method. 
@@ -91,6 +91,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

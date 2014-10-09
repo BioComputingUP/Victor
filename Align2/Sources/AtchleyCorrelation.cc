@@ -28,7 +28,7 @@
 
 #include <AtchleyCorrelation.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -190,4 +190,4 @@ namespace Biopool {
             }
     }
 
-} // namespace
+}} // namespace

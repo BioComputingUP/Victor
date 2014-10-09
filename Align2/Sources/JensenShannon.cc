@@ -27,7 +27,7 @@
 
 #include <JensenShannon.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -149,4 +149,4 @@ namespace Biopool {
         return tmp;
     }
 
-} // namespace
+}} // namespace

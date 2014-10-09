@@ -27,7 +27,8 @@
 #include <IntCoordConverter.h>
 #include <VectorTransformation.h>
 #include <limits.h>    
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Lobo;
 
 void sShowHelp() {
     cout << "Loop 2 Torsion\n"

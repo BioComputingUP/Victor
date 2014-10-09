@@ -30,7 +30,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief It mplements a simple amino acid.
      * 
@@ -132,8 +132,8 @@ namespace Biopool {
         virtual void acceptOptimizer(OptimizationVisitor* v);
 
         // OPERATORS:
-        //bool operator==(const AminoAcid& other) const;
-        //bool operator!=(const AminoAcid& other) const;
+        bool operator==(const AminoAcid& other) const;
+        bool operator!=(const AminoAcid& other) const;
         AminoAcid& operator=(const AminoAcid& orig);
         Atom& operator[](unsigned int n);
         const Atom& operator[](unsigned int n) const;
@@ -341,7 +341,7 @@ namespace Biopool {
 
     // OPERATORS:
 
-    /*inline bool
+    inline bool
     AminoAcid::operator==(const AminoAcid& other) const {
         return (dynamic_cast<const Identity*> (this)) ==
                 dynamic_cast<const Identity*> (&other);
@@ -351,7 +351,7 @@ namespace Biopool {
     AminoAcid::operator!=(const AminoAcid& other) const {
         return (dynamic_cast<const Identity*> (this)) !=
                 dynamic_cast<const Identity*> (&other);
-    }*/
+    }
 
 
     inline Atom&
@@ -382,6 +382,6 @@ namespace Biopool {
 
     // HELPERS:
 
-} // namespace
+}} //namespace
 #endif //_AMINOACID_H_
 

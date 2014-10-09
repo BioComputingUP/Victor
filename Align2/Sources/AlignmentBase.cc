@@ -22,7 +22,7 @@
 #include <AlignmentBase.h>
 #include <IoTools.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -825,4 +825,4 @@ COMBINE_END:
         return result;
     }
 
-} // namespace
+}} // namespace

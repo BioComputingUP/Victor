@@ -21,7 +21,7 @@
 #include <Profile.h>
 #include <ScoringFunction.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief Calculate scores for profile to profile alignment using
      *                  Jensen-Shannon method. 
@@ -84,6 +84,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

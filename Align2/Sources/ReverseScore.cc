@@ -17,7 +17,7 @@
 
 #include <ReverseScore.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
@@ -86,4 +86,4 @@ namespace Biopool {
         return ((forward - reverse) / (standardDeviation(score) != 0 ? standardDeviation(score) : 1));
     }
 
-} // namespace
+}} // namespace

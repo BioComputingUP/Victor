@@ -24,7 +24,7 @@
 #include <SimpleBond.h>
 #include <Atom.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
     class Atom;
     
     /**@brief Defines chemical and abstract bonds between objects which are compositions of atoms.
@@ -146,7 +146,7 @@ namespace Biopool {
 
     // OPERATORS:
 
-} // namespace
+}} //namespace
 #endif //_BOND_H_
 
 

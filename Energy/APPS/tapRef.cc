@@ -27,8 +27,9 @@
 #include <PhiPsiOmega.h>
 #include <PhiPsiPreAngle.h>
 #include <PhiPsiOmegaChi1Chi2PreAngle.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
 
 const long double W_RAPDF = 2.5;
 const long double W_SOLV = 500.0;

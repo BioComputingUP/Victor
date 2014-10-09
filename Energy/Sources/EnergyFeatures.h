@@ -29,7 +29,10 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
+namespace Victor { namespace Energy {
 
     /**
      * @brief  Interface/wrapper for energy and feature calculation for a protein chain. 
@@ -84,5 +87,5 @@ namespace Biopool {
     // -----------------x-------------------x-------------------x-----------------
 
 
-} // namespace
+}} // namespace
 #endif //_ENERGYFEATURE_H_

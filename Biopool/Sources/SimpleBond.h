@@ -28,7 +28,7 @@ using namespace std;
 // Global constants, typedefs, etc. (to avoid):
 
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
     
     /**
      * @Brief Defines chemical and abstract bonds between objects.
@@ -240,7 +240,7 @@ namespace Biopool {
         return id == (other.id);
     }
     
-} // namespace
+}} //namespace
 
 #endif //_SimpleBond_H_
 

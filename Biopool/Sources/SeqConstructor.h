@@ -26,7 +26,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief This class builds a spacer by concatenating the same aminoacid type for 
      *    n times.
@@ -61,5 +61,5 @@ namespace Biopool {
         vector<AminoAcid> refAmino; // reference types
     };
 
-} // namespace
+}} //namespace
 #endif //_SEQ_CONSTRUCTOR_H_

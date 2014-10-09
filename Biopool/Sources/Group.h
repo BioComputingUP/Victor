@@ -24,7 +24,7 @@
 #include <matrix3.h>
 #include <Visitor.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
     
     /**@brief This class implements a simple chemical group
      * 
@@ -271,5 +271,5 @@ namespace Biopool {
 
     // HELPERS:
 
-} // namespace
+}} //namespace
 #endif //_GROUP_H_

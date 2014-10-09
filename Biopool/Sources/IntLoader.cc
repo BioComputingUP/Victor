@@ -23,7 +23,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 
 /**
  *@Description  Private helper function to set bond structure after loading the spacer.

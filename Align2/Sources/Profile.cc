@@ -22,7 +22,7 @@
 
 #include <Profile.h>
 #include <ctime>
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -217,4 +217,4 @@ namespace Biopool {
         numSeq = 0;
     }
 
-} // namespace
+}} // namespace

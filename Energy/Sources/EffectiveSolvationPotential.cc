@@ -19,7 +19,7 @@
 #include <EffectiveSolvationPotential.h>
 #include <AminoAcidCode.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 // Global constants, typedefs, etc. (to avoid):
 

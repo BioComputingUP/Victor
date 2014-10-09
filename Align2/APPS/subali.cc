@@ -57,7 +57,10 @@
 #include <ctime>
 
 
-using namespace Biopool;
+using namespace Victor::Align2;
+using namespace Victor::Biopool;
+using namespace Victor;
+
 
 
 /// Show command line options and help text.

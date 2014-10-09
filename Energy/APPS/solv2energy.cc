@@ -20,8 +20,8 @@
 #include <GetArg.h>
 #include <PdbLoader.h>
 #include <PdbSaver.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool; 
+using namespace Victor;
 
 const unsigned int MAX_BINS = 15;
 const unsigned int BIN_POLAR = 1;
