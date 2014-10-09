@@ -37,9 +37,10 @@ namespace Biopool {
 
     const double UNDEFINED_ANGLE = DEG2RAD * 999;
 
-    /**@brief Implements methods to manage translation vector and angles between vectors
+    /**
+     * @brief Implements methods to manage translation vector and angles between vectors
      * 
-     *@Description Includes methods that allow to get, calculate angels and traslation vector, rotation matrix, etc .
+     * @Description Includes methods that allow to get, calculate angels and traslation vector, rotation matrix, etc .
      * */
     
     class IntCoordConverter {

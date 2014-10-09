@@ -30,7 +30,7 @@ namespace Biopool {
 
     // Global constants, typedefs, etc. (to avoid):
 
-/**@brief  This class allows to store transformation steps for transforming a 
+    /**@brief  This class allows to store transformation steps for transforming a 
      *     vector v into v' according to the series of steps performed earlier.
      * 
      *@Description  

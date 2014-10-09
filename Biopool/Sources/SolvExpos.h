@@ -27,6 +27,7 @@ namespace Biopool {
         enum SolvExposEnum {
             CORE, EXPOSED
         };
+        
         SolvExpos();
         ~SolvExpos();
         
@@ -43,6 +44,15 @@ namespace Biopool {
         vector<double> getSolvAccessVec(Spacer &chain,
                 unsigned int tgtS, unsigned int tgtE,
                 unsigned int envS, unsigned int envE);
+        
+        
+        Atom& getReprAtom(AminoAcid &amino);
+
+        unsigned int getNumNeighbours(Spacer &chain, const unsigned int tgt,
+                const unsigned int start, const unsigned int end);
+
+
+        
     private:
         
     };

@@ -13,20 +13,16 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- *@Description A module to determine the solvent exposure/accessibility of residues in a
- *                              protein fragment.
- */
+
 #include <SolvExpos.h>
 using namespace Biopool;
-namespace Biopool {
 
-    Atom& getReprAtom(AminoAcid &amino);
 
-    unsigned int getNumNeighbours(Spacer &chain, const unsigned int tgt,
-            const unsigned int start, const unsigned int end);
+SolvExpos::SolvExpos(){
+}
+SolvExpos::~SolvExpos(){
+}
 
-} // namespace
 
 /**
  *@Description Returns the atom corresponding to C, 
@@ -35,7 +31,7 @@ namespace Biopool {
  *@return the representative atom of that residue as to solvent exposure. Such atom
  *    is CA for Glycine and CB for all other amino acid types.
  */
-Biopool::Atom& Biopool::getReprAtom(AminoAcid &amino) {
+Atom& SolvExpos::getReprAtom(AminoAcid &amino) {
     if (amino.getCode() == XXX) throw "errore amino type XXX\n";
 
     // Glycine
@@ -71,7 +67,7 @@ Biopool::Atom& Biopool::getReprAtom(AminoAcid &amino) {
     residue.
  */
 
-unsigned int Biopool::getNumNeighbours(Spacer &chain, const unsigned int tgt,
+unsigned int SolvExpos::getNumNeighbours(Spacer &chain, const unsigned int tgt,
         const unsigned int start, const unsigned int end) {
     const double CUTOFF = 10; // Angstrom
 
@@ -97,10 +93,7 @@ unsigned int Biopool::getNumNeighbours(Spacer &chain, const unsigned int tgt,
 
     return tot;
 }
-SolvExpos::SolvExpos(){
-}
-SolvExpos::~SolvExpos(){
-}
+
 /**
  *@Description in the case of a C-terminal fragment, 'end' is assumed to be the index of
  *    a fictitious residue after the entire protein chain.
@@ -188,44 +181,30 @@ double SolvExpos::getSolvAccess(Spacer &chain, unsigned int tgt,
     return (NGB_MAX - min(ngb, NGB_MAX)) / NGB_MAX;
 }
 
+/**
+ * @Description Get Solvent accessibility vector
+ *    when delimiting a C-terminal fragment, tgtE and envE are assumed to be
+ *    the index of a fictitious residue after the entire protein chain.
+ *
+ *    target residues need not be internal to the environment fragment. The
+ *    target fragment can even be completely external to the environment fragment.
+ * 
+ * @param chain, a Spacer object representing an entire protein chain.
+ * @param tgtS, index, in the chain, of the first of a fragment of target residues,
+ *         namely, residues whose solvent exposure is to be computed.
+ * @param tgtE, index, in the chain, of the first residue after the end of the
+ *          target fragment.
+ * @param envS, index, in the chain, of the first of a fragment of environment
+ *          residues, namely, residues on which the solvent exposure of
+ *          target residues is to be computed.
+ * @param envE, index, in the chain, of the first residue after the end of the
+ *          environment fragment.
+ * @return a vector containing the solvent accessibility of each of the target
+ *    residues with respect to the environment fragment. The i-th element of
+ *    this vector is the solvent accessibility of the i-th target residue
+ *    (i = 0, ... , tgtNum-1).
+ */
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-// Function:        Biopool::getSolvAccessVec()
-//
-// Arguments:
-//
-//    chain: a Spacer object representing an entire protein chain.
-//
-//    tgtS: index, in the chain, of the first of a fragment of target residues,
-//          namely, residues whose solvent exposure is to be computed.
-//
-//    tgtE: index, in the chain, of the first residue after the end of the
-//          target fragment.
-//
-//    envS: index, in the chain, of the first of a fragment of environment
-//          residues, namely, residues on which the solvent exposure of
-//          target residues is to be computed.
-//
-//    envE: index, in the chain, of the first residue after the end of the
-//          environment fragment.
-//
-// Return value:
-//
-//    a vector containing the solvent accessibility of each of the target
-//    residues with respect to the environment fragment. The i-th element of
-//    this vector is the solvent accessibility of the i-th target residue
-//    (i = 0, ... , tgtNum-1).
-//
-// Notes:
-//
-//    when delimiting a C-terminal fragment, tgtE and envE are assumed to be
-//    the index of a fictitious residue after the entire protein chain.
-//
-//    target residues need not be internal to the environment fragment. The
-//    target fragment can even be completely external to the environment fragment.
-//
-// ---------------------------------------------------------------------------
 
 vector<double> SolvExpos::getSolvAccessVec(Spacer &chain, unsigned int tgtS,
         unsigned int tgtE, unsigned int envS, unsigned int envE) {
