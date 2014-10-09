@@ -42,7 +42,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     ThreadingInput&
             ThreadingInput::operator =(const ThreadingInput &orig) {
         if (&orig != this)
@@ -65,7 +69,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ThreadingInput::copy(const ThreadingInput &orig) {
         residuescores.clear();
@@ -78,7 +85,10 @@ namespace Biopool {
             residuescores.push_back(tmp);
         }
     }
-
+    /**
+     * @description
+     * @return 
+     */
     ThreadingInput*
     ThreadingInput::newCopy() {
         ThreadingInput *tmp = new ThreadingInput(*this);
@@ -100,7 +110,11 @@ namespace Biopool {
         }
         os << endl;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param data
+     */
     template<class T> void
     ThreadingInput::pReadDoubleVector(istream &is, vector< vector<T> > &data) {
         unsigned int size1;

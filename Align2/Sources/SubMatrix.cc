@@ -43,7 +43,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     SubMatrix&
             SubMatrix::operator =(const SubMatrix &orig) {
         if (&orig != this)
@@ -51,14 +55,24 @@ namespace Biopool {
         POSTCOND((orig == *this), exception);
         return *this;
     }
-
+    /**
+     * @description
+     * @param os
+     * @param object
+     * @return 
+     */
     ostream&
     operator <<(ostream &os, const SubMatrix &object) {
         os << object.residues << endl;
         Substitution::pWriteDoubleVector(os, object.residuescores);
         return os;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param object
+     * @return 
+     */
     istream&
     operator >>(istream &is, SubMatrix &object) {
         is >> object.residues;
@@ -69,7 +83,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     SubMatrix::copy(const SubMatrix &orig) {
         Substitution::copy(orig);
@@ -80,7 +97,10 @@ namespace Biopool {
 
         residues = orig.residues;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     SubMatrix*
     SubMatrix::newCopy() {
         SubMatrix *tmp = new SubMatrix(*this);

@@ -34,7 +34,16 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param subStr
+     * @param ad
+     * @param thread
+     * @param psipred1
+     * @param psipred2
+     * @param cThr
+     * @param cSs2
+     */
     ThreadingSs2::ThreadingSs2(SubMatrix *subStr, AlignmentData *ad,
             ThreadingInput *thread, Ss2Input *psipred1, Ss2Input *psipred2, double cThr,
             double cSs2) : Structure(subStr), seq1(ad->getSequence(1)),
@@ -62,7 +71,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     ThreadingSs2::scoringStr(int i, int j) {
         //
@@ -115,7 +129,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ThreadingSs2::copy(const ThreadingSs2 &orig) {
         Structure::copy(orig);

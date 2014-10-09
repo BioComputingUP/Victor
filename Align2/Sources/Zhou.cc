@@ -34,7 +34,11 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param pro1
+     * @param pssm2
+     */
     Zhou::Zhou(Profile *pro1, PssmInput *pssm2) : ScoringFunction(), pro1(pro1),
     pssm2(pssm2) {
     }
@@ -59,7 +63,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Zhou::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -80,14 +89,20 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Zhou::copy(const Zhou &orig) {
         ScoringFunction::copy(orig);
         pro1 = orig.pro1->newCopy();
         pssm2 = orig.pssm2->newCopy();
     }
-
+    /**
+     * @description
+     * @return 
+     */
     Zhou*
     Zhou::newCopy() {
         Zhou *tmp = new Zhou(*this);

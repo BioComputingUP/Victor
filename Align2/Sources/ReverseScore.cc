@@ -20,7 +20,10 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param a
+     */
     ReverseScore::ReverseScore(Align *a) {
         ali = a->newCopy();
         inv = a->newCopy();
@@ -36,7 +39,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     ReverseScore&
             ReverseScore::operator =(const ReverseScore &orig) {
         if (&orig != this)
@@ -47,13 +54,22 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ReverseScore::copy(const ReverseScore &orig) {
         ali = orig.ali;
         inv = orig.inv;
     }
-
+    /**
+     * @description
+     * @param forward
+     * @param reverse
+     * @param n
+     * @return 
+     */
     double
     ReverseScore::getZScore(double &forward, double &reverse, unsigned int n) {
         ali->recalculateMatrix();

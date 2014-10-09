@@ -24,12 +24,21 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param sub
+     * @param ad
+     * @param str
+     * @param cSeq
+     */
     ScoringS2S::ScoringS2S(SubMatrix *sub, AlignmentData *ad, Structure *str,
             double cSeq) : ScoringScheme(sub, ad, str), seq1(ad->getSequence(1)),
     seq2(ad->getSequence(2)), cSeq(cSeq) {
     }
-
+    /**
+     * @description
+     * @param orig
+     */
     ScoringS2S::ScoringS2S(const ScoringS2S &orig) : ScoringScheme(orig) {
         copy(orig);
     }
@@ -50,7 +59,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     ScoringS2S::scoring(int i, int j) {
         double s = cSeq * sub->score[seq1[i - 1]][seq2[j - 1]];
@@ -63,7 +77,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ScoringS2S::copy(const ScoringS2S &orig) {
         ScoringScheme::copy(orig);
@@ -77,7 +94,9 @@ namespace Biopool {
         ScoringS2S *tmp = new ScoringS2S(*this);
         return tmp;
     }
-
+    /**
+     * @description
+     */
     void
     ScoringS2S::reverse() {
         ScoringScheme::reverse();

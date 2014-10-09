@@ -41,7 +41,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     Threading&
             Threading::operator =(const Threading &orig) {
         if (&orig != this)
@@ -52,7 +56,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Threading::scoringStr(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -71,7 +80,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Threading::copy(const Threading &orig) {
         Structure::copy(orig);

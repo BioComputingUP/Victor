@@ -44,7 +44,11 @@ StructuralAlignment::~StructuralAlignment() {
 }
 
 // MODIFIERS:
-
+    /**
+     * @description
+     * @param input
+     * @param spNew
+     */
 void
 StructuralAlignment::loadCE(istream& input, Spacer& spNew) {
     if (spNew.sizeAmino() == 0)
@@ -102,7 +106,9 @@ StructuralAlignment::loadCE(istream& input, Spacer& spNew) {
 
     pExecStructAli(rot, trans);
 }
-
+/**
+ * @description
+ */
 void
 StructuralAlignment::buildEquivalenceNetwork() {
     unsigned int minIndex = 0;
@@ -130,7 +136,10 @@ StructuralAlignment::buildEquivalenceNetwork() {
     cout << endl;
 
 }
-
+/**
+ * @description
+ * @param maxDist
+ */
 void
 StructuralAlignment::buildFragmentNetwork(double maxDist) {
     unsigned int minE = 9999;
@@ -176,7 +185,10 @@ StructuralAlignment::buildFragmentNetwork(double maxDist) {
         fragData.push_back(fd);
     }
 }
-
+/**
+ * @description
+ * @param maxDist
+ */
 void
 StructuralAlignment::writeData(double maxDist) {
     // first, write equivalence data
@@ -202,7 +214,10 @@ StructuralAlignment::writeData(double maxDist) {
                 << setprecision(3) << fragData[i].dist << "\n";
     }
 }
-
+/**
+ * @description
+ * @param orig
+ */
 void
 StructuralAlignment::copy(const StructuralAlignment& orig) {
     PRINT_NAME;
@@ -224,7 +239,11 @@ StructuralAlignment::copy(const StructuralAlignment& orig) {
 
 
 // HELPERS:
-
+/**
+ * @description
+ * @param rot
+ * @param trans
+ */
 void
 StructuralAlignment::pExecStructAli(vgMatrix3<double> rot, vgVector3<double> trans) {
     for (unsigned int i = 0; i < spTemplate.sizeAmino(); i++)

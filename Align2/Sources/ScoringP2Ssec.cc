@@ -25,7 +25,8 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+    * @description*/
     ScoringP2Ssec::ScoringP2Ssec(Blosum* sub, Blosum* sec,
             AlignmentData *a, Profile* f) : ScoringScheme(sub, a), secstr(sec),
     seq1(a->getSequence(1)), seq2(a->getSequence(2)), profile(f),
@@ -38,7 +39,8 @@ namespace Biopool {
             ERROR("Error checking sequence.", exception);
         }
     }
-
+    /**
+    * @description*/
     ScoringP2Ssec::ScoringP2Ssec(const ScoringP2Ssec& orig) : ScoringScheme(orig),
     profile(orig.profile) {
         copy(orig);
@@ -49,7 +51,8 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+    * @description*/
     ScoringP2Ssec& ScoringP2Ssec::operator =(const ScoringP2Ssec& orig) {
         if (&orig != this) {
             copy(orig);
@@ -59,7 +62,8 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+    * @description*/
     double
     ScoringP2Ssec::scoring(int i, int j) {
         double s = 0.00;
@@ -75,7 +79,8 @@ namespace Biopool {
     }
 
     // MODIFIERS:
-
+    /**
+     *@description*/
     void
     ScoringP2Ssec::copy(const ScoringP2Ssec& orig) {
         ScoringScheme::copy(orig);
@@ -87,13 +92,17 @@ namespace Biopool {
         sec1 = orig.sec1;
         sec2 = orig.sec2;
     }
-
+    /**
+    * @description
+     */
     ScoringP2Ssec*
     ScoringP2Ssec::newCopy() {
         ScoringP2Ssec* tmp = new ScoringP2Ssec(*this);
         return tmp;
     }
-
+    /**
+    * @description
+     */
     void
     ScoringP2Ssec::reverse() {
         string tmp = "";

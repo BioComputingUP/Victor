@@ -25,7 +25,12 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param sub
+     * @param ad
+     * @param str
+     */
     ScoringScheme::ScoringScheme(SubMatrix *sub, AlignmentData *ad, Structure *str)
     : sub(sub), ad(ad), str(str) {
         if ((!checkSequence(ad->getSequence(1))) ||
@@ -47,7 +52,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     ScoringScheme&
             ScoringScheme::operator =(const ScoringScheme &orig) {
         if (&orig != this)
@@ -58,7 +67,11 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param s
+     * @return 
+     */
     bool
     ScoringScheme::checkSequence(const string &s) const {
         string residues = sub->getResidues();
@@ -84,8 +97,11 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
-    void
+    /**
+     * @description
+     * @param orig
+     */
+    void    
     ScoringScheme::copy(const ScoringScheme &orig) {
         sub = orig.sub->newCopy();
         ad = orig.ad->newCopy();

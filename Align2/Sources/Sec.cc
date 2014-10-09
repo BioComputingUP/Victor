@@ -27,7 +27,12 @@
 namespace Biopool {
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param subStr
+     * @param ad
+     * @param cSec
+     */
     Sec::Sec(SubMatrix *subStr, AlignmentData *ad, double cSec) : Structure(subStr),
     sec1(ad->getSequence(3)), sec2(ad->getSequence(4)), cSec(cSec) {
     }
@@ -52,7 +57,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Sec::scoringStr(int i, int j) {
         return cSec * subStr->score[sec1[i - 1]][sec2[j - 1]];
@@ -60,7 +70,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Sec::copy(const Sec &orig) {
         Structure::copy(orig);
@@ -68,13 +81,18 @@ namespace Biopool {
         sec2 = orig.sec2;
         cSec = orig.cSec;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     Sec*
     Sec::newCopy() {
         Sec *tmp = new Sec(*this);
         return tmp;
     }
-
+    /**
+     * @description
+     */
     void
     Sec::reverse() {
         string tmp = "";
