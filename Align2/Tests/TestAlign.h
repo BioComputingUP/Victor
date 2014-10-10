@@ -26,8 +26,9 @@ using namespace Victor::Align2;
 class TestAlign : public CppUnit::TestFixture {
 private:
     Align *testAlign;
-
-
+    ScoringScheme *ss;
+    AlignmentData *ad;
+    Structure *str;
 public:
 
     TestAlign() : testAlign(NULL) {
@@ -80,7 +81,6 @@ public:
         Structure *str;
         ScoringScheme *ss;
         GapFunction *gf;
-        AlignmentData *ad;
         ad = new SequenceData(2, seq1, seq2, seq1Name, seq2Name);
         str = 0;
         cSeq = 1.00;
@@ -96,7 +96,7 @@ public:
     static CppUnit::Test *suite() {
         CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestAlign");
 
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test1 - distance greater than zero.",
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test1 - comparing sequences lengths.",
                 &TestAlign::testAlign_A));
         suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test2 - distance greater than zero.",
                 &TestAlign::testAlign_B));
@@ -122,19 +122,19 @@ protected:
 
 
 
-        CPPUNIT_ASSERT(true);
+        CPPUNIT_ASSERT(testAlign->m == testAlign->n);
     }
 
     void testAlign_B() {
 
 
-        CPPUNIT_ASSERT(true);
+        CPPUNIT_ASSERT(testAlign->ss->ad->name1 == ad->name1);
     }
 
     void testAlign_C() {
 
 
-        CPPUNIT_ASSERT(true);
+       // CPPUNIT_ASSERT(testAlign->ss->str->subStr->residuescores[0,0]==str->subStr->residuescores[0,0]);
     }
 
 };
