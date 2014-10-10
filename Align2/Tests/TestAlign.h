@@ -28,6 +28,8 @@ private:
     Align *testAlign;
     ScoringScheme *ss;
     AlignmentData *ad;
+
+    GapFunction *gf;
     Structure *str;
 public:
 
@@ -80,7 +82,6 @@ public:
         SubMatrix subStr(matrixStrFile);
         Structure *str;
         ScoringScheme *ss;
-        GapFunction *gf;
         ad = new SequenceData(2, seq1, seq2, seq1Name, seq2Name);
         str = 0;
         cSeq = 1.00;
@@ -98,9 +99,9 @@ public:
 
         suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test1 - comparing sequences lengths.",
                 &TestAlign::testAlign_A));
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test2 - distance greater than zero.",
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test2 - loading the ScoringScheme.",
                 &TestAlign::testAlign_B));
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test3 - distance greater than zero.",
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlign>("Test3 - setting penalty values.",
                 &TestAlign::testAlign_C));
 
         return suiteOfTests;
@@ -132,9 +133,11 @@ protected:
     }
 
     void testAlign_C() {
-
-
-       // CPPUNIT_ASSERT(testAlign->ss->str->subStr->residuescores[0,0]==str->subStr->residuescores[0,0]);
+        //setting penalty adding of 10 and mul of 14
+        cout<<"Penalty mul: "<<testAlign->penaltyMul<<" Penalty add "<<testAlign->penaltyAdd<<"\n"; 
+        testAlign->setPenalties( 14, 10); 
+        cout<<"Penalty mul: "<<testAlign->penaltyMul<<" Penalty add "<<testAlign->penaltyAdd<<"\n"; 
+        CPPUNIT_ASSERT((testAlign->penaltyMul== 14 )&&(testAlign->penaltyAdd== 10 ));
     }
 
 };
