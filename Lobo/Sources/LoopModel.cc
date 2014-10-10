@@ -115,17 +115,15 @@ LoopModel::vdwValues(Spacer& sp, unsigned int index1, unsigned int index2,
     return ret_vector;
 }
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        LoopModel::consistencyValues()      
-//
-//  Description:
-//
-//  Calculates the consistency values for each generated solution. The results
-//  are returned in the vector.
-//  
-// ----------------------------------------------------------------------------
-
+/**
+ * Calculates the consistency values for each generated solution. The results
+ *  are returned in the vector.
+ * @param sp
+ * @param index1, starting position in the spacer
+ * @param index2, ending position in the spacer
+ * @param solVec, solutions vector
+ * @return vector with consistency values
+ */
 vector<int>
 LoopModel::consistencyValues(Spacer& sp, unsigned int index1,
         unsigned int index2, vector<Spacer>& solVec) {
@@ -1534,17 +1532,18 @@ LoopModel::amino_amino_collision(AminoAcid& aa1, AminoAcid& aa2, int pos1,
 
 // HELPERS: 
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        LoopModel::convertCoords()
-
-//
-//  Description:
-//    Converts the aminoacids start and end into the looptable entries 
-//    startEntry and endEntry, which can be passed on to ringClosure.
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * Converts the aminoacids start and end into the looptable entries 
+ *    startEntry and endEntry, which can be passed on to ringClosure.
+ * @param start
+ * @param startN
+ * @param end
+ * @param endN
+ * @param startEntry
+ * @param endEntry
+ * @param vt
+ * @param nAmino
+ */
 void
 LoopModel::convertCoords(AminoAcid start, vgVector3<float> startN,
         AminoAcid end, vgVector3<float> endN, LoopTableEntry& startEntry,
@@ -1603,17 +1602,20 @@ LoopModel::convertCoords(AminoAcid start, vgVector3<float> startN,
             endEntry.endDirection).normalize();
 }
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        LoopModel::ringClosure()
-
-//  Description:
-//    Tries to find a ring closure between source and destination
-//    num is the starting residue number offset; offsetPhi is used 
-//    (internally) to represent the already computed phi angle offset. 
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * Tries to find a ring closure between source and destination
+ *    num is the starting residue number offset; offsetPhi is used 
+ *    (internally) to represent the already computed phi angle offset. 
+ * @param source
+ * @param destination
+ * @param nStart
+ * @param nAminoAcids
+ * @param offsetPhi
+ * @param vt
+ * @param partialSolution
+ * @param currentSelection
+ * @return 
+ */
 bool
 LoopModel::ringClosure(const LoopTableEntry& source,
         const LoopTableEntry& destination, unsigned int nStart,
@@ -1828,15 +1830,11 @@ LoopModel::calculateLoop(const vgVector3<float>& startN, unsigned int length,
 }
 
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        LoopModel::loadTables()
 
-//  Description:
-//    Load tables which are really used.
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * Load tables which are really used.
+ * @param nAmino
+ */
 void
 LoopModel::loadTables(unsigned int nAmino) {
     PRECOND(tableFileName.size() >= nAmino, exception);
@@ -1887,20 +1885,16 @@ LoopModel::pSetSideChain(AminoAcid& aa) {
 }
 
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        LoopModel::loop_loop_vdw()
 
-//  Description:
-//
-// This routine calculates the van-der-Waals forces of the loops contained
-// in the vector. The van-der-Waals forces are calculated only between
-// the amino acids in the loop. Not between the loop and the surrounding
-// proteine. This is done in: LoopModel::loop_spacer_vdw()
-//
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * This routine calculates the van-der-Waals forces of the loops contained
+ * in the vector. The van-der-Waals forces are calculated only between
+ * the amino acids in the loop. Not between the loop and the surrounding
+ * proteine. This is done in: LoopModel::loop_spacer_vdw()
+ * @param sp
+ * @param index1
+ * @return 
+ */
 int LoopModel::loop_loop_vdw(Spacer& sp, unsigned int index1) {
     int ret_value = 0; // used to store the resulting vdw-forces
     const double CHECK_THRESHOLD = 6.0;
@@ -1919,26 +1913,24 @@ int LoopModel::loop_loop_vdw(Spacer& sp, unsigned int index1) {
 }
 
 
-// -*- C++ -*-----------------------------------------------------------------
-//
-//  Method:        LoopModel::loop_spacer_vdw()
-//
-//  Description:
-//
-// This routine calculates the van-der-Waals forces between the loop and the 
-// surrounding proteine. 
-//
-// Index1 and index2 demarcate the area of the loop in the proteine and thus
-// these amino acids in the proteine are not used in the van-der-Waals
-// calculation. It is assumed, that index1 and index2 start counting from
-// 1.
-//
-// The van-der Waals forces between the amino acids in the loop itself is 
-// calculated in: LoopModel::loop_loop_vdw().
-//
-//
-// ----------------------------------------------------------------------------
-
+/**
+ * This routine calculates the van-der-Waals forces between the loop and the 
+ * surrounding proteine. 
+ *
+ * Index1 and index2 demarcate the area of the loop in the proteine and thus
+ * these amino acids in the proteine are not used in the van-der-Waals
+ * calculation. It is assumed, that index1 and index2 start counting from
+ * 1.
+ * 
+ * The van-der Waals forces between the amino acids in the loop itself is 
+ * calculated in: LoopModel::loop_loop_vdw().
+ * 
+ * @param loop
+ * @param index1
+ * @param index2
+ * @param proteine
+ * @return 
+ */
 int LoopModel::loop_spacer_vdw(Spacer& loop, unsigned int index1,
         unsigned int index2, Spacer& proteine) {
     int ret_value = 0; // used to store the resulting vdw-forces

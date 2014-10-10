@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- * 
- *@Class:               globalStatistic
- *@Description:Used to work with the data for the global statistic in the prop_calibration
- *   program.
- *      
- */
+
 
 // Includes:
 #include <globalStatistic.h>

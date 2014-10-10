@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              Loop extractor     
- *      
- */
+
 
 #ifndef _LOOPEXTRACTOR_H_
 #define _LOOPEXTRACTOR_H_
@@ -31,8 +28,8 @@
 using namespace Victor::Biopool;
 namespace Victor { namespace Lobo {
 
-/**@brief  Extracts all the loop regions (by numbers) from a given spacer.
-
+    /**
+     * @brief  Extracts all the loop regions (by numbers) from a given spacer.
      * */
     class LoopExtractor {
     public:

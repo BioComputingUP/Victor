@@ -25,8 +25,7 @@
 #include <Debug.h>
 
 
-
-namespace Biopool {
+namespace Victor { namespace Biopool { 
     
     
 
@@ -167,6 +166,6 @@ namespace Biopool {
         return is >> id.name >> id.number >> tag;
     }
 
-} // namespace
+}} // namespace
 #endif /* __IDENTITY_H__ */
 

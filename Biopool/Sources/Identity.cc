@@ -15,6 +15,6 @@
  */
 #include <Identity.h>
 
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 
 long Identity::counter = 0;
