@@ -14,9 +14,7 @@
  *    You should have received a copy of the GNU General Public License
  *    along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              RankAnalyzer
- */
+
 
 #ifndef _RANKANALYZER_H_
 #define _RANKANALYZER_H_
@@ -29,7 +27,7 @@ namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
-/**@brief  This class implements functions to analyze the ranking output of lobo.
+    /**@brief  This class implements functions to analyze the ranking output of lobo.
      *  
      * */
     class RankAnalyzer {

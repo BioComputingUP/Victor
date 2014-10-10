@@ -13,12 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              VectorTransformation
- *@Description:This class allows to store transformation steps for transforming a 
- *     vector v into v' according to the series of steps performed earlier.
- *      
- */
+
 
 // Includes:
 #include <VectorTransformation.h>

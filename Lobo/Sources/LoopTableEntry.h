@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- * 
- *@Class:              LoopTableEntry
- *      
- */
+
 #ifndef _LOOPTABLEENTRY_H_
 #define _LOOPTABLEENTRY_H_
 
@@ -31,7 +27,7 @@ namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
-/**@brief This class implements an entry for the loop table (equivalent to the
+    /**@brief Implements an entry for the loop table (equivalent to the
      *    old "ProteinTableEntry" from the previous version. 
      * 
      *@Description  The two structs below serve to store a single entry in the protein table.

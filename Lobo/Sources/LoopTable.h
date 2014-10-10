@@ -13,12 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- * 
- *@Class:              LoopTable    
- * 
- *      
- */
+
 
 #ifndef _LOOPTABLE_H_
 #define _LOOPTABLE_H_
@@ -36,7 +31,7 @@ namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
-/**@brief  Struct that contains a queue element.
+    /**@brief  Struct that contains a queue element.
      * 
      * */
     struct solutionQueueElem {
@@ -48,10 +43,10 @@ namespace Victor { namespace Lobo {
         }
     };
 
-/**@brief  Defines a table of possible amino chain end points and end directions 
+    /**
+     * @brief  Defines a table of possible amino chain end points and end directions 
      *  after k amino acids have been concatenated. 
      * 
-     *@Description  
      * */
     class LoopTable {
     public:
@@ -80,10 +75,12 @@ namespace Victor { namespace Lobo {
 
         void copy(const LoopTable& orig);
 
-        void setToSingleAminoAcid(); // initializes the table for nAminoAcid = 1 
+        // initializes the table for nAminoAcid = 1
+        void setToSingleAminoAcid();  
 
+         // concatenates two tables
         void concatenate(LoopTable&, LoopTable&, unsigned long, unsigned long);
-        // concatenates two tables
+       
 
         virtual void adjustTable();
         virtual void read(const string&);
@@ -131,11 +128,13 @@ namespace Victor { namespace Lobo {
         // ATTRIBUTES:
         RamachandranData* rama;
 
-        unsigned int nAminoAcid;
         // number of amino acids represented by this table, ie. chain segment length
+        unsigned int nAminoAcid;
+        
 
-        vector<vector<LoopTableEntry> > entry;
         // table of (sorted) bins containing the chain information
+        vector<vector<LoopTableEntry> > entry;
+        
 
         double lowerLimit; // information about the lower and 
         double upperLimit; // upper bin limits

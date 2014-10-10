@@ -14,12 +14,7 @@
  *    You should have received a copy of the GNU General Public License
  *    along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              RankAnalyzer 
- * 
- *@Description:This class implements functions to analyze the ranking output of lobo
- *      
- */
+
 // Includes:
 #include <RankAnalyzer.h>
 #include <IoTools.h>

@@ -13,15 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              ranking_helper2
- * 
- *@Description:Just contains an int and double value which gets sorted (by a STL set)
- *    in order to determine the ranking of low rms solutions with special 
- *    filters. This container differs from the ranking_helper by the fact,
- *    that it has the < operator overloaded differently 
- *      
- */
+
 
 //Includes
 #include<ranking_helper2.h>

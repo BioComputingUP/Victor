@@ -13,11 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:               globalStatistic
- *@Project Name:       
- *      
- */
+
 
 #ifndef _globalStatistic_h_
 #define _globalStatistic_h_
@@ -30,7 +26,7 @@
 // Global constants, typedefs, etc. (to avoid):
 namespace Victor { namespace Lobo {
 
-/**@brief  Methods to manages the global statistic data.
+    /**@brief  Methods to manages the global statistic data.
      * 
      *@Description  Used to work with the data for the global statistic in the 
      *   prop_calibration program.

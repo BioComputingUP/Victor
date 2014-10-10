@@ -13,14 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              RamachandranData 
- *@Project Name:        
- * 
- *@Description:This class implements the container for ramachandran plot-like 
- *    phi/psi angle combinations for the LoopTable class(es).
- *      
- */
+
 
 #ifndef _RAMACHANDRANDATA_H_
 #define _RAMACHANDRANDATA_H_
@@ -33,16 +26,16 @@ namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
-    /**
-     *@Description 
-     *@param  
-     *@return  
-     */
+    /** 
+     *@Description Implements the container for ramachandran plot-like 
+    *    phi/psi angle combinations for the LoopTable class(es).
+    *      
+    */
     inline double sqr(double x) {
         return x*x;
     }
 
-/**
+    /**
      *@brief This struct implements the container for ramachandran plot-like 
      *    phi/psi angle combinations for the LoopTable class(es).
      * */

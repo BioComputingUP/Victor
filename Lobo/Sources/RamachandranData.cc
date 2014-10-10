@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:           RamachandranData      
- * 
- */
+
 
 // Includes:
 #include <RamachandranData.h>
@@ -25,10 +22,7 @@
 // Global constants, typedefs, etc. (to avoid):
 
 namespace Victor { namespace Lobo {
-    /**
-     *@Brief This class implements the container for ramachandran plot-like 
-     *    phi/psi angle combinations for the LoopTable class(es).
-     * */
+   
     float RamachandranData::PHI_ANGLE_TOL = 0.0;
     float RamachandranData::PSI_ANGLE_TOL = 0.0;
 

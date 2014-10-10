@@ -13,10 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              ranking_helper
- *      
- */
+
 
 #ifndef _RANK_HELPER_H_
 #define _RANK_HELPER_H_
@@ -27,7 +24,7 @@
 
 namespace Victor { namespace Lobo {
 
-/**@brief the class contains methods to manage the ranking
+    /**@brief Contains methods to manage the ranking
      * 
      *@Description  Just contains an int and double value which gets sorted (by a STL set)
      *    in order to determine the ranking of low rms solutions with special 

@@ -13,14 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              ranking_helper2
- * 
- *@Description:Just contains an int and double value which gets sorted (by a STL set)
- *    in order to determine the ranking of low rms solutions with special 
- *    filters
- *      
- */
+
 
 #ifndef _RANK_HELPER2_H_
 #define _RANK_HELPER2_H_
@@ -31,11 +24,13 @@
 
 namespace Victor { namespace Lobo {
 
-/**@brief the class contains methods to manage the ranking
+    /**
+     * @brief the class contains methods to manage the ranking
      * 
-     *@Description  Just contains an int and double value which gets sorted (by a STL set)
+     * @Description  JJust contains an int and double value which gets sorted (by a STL set)
      *    in order to determine the ranking of low rms solutions with special 
-     *    filters
+     *    filters. This container differs from the ranking_helper by the fact,
+     *    that it has the < operator overloaded differently 
      * */
     class ranking_helper2 {
     public:
@@ -53,7 +48,7 @@ namespace Victor { namespace Lobo {
         double value;
     };
 
-        /**
+    /**
      *@Description returns the rms ranking of the solution
      *@param  none
      *@return  the corresponding value
@@ -62,7 +57,7 @@ namespace Victor { namespace Lobo {
         return index;
     }
 
-        /**
+    /**
      *@Description returns a value from a filter (like the propensity or the collision)
      *@param  none
      *@return  the corresponding value

@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:       LoopTableEntry       
- * 
- *@Description:This class implements an entry for the loop table (equivalent to the
- *    old "ProteinTableEntry" from the previos version).
- *      
- */
+
 
 // Includes:
 #include <LoopTableEntry.h>

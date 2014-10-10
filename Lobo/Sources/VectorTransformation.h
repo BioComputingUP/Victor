@@ -13,9 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:              VectorTransformation 
- */
+
 #ifndef _VECTORTRANSFORMATION_H_
 #define _VECTORTRANSFORMATION_H_
 
@@ -34,7 +32,7 @@ namespace Victor { namespace Lobo {
     /**@brief  This class allows to store transformation steps for transforming a 
      *     vector v into v' according to the series of steps performed earlier.
      * 
-     *@Description  
+     *
      * */
     class VectorTransformation {
     public:

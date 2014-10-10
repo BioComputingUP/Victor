@@ -13,13 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/** 
- *@Class:           LoopTable    
- * 
- *@Description:Defines a table of possible amino chain end points and end directions 
- *  after k amino acids have been concatenated. 
- *      
- */
+
 
 // Includes:
 #include <LoopTable.h>
