@@ -30,9 +30,9 @@ using namespace Victor::Biopool;
     const double SOLVATION_CUTOFF_DISTANCE_POLAR = 7.0;
 
     /**
-     * @Brief   This class implements a knowledge-based solvation with polar/hydrophobic information potential.
+     * @brief   This class implements a knowledge-based solvation with polar/hydrophobic information potential.
      * 
-     * @Description    The likelihood for each of the 20 amino acids to adopt a given relative solvent accessibility is used to derive the pseudo-energy. The relative solvent accessibility is estimated as the number of other
+     *  The likelihood for each of the 20 amino acids to adopt a given relative solvent accessibility is used to derive the pseudo-energy. The relative solvent accessibility is estimated as the number of other
      *   Cβ atoms within a sphere of radius 7 Å centered on the residue’s Cβ atom. See also SolvationPotential.
      *
     */

@@ -41,7 +41,7 @@ Protein::~Protein() {
 // PREDICATES:
 
 /**
- * @Description Return a pointer to the Spacer with the requested chainID
+ *   Return a pointer to the Spacer with the requested chainID
  * @param c (char), the chainID
  * @return A pointer to the Spacer
  */
@@ -52,7 +52,7 @@ Protein::getSpacer(char c) {
 }
 
 /**
- * @Description Get the Polymer (Spacer + LigandSet) by an index.
+ *   Get the Polymer (Spacer + LigandSet) by an index.
  * @param n (unsigned int), the index of the Polymer in the Components vector 
  * @return The reference to the Polymer
  */
@@ -64,7 +64,7 @@ Protein::getPolymer(unsigned int n) {
 }
 
 /**
- * @Description Return a pointer to the Spacer by an index in the Components vector.
+ *   Return a pointer to the Spacer by an index in the Components vector.
  * @param n (unsigned int), the index of the Polymer in the Components vector
  * @return A pointer to the Spacer
  */
@@ -77,7 +77,7 @@ Protein::getSpacer(unsigned int n) {
 }
 
 /**
- * @Description Return a pointer to the LigandSet with the requested chainID
+ *   Return a pointer to the LigandSet with the requested chainID
  * @param c (char), the chainID
  * @return A pointer to the LiganSet
  */
@@ -87,7 +87,7 @@ Protein::getLigandSet(char c) {
     return getLigandSet(n);
 }
 /**
- * @Description Return a pointer to the LiganSet by an index in the Components vector.
+ *   Return a pointer to the LiganSet by an index in the Components vector.
  * @param n (unsigned int), the index of the Polymer in the Components vector
  * @return A pointer to the LiganSet
  */
@@ -101,7 +101,7 @@ Protein::getLigandSet(unsigned int n) {
     return &(dynamic_cast<LigandSet&> (p[1]));
 }
 /**
- * @Description Returns the chain index by chainID
+ *   Returns the chain index by chainID
  * @param c (char) chainID
  * @return The chainID index in the chains vector
  */
@@ -113,7 +113,7 @@ Protein::getChainNum(char c) {
     ERROR("Chain not found", exception);
 }
 /**
- * @Description Returns the chainID by index
+ *   Returns the chainID by index
  * @param i (unsigned int) index
  * @return The chainID (char)
  */
@@ -153,7 +153,7 @@ Protein::clone() {
 }
 
  /**
- *@Description Insert a Polymer in the Protein.
+ *  Insert a Polymer in the Protein.
  *               It is related to a single chain, and must
  *               contain a Spacer and possibly a LigandSet
  *@param p (Component*)

@@ -25,7 +25,7 @@ SolvExpos::~SolvExpos(){
 
 
 /**
- *@Description Returns the atom corresponding to C, 
+ *  Returns the atom corresponding to C, 
  * aminoacids have only a single possible, hard coded, open in-bond
  *@param AminoAcid reference 
  *@return the representative atom of that residue as to solvent exposure. Such atom
@@ -51,7 +51,7 @@ Atom& SolvExpos::getReprAtom(AminoAcid &amino) {
 }
 
 /**
- *@Description in the case of a C-terminal fragment, 'end' is assumed to be the index of
+ *  in the case of a C-terminal fragment, 'end' is assumed to be the index of
  *    a fictitious residue after the entire protein chain. 
  *    a given residue is considered to be a neighbour of the target if and only
  *    if its representative atom is within a CUTOFF distance of the representative
@@ -99,7 +99,7 @@ unsigned int SolvExpos::getNumNeighbours(Spacer &chain, const unsigned int tgt,
 }
 
 /**
- *@Description in the case of a C-terminal fragment, 'end' is assumed to be the index of
+ *  in the case of a C-terminal fragment, 'end' is assumed to be the index of
  *    a fictitious residue after the entire protein chain.
  *   the target residue need not be internal to the fragment.
  *   the solvent exposure of the target is CORE if its number of neighbours
@@ -122,7 +122,7 @@ SolvExpos::SolvExposEnum SolvExpos::getSolvExpos(Spacer &chain, const unsigned i
 }
 
 /**
- *@Description when delimiting a C-terminal fragment, tgtE and envE are assumed to be
+ *  when delimiting a C-terminal fragment, tgtE and envE are assumed to be
  *    the index of a fictitious residue after the entire protein chain.
  *    target residues need not be internal to the environment fragment. The
  *   target fragment can even be completely external to the environment
@@ -159,7 +159,7 @@ vector<SolvExpos::SolvExposEnum>* SolvExpos::getSolvExposVec(Spacer& chain,
 }
 
 /**
- *@Description in the case of a C-terminal fragment, 'end' is assumed to be the index of
+ *  in the case of a C-terminal fragment, 'end' is assumed to be the index of
  *    a fictitious residue after the entire protein chain.
  *    the target residue need not be internal to the fragment.
  *    the solvent accessibility of the target residue is between 0 (if the
@@ -186,7 +186,7 @@ double SolvExpos::getSolvAccess(Spacer &chain, unsigned int tgt,
 }
 
 /**
- * @Description Get Solvent accessibility vector
+ *   Get Solvent accessibility vector
  *    when delimiting a C-terminal fragment, tgtE and envE are assumed to be
  *    the index of a fictitious residue after the entire protein chain.
  *

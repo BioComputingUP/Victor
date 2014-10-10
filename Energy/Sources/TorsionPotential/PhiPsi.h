@@ -34,7 +34,7 @@ using namespace Victor;
 
     /** @brief class manages the angle qualities and the energy 
      * 
-     * @Description Includes methods that allow to obtain information about the angle and the energy. This class implements a simple torsion potential based on the 
+     *   Includes methods that allow to obtain information about the angle and the energy. This class implements a simple torsion potential based on the 
      *    statistical preference of aminoacid types for phi and psi angles.
 
      * */

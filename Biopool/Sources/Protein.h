@@ -28,7 +28,7 @@ namespace Victor { namespace Biopool {
     
     /**
     * @brief Is a container of Polymers (a component of components).
-    * @Description      Each chain in a PDB (a Protein object)
+    *        Each chain in a PDB (a Protein object)
     *                   corresponds to a Polymers. Each Polymer corresponds to a Spacer and a LigandSet (if present).
     *  
     */

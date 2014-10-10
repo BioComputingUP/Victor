@@ -35,7 +35,7 @@ IntCoordConverter::~IntCoordConverter() {
 // PREDICATES:
 
 /**
- * @Description Return the angle between two vectors
+ *   Return the angle between two vectors
  * @param p11, p12, p21, p22 represent start-end points of two vectors in the 3D space (vgVector3<double>).
  */
 double
@@ -48,7 +48,7 @@ IntCoordConverter::getAngle(vgVector3<double>& p11, vgVector3<double>& p12,
 }
 
 /**
-* @Description Returns the angle between two vectors of coordinates
+*   Returns the angle between two vectors of coordinates
 * @param a and b contain the 3D coordinates (vgVector3<double>)
 * @return The angle in RADIANTS (double)
 */
@@ -58,7 +58,7 @@ IntCoordConverter::getAngle(vgVector3<double>& v1, vgVector3<double>& v2) {
 }
 
 /**
-* @Description Returns the translational vector from p1 to p2
+*   Returns the translational vector from p1 to p2
 * @param p1 and p1 are 2 points in the 3D space (vgVector3<double>)
 * @return t (vgVector3<double>)
 */
@@ -68,7 +68,7 @@ IntCoordConverter::calculateTrans(vgVector3<double>& p1, vgVector3<double>& p2) 
     return t;
 }
 /**
-* @Description Returns the rotation matrix between two vectors defined by 4 points 
+*   Returns the rotation matrix between two vectors defined by 4 points 
 * @param p11, p12, p21, p22 represent start-end points of two vectors in the 3D space (vgVector3<double>).
 * @return A 3x3 rotational matrix (vgVector3<double>)
 */
@@ -87,7 +87,7 @@ IntCoordConverter::calculateRot(vgVector3<double>& p11, vgVector3<double>& p12,
 }
 
 /**
-* @Description Returns the angle between 3 bound Atoms a1 -> a2 -> a3
+*   Returns the angle between 3 bound Atoms a1 -> a2 -> a3
 * @param a1, a2 and a3 are three Atoms (Atom&)
 * @return The angle (in radiants) between the three atoms (double)
 */
@@ -104,7 +104,7 @@ IntCoordConverter::getBondAngle(Atom& a1, Atom& a2, Atom& a3) {
     return angle(v1, v2);
 }
 /**
-* @Description Calculate the distance between two Atoms
+*   Calculate the distance between two Atoms
 * @param a1, a2 are two Atoms (Atom&)
 * @return The distance between the two atoms (double)
 */
@@ -115,7 +115,7 @@ IntCoordConverter::getBondLength(Atom& a1, Atom& a2) {
 }
 
 /**
-* @Description Calculate the torsion angle between 4 connected Atoms. a1 -> a2 -> a3 -> a4 
+*   Calculate the torsion angle between 4 connected Atoms. a1 -> a2 -> a3 -> a4 
 *  The definition of a torsion angle was took from the Babel package. 
 *  Copyright (C) 1992-96 W. Patrick Walters and Matthew T. Stahl 
 *  
@@ -160,7 +160,7 @@ IntCoordConverter::normalize(double angle) const {
     return angle;
 }
 /**
-* @Description Calculates the difference between two angles.
+*   Calculates the difference between two angles.
 * @param a and b are angles in radiants (double)
 * @return The angle difference (double)
 */
@@ -175,7 +175,7 @@ IntCoordConverter::getAngleDifference(double a, double b) const {
 // MODIFIERS:
 
 /**
-* @Description Add the rotaional matrix in C given A -> B -> C and an angle.
+*   Add the rotaional matrix in C given A -> B -> C and an angle.
 * @param a1, a2 and a3 are connected Atoms (Atom&)
 * @param angle (double), is the angle between A -> B and B -> C 
 */
@@ -211,7 +211,7 @@ IntCoordConverter::setBondAngle(Atom& a1, Atom& a2, Atom& a3, double angle,
 
 
 /**
-* @Description Add the rotaional matrix in C given A -> B -> C -> D and a TORSION angle.
+*   Add the rotaional matrix in C given A -> B -> C -> D and a TORSION angle.
 * @param a1, a2, a3 and a4 are connected Atoms (Atom&)
 * @param angle (double), is the TORSION angle between A -> B and C -> D 
 */
@@ -343,7 +343,7 @@ IntCoordConverter::connectReverseStructure(AminoAcid& aa, AminoAcid& prev) {
 }
 
 /**
- * @Description Converts from Tinker format into cartesian. Place the Atom "at" in the 3D space given a distance, an angle, the chirality and a torsion angle.
+ *   Converts from Tinker format into cartesian. Place the Atom "at" in the 3D space given a distance, an angle, the chirality and a torsion angle.
  * The input Atoms need to be connected in this order: atbLP -> atbAP -> attAP -> at
  * chiral can be 0,1,-1. If chiral == 0 the torsionAngle is a Dihedral angle. Otherwise is a bondLength angle.
  * All angles for this function are in *DEGREES* not radiants!

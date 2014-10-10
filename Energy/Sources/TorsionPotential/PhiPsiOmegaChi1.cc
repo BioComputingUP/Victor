@@ -33,7 +33,7 @@ propensities(), all_propensities() {
 }
 
 /**
- * @Description 
+ *   
  * @param 
  */
 void PhiPsiOmegaChi1::pConstructData() {
@@ -170,7 +170,7 @@ void PhiPsiOmegaChi1::pConstructData() {
 }
 
 /**
- * @Description 
+ *   
  * @param 
  */
 void PhiPsiOmegaChi1::pResetData() {
@@ -217,7 +217,7 @@ void PhiPsiOmegaChi1::pResetData() {
 // PREDICATES:
 
 /**
- * @Description calculates energy
+ *   calculates energy
  * @param spacer reference
  */
 long double PhiPsiOmegaChi1::calculateEnergy(Spacer& sp) {
@@ -230,7 +230,7 @@ long double PhiPsiOmegaChi1::calculateEnergy(Spacer& sp) {
 }
 
 /**
- * @Description calculates energy
+ *   calculates energy
  * @param spacer reference, unsigned int for index 1 and 2
  */
 long double PhiPsiOmegaChi1::calculateEnergy(Spacer& sp, unsigned int index1,
@@ -247,7 +247,7 @@ long double PhiPsiOmegaChi1::calculateEnergy(Spacer& sp, unsigned int index1,
 }
 
 /**
- * @Description calculates energy
+ *   calculates energy
  * @param amino acid reference
  */
 long double PhiPsiOmegaChi1::calculateEnergy(AminoAcid& aa) {

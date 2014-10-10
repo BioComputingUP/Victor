@@ -29,7 +29,7 @@ namespace Victor { namespace Biopool {
     
     /**@brief Defines chemical and abstract bonds between objects which are compositions of atoms.
      * 
-     *@Description Eg. 'bond' between two amino acids.
+     *  Eg. 'bond' between two amino acids.
      * */
     
     // Global constants, typedefs, etc. (to avoid):
@@ -89,7 +89,7 @@ namespace Victor { namespace Biopool {
     // PREDICATES:
 
         /**
-     *@Description  Returns reference to the i-th in-bond atom.
+     *   Returns reference to the i-th in-bond atom.
      *@param unsigned int 
      *@return  Atom reference
      */
@@ -106,7 +106,7 @@ namespace Victor { namespace Biopool {
     }
 
         /**
-     *@Description  Returns reference to the i-th in-bond atom.
+     *   Returns reference to the i-th in-bond atom.
      *@param unsigned int 
      *@return  Atom reference
      */
@@ -123,7 +123,7 @@ namespace Victor { namespace Biopool {
     }
 
         /**
-     *@Description  Returns the number of open in-bonds, ie. how many in-bonds can still be added.
+     *   Returns the number of open in-bonds, ie. how many in-bonds can still be added.
      *@param void
      *@return unsigned int 
      */
@@ -133,7 +133,7 @@ namespace Victor { namespace Biopool {
     }
 
         /**
-     *@Description  Returns the number of open out-bonds, ie. how many out-bonds can still  be added.
+     *   Returns the number of open out-bonds, ie. how many out-bonds can still  be added.
      *@param void
      *@return unsigned int 
      */

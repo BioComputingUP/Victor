@@ -34,7 +34,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Base class for composite structures. 
      * 
-     *@Description Implementing the Composite pattern.
+     *  Implementing the Composite pattern.
      **/
     class Component : public Bond {
     public:
@@ -137,7 +137,7 @@ namespace Victor { namespace Biopool {
     
     
     /**
-     * @Description Is other within dist of this' bounding box?
+     *   Is other within dist of this' bounding box?
      * @param other (Component)
      * @param dist (double)
      * @return True, if the component collides with "OTHER" 
@@ -169,7 +169,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     * @Description Checks the "Modified" flag in the component.
+     *   Checks the "Modified" flag in the component.
      * @return True, if the component coordinates have been already syncronized.
      * Checks also for the "superior" class status. 
      */

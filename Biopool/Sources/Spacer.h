@@ -33,7 +33,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Implements a "Spacer" for a protein chain. Includes methods to obtain values from the atoms and its pdb information.
      * 
-     *@Description ***Attention*** The current implementation allows for "1 to 1" spacers,
+     *  ***Attention*** The current implementation allows for "1 to 1" spacers,
      *    ie. spacers composed of a single aminoacid chain. Class that develop the virtual methods from the parent class
      *   Polymer.
      * */
@@ -120,7 +120,7 @@ namespace Victor { namespace Biopool {
         void setStartOffset(int _offset);
 
         /**
-         * @Description Set the atom offset
+         *   Set the atom offset
          * @param _offset
          */
         void setAtomStartOffset(int _offset) {
@@ -235,7 +235,7 @@ namespace Victor { namespace Biopool {
     // PREDICATES:
 
     /**
-     *@Description Saves the information from the saver into the Spacer
+     *  Saves the information from the saver into the Spacer
      *@param s, reference to the saver
      */
     inline void Spacer::save(Saver& s) {
@@ -243,7 +243,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Allows to know if there is a spacer in the protein or not. 
+     *  Allows to know if there is a spacer in the protein or not. 
      *@return quantity of spacers, possible values are 0 or 1
      */
     inline const unsigned int Spacer::sizeSpacer() const {
@@ -253,7 +253,7 @@ namespace Victor { namespace Biopool {
     // MODIFIERS:
 
     /**
-     *@Description Removes the corresponding component
+     *  Removes the corresponding component
      *@param c, pointer to the component to remove, usually the object that is calling the method.
      */
     inline void Spacer::removeComponent(Component* c) {
@@ -262,7 +262,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Removes the corresponding component in the corresponding index
+     *  Removes the corresponding component in the corresponding index
      *@param i, index to the component to remove, usually the index of the object that is calling the method.
      */
     inline void Spacer::removeComponentFromIndex(unsigned int i) {
@@ -271,7 +271,7 @@ namespace Victor { namespace Biopool {
     }
 
              /**
-     *@Description Similar to removeComponent but also free the component's memory space
+     *  Similar to removeComponent but also free the component's memory space
      *@param c, pointer to the Component to delete
      */inline void Spacer::deleteComponent(Component* c) {
         Polymer::deleteComponent(c);
@@ -279,7 +279,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Loads the Spacer from a Loader
+     *  Loads the Spacer from a Loader
      *@param l, reference of the Loader
      */
     inline void Spacer::load(Loader& l) {
@@ -288,7 +288,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Sets the translation vector
+     *  Sets the translation vector
      *@param t, the translation vector to set
      */
     inline void Spacer::setTrans(vgVector3<double> t) {
@@ -297,7 +297,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Adds a the translation vector
+     *  Adds a the translation vector
      *@param t, the translation vector to add
      */
     inline void Spacer::addTrans(vgVector3<double> t) {
@@ -306,7 +306,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Sets the rotation matrix
+     *  Sets the rotation matrix
      *@param r, the rotation matrix to set
      */
     inline void Spacer::setRot(vgMatrix3<double> r) {
@@ -315,7 +315,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Adds a rotation matrix
+     *  Adds a rotation matrix
      *@param r, the rotation matrix to add
      */
     inline void Spacer::addRot(vgMatrix3<double> r) {
@@ -324,7 +324,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Returns the reference to the spacer that contains the inBond for the n Atom
+     *  Returns the reference to the spacer that contains the inBond for the n Atom
      *@param n, index of the atom
      *@return reference to the spacer that contains the inBond information
      */
@@ -333,7 +333,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Returns the reference to the spacer that contains the inBond for the n Atom
+     *  Returns the reference to the spacer that contains the inBond for the n Atom
      *@param n, index of the atom
      *@return reference to the spacer that contains the inBond information
      */
@@ -342,7 +342,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Returns the reference to the spacer that contains the outBond for the n Atom
+     *  Returns the reference to the spacer that contains the outBond for the n Atom
      *@param n, index of the atom
      *@return reference to the spacer that contains the outBond information
      */
@@ -351,7 +351,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Returns the reference to the spacer that contains the outBond for the n Atom
+     *  Returns the reference to the spacer that contains the outBond for the n Atom
      *@param n, index of the atom
      *@return reference to the spacer that contains the outBond information 
      */
@@ -360,7 +360,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Sets the Spacer as part of the Energy Visitor object
+     *  Sets the Spacer as part of the Energy Visitor object
      *@param v, pointer to the Energy visitor object
      */
     inline void Spacer::acceptCalculator(EnergyVisitor* v) {
@@ -368,7 +368,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Sets the Spacer as part of the Optimization Visitor object
+     *  Sets the Spacer as part of the Optimization Visitor object
      *@param v, pointer to the Optimization Visitor
      */
     inline void Spacer::acceptOptimizer(OptimizationVisitor* v) {

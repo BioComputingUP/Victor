@@ -28,7 +28,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Implements methods to manage a polymer created by components.
      * 
-     *@Description Includes methods that allow to insert and remove components.
+     *  Includes methods that allow to insert and remove components.
      */
     class Polymer : public Component {
     public:

@@ -44,7 +44,7 @@ double Spacer::BOND_ANGLE_AT_N_TO_CALPHA = 121.9;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description Basic constructor
+ *  Basic constructor
  */
 Spacer::Spacer() : Polymer(1, 1), startOffset(0), startAtomOffset(0), gaps(),
 subSpacerList() {
@@ -52,7 +52,7 @@ subSpacerList() {
 }
 
 /**
- *@Description constructor based in another object
+ *  constructor based in another object
  *@param orig, reference to the original object to copy
  */
 Spacer::Spacer(const Spacer& orig) : subSpacerList() {
@@ -61,7 +61,7 @@ Spacer::Spacer(const Spacer& orig) : subSpacerList() {
 }
 
 /**
- *@Description Basic destructor
+ *  Basic destructor
  */
 Spacer::~Spacer() {
     PRINT_NAME;
@@ -70,7 +70,7 @@ Spacer::~Spacer() {
 // PREDICATES:
 
 /**
- *@Description Predicate used to get the internal array number corresponding to 
+ *  Predicate used to get the internal array number corresponding to 
  * a given PDB aminoacid number (Residue sequence number, columns 23-26 of a pdb file).
  *@param  index, pdb number 
  *@return  the corresponding internal array number
@@ -96,7 +96,7 @@ int Spacer::getIndexFromPdbNumber(int index) {
 }
 
 /**
- *@Description Predicate used to get the PDB aminoacid number (Residue sequence number, columns 23-26 of a pdb file)  corresponding to 
+ *  Predicate used to get the PDB aminoacid number (Residue sequence number, columns 23-26 of a pdb file)  corresponding to 
  * a given internal array number
  *@param index, internal array number
  *@return  the corresponding PDB aminoacid number
@@ -119,7 +119,7 @@ int Spacer::getPdbNumberFromIndex(int index) {
 }
 
 /**
- *@Description  Predicate used to determine if there is a gap in a given position/PDB aminoacid number 
+ *   Predicate used to determine if there is a gap in a given position/PDB aminoacid number 
  *@param  index, given position to evaluate
  *@return  result from the verification 
  */
@@ -139,7 +139,7 @@ bool Spacer::isGap(int index) {
 }
 
 /**
- *@Description Predicate used to a list of the positions/pdb amino acid numbers where a gap is present
+ *  Predicate used to a list of the positions/pdb amino acid numbers where a gap is present
  *@return  prints the corresponding values
  */
 void Spacer::printGaps() {
@@ -150,7 +150,7 @@ void Spacer::printGaps() {
 }
 
 /**
- *@Description used to obtain the corresponding reference to the InBond of the n amino acid  
+ *  used to obtain the corresponding reference to the InBond of the n amino acid  
  *@param n, index of the atom
  *@return  atom reference
  */
@@ -161,7 +161,7 @@ const Atom& Spacer::getOpenInBondRef(unsigned int n) const {
 }
 
 /**
- *@Description used to obtain the corresponding reference to the InBond of the n amino acid 
+ *  used to obtain the corresponding reference to the InBond of the n amino acid 
  *@param n, index of the atom
  *@return  atom reference
  */
@@ -171,7 +171,7 @@ Atom& Spacer::getOpenInBondRef(unsigned int n) {
 }
 
 /**
- *@Description used to obtain the corresponding reference to the OutBond of the n amino acid  
+ *  used to obtain the corresponding reference to the OutBond of the n amino acid  
  *@param n, index of the atom
  *@return  atom reference
  */
@@ -181,7 +181,7 @@ const Atom& Spacer::getOpenOutBondRef(unsigned int n) const {
 }
 
 /**
- *@Description used to obtain the corresponding reference to the OutBond of the n amino acid  
+ *  used to obtain the corresponding reference to the OutBond of the n amino acid  
  *@param n, index of the atom
  *@return  atom reference
  */
@@ -191,7 +191,7 @@ Atom& Spacer::getOpenOutBondRef(unsigned int n) {
 }
 
 /**
- *@Description Returns the count of all aminoacids in the spacer  
+ *  Returns the count of all aminoacids in the spacer  
  *@return  Quantity of amino acids in the spacer
  */
 const unsigned int Spacer::sizeAmino() const {
@@ -203,7 +203,7 @@ const unsigned int Spacer::sizeAmino() const {
 }
 
 /**
- *@Description Predicate used to get the range for the Helix amino acids
+ *  Predicate used to get the range for the Helix amino acids
  *@return  vector containing the ranges
  */
 vector<pair<unsigned int, unsigned int> > Spacer::getHelixData() {
@@ -227,7 +227,7 @@ vector<pair<unsigned int, unsigned int> > Spacer::getHelixData() {
 }
 
 /**
- *@Description Predicate used to get the range for the Strand amino acids
+ *  Predicate used to get the range for the Strand amino acids
  *@return  vector containing the ranges
  */
 vector<pair<unsigned int, unsigned int> > Spacer::getStrandData() {
@@ -255,7 +255,7 @@ vector<pair<unsigned int, unsigned int> > Spacer::getStrandData() {
 // MODIFIERS:
 
 /**
- *@Description Set the start offset, considers the first amino acid number in the pdb file
+ *  Set the start offset, considers the first amino acid number in the pdb file
  *@param  _offset, value for the offset
  */
 void Spacer::setStartOffset(int _offset) {
@@ -268,7 +268,7 @@ void Spacer::setStartOffset(int _offset) {
 }
 
 /**
- *@Description Modifier used to add a gap into the list of gaps.
+ *  Modifier used to add a gap into the list of gaps.
  *@param  index, amino acid number from on the pdb file 
  */
 void Spacer::addGap(int index) {
@@ -291,7 +291,7 @@ void Spacer::addGap(int index) {
 }
 
 /**
- *@Description Modifier used to remove all gaps from the gap list.
+ *  Modifier used to remove all gaps from the gap list.
  * */
 void Spacer::removeAllGaps() {
     while (gaps.size() > 0) {
@@ -300,7 +300,7 @@ void Spacer::removeAllGaps() {
 }
 
 /**
- *@Description Modifier used to remove a specific gap from the gaps list created.
+ *  Modifier used to remove a specific gap from the gaps list created.
  *@param  index, amino acid number
  */
 void Spacer::removeGap(int index) {
@@ -315,7 +315,7 @@ void Spacer::removeGap(int index) {
 }
 
 /**
- * @Description Used to insert an amino after a GAP. The general
+ *   Used to insert an amino after a GAP. The general
  *       idea is to develop a mixed function between inserting a new amino and connecting
  *       aminoacids in the spacer). The difference is
  *       placed into the parameters beginHole & endHole. They represent those
@@ -455,7 +455,7 @@ void Spacer::insertAminoAfterWithGaps(
 }
 
 /**
- * @Description Insert a new aminoacid of type 'code' after position 'n'.
+ *   Insert a new aminoacid of type 'code' after position 'n'.
  *                 Atoms are set according to lenght and angle cristallographic
  *                 values. Torsion angles are given in input (DEFAULT: -62', -41')
  *  WARNING: This function is only implemented for 'flat' spacers. 
@@ -599,7 +599,7 @@ void Spacer::insertAminoAfter(string code, unsigned int n, double phi, double ps
 }
 
 /**
- * @Description  This function is only implemented for 'flat' spacers. 
+ *    This function is only implemented for 'flat' spacers. 
  *           Ie. no subspacers can be handled.
  *  NB: This function is invoked by the Nazgul module to temporarily (!!!) 
  *      fill gaps.
@@ -739,7 +739,7 @@ void Spacer::insertAminoBefore(string code, unsigned int p, double phi, double p
 
 
 /**
- *@Description Synchronizes coords with structure
+ *  Synchronizes coords with structure
  */
 // 
 
@@ -756,7 +756,7 @@ void Spacer::sync() {
 }
 
 /**
- *@Description Reset the amino acids boundaries
+ *  Reset the amino acids boundaries
  */
 void Spacer::resetBoundaries() {
     vgVector3<double> tmpV(DBL_MAX - 1, DBL_MAX - 1, DBL_MAX - 1);
@@ -773,7 +773,7 @@ void Spacer::resetBoundaries() {
 }
 
 /**
- *@Description Returns the first and last aminoacid indexes from the sub-spacer in a <pair>.
+ *  Returns the first and last aminoacid indexes from the sub-spacer in a <pair>.
  *                 The difference (last - first) is the count of amino acids
  *                 in the whole sub-spacer structure.
  *@param n, corresponding index
@@ -787,7 +787,7 @@ pair<unsigned int, unsigned int> Spacer::getSubSpacerListEntry(unsigned int n) {
 }
 
 /**
- *@Description Returns the first and last aminoacid index from the sub-spacer in a <pair>.
+ *  Returns the first and last aminoacid index from the sub-spacer in a <pair>.
  *                 The difference (last - first) is the count of amino acids
  *                 in the whole sub-spacer structure.
  *@param n, corresponding index
@@ -800,7 +800,7 @@ pair<unsigned int, unsigned int> Spacer::getSubSpacerListEntry(unsigned int n) c
 }
 
 /**
- *@Description Copies the given the spacer
+ *  Copies the given the spacer
  *@param orig, reference to the spacer to copy
  */
 void Spacer::copy(const Spacer& orig) {
@@ -830,7 +830,7 @@ void Spacer::copy(const Spacer& orig) {
 }
 
 /**
- *@Description clone the spacer
+ *  clone the spacer
  *@return  pointer to the new component 
  */
 Component* Spacer::clone() {
@@ -842,7 +842,7 @@ Component* Spacer::clone() {
 // OPERATORS:
 
 /**
- *@Description Assign the spacer to another spacer.
+ *  Assign the spacer to another spacer.
  *@param orig, reference for the original spacer
  *@return  reference to the new spacer
  */
@@ -857,7 +857,7 @@ Spacer& Spacer::operator=(const Spacer& orig) {
 // HELPERS:
 
 /**
- *@Description Insert a component(only an Amino acid or Sapacer class type are allowed) 
+ *  Insert a component(only an Amino acid or Sapacer class type are allowed) 
  * in the spacer at the back side.  It doesn't connect the components.
  *@param c, pointer to the component to insert
  */
@@ -887,7 +887,7 @@ void Spacer::insertComponent(Component* c) {
 }
 
 /**
- * @Description If something has changed in the spacer structure,
+ *   If something has changed in the spacer structure,
  *                 this method updates the spacer given as a parameter .
  * 
  * @param s, pointer to the spacer to modify(Spacer*),  
@@ -913,7 +913,7 @@ void Spacer::modifySubSpacerList(Spacer* s, int count) {
 }
 
 /**
- *@Description Returns the spacer of the corresponding index 
+ *  Returns the spacer of the corresponding index 
  *@param n, the Spacer index 
  *@return spacer reference
  */
@@ -933,7 +933,7 @@ Spacer& Spacer::getSpacer(unsigned int n) {
 }
 
 /**
- *@Description Returns the spacer of the corresponding index 
+ *  Returns the spacer of the corresponding index 
  *@param n, Spacer index 
  *@return  spacer reference
  */
@@ -954,7 +954,7 @@ const Spacer& Spacer::getSpacer(unsigned int n) const {
 }
 
 /**
- * @Description Returns the aminoacid of the index 
+ *   Returns the aminoacid of the index 
  * @param n, AminoAcid index
  * @return aminoacid reference
  */
@@ -993,7 +993,7 @@ AminoAcid& Spacer::getAmino(unsigned int n) { // needs to be recoded & optimized
 }
 
 /**
- * @Description Returns the aminoacid of index
+ *   Returns the aminoacid of index
  * @param n, AminoAcid index 
  * @return  aminoacid reference
  */
@@ -1032,7 +1032,7 @@ const AminoAcid& Spacer::getAmino(unsigned int n) const { // needs to be recoded
 }
 
 /**
- *@Description Merge the components of the sub-spacer <s> at the place of <s> in the spacer <this>..
+ *  Merge the components of the sub-spacer <s> at the place of <s> in the spacer <this>..
  *@param s, spacer reference 
  */
 
@@ -1065,7 +1065,7 @@ void Spacer::mergeSpacer(Spacer* s) {
 }
 
 /**
- * @Description  Create a new sub-spacer at the place of <start> and put
+ *    Create a new sub-spacer at the place of <start> and put
  *                 all components between <start> and <end> in the new 
  *                 sub-spacer. The method returns the pointer at the 
  *                 new sub-spacer.
@@ -1100,7 +1100,7 @@ Spacer* Spacer::splitSpacer(unsigned int start, unsigned int end) {
 }
 
 /**
- * @Description insert a new sub spacer inside an empty spacer structure
+ *   insert a new sub spacer inside an empty spacer structure
  *                 WARNING: this method works only with superior spacers
  *                 which are made of other subspacers only (child components
  *                 must be all spacers, the presence of aminoacids is not 
@@ -1119,7 +1119,7 @@ void Spacer::insertFirstSpacer(Spacer* sp) {
 }
 
 /**
- * @Description insert a new sub spacer inside a spacer structure.
+ *   insert a new sub spacer inside a spacer structure.
  *                  N.B. spacers are not positioned, they maintain original coordinates
  *                 WARNING: this method works only with superior spacers
  *                 which are made of other subspacers only (child components
@@ -1205,7 +1205,7 @@ void Spacer::insertSubSpacerAfter(Spacer* sp, unsigned int pos) {
 }
 
 /**
- * @Description Rearrange the spacer (and all sub-spacers) as a flat tree. After this there are no more sub-spacers..
+ *   Rearrange the spacer (and all sub-spacers) as a flat tree. After this there are no more sub-spacers..
  */
 
 void Spacer::makeFlat() {
@@ -1214,7 +1214,7 @@ void Spacer::makeFlat() {
 }
 
 /**
- * @Description Group the spacer (and his sub-spacers) like the state codes
+ *   Group the spacer (and his sub-spacers) like the state codes
  *                 of the aminoacids. After this the aminoacid structure is
  *                 grouped in HELIX-spacer,STRANDS-spacer,COIL-spacer and 
  *                 TURN-spacer.
@@ -1250,7 +1250,7 @@ void Spacer::groupLikeStateCode() {
 }
 
 /**
- * @Description Update the internal structure of a spacer after a change
+ *   Update the internal structure of a spacer after a change
  *                 in the structure of a spacer.
  */
 
@@ -1273,7 +1273,7 @@ void Spacer::updateSubSpacerList() {
 }
 
 /**
- * @Description Set the state (HELIX or STRAND ...) from the string sec
+ *   Set the state (HELIX or STRAND ...) from the string sec
  *                 which may be generated for example by DSSP.
  * @param sec, secondary structure sequence 
  */
@@ -1306,7 +1306,7 @@ void Spacer::setStateFromSecondary(string sec) {
 
 
 /**
- * @Description Set the state (HELIX or STRAND ...) from the torsion angles of the aminoacids (phi/psi angles).
+ *   Set the state (HELIX or STRAND ...) from the torsion angles of the aminoacids (phi/psi angles).
  */
 
 void Spacer::setStateFromTorsionAngles() {
@@ -1346,7 +1346,7 @@ void Spacer::setStateFromTorsionAngles() {
 }
 
 /**
- *@Description Prints the subspacer list.
+ *  Prints the subspacer list.
  */
 void Spacer::printSubSpacerList() {
     cout << "-------------------------------------------------------" << endl;
@@ -1360,7 +1360,7 @@ void Spacer::printSubSpacerList() {
 }
 
 /**
- *@Description Prints the components.
+ *  Prints the components.
  */
 void Spacer::printComponents() {
     cout << "-------------------------------------------------------" << endl;
@@ -1377,7 +1377,7 @@ void Spacer::printComponents() {
 }
 
 /**
- *@Description This function returs a pair array that define holes into the PDB
+ *  This function returs a pair array that define holes into the PDB
  *       numbering.
  * NOTE: The function returns exactly where an hole starts and ends.
  *@return  vector of int pairs
@@ -1399,7 +1399,7 @@ vector< pair<int, int> > Spacer::getHoles() {
 }
 
 /**
- *@Description This helper function, is used to implement an optimization to mjollnir.
+ *  This helper function, is used to implement an optimization to mjollnir.
  *       What it does is simple and it works only for NMR PDB files. We load
  *       it and we read the number of different models stored. After it, we
  *       load every single model and once we did it, we calculate every single
@@ -1482,7 +1482,7 @@ bool Spacer::NMRGetMinimumCADistanceVector(const string &strFileName, vector<dou
 }
 
 /**
- *@Description Set the state from H bonds. 
+ *  Set the state from H bonds. 
  * H bond definition: Kabsch, Sander, Biopolymers. 1983 Dec;22(12):2577-637.
  */
 
@@ -1562,7 +1562,7 @@ void Spacer::getBackboneHbonds() {
 
 
 /**
- *@Description Set the secondary structure (states) from H bonds.
+ *  Set the secondary structure (states) from H bonds.
  * 
  * SS definition: Kabsch, Sander, Biopolymers. 1983 Dec;22(12):2577-637.
  * 

@@ -33,7 +33,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Implements a simple atom type.
      * 
-     *@Description Includes methods that allow you to get and set type, bind, unbind, coordinates , code,  etc.
+     *  Includes methods that allow you to get and set type, bind, unbind, coordinates , code,  etc.
      * NB: Angles are in degrees.
      **/
     class Atom : public SimpleBond {

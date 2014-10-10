@@ -31,7 +31,7 @@ using namespace Victor; using namespace Victor::Biopool;
 // MODIFIERS:
 
 /**
- * @Description Saves a group in relative format. 
+ *   Saves a group in relative format. 
  * @param gr
  */
 void RelSaver::saveGroup(Group& gr) {
@@ -42,7 +42,7 @@ void RelSaver::saveGroup(Group& gr) {
 }
 
 /**
- * @Description Saves a sidechain in relative format. 
+ *   Saves a sidechain in relative format. 
  * @param sc
  */
 void RelSaver::saveSideChain(SideChain& sc) {
@@ -54,7 +54,7 @@ void RelSaver::saveSideChain(SideChain& sc) {
 
 
 /**
- * @Description   Saves an aminoacid in relative format. 
+ *     Saves an aminoacid in relative format. 
  * @param aa
  */
 void RelSaver::saveAminoAcid(AminoAcid& aa) {

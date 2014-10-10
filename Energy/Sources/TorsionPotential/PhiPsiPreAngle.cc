@@ -21,7 +21,7 @@ using namespace Victor;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- * @Description Constructor that sets the arc steps for the table's size
+ *   Constructor that sets the arc steps for the table's size
  * @param arc values for table 1 and 2(int ,int), file name where torsion angles are, usually data/tor.par(string)
  */
 PhiPsiPreAngle::PhiPsiPreAngle(int SET_ARC1, int SET_ARC2, string knownledge) :
@@ -33,7 +33,7 @@ propensities(), all_propensities() {
 }
 
 /**
- * @Description  Method that using the torsion file, creates the structure
+ *    Method that using the torsion file, creates the structure
  * @param none
  * @return changes are made internally(void)
  */
@@ -162,7 +162,7 @@ void PhiPsiPreAngle::pConstructData() {
 }
 
 /**
- * @Description Resets all the propensities set previously
+ *   Resets all the propensities set previously
  * @param none
  * @return changes are made internally(void)
  */
@@ -214,7 +214,7 @@ void PhiPsiPreAngle::pResetData() {
 // PREDICATES:
 
 /**
- * @Description calculates energy for a protein 
+ *   calculates energy for a protein 
  * @param reference to the spacer containing the protein (Spacer&)
  * @return energy value for the set of amino acids in the spacer (long double)
  */
@@ -228,7 +228,7 @@ long double PhiPsiPreAngle::calculateEnergy(Spacer& sp) {
 }
 
 /**
- * @Description calculates energy for part of the protein
+ *   calculates energy for part of the protein
  * @param reference to the spacer that contains the protein(Spacer&) , start and end position of the protein part (unsigned int , unsigned int)
  * @return energy value for the set of amino acids in the selected section (long double)
  */
@@ -246,7 +246,7 @@ long double PhiPsiPreAngle::calculateEnergy(Spacer& sp, unsigned int index1,
 }
 
 /**
- * @Description calculates energy for a specific amino acid
+ *   calculates energy for a specific amino acid
  * @param aminoacid reference (AminoAcid&)
  * @return energy value for given amino acid  (long double)
  */
@@ -271,7 +271,7 @@ long double PhiPsiPreAngle::calculateEnergy(AminoAcid& aa) {
 }
 
 /**
- * @Description Adds propensity value for a amino acid type
+ *   Adds propensity value for a amino acid type
  * @param corresponding amino acid code(int), corresponding propensity values(int, int, int, int))
  * @return changes are made internally(void)
  */
@@ -281,7 +281,7 @@ inline void PhiPsiPreAngle::sAddProp(int code, int x, int y, int z, int l) {
 }
 
 /**
- * @Description Sets the arc step, needed to define the Size table
+ *   Sets the arc step, needed to define the Size table
  * @param quantity of steps(int)
  * @return changes are made internally(void)
  */
@@ -293,7 +293,7 @@ inline void PhiPsiPreAngle::setArcStep(int n) {
 }
 
 /**
- * @Description Returns the propensity binding value using table 1(granularity) for a specific angle
+ *   Returns the propensity binding value using table 1(granularity) for a specific angle
  * @param angle in degrees
  * @return corresponding prop value (int)
  */
@@ -305,7 +305,7 @@ inline int PhiPsiPreAngle::sGetPropBin(double p) {
 }
 
 /**
- * @Description Returns the propensity binding using table 2(granularity for i-1 aa) value for a specific angle
+ *   Returns the propensity binding using table 2(granularity for i-1 aa) value for a specific angle
  * @param angle in degrees(double)
  * @return corresponding prop value (int)
  */
@@ -317,7 +317,7 @@ inline int PhiPsiPreAngle::sGetPropBin2(double p) {
 }
 
 /**
- * @Description obtains the maximum propensity value for an amino acid type considering all the granularities
+ *   obtains the maximum propensity value for an amino acid type considering all the granularities
  * @param amino acid code(int)
  * @return corresponding propensity value(double)
  */
@@ -344,7 +344,7 @@ double PhiPsiPreAngle::pGetMaxPropensities(int amino) {
 }
 
 /**
- * @Description obtains the maximum propensity value for an amino acid type considering a given phi and psi values
+ *   obtains the maximum propensity value for an amino acid type considering a given phi and psi values
  * considering all the granularities
  * @param amino acid code(int), values for the previous phi and psi angles(int , int)
  * @return corresponding propensity value(double)
@@ -367,7 +367,7 @@ double PhiPsiPreAngle::pGetMaxPropensities(int amino, int prephi, int prepsi) {
 }
 
 /**
- * @Description obtains the maximum propensity value for an amino acid type  
+ *   obtains the maximum propensity value for an amino acid type  
  * @param amino acid code(int)
  * @return corresponding propensity value(double)
  */
@@ -376,7 +376,7 @@ double PhiPsiPreAngle::pReturnMaxPropensities(int amino) {
 }
 
 /**
- * @Description obtains the maximum propensity value for an amino acid type considering a given phi and psi values
+ *   obtains the maximum propensity value for an amino acid type considering a given phi and psi values
  * @param amino acid code(int), values for the previous phi and psi angles(int , int)
  * @return corresponding propensity value(double)
  */
@@ -385,7 +385,7 @@ double PhiPsiPreAngle::pReturnMaxPropensitiesPreAngle(int amino, int prephi, int
 }
 
 /**
- * @Description Creates the maximum propensities based on the max propensities based on knowledge
+ *   Creates the maximum propensities based on the max propensities based on knowledge
  * @param none
  * @return changes are made internally(void)
  */

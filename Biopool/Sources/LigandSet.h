@@ -31,7 +31,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief class implements methods to manage the ligandSet
      * 
-     *@Description Includes methods that allow to set, get and modify ligand set content.
+     *  Includes methods that allow to set, get and modify ligand set content.
      *@This 
      * */
     class LigandSet : public Polymer {

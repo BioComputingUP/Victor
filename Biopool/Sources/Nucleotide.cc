@@ -27,14 +27,14 @@ using namespace Victor; using namespace Victor::Biopool;
 using namespace Victor::Biopool;
 
 /**
- *@Description Constructor
+ *  Constructor
  *@param none
  */
 Nucleotide::Nucleotide() : Group(1, 1), type(XX), icc() {
 }
 
 /**
- *@Description Constructor
+ *  Constructor
  *@param Nucleotide
  */
 Nucleotide::Nucleotide(const Nucleotide& orig) {
@@ -43,14 +43,14 @@ Nucleotide::Nucleotide(const Nucleotide& orig) {
 }
 
 /**
- *@Description DESTRUCTOR
+ *  DESTRUCTOR
  *@param none
  */
 Nucleotide::~Nucleotide() {
     PRINT_NAME;
 }
 /**
- *@Description Returns the atom corresponding to N, 
+ *  Returns the atom corresponding to N, 
  * aminoacids have only a single possible, hard coded, open in-bond
  *@param unsigned int 
  *@return const Atom& 
@@ -60,7 +60,7 @@ Nucleotide::~Nucleotide() {
 // MODIFIERS:
 
 /**
- *@Description  Copies an aa
+ *   Copies an aa
  *@param const Nucleotide& (copy from the orig)
  *@return  void
  */
@@ -77,7 +77,7 @@ void Nucleotide::copy(const Nucleotide& orig) {
 }
 
 /**
- *@Description  Clone the aa
+ *   Clone the aa
  *@param none
  *@return  Component* 
  */
@@ -90,7 +90,7 @@ Component* Nucleotide::clone() {
 // OPERATORS:
 
 /**
- *@Description  Operator =, assign the aa
+ *   Operator =, assign the aa
  *@param Nucleotide reference
  *@return  Nucleotide
  */

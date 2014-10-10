@@ -37,7 +37,7 @@ namespace Victor { namespace Energy {
     /**
      * @brief  Interface/wrapper for energy and feature calculation for a protein chain. 
      * 
-     *@Description It calculates and prints: energies (RAPDF, solvation, torsional, torsional normalized), aminoacid composition, chain breaks, 
+     *  It calculates and prints: energies (RAPDF, solvation, torsional, torsional normalized), aminoacid composition, chain breaks, 
      * secondary structure composition, hydrogen bonds, residue mesostate composition, clashes.
      * */
     

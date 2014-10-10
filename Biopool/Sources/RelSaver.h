@@ -33,7 +33,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Save components (Atoms, Groups, etc.) in relative format 
      * 
-     *@Description The coordinates here are relative to the previous connected Component (Atom, Group, etc..:) 
+     *  The coordinates here are relative to the previous connected Component (Atom, Group, etc..:) 
      * rather than to the absolute Cartesian coordinate system.
      * 
      * */
@@ -42,7 +42,7 @@ namespace Victor { namespace Biopool {
 
         // CONSTRUCTORS/DESTRUCTOR:
         /**
-         * @Description Basic constructor.
+         *   Basic constructor.
          * @param _output The output stream object
          * @param _offset Not implemented
          */

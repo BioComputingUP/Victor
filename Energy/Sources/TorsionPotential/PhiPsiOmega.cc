@@ -25,7 +25,7 @@ vector< vector<Potential::ANGLES> > luca;
 vector< vector<Potential::ANGLES> > giovanni;
 
 /**
- * @Description Identifies the sign of a number
+ *   Identifies the sign of a number
  * @param number(double)
  * @return corresponding positive/negative one (int)
  */
@@ -35,7 +35,7 @@ int sign(double d) {
     return 1;
 }
 /**
- * @Description Constructor that sets the arc steps for the table's size
+ *   Constructor that sets the arc steps for the table's size
  * @param arc values for table 1 and 2(int ,int), file name where torsion angles are, usually data/tor.par(string)
  */
 // CONSTRUCTORS/DESTRUCTOR:
@@ -49,7 +49,7 @@ propensities(), all_propensities() {
 }
 
 /**
- * @Description  Method that using the torsion file, creates the structure
+ *    Method that using the torsion file, creates the structure
  * @param none
  * @return changes are made internally(void)
  */
@@ -165,7 +165,7 @@ void PhiPsiOmega::pConstructData() {
 }
 
 /**
- * @Description Resets all the propensities set previously
+ *   Resets all the propensities set previously
  * @param none
  * @return changes are made internally(void)
  */
@@ -200,7 +200,7 @@ void PhiPsiOmega::pResetData() {
 // PREDICATES:
 
 /**
- * @Description calculates energy for a protein 
+ *   calculates energy for a protein 
  * @param reference to the spacer containing the protein (Spacer&)
  * @return energy value for the set of amino acids in the spacer (long double)
  */
@@ -215,7 +215,7 @@ long double PhiPsiOmega::calculateEnergy(Spacer& sp) {
 }
 
 /**
- * @Description calculates energy for part of the protein
+ *   calculates energy for part of the protein
  * @param reference to the spacer that contains the protein(Spacer&) , start and end position of the protein part (unsigned int , unsigned int)
  * @return energy value for the set of amino acids in the selected section (long double)
  */
@@ -233,7 +233,7 @@ long double PhiPsiOmega::calculateEnergy(Spacer& sp, unsigned int index1,
 }
 
 /**
- * @Description calculates energy for a specific amino acid
+ *   calculates energy for a specific amino acid
  * @param aminoacid reference (AminoAcid&)
  * @return energy value for given amino acid  (long double)
  */
@@ -283,7 +283,7 @@ long double PhiPsiOmega::calculateEnergy(AminoAcid& diheds, AminoAcidCode code) 
 }
 
 /**
- * @Description
+ *  
  * @param
  * @return
  */
@@ -383,7 +383,7 @@ inline int PhiPsiOmega::sGetPropOmegaBin(double p) {
 }
 
 /**
- * @Description Adds propensity value for a amino acid type
+ *   Adds propensity value for a amino acid type
  * @param corresponding amino acid code(int), corresponding propensity values(int, int, int, int, int))
  * @return changes are made internally(void)
  */
@@ -393,7 +393,7 @@ inline void PhiPsiOmega::sAddProp(int code, int x, int y, int z) {
 }
 
 /**
- * @Description
+ *  
  * @param
  * @return
  */
@@ -406,7 +406,7 @@ inline void PhiPsiOmega::setArcStep(int n) {
 }
 
 /**
- * @Description Returns the propensity binding value using table 1(granularity) for a specific angle
+ *   Returns the propensity binding value using table 1(granularity) for a specific angle
  * @param angle in degrees
  * @return corresponding prop value (int)
  */
@@ -418,7 +418,7 @@ inline int PhiPsiOmega::sGetPropBin(double p) {
 }
 
 /**
- * @Description Sets the range for omega
+ *   Sets the range for omega
  * @param parameter for omega range, only 1,2, and 3 are posible(int)
  * @return corresponding range for omega (int)
  */
@@ -436,7 +436,7 @@ inline int PhiPsiOmega::setRange_Omega(int n) {
 }
 
 /**
- * @Description obtains the maximum propensity value for an amino acid type considering all the granularities
+ *   obtains the maximum propensity value for an amino acid type considering all the granularities
  * @param amino acid code(int)
  * @return corresponding propensity value(double)
  */
@@ -461,7 +461,7 @@ double PhiPsiOmega::pGetMaxPropensities(int amino) {
 }
 
 /**
- * @Description obtains the maximum propensity value for an amino acid type knowledge based
+ *   obtains the maximum propensity value for an amino acid type knowledge based
  * @param amino acid code(int)
  * @return corresponding propensity value(double)
  */
@@ -470,7 +470,7 @@ double PhiPsiOmega::pReturnMaxPropensities(int amino) {
 }
 
 /**
- * @Description
+ *  
  * @param
  * @return
  */
@@ -510,7 +510,7 @@ double PhiPsiOmega::pGetMinPropensities(int amino) {
 }
 
 /**
- * @Description obtains the minimum propensity value for an amino acid type considering a given phi and psi values knowledge based
+ *   obtains the minimum propensity value for an amino acid type considering a given phi and psi values knowledge based
  * @param amino acid code(int), values for the previous phi and psi angles(int , int)
  * @return corresponding propensity value(double)
  */
@@ -519,7 +519,7 @@ double PhiPsiOmega::pReturnMinPropensities(int amino) {
 }
 
 /**
- * @Description computes and stores the minimum propensities based on the max propensities based on knowledge
+ *   computes and stores the minimum propensities based on the max propensities based on knowledge
  * @param none
  * @return changes are made internally(void)
  */
@@ -532,7 +532,7 @@ void PhiPsiOmega::pConstructMinPropensities() {
 }
 
 /**
- * @Description obtains the Omega angle for a given propensity value and Omega range
+ *   obtains the Omega angle for a given propensity value and Omega range
  * @param propensity value (int), Omega range(long)
  * @return corresponding omega angle (double)
  */
@@ -554,7 +554,7 @@ double PhiPsiOmega::getOmegaAngle(int prop, long RANGE_OMEGA) {
 }
 
 /**
- * @Description Calculates the value os the psi , phi angle
+ *   Calculates the value os the psi , phi angle
  * @param propensity value(int), long(not used),arc step(int)
  * @return
  */
@@ -563,7 +563,7 @@ inline double PhiPsiOmega::getPhiPsiAngle(int prop, long SIZE_TABLE, int ARC_STE
 }
 
 /**
- * @Description Returns asort energy table
+ *   Returns asort energy table
  * @param none
  * @return pointer to new ordered table (vector< vector<Potential::ANGLES> >*)
  */

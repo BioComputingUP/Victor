@@ -43,7 +43,7 @@ Component::~Component() {
 
 // PREDICATES:
 /**
- * @Description Return the lower bound coordinates.
+ *   Return the lower bound coordinates.
  * @param dist
  * @return The lowerBound vector (vgVector2<double>)
  */
@@ -57,7 +57,7 @@ Component::getLowerBound(double dist) {
     return lowerBound;
 }
 /**
- * @Description Return the upper bound coordinates.
+ *   Return the upper bound coordinates.
  * @param dist
  * @return The upperBound vector (vgVector2<double>)
  */
@@ -92,7 +92,7 @@ Component* Component::unconnectOut() {
 
 
 /**
- * @Description Copy the component.
+ *   Copy the component.
  *  Attention: new elements have to be copied also in Monomer::copy()
  *  since it does *NOT* invoke this function (segmentation fault if it does).
  * @param orig

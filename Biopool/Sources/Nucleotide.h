@@ -32,7 +32,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Implements a simple nucleotide.
      * 
-     *@Description Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
+     *  Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
      * */
     class Nucleotide : public Group {
     public:

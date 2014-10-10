@@ -26,7 +26,7 @@
 using namespace Victor; using namespace Victor::Biopool;
 
 /**
- *@Description  Private helper function to set bond structure after loading the spacer.
+ *   Private helper function to set bond structure after loading the spacer.
  *@param  
  *@return  
  */
@@ -39,7 +39,7 @@ IntLoader::setBonds(Spacer& sp) {
 }
 
 /**
- * @Description Converts from Tinker format into cartesian. Place the Atom "at" in the 3D space given a distance, an angle, the chirality and a torsion angle.
+ *   Converts from Tinker format into cartesian. Place the Atom "at" in the 3D space given a distance, an angle, the chirality and a torsion angle.
  * The input Atoms need to be connected in this order: atbLP -> atbAP -> attAP -> at
  * chiral can be 0,1,-1. If chiral == 0 the torsionAngle is a Dihedral angle. Otherwise is a bondLength angle.
  * All angles for this function are in *DEGREES* not radiants!
@@ -150,7 +150,7 @@ void IntLoader::zAtomToCartesian(Atom& atbLP, double bondLength, Atom& atbAP,
 }
 
 /**
- *@Description  Loads a Group in INT format
+ *   Loads a Group in INT format
  *@param  group reference
  *@return  void
  */
@@ -260,7 +260,7 @@ void IntLoader::loadGroup(Group& group) {
 }
 
 /**
- *@Description  Loads a sidechain in INT format. 
+ *   Loads a sidechain in INT format. 
  *@param  SideChain reference, AminoAcid pointer
  *@return  void
  */
@@ -271,7 +271,7 @@ void IntLoader::loadSideChain(SideChain& sc, AminoAcid* aaRef) {
 }
 
 /**
- *@Description   Private helper function to determine if atom is backbone or sidechain. 
+ *    Private helper function to determine if atom is backbone or sidechain. 
  *@param  AminoAcid reference , Atom reference
  *@return  bool
  */
@@ -288,7 +288,7 @@ bool IntLoader::inSideChain(const AminoAcid& aa, const Atom& at) {
 }
 
 /**
- *@Description  Loads an AminoAcid in INT format. 
+ *   Loads an AminoAcid in INT format. 
  *@param  AminoAcid reference
  *@return  void
  */
@@ -313,7 +313,7 @@ IntLoader::loadAminoAcid(AminoAcid& aa) {
 }
 
 /**
- *@Description  Add atom in aminoacid and returns the pointer from the atom
+ *   Add atom in aminoacid and returns the pointer from the atom
  *@param   Atom reference
  *@return   AminoAcid pointer,  Atom pointer
  */
@@ -330,7 +330,7 @@ IntLoader::addToAminoAcid(AminoAcid* aa, Atom* at) {
 }
 
 /**
- *@Description  Special case : as long as atoms remain linear with the first
+ *   Special case : as long as atoms remain linear with the first
  *                 two atoms, keep placing them along the z-axis
  *@param  int  , double , int  , double , Atom reference
  *@return  void
@@ -355,7 +355,7 @@ IntLoader::keepPlacingAlongZAxis(int bLP, double bondLength, int bAP,
 }
 
 /**
- *@Description   Load a spacer from a file in Tinker format. 
+ *    Load a spacer from a file in Tinker format. 
  *@param  Spacer reference
  *@return  void
  */
@@ -470,7 +470,7 @@ void IntLoader::loadSpacer(Spacer& sp) {
 }
 
 /**
- *@Description  Load a Ligand from a file in Tinker format. 
+ *   Load a Ligand from a file in Tinker format. 
  *@param  Ligand reference
  *@return  void
  */

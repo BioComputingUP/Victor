@@ -25,7 +25,7 @@
 
 /*
  
- * @Description    Translator: PDB names to internal one-word-code and 
+ *      Translator: PDB names to internal one-word-code and 
  *                  vice versa. Provides some simple predicates dealing with 
  *                  one-word-code. 
  *
@@ -41,7 +41,7 @@
 
 
 /** 
- * @Description Internal one-word-code for PDB names.
+ *   Internal one-word-code for PDB names.
  *
  *  This table is taken from the Bioinformatics Template Library (BTL).
  *
@@ -203,7 +203,7 @@ enum AtomCode {
 // -----------------x-------------------x-------------------x-----------------
 
 /** 
- * @Description Is second behind first in amino acid? This predicate is used to
+ *   Is second behind first in amino acid? This predicate is used to
  *  determine if atom second is to be moved if atom first changed its
  *  position. 
  *
@@ -221,7 +221,7 @@ follows(AtomCode first, AtomCode second) {
 }
 
 /** 
- * @Description Checks if atom is side chain beta atom
+ *   Checks if atom is side chain beta atom
  * */
 
 inline
@@ -231,7 +231,7 @@ isBetaAtom(AtomCode code) {
 }
 
 /** 
- * @Description Checks if atom is side chain gamma atom.
+ *   Checks if atom is side chain gamma atom.
  * */
 
 inline
@@ -242,7 +242,7 @@ isGammaAtom(AtomCode code) {
 }
 
 /** 
- * @Description Check if atom is side chain delta atom
+ *   Check if atom is side chain delta atom
  * */
 
 inline
@@ -254,7 +254,7 @@ isDeltaAtom(AtomCode code) {
 }
 
 /** 
- * @Description Check if atom is side chain epsilon atom
+ *   Check if atom is side chain epsilon atom
  * */
 
 inline
@@ -266,7 +266,7 @@ isEpsilonAtom(AtomCode code) {
 }
 
 /** 
- * @Description Check if atom is side chain zeta atom
+ *   Check if atom is side chain zeta atom
  * */
 
 inline
@@ -277,7 +277,7 @@ isZetaAtom(AtomCode code) {
 }
 
 /** 
- * @Description Check if atom is side chain eta atom.
+ *   Check if atom is side chain eta atom.
  * */
 
 inline
@@ -288,7 +288,7 @@ isEtaAtom(AtomCode code) {
 }
 
 /** 
- * @Description Is atom a C atom ?  
+ *   Is atom a C atom ?  
  * To be verified!
  * */ 
 
@@ -307,7 +307,7 @@ isCAtom(AtomCode code) {
 }
 
 /** 
- * @Description Is atom a C atom ?  
+ *   Is atom a C atom ?  
  * To be verified! 
  * */
 
@@ -323,7 +323,7 @@ isNAtom(AtomCode code) {
 }
 
 /** 
- * @Description Is atom a C atom ?  
+ *   Is atom a C atom ?  
  * To be verified! 
  * */
 
@@ -340,7 +340,7 @@ isOAtom(AtomCode code) {
 }
 
 /** 
- * @Description Is code specifying an H atom ? 
+ *   Is code specifying an H atom ? 
  * Updated 2014 by Damiano Piovesan
  * */
 
@@ -363,7 +363,7 @@ isHAtom(AtomCode code) {
 }
 
 /** 
- * @Description True, if atom type name is known 
+ *   True, if atom type name is known 
  *  magic code X corresponds to an unknown atom code
  */
 inline
@@ -373,7 +373,7 @@ isKnownAtom(AtomCode code) {
 }
 
 /** 
- * @Description Is code a non-H atom? 
+ *   Is code a non-H atom? 
  */
 
 inline
@@ -383,7 +383,7 @@ isHeavyAtom(AtomCode code) {
 }
 
 /** 
- * @Description Is code a non-H atom? 
+ *   Is code a non-H atom? 
  * To be verified! 
  * 
  **/
@@ -395,7 +395,7 @@ isBackboneAtom(AtomCode code) {
 }
 
 /** 
- * @Description Translate string into atom code enum. 
+ *   Translate string into atom code enum. 
  **/
 
 inline
@@ -998,7 +998,7 @@ inline istream& operator>>(istream& is, AtomCode& rval) {
 }
 
 /** 
- * @Description Another Atom enumeration NOT USED in BioPool, imported from Qmean (aa_map.cpp).
+ *   Another Atom enumeration NOT USED in BioPool, imported from Qmean (aa_map.cpp).
  * */
 
 inline int get_all_atom_bin(string group_name) {

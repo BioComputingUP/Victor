@@ -38,7 +38,7 @@ namespace Victor { namespace Biopool {
 
         // CONSTRUCTORS/DESTRUCTOR:
         /**
-         * @Description Constructor.
+         *   Constructor.
          * @param _input = the PDB file object
          * @param _permissive = if true, allows loading residues with missing atoms
          * @param _noHAtoms = if true, doesn't load Hydrogens

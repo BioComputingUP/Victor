@@ -41,7 +41,7 @@ Ligand::~Ligand() {
 // PREDICATES:
 
 /**
- *@Description 
+ *  
  *@param 
  */
 bool Ligand::isMetalCompound() //not used
@@ -121,7 +121,7 @@ bool Ligand::isMetalCompound() //not used
 }
 
 /**
- *@Description 
+ *  
  */
 bool Ligand::isCommonMetal() {
     return ((size() == 1) && (
@@ -172,7 +172,7 @@ bool Ligand::isCommonMetal() {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 bool Ligand::isWater() {
@@ -180,7 +180,7 @@ bool Ligand::isWater() {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 bool Ligand::isCofactor() {
@@ -188,7 +188,7 @@ bool Ligand::isCofactor() {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 bool Ligand::isSimpleMetalIon() {
@@ -226,7 +226,7 @@ bool Ligand::isSimpleMetalIon() {
 // MODIFIERS:
 
 /**
- *@Description 
+ *  
  *@param 
  */
 void Ligand::copy(const Ligand& orig) {
@@ -237,7 +237,7 @@ void Ligand::copy(const Ligand& orig) {
 // OPERATORS:
 
 /**
- *@Description 
+ *  
  *@param 
  */
 Ligand& Ligand::operator=(const Ligand& orig) {

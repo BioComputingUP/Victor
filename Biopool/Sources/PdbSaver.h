@@ -41,7 +41,7 @@ namespace Victor { namespace Biopool {
 
         // CONSTRUCTORS/DESTRUCTOR:
         /**
-         * @Description Basic constructor. By default it writes sequence, secondary structure and the term line. 
+         *   Basic constructor. By default it writes sequence, secondary structure and the term line. 
          * @param _output (ostream&) the output file object
          */
         PdbSaver(ostream& _output = cout)

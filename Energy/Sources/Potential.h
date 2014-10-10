@@ -29,7 +29,7 @@ using namespace Victor::Biopool;
     /**
      * @brief Abstract class for the energy potential.
      * 
-     *@Description Includes methods that allow to obtain propensity. 
+     *Includes methods that allow to obtain propensity. 
      * It also defines a "struct" variable with angles and energy associated to an aminoacid.
      * 
      * */
@@ -95,7 +95,7 @@ using namespace Victor::Biopool;
     //                                  Potential
     // -----------------x-------------------x-------------------x-----------------
 
-    /**@Description Energy operator. It compares enrgies of two Potential::ANGLES structures
+    /**@brief Energy operator. It compares enrgies of two Potential::ANGLES structures
      * @param    Two ANGLES structures associated to two aminoacids
      * @return    True, if the energy of the object 1 is greater than the energy of the object 2 (bool)  
      * 

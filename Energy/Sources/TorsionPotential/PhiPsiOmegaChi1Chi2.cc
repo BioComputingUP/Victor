@@ -24,7 +24,7 @@ using namespace Victor;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- * @Description  Basic constructor
+ *    Basic constructor
  */
 PhiPsiOmegaChi1Chi2::PhiPsiOmegaChi1Chi2(int SET_ARC1, string knownledge) :
 TOR_PARAM_FILE(knownledge), ARC_STEP(SET_ARC1),
@@ -36,7 +36,7 @@ propensities(), all_propensities() {
 }
 
 /**
- * @Description  Sets all the information need for the class
+ *    Sets all the information need for the class
  * @param   none
  * @return    changes the object internally (void)   
  */
@@ -195,7 +195,7 @@ void PhiPsiOmegaChi1Chi2::pConstructData() {
 }
 
 /**
- * @Description  Clears all the set data 
+ *    Clears all the set data 
  * @param   none
  * @return    changes the object internally (void)  
  */
@@ -248,7 +248,7 @@ void PhiPsiOmegaChi1Chi2::pResetData() {
 // PREDICATES:
 
 /** 
- * @Description calculates the total energy for the amino acids in the spacer 
+ *   calculates the total energy for the amino acids in the spacer 
  * @param spacer reference(Sapcer(&)
  * @return value of the total energy(long double)
  */
@@ -260,7 +260,7 @@ long double PhiPsiOmegaChi1Chi2::calculateEnergy(Spacer& sp) {
 }
 
 /** 
- * @Description calculates the total energy for the amino acids in a portion of the spacer 
+ *   calculates the total energy for the amino acids in a portion of the spacer 
  * @param spacer reference(Sapcer(&), positions for start and end of the Sapcer portion (unsigned int, unsigned int) 
  * @return value of the total energy for the aminoacids in the given spacer portion(long double)
  */
@@ -277,7 +277,7 @@ long double PhiPsiOmegaChi1Chi2::calculateEnergy(Spacer& sp, unsigned int index1
 }
 
 /** 
- * @Description calculates the total energy for the amino acid 
+ *   calculates the total energy for the amino acid 
  * @param the amino acid reference (AminoAcir&)
  * @return corresponding energy value(long double)
  */
@@ -323,7 +323,7 @@ long double PhiPsiOmegaChi1Chi2::calculateEnergy(AminoAcid& aa) {
 }
 
 /**
- * @Description  Calculates the chi angles index
+ *    Calculates the chi angles index
  * @param   an angle(double)
  * @return   the index for the angle ( int)
  */
@@ -353,7 +353,7 @@ inline int PhiPsiOmegaChi1Chi2::sGetPropChiBin(double p) {
 }
 
 /**
- * @Description  Adds a propensity for a specific amino acid type
+ *    Adds a propensity for a specific amino acid type
  * @param   code of the amion acid(int), coordinates (int,int,int), values to set (int, int)
  * @return    changes the object internally (void)  
  */
@@ -363,7 +363,7 @@ inline void PhiPsiOmegaChi1Chi2::sAddProp(int code, int x, int y, int z, int m, 
 }
 
 /**
- * @Description Sets the step for the arc  
+ *   Sets the step for the arc  
  * @param   the step value(int)
  * @return    changes the object internally (void)  
  */
@@ -375,7 +375,7 @@ inline void PhiPsiOmegaChi1Chi2::setArcStep(int n) {
 }
 
 /**
- * @Description  obtains and return the propensity binding value
+ *    obtains and return the propensity binding value
  * @param   angle value(double )
  * @return  the corresponding value ( int)
  */
@@ -387,7 +387,7 @@ inline int PhiPsiOmegaChi1Chi2::sGetPropBin(double p) {
 }
 
 /**
- * @Description  obtains and return the propensity  Omega binding value
+ *    obtains and return the propensity  Omega binding value
  * @param   angle value(double )
  * @return  the corresponding value ( int)
  */
@@ -488,7 +488,7 @@ inline int PhiPsiOmegaChi1Chi2::sGetPropOmegaBin(double p) {
 }
 
 /**
- * @Description  Sets the value for the Omega range
+ *    Sets the value for the Omega range
  * @param   value for the index range( int)
  * @return   the corresponding value for the Range Omega( int)
  */
@@ -506,7 +506,7 @@ inline int PhiPsiOmegaChi1Chi2::setRange_Omega(int n) {
 }
 
 /**
- * @Description  Calculates the Maximum propensities value for the Chi, and Omega Range of the amino acid
+ *    Calculates the Maximum propensities value for the Chi, and Omega Range of the amino acid
  * @param   amino acid index corresponding to the enum (int)
  * @return  corresponding value (double)
  */
@@ -534,7 +534,7 @@ double PhiPsiOmegaChi1Chi2::pGetMaxPropensities(int amino) {
 }
 
 /**
- * @Description  Calculates the minimum propensities value for the Chi, and Omega Range of the amino acid
+ *    Calculates the minimum propensities value for the Chi, and Omega Range of the amino acid
  * @param   amino acid index corresponding to the enum (int)
  * @return  corresponding value (double)
  */
@@ -562,7 +562,7 @@ double PhiPsiOmegaChi1Chi2::pGetMinPropensities(int amino) {
 }
 
 /**
- * @Description  returns the maximum propensities for the corresponding amino
+ *    returns the maximum propensities for the corresponding amino
  * @param   amino index from the enum (int)
  * @return   the corresponding value(double)
  */
@@ -571,7 +571,7 @@ double PhiPsiOmegaChi1Chi2::pReturnMaxPropensities(int amino) {
 }
 
 /**
- * @Description  returns the minimum propensities for the corresponding amino
+ *    returns the minimum propensities for the corresponding amino
  * @param   amino index from the enum (int)
  * @return   the corresponding value(double)
  */
@@ -580,7 +580,7 @@ double PhiPsiOmegaChi1Chi2::pReturnMinPropensities(int amino) {
 }
 
 /**
- * @Description Defines the values for the maximum propensities for each amino acid type
+ *   Defines the values for the maximum propensities for each amino acid type
  * @param   none
  * @return    changes the object internally (void)  
  */
@@ -593,7 +593,7 @@ void PhiPsiOmegaChi1Chi2::pConstructMaxPropensities() {
 }
 
 /**
- * @Description Defines the values for the minimum propensities for each amino acid type
+ *   Defines the values for the minimum propensities for each amino acid type
  * @param   none
  * @return    changes the object internally (void)  
  */

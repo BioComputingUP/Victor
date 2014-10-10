@@ -30,7 +30,7 @@ using namespace Victor; using namespace Victor::Biopool;
 // MODIFIERS:
 
 /**
- *@Description Saves a group in PDB format.
+ *  Saves a group in PDB format.
  *@param group reference 
  *@return void
  */
@@ -74,7 +74,7 @@ void PdbSaver::saveGroup(Group& gr) {
 }
 
 /**
- *@Description Saves a sidechain in PDB format. 
+ *  Saves a sidechain in PDB format. 
  *@param sideChain reference 
  *@return void
  */
@@ -83,7 +83,7 @@ void PdbSaver::saveSideChain(SideChain& sc) {
 }
 
 /**
- *@Description Saves an aminoacid in PDB format.
+ *  Saves an aminoacid in PDB format.
  *@param AminoAcid reference 
  *@return void
  */
@@ -92,7 +92,7 @@ void PdbSaver::saveAminoAcid(AminoAcid& aa) {
 }
 
 /**
- *@Description Saves a spacer in PDB format. 
+ *  Saves a spacer in PDB format. 
  *@param Spacer reference 
  *@return void
  */
@@ -162,7 +162,7 @@ void PdbSaver::saveSpacer(Spacer& sp) {
 }
 
 /**
- *@Description Saves a Ligand in PDB format. 
+ *  Saves a Ligand in PDB format. 
  *@param Ligand reference 
  *@return void
  */
@@ -221,7 +221,7 @@ void PdbSaver::saveLigand(Ligand& gr) {
 }
 
 /**
- *@Description Saves a LigandSet in PDB format. 
+ *  Saves a LigandSet in PDB format. 
  *@param LigandSet reference 
  *@return void
  */
@@ -237,7 +237,7 @@ void PdbSaver::saveLigandSet(LigandSet& ls) {
 }
 
 /**
- *@Description Saves a Protein in PDB format. 
+ *  Saves a Protein in PDB format. 
  *@param Protein reference 
  *@return void
  */
@@ -268,7 +268,7 @@ void PdbSaver::saveProtein(Protein& prot) {
 }
 
 /**
- *@Description Writes the SEQRES entry (PDB format) for a spacer.
+ *  Writes the SEQRES entry (PDB format) for a spacer.
  *@param Spacer reference 
  *@return void
  */
@@ -290,7 +290,7 @@ void PdbSaver::writeSeqRes(Spacer& sp) {
 }
 
 /**
- *@Description Writes the secondary information (PDB format) for a spacer, e.g. HELIX,
+ *  Writes the secondary information (PDB format) for a spacer, e.g. HELIX,
  *    SHEET, etc.
  *@param sideChain reference 
  *@return void
