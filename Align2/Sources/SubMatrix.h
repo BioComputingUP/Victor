@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
     /** @brief     Implement a standard substitution matrix.
      * 
      *   
-     * @This 
+
      **/
     class SubMatrix : public Substitution {
     public:

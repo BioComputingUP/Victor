@@ -28,7 +28,7 @@ namespace Victor { namespace Align2{
      *                  Specific Score Matrix).
      * 
      *   
-     * @This 
+
      **/
     class PssmInput {
     public:

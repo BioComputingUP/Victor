@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
     /** @brief   Base class for structural scores.
      * 
      *   
-     * @This 
+
      **/
     class Structure {
     public:

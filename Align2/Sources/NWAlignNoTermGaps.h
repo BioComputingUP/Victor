@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
      *                  for the terminal hangouts of the sequence.
      * 
      *   
-     * @This 
+
      **/
     class NWAlignNoTermGaps : public Align {
     public:

@@ -33,7 +33,7 @@ namespace Victor { namespace Align2{
      *                  Solving the protein sequence metric problem.
      *                  Edited by Walter M. Fitch, University of California, Irvine, CA,
      *                  and approved March 22, 2005 (received for review December 14, 2004).
-     * @This 
+
      **/
     class AtchleyCorrelation : public ScoringFunction {
     public:

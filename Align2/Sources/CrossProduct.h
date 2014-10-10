@@ -36,7 +36,7 @@ namespace Victor { namespace Align2{
      *                  Scoring profile-to-profile sequence alignments.
      *                  Institute for Cancer Research, Fox Chase Cancer Center,
      *                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
-     * @This 
+
      **/
     class CrossProduct : public ScoringFunction {
     public:

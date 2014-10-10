@@ -25,71 +25,75 @@
 #include <SubMatrix.h>
 #include <math.h>
 
-namespace Victor { namespace Align2{/** @brief    Calculate a frequency profile or PSSM using SeqDivergence
-*                  weighting scheme.
- * 
-* @Description  Some explanations can be found in:
-*
-*                  Guoli Wang, Roland L. Dunbrack jr.
-*                  Scoring profile-to-profile sequence alignments.
-*                  Institute for Cancer Research, Fox Chase Cancer Center,
-*                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
-*
-* @This 
- **/
+namespace Victor {
+    namespace Align2 {
 
-    class SeqDivergenceProfile : public Profile {
-    public:
+        /** @brief    Calculate a frequency profile or PSSM using SeqDivergence
+         *                  weighting scheme.
+         * 
+         *  Some explanations can be found in:
+         *
+         *                  Guoli Wang, Roland L. Dunbrack jr.
+         *                  Scoring profile-to-profile sequence alignments.
+         *                  Institute for Cancer Research, Fox Chase Cancer Center,
+         *                  Philadelphia, Pennsylvania 19111, USA. March 16, 2004.
+         *
+         *
+         **/
 
-        // CONSTRUCTORS:
+        class SeqDivergenceProfile : public Profile {
+        public:
 
-        /// Default constructor.
-        SeqDivergenceProfile();
+            // CONSTRUCTORS:
 
-        /// Copy constructor.
-        SeqDivergenceProfile(const SeqDivergenceProfile &orig);
+            /// Default constructor.
+            SeqDivergenceProfile();
 
-        /// Destructor.
-        virtual ~SeqDivergenceProfile();
+            /// Copy constructor.
+            SeqDivergenceProfile(const SeqDivergenceProfile &orig);
 
-
-        // OPERATORS:
-
-        /// Assignment operator.
-        SeqDivergenceProfile& operator =(const SeqDivergenceProfile &orig);
+            /// Destructor.
+            virtual ~SeqDivergenceProfile();
 
 
-        // MODIFIERS:
+            // OPERATORS:
 
-        /// Copy orig object to this object ("deep copy").
-        virtual void copy(const SeqDivergenceProfile &orig);
-
-        /// Construct a new "deep copy" of this object.
-        virtual SeqDivergenceProfile* newCopy();
+            /// Assignment operator.
+            SeqDivergenceProfile& operator =(const SeqDivergenceProfile &orig);
 
 
-        // HELPERS:
+            // MODIFIERS:
 
-        /// Calculate alignment weights.
-        virtual void pCalculateWeight(Alignment &ali);
+            /// Copy orig object to this object ("deep copy").
+            virtual void copy(const SeqDivergenceProfile &orig);
 
-        /// Calculate the raw (ie. unnormalized) aminoacids frequencies for position i.
-        virtual void pCalculateRawFrequency(vector<double> &freq, double &gapFreq,
-                Alignment &ali, unsigned int i);
-
-        /// Construct data from alignment.
-        virtual void pConstructData(Alignment &ali);
+            /// Construct a new "deep copy" of this object.
+            virtual SeqDivergenceProfile* newCopy();
 
 
-    protected:
+            // HELPERS:
+
+            /// Calculate alignment weights.
+            virtual void pCalculateWeight(Alignment &ali);
+
+            /// Calculate the raw (ie. unnormalized) aminoacids frequencies for position i.
+            virtual void pCalculateRawFrequency(vector<double> &freq, double &gapFreq,
+                    Alignment &ali, unsigned int i);
+
+            /// Construct data from alignment.
+            virtual void pConstructData(Alignment &ali);
 
 
-    private:
+        protected:
 
-        vector<double> aliWeight; ///< Alignment weights.
 
-    };
+        private:
 
-}} // namespace
+            vector<double> aliWeight; ///< Alignment weights.
+
+        };
+
+    }
+} // namespace
 
 #endif

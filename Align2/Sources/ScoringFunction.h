@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
     /** @brief    Base class for scoring functions.
      * 
      *   
-     * @This 
+
      **/
     class ScoringFunction {
     public:

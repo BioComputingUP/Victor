@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
     /** @brief  Calculate scores for sequence to sequence alignment.
      * 
      *   
-     * @This 
+
      **/
     class ScoringS2S : public ScoringScheme {
     public:

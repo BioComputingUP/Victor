@@ -37,7 +37,7 @@ namespace Victor { namespace Align2{
      *                  Chemistry, University of California at San Francisco, 94143, USA.
      *                  PMID: 16423846 [PubMed - indexed for MEDLINE]
      *
-     * @This 
+
      **/
     class VGPFunction : public GapFunction {
     public:

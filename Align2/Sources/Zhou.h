@@ -35,7 +35,7 @@ namespace Victor { namespace Align2{
      *                  information for fold recognition.
      *                  Proteins. 2004 Jun 1;55(4):1005-13.
      *                  PMID: 15146497 [PubMed - indexed for MEDLINE]
-     * @This 
+
      **/
     class Zhou : public ScoringFunction {
     public:
