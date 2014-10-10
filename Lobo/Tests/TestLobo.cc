@@ -12,7 +12,6 @@
 #include <TestVectorTransformation.h>
 using namespace std;
 
-
 int main() {
 	CppUnit::TextUi::TestRunner runner;
 
