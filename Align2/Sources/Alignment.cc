@@ -69,7 +69,7 @@ namespace Victor { namespace Align2{
         output << t << endl;
     }
 /**
- * Save as MSAF (Mannheim Sequence Alignment Format) like output.
+ * 
  * @param output
  */
     void
@@ -80,7 +80,7 @@ namespace Victor { namespace Align2{
                 output);
     }
 /**
- * Save as FASTA like output.
+ * 
  * @param output
  */
     void
@@ -96,7 +96,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
 /**
- * Swap templates index1 and index2.
+ * 
  * @param index1
  * @param index2
  */
@@ -128,7 +128,7 @@ namespace Victor { namespace Align2{
         evalue[index] = val;
     }
 /**
- *  Remove all templates below index.
+ * 
  * @param index
  */
     void

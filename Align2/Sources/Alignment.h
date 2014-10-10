@@ -58,7 +58,7 @@ namespace Victor { namespace Align2{
         /// Return E-value of template index.
         double getEvalue(unsigned int index = 0) const;
 
-        /// 
+        /// Save as MSAF (Mannheim Sequence Alignment Format) like output.
         void saveMSAF(ostream &output) const;
 
         /// Save as FASTA like output.
@@ -67,10 +67,10 @@ namespace Victor { namespace Align2{
 
         // MODIFIERS:
 
-        
+        /// Clear alignment data.
         virtual void clearAlignment();
 
-        /// 
+        /// Swap templates index1 and index2.
         virtual void swapTemplate(unsigned int index1, unsigned int index2);
 
         /// Set template to t.
@@ -86,7 +86,7 @@ namespace Victor { namespace Align2{
         /// Clear template.
         virtual void clearTemplate();
 
-        ///
+        /// Remove all templates below index.
         virtual void cutTemplate(unsigned int index);
 
         /// 
@@ -116,12 +116,11 @@ namespace Victor { namespace Align2{
         /// are the same otherwise it returns the correct enumeration based on ATOM.
         int getTrueMapFromPdb(istream &is, string startingChain, int structEntryMapCe);
 
-        /// Read BLAST output produced with blast option -m 6 this stands for a
-        /// convenient form of multiple sequence alignment.
+        /// Read BLAST output produced with blast option -m 6 this stands for a convenient form of multiple sequence alignment.
         void loadBlastMode6(istream &input);
+        /// Read BLAST output produced with blast option -m 4 this stands for a convenient form of multiple sequence alignment.
         void loadPsiBlastMode4(istream &input);
-        /// Read BLAST output produced with blast option -m 6 this stands for a
-        /// convenient form of multiple sequence alignment (safe version).
+        /// Read BLAST output produced with blast option -m 4 this stands for a convenient form of multiple sequence alignment (safe version).
         void loadBlastMode6FullSeq(istream &input, string masterTarget);
 
         /// Read MSAF.
@@ -188,7 +187,7 @@ namespace Victor { namespace Align2{
 
 
     // MODIFIERS:
-/// Clear alignment data.
+
     inline void
     Alignment::clearAlignment() {
         AlignmentBase::clearAlignment();

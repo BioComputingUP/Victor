@@ -106,14 +106,14 @@ namespace Victor { namespace Align2{
         virtual vector<int> shiftMatchSubset(vector<int> inputVector,
                 int newStartPos);
 
-        
+        ///Generate and output an ensemble of suboptimal alignments.
         virtual void outputMultiMatch(ostream &os, unsigned int num = 10,
                 bool fasta = false);
 
-        
+        ///Generate and return an ensemble of suboptimal alignments.
         virtual vector<Alignment> generateMultiMatch(unsigned int num = 1);
 
-        
+        ///Generate and return scores of an ensemble of suboptimal alignments.
         virtual vector<double> generateMultiMatchScore(unsigned int num = 10);
 
         /// Output of alignment result.
@@ -126,19 +126,19 @@ namespace Victor { namespace Align2{
 
         // MODIFIERS:
 
-        /// 
+        ///Copy orig object to this object ("deep copy").
         virtual void copy(const Align &orig);
 
         /// Construct a new "deep copy" of this object.
         virtual Align* newCopy() = 0;
 
-        /// 
+        /// Set penalties for suboptimal alignments.
         void setPenalties(double mul, double add);
 
-        ///
+        /// Modify matrix during suboptimal alignment generation.
         void pModifyMatrix(int i, int j);
 
-        /// 
+        /// Recalculate the alignment matrix.
         virtual void recalculateMatrix();
 
 
@@ -213,7 +213,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     *  Set penalties for suboptimal alignments.
+     *  
      * @param mul
      * @param add
      */
@@ -224,7 +224,7 @@ namespace Victor { namespace Align2{
         penaltyAdd = add;
     }
     /**
-     *   Modify matrix during suboptimal alignment generation.
+     *  
      * @param i
      * @param j
      */

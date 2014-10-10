@@ -9,24 +9,6 @@ To avoid this warning please remove this line from your configuration file or up
 Warning: doxygen no longer ships with the FreeSans font.
 You may want to clear or change DOT_FONTNAME.
 Otherwise you run the risk that the wrong font is being used for dot generated graphs.
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:31: warning: documented symbol `ScoringP2Ssec' was not declared or defined.
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:45: warning: documented symbol `ScoringP2Ssec' was not declared or defined.
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:50: warning: documented symbol `~ScoringP2Ssec' was not declared or defined.
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:57: warning: no uniquely matching class member found for 
-  ScoringP2Ssec & operator=(const ScoringP2Ssec &orig)
-
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:69: warning: no uniquely matching class member found for 
-  double scoring(int i, int j)
-
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:86: warning: no uniquely matching class member found for 
-  void copy(const ScoringP2Ssec &orig)
-
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:99: warning: no uniquely matching class member found for 
-  ScoringP2Ssec * newCopy()
-
-/home/layla/Victor/Align2/Sources/ScoringP2Ssec.cc:106: warning: no uniquely matching class member found for 
-  void reverse()
-
 /home/layla/Victor/Biopool/Sources/Protein.h:31: warning: Found unknown command `\Description'
 /home/layla/Victor/Biopool/Sources/AminoAcid.h:35: warning: Found unknown command `\Description'
 /home/layla/Victor/Biopool/Sources/AminoAcid.cc:32: warning: Found unknown command `\Description'
