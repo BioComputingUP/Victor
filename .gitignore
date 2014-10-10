@@ -2,6 +2,8 @@
 nbproject/
 html/
 latex/
+lib/
+bin/
 Align2/Sources/*.o
 Align2/Sources/*.a
 Align2/APPS/*.o
