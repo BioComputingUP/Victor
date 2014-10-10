@@ -13,21 +13,6 @@
     You should have received a copy of the GNU General Public License
     along with Victor.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**@mainpage Basic information
- *
-
- * The Victor library (Virtual Construction Toolkit for Proteins) is an open-source project dedicated to providing tools for analyzing and manipulating protein structures. 
- * This Doxygen documentation will help you to find all the needed detail of the code sourceof the Victor package. 
- *  
- * For a general introduction visit the following wiki http://protein.bio.unipd.it/victor
- *
- *  @namespace Victor
- *  @brief This library contains methods that will allow you to representate one aminoacidic string in a efficient way. 
- *    
- *  @Description Including the ableness of reading the lineal sequence of aminoacids or to process one PDB structure.
- */
-
-
 
 
 // Includes:

@@ -21,6 +21,7 @@
 #include <Align.h>
 using namespace std;
 using namespace Victor;
+using namespace Victor::Align2;
 
 class TestAlign : public CppUnit::TestFixture {
 private:

@@ -15,7 +15,7 @@
 #include <VectorTransformation.h>
 
 using namespace std;
-using namespace Victor;
+using namespace Victor::Lobo;
 
 class TestVectorTransformation : public CppUnit::TestFixture {
 private:
