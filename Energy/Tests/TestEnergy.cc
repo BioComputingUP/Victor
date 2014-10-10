@@ -10,6 +10,7 @@
 #include <cppunit/ui/text/TestRunner.h>
 
 #include <TestRapdfPotential.h>
+#include <TestSolvationPotential.h>
 using namespace std;
 using namespace Victor;
 using namespace Victor::Biopool;
@@ -20,6 +21,7 @@ int main() {
 
 	cout << "Creating Test Suites for Energy:" << endl;
         runner.addTest(TestRapdfPotential::suite());
+        runner.addTest(TestSolvationPotential::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 

@@ -34,8 +34,14 @@ public:
 		CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestSolvationPotential");
 
 		suiteOfTests->addTest(new CppUnit::TestCaller<TestSolvationPotential>("Test1 - energy in a spacer.",
-				&TestSolvationPotential::testSolvationPotential_spacer ));
-
+				&TestSolvationPotential::testSolvationPotential_calculateSolvationSpacer ));
+                
+                suiteOfTests->addTest(new CppUnit::TestCaller<TestSolvationPotential>("Test2 - energy of a residue.",
+				&TestSolvationPotential::testSolvationPotential_calculateSolvationAA ));
+                
+                suiteOfTests->addTest(new CppUnit::TestCaller<TestSolvationPotential>("Test3 - energy propensity difference have to be positive.",
+				&TestSolvationPotential::testSolvationPotential_increasingPropensity ));
+                
 		return suiteOfTests;
 	}
 
@@ -47,7 +53,7 @@ public:
 
 protected:
     
-	void testSolvationPotential_spacer() {
+	void testSolvationPotential_calculateSolvationSpacer() {
                 Spacer s;
                 string p = path + "Energy/Tests/data/solv.pdb";
                 ifstream inFile2(p.c_str());
@@ -62,52 +68,47 @@ protected:
                 Protein prot;
                 prot.load(pl);
                 Spacer &sp = *prot.getSpacer('A');
-                /*for(unsigned int i = 0; i < sp.sizeAmino(); ++i) {
-                    for(unsigned int j = 0; j < sp.getAmino(i).size(); ++j) {
-                        //set atoms to N, just to simplify the calculation
-                        sp.getAmino(i)[j].setCode(N);
-                        
-                    }
-                }*/
                 
                 //calculating new energy
                 SolvationPotential pot;
-                cout<<pot.calculateEnergy(sp)<<endl;
-                //r.calculateEnergy(sp) == ((8 * 4 + 4 * 4) * -1.83)
-		CPPUNIT_ASSERT( true );
-	}
-
-	/*void testSolvationPotential_calcEnergyDistantAtoms() {
-                Atom atom0;
-                atom0.setCoords(0,0,0);
-                atom0.setType("N");
-                
-                //atom1 is very far from atom0
-                Atom atom1;
-                atom1.setCoords(200,0,0);
-                atom1.setType("N");
-                
-                SolvationPotential s;
-                //expected energy is 0, due to high distance
-                cout<<s.calculateEnergy(atom0, atom1, "ALA", "ALA")<<endl;
-                //r.calculateEnergy(atom0, atom1, "ALA", "ALA") == 0
-		CPPUNIT_ASSERT( true );
+		CPPUNIT_ASSERT( pot.calculateEnergy(sp) - 0.869 < 0.01 );
 	}
         
-        void testSolvationPotential_N2Nenergy() {
-                Atom atom0;
-                atom0.setCoords(0,0,0);
-                atom0.setType("N");
+        void testSolvationPotential_calculateSolvationAA() {
+                Spacer s;
+                string p = path + "Energy/Tests/data/solv.pdb";
+                ifstream inFile2(p.c_str());
+                if (!inFile2)
+                  ERROR("File not found.", exception);
+                PdbLoader pl(inFile2);
+                pl.setChain('A');
+                pl.setNoHAtoms();
+                pl.setNoVerbose();
+
+                pl.setPermissive();
+                Protein prot;
+                prot.load(pl);
+                Spacer &sp = *prot.getSpacer('A');
                 
-                Atom atom1;
-                atom1.setCoords(1,0,0);
-                atom1.setType("N");
-                
+                //calculating new energy for each residue
+                SolvationPotential pot;
+                double en0 = pot.calculateEnergy(sp.getAmino(0), ALA, sp);
+                double en1 = pot.calculateEnergy(sp.getAmino(1), ALA, sp);
+		CPPUNIT_ASSERT( en0 == en1 && ((en0 + en1 - 0.869) < 0.01 ) );
+	}
+
+	void testSolvationPotential_increasingPropensity() {
+                bool increasingEnergy = true;
                 SolvationPotential s;
-                //expected energy is 0, due to high distance
-                cout<<s.calculateEnergy(atom0, atom1, "ALA", "ALA")<<endl;
-                //r.calculateEnergy(atom0, atom1, "ALA", "ALA") == 0
-		CPPUNIT_ASSERT( true );
-	}*/
+                
+                //max propensity should be always greater the the min
+                for(int i = 0; i < AminoAcid_CODE_SIZE - 1; ++i) {
+                    increasingEnergy = increasingEnergy &
+                            (s.pReturnMaxPropensity(static_cast<AminoAcidCode>(i))
+                            > s.pReturnMinPropensity(static_cast<AminoAcidCode>(i)) );
+                }
+
+		CPPUNIT_ASSERT( increasingEnergy );
+	}
         
 };
