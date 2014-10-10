@@ -9,7 +9,6 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/ui/text/TestRunner.h>
 
-#include "TestLin2dSolver.h"
 #include <TestAtom.h>
 #include <TestGroup.h>
 #include <TestAminoAcid.h>
@@ -21,7 +20,6 @@ int main() {
 	CppUnit::TextUi::TestRunner runner;
 
 	cout << "Creating Test Suites:" << endl;
-	runner.addTest(TestLin2dSolver::suite());
         runner.addTest(TestAtom::suite());
         runner.addTest(TestGroup::suite());
         runner.addTest(TestAminoAcid::suite());
