@@ -57,7 +57,7 @@ LigandSet::clone() {
 //PREDICATES
 
 /**
- *@Description  Predicate used to determine if the PDB ligand number is valid (false)  or a gap (true).
+ *   Predicate used to determine if the PDB ligand number is valid (false)  or a gap (true).
  *@param  int
  *@return  bool
  */
@@ -80,7 +80,7 @@ bool LigandSet::isGap(int index) {
 //MODIFIERS:
 
 /**
- *@Description  Modifier used to add a gap at the PDB ligand number.
+ *   Modifier used to add a gap at the PDB ligand number.
  *@param  int
  *@return  void
  */

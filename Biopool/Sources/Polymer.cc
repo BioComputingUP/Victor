@@ -48,7 +48,7 @@ Polymer::~Polymer() {
 // MODIFIERS:
 
 /**
- *@Description 
+ *  
  *@param 
  */
 void Polymer::copy(const Polymer& orig) {
@@ -57,7 +57,7 @@ void Polymer::copy(const Polymer& orig) {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 Component* Polymer::clone() {
@@ -65,7 +65,7 @@ Component* Polymer::clone() {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 void Polymer::insertComponent(Component* c) {
@@ -75,7 +75,7 @@ void Polymer::insertComponent(Component* c) {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 void Polymer::removeComponent(Component* c) {
@@ -92,7 +92,7 @@ void Polymer::removeComponent(Component* c) {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 void Polymer::removeComponentFromIndex(unsigned int i) {
@@ -103,7 +103,7 @@ void Polymer::removeComponentFromIndex(unsigned int i) {
 }
 
 /**
- *@Description 
+ *  
  *@param 
  */
 void Polymer::deleteComponent(Component* c) {

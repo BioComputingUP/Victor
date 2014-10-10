@@ -30,7 +30,7 @@ unsigned int PolarSolvationPotential::BIN_POLAR = 1;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description  Basic constructor, allocate the information from the solv.par file
+ *   Basic constructor, allocate the information from the solv.par file
  */
 PolarSolvationPotential::PolarSolvationPotential() : sumPolar() {
     char *victor = getenv("VICTOR_ROOT");
@@ -83,7 +83,7 @@ PolarSolvationPotential::PolarSolvationPotential() : sumPolar() {
 // PREDICATES:
 
 /**
- *@Description Calculates the maximum energy for the amino acids in the spacer
+ *  Calculates the maximum energy for the amino acids in the spacer
  *@param  spacer reference(Spacer&)
  *@return  the corresponding value( double)
  */
@@ -95,7 +95,7 @@ long double PolarSolvationPotential::calculateSolvation(Spacer& sp) {
 }
 
 /**
- *@Description  Calculates energy the energy for a portion of the amino acids in the spacer. considering the portion from start(index 1) to en(Index2).
+ *   Calculates energy the energy for a portion of the amino acids in the spacer. considering the portion from start(index 1) to en(Index2).
  *@param spacer reference(Spacer&), start and end of the Spacer portion (unsigned int, unsigned int)
  *@return  the sum of all the solvation of each amino acid in the  spacer portion(long double) 
  */
@@ -110,7 +110,7 @@ long double PolarSolvationPotential::calculateEnergy(Spacer& sp, unsigned int in
 }
 
 /**
- *@Description Calculates solvation for a portion of amino acids in the spacer considering one specific amino acid
+ *  Calculates solvation for a portion of amino acids in the spacer considering one specific amino acid
  *@param amino acid reference(AminoAcid&), spacer reference(Spacer&), start and end of the Spacer portion(unsigned int, unsigned int)
  *@return corresponding value of solvation (long double)
  */

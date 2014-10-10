@@ -42,7 +42,7 @@ Group::~Group() {
 
 // MODIFIERS:
 /**
- * @Description Parses all the Atoms in the Group and sets new boundaries if the Atom coordinates
+ *   Parses all the Atoms in the Group and sets new boundaries if the Atom coordinates
  * exceed the Group ones.
  * 
  */
@@ -78,7 +78,7 @@ Group::setModified() {
         atoms[0].setModified();
 }
 /**
- * @Description Removes an atom from the group.
+ *   Removes an atom from the group.
  * @param a (Atom)
  */
 void
@@ -101,7 +101,7 @@ Group::removeAtom(Atom& a) {
 
 
 /**
- * @Description Copy a Group. See comments in the source.
+ *   Copy a Group. See comments in the source.
  * @param orig (Group&)
  * 
  * 
@@ -144,7 +144,7 @@ Group::copy(const Group& orig) {
         atoms[i].Atom::setSuperior(this);
 }
 /**
- * @Description Synchronizes coords with structure
+ *   Synchronizes coords with structure
  */
 void
 Group::sync() 
@@ -162,7 +162,7 @@ Group::sync()
     resetBoundaries();
 }
 /**
- * @Description Add an Atom the the Group. Sets the superior, and the lower/upperBound.
+ *   Add an Atom the the Group. Sets the superior, and the lower/upperBound.
  * @param a (Atom&)
  */
 void
@@ -192,7 +192,7 @@ Group&
 
 // HELPERS:
 /**
- * @Description Returns the reference to the Atom with the corresponding AtomCode
+ *   Returns the reference to the Atom with the corresponding AtomCode
  * @param ac (AtomCode)
  * @return  Atom reference
  */
@@ -205,7 +205,7 @@ Group::pGetAtom(const AtomCode& ac) const {
 }
 
 /**
- * @Description Returns the position of the Atom in the atoms vector searching by its identification number.
+ *   Returns the position of the Atom in the atoms vector searching by its identification number.
  * @param cmp (const unsigned long)
  * @return  Position in the atoms vector if the atom is found, otherwise the size of the atoms vector plus 1 (unsigned int)
  */

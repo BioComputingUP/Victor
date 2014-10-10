@@ -31,7 +31,7 @@ using namespace Victor; using namespace Victor::Biopool;
 // MODIFIERS:
 
 /**
- * @Description Helper function to load the reference file. (same as in SeqLoader)
+ *   Helper function to load the reference file. (same as in SeqLoader)
  */
 void SeqConstructor::loadReference() {
     RelLoader relL(refInput);
@@ -47,7 +47,7 @@ void SeqConstructor::loadReference() {
     }
 }
 /**
- * @Description Creates a Spacer with only one type of AminoAcid
+ *   Creates a Spacer with only one type of AminoAcid
  * @param type The type of the AminoAcid
  * @param n The length of the Spacer
  * @return The Spacer
@@ -71,7 +71,7 @@ Spacer& SeqConstructor::makeSpacer(string type, unsigned int n) {
 }
 
 /**
- * @Description Binds the AminoAcid with the previous one.
+ *   Binds the AminoAcid with the previous one.
  * @param aa
  * @param prev
  */

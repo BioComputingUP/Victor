@@ -34,7 +34,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief It mplements a simple amino acid.
      * 
-     *@Description Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
+     *  Includes methods that allow to get and set angles, connections, bonds, side chain info, etc.
      * NB: Angles are in degrees.
      * */
     

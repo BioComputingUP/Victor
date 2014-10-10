@@ -30,7 +30,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Implements aminoacid hydrogens.
      * 
-     *@Description Includes methods that allow to add hydrogens to STANDARD aminoacids.
+     *  Includes methods that allow to add hydrogens to STANDARD aminoacids.
      * */
     class AminoAcidHydrogen {
     public:

@@ -32,7 +32,7 @@ namespace Victor { namespace Biopool {
     /**
      * @brief Base class implementing the visitor pattern  
      * 
-     * @Description   Uses the implicit copy operator. 
+     *     Uses the implicit copy operator. 
      * This is mostly used for implementing optimizers not contained in the Biopool module (e.g. EnergyCalculator, SideChainPlacement).
      **/
     class EnergyVisitor {
@@ -60,7 +60,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Base class Optimizacion Patter. 
      * 
-     * @Description  Uses the implicit copy operator. This is mostly used for implementing 
+     *    Uses the implicit copy operator. This is mostly used for implementing 
      * optimizers not contained in  the Biopool module (e.g. EnergyCalculator, SideChainPlacement).
      **/
     class OptimizationVisitor {

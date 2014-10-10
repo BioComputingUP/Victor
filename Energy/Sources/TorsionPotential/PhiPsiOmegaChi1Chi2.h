@@ -34,7 +34,7 @@ namespace Victor { namespace Energy {
 
 /** @brief class manages the angle qualities and the energy 
      * 
-     * @Description This class implements a simple torsion potential based on the 
+     *   This class implements a simple torsion potential based on the 
      *    statistical preference of aminoacid types for certain
      *    phi, psi, chi1, chi2 and omega angles. 
      * */

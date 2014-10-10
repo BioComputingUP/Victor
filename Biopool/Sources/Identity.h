@@ -31,7 +31,7 @@ namespace Victor { namespace Biopool {
 
 
     /**
-    *@Description   Implements object id. With a "number" a "name" and a "counter".
+    *    @brief Implements object id. With a "number" a "name" and a "counter".
     */
     class Identity {
     public:

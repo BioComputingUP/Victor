@@ -29,7 +29,7 @@ double AminoAcid::BOND_ANGLE_CB_TO_C = 110.1;
 double AminoAcid::BOND_LENGTH_CA_TO_CB = 1.53;
 
 /**
- *@Description Constructor
+ *  Constructor
  *@param none
  */
 AminoAcid::AminoAcid() : Group(1, 1), type(XXX), state(COIL), phi(999),
@@ -38,7 +38,7 @@ psi(999), omega(999), sideChain(), icc() {
 }
 
 /**
- *@Description Constructor
+ *  Constructor
  *@param AminoAcid
  */
 AminoAcid::AminoAcid(const AminoAcid& orig) {
@@ -47,7 +47,7 @@ AminoAcid::AminoAcid(const AminoAcid& orig) {
 }
 
 /**
- *@Description DESTRUCTOR
+ *  DESTRUCTOR
  *@param none
  */
 AminoAcid::~AminoAcid() {
@@ -55,7 +55,7 @@ AminoAcid::~AminoAcid() {
 }
 
 /**
- *@Description Returns the atom corresponding to N, 
+ *  Returns the atom corresponding to N, 
  * aminoacids have only a single possible, hard coded, open in-bond
  *@param unsigned int 
  *@return const Atom& 
@@ -66,7 +66,7 @@ const Atom& AminoAcid::getOpenInBondRef(unsigned int n) const {
 }
 
 /**
- *@Description Returns the atom corresponding to N, 
+ *  Returns the atom corresponding to N, 
  * aminoacids have only a single possible, hard coded, open in-bond
  *@param unsigned int 
  *@return  Atom& 
@@ -77,7 +77,7 @@ Atom& AminoAcid::getOpenInBondRef(unsigned int n) {
 }
 
 /**
- *@Description Returns the atom corresponding to C, 
+ *  Returns the atom corresponding to C, 
  * aminoacids have only a single possible, hard coded, open in-bond
  *@param unsigned int 
  *@return const Atom& 
@@ -89,7 +89,7 @@ const Atom& AminoAcid::getOpenOutBondRef(unsigned int n) const {
 }
 
 /**
- *@Description Returns the atom corresponding to C, 
+ *  Returns the atom corresponding to C, 
  * aminoacids have only a single possible, hard coded, open in-bond
  *@param unsigned int 
  *@return  Atom& 
@@ -105,7 +105,7 @@ Atom& AminoAcid::getOpenOutBondRef(unsigned int n) {
 // MODIFIERS:
 
 /**
- *@Description Connects the aa to the reverse structure
+ *  Connects the aa to the reverse structure
  *@param AminoAcid* , unsigned int (use 0)
  *@return  void 
  */
@@ -121,7 +121,7 @@ void AminoAcid::connectIn(AminoAcid* a, unsigned int offset) {
 // MODIFIERS:
 
 /**
- *@Description Connects the aa to the structure  
+ *  Connects the aa to the structure  
  *@param AminoAcid* , unsigned int (use 0)
  *@return  void 
  */
@@ -136,7 +136,7 @@ void AminoAcid::connectOut(AminoAcid* a, unsigned int offset) {
 }
 
 /**
- *@Description unconnect aminoacid from predecessor
+ *  unconnect aminoacid from predecessor
  *@param none
  *@return  AminoAcid*
  */
@@ -166,7 +166,7 @@ AminoAcid* AminoAcid::unconnectIn() {
 }
 
 /**
- *@Description unconnect aminoacid from the follower  
+ *  unconnect aminoacid from the follower  
  *@param none
  *@return  AminoAcid*
  */
@@ -195,7 +195,7 @@ AminoAcid* AminoAcid::unconnectOut() {
 }
 
 /**
- *@Description Sets phi angle
+ *  Sets phi angle
  *@param double a (angle value)
  *@return  void
  */
@@ -219,7 +219,7 @@ void AminoAcid::setPhi(double a) {
 }
 
 /**
- *@Description Sets Psi angle
+ *  Sets Psi angle
  *@param double a (angle value)
  *@return  void
  */
@@ -243,7 +243,7 @@ void AminoAcid::setPsi(double a) {
 }
 
 /**
- *@Description Sets Omega angle
+ *  Sets Omega angle
  *@param double a (angle value)
  *@return  void
  */
@@ -268,7 +268,7 @@ void AminoAcid::setOmega(double a) {
 }
 
 /**
- *@Description Sets side chain
+ *  Sets side chain
  *@param SideChain& 
  *@return  void
  */
@@ -295,7 +295,7 @@ void AminoAcid::setSideChain(SideChain& sc) {
 }
 
 /**
- *@Description Construct side chain
+ *  Construct side chain
  *@param SideChain& sc, double chi1, double chi2, 
                               double chi3, double chi4, double chi5 (values for chi, 
  *                              as much as needed, max 5)
@@ -359,7 +359,7 @@ void AminoAcid::constructSideChain(SideChain& sc, double chi1, double chi2,
 }
 
 /**
- *@Description Construct side chain
+ *  Construct side chain
  *@param SideChain& sc, vector<double> chi (values for chi, 
  *                              as much as needed, max 5)
  *@return  void
@@ -375,7 +375,7 @@ void AminoAcid::constructSideChain(SideChain& sc, vector<double> chi) {
 }
 
 /**
- *@Description Sets the state from torsion angles from definition was taken from McGuffin et al.,
+ *  Sets the state from torsion angles from definition was taken from McGuffin et al.,
   // Bioinformatics (17):63-72 (2001)
  *@param none
  *@return  void
@@ -395,7 +395,7 @@ void AminoAcid::setStateFromTorsionAngles() {
 }
 
 /**
- *@Description adjusts the translation of the N atom, set trans for N relative to CA & C,
+ *  adjusts the translation of the N atom, set trans for N relative to CA & C,
  *         adjust this' translation, the phi angle in leading structures is always undefined
  *@param none
  *@return  void
@@ -415,7 +415,7 @@ void AminoAcid::adjustLeadingN() {
 }
 
 /**
- *@Description adds an OXT atom to the C terminus
+ *  adds an OXT atom to the C terminus
  *@param none
  *@return  void
  */
@@ -444,7 +444,7 @@ void AminoAcid::addTerminalOXT() { // adds an OXT atom to the C terminus
 }
 
 /**
- *@Description  adds an O atom, if missing
+ *   adds an O atom, if missing
  *@param none
  *@return  void
  */
@@ -473,7 +473,7 @@ void AminoAcid::addMissingO() {
 }
 
 /**
- *@Description  removeHAtomsfromLeadingNH3,
+ *   removeHAtomsfromLeadingNH3,
  * check for NH3+ and, if so, remove superfluous H (i.e. 2H, 3H) atoms
  *@param none
  *@return  void
@@ -497,7 +497,7 @@ void AminoAcid::removeHAtomsfromLeadingNH3() {
 }
 
 /**
- *@Description  adds a CB atom to the sidechain, if necessary
+ *   adds a CB atom to the sidechain, if necessary
  *@param unsigned int n (value of number to set)
  *@return  void
  */
@@ -524,7 +524,7 @@ void AminoAcid::patchBetaPosition(unsigned int n) {
 }
 
 /**
- *@Description  Copies an aa
+ *   Copies an aa
  *@param const AminoAcid& (copy from the orig)
  *@return  void
  */
@@ -558,7 +558,7 @@ void AminoAcid::copy(const AminoAcid& orig) {
 }
 
 /**
- *@Description  Syncronize and sets boundaries
+ *   Syncronize and sets boundaries
  *@param none
  *@return  void
  */
@@ -569,7 +569,7 @@ void AminoAcid::sync() {
 }
 
 /**
- *@Description  Clone the aa
+ *   Clone the aa
  *@param none
  *@return  Component* 
  */
@@ -582,7 +582,7 @@ Component* AminoAcid::clone() {
 // OPERATORS:
 
 /**
- *@Description  Operator =, assign the aa
+ *   Operator =, assign the aa
  *@param AminoAcid reference
  *@return  AminoAcid
  */
@@ -596,7 +596,7 @@ AminoAcid& AminoAcid::operator=(const AminoAcid& orig) {
 // HELPERS:
 
 /**
- *@Description  Reset the boundaries 
+ *   Reset the boundaries 
  *@param none
  *@return  void
  */
@@ -613,7 +613,7 @@ void AminoAcid::resetBoundaries() {
 }
 
 /**
- *@Description  set bond length and angles to cristallographic values
+ *   set bond length and angles to cristallographic values
  *@param none
  *@return  void
  */
@@ -640,7 +640,7 @@ void AminoAcid::setDefault() {
 }
 
 /**
- *@Description  Set the bonds based on lengths and angles given as params
+ *   Set the bonds based on lengths and angles given as params
  *@param double NToCaLen, double CaToCLen, double CToOLen, double atCaToCAng, double CaToOAng
  *@return  void
  */
@@ -656,7 +656,7 @@ AminoAcid::setBonds(double NToCaLen, double CaToCLen, double CToOLen, double atC
 }
 
 /**
- * @Description  sets the bond structure for an aminoacid, and connect it (if connect is true)
+ *    sets the bond structure for an aminoacid, and connect it (if connect is true)
  * @param connect, if True connect the AminoAcid with previous AminoAcid (set "Trans" and "Coords")
  * @param prev, the previous AminoAcid 
  * @param permissive, allows to operate on an incomplete AminoAcid

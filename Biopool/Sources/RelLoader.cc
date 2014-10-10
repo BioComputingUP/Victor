@@ -57,7 +57,7 @@ void RelLoader::loadGroup(Group& gr) {
 }
 
 /**
- * @Description    Loads a sidechain in relative format. 
+ *      Loads a sidechain in relative format. 
  * @param sc (SideChain&)
  * @param aaRef (AminoAcid*)
  */

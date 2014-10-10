@@ -31,8 +31,8 @@ using namespace std;
 namespace Victor { namespace Biopool { 
     
     /**
-     * @Brief Defines chemical and abstract bonds between objects.
-     * @Description   eg.: covalent bonds.
+     * @brief Defines chemical and abstract bonds between objects.
+     *     eg.: covalent bonds.
      *                  Attention: copy() strips orig from its SimpleBonds and 
      *                  attaches them to the new SimpleBond. 
      **/
@@ -109,14 +109,14 @@ namespace Victor { namespace Biopool {
     // PREDICATES:
 
     /**
-     *@Description    Is c bonded to this ?
+     *     Is c bonded to this ?
      *  */
     inline string SimpleBond::getType() const {
         return this->id;
     }
 
     /**
-     *@Description    Is c bonded to this ?
+     *     Is c bonded to this ?
      */
     
     inline bool SimpleBond::isBond(const SimpleBond& c) const {
@@ -124,7 +124,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Is c in-bonded to this ?
+     *  Is c in-bonded to this ?
      */
 
     inline bool SimpleBond::isInBond(const SimpleBond& c) const {
@@ -132,7 +132,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description  Is c out-bonded to this ?
+     *   Is c out-bonded to this ?
      */
 
     inline bool
@@ -141,21 +141,21 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description    How many in-bonds are there ?
+     *     How many in-bonds are there ?
      */
     inline unsigned int SimpleBond::sizeInBonds() const {
         return inBonds.size();
     }
 
     /**
-     *@Description   How many out-bonds are there ?
+     *    How many out-bonds are there ?
      */
     inline unsigned int SimpleBond::sizeOutBonds() const {
         return outBonds.size();
     }
 
     /**
-     *@Description   Returns i-th in-bond.
+     *    Returns i-th in-bond.
      */
     inline SimpleBond& SimpleBond::getInBond(unsigned int n) {
         PRECOND(n < sizeInBonds(), exception);
@@ -163,7 +163,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description   Returns i-th out-bond.
+     *    Returns i-th out-bond.
      */
     inline SimpleBond& SimpleBond::getOutBond(unsigned int n) {
         PRECOND(n < sizeOutBonds(), exception);
@@ -171,7 +171,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description   Returns i-th in-bond.
+     *    Returns i-th in-bond.
      */
     inline const SimpleBond& SimpleBond::getInBond(unsigned int n) const {
         PRECOND(n < sizeInBonds(), exception);
@@ -179,7 +179,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description   Returns i-th out-bond.
+     *    Returns i-th out-bond.
      */
     inline const SimpleBond& SimpleBond::getOutBond(unsigned int n) const {
         PRECOND(n < sizeOutBonds(), exception);
@@ -187,7 +187,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description  Get maximum of in-bonds.
+     *   Get maximum of in-bonds.
      */
 
     inline unsigned int SimpleBond::getMaxInBonds() const {
@@ -195,7 +195,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description Get maximum of out-bonds. 
+     *  Get maximum of out-bonds. 
      */
     inline unsigned int SimpleBond::getMaxOutBonds() const {
         return maxOut;
@@ -204,14 +204,14 @@ namespace Victor { namespace Biopool {
     // MODIFIERS:
 
     /**
-     *@Description   Sets type (eg. C atom, GLY amino acid, etc.) of this.
+     *    Sets type (eg. C atom, GLY amino acid, etc.) of this.
      */
     inline void SimpleBond::setType(string _name) {
         id.setName(_name);
     }
 
     /**
-     *@Description   Sets maximum of in-bonds.
+     *    Sets maximum of in-bonds.
      */
     inline void SimpleBond::setMaxInBonds(unsigned int m) {
         PRECOND((m >= inBonds.size()), exception);
@@ -219,7 +219,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     *@Description  Sets maximum of out-bonds.
+     *   Sets maximum of out-bonds.
      */
 
     inline void SimpleBond::setMaxOutBonds(unsigned int m) {

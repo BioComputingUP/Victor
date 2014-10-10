@@ -34,7 +34,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Loads components (Atoms, Groups, etc.) in internal format.
      * 
-     *@Description Internal format is defined by listing type, bond length partner &
+     *  Internal format is defined by listing type, bond length partner &
      *    bond length, bond angle partner & bond angle, torsion angle partner
      *    & torsion angle plus a chirality (0 if it is a 'true' torsion angle,
      *    +1 or -1 if the 'torsion angle' is a second bond angle), for each

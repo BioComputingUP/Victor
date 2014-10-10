@@ -51,7 +51,7 @@ SimpleBond::~SimpleBond() {
 // PREDICATES:
 
 /**
- *@Description
+ * 
  *    Checks if this is indirectly bonded to c.
  *    (ie. A to C if A bond B and B bond C) 
  */
@@ -67,7 +67,7 @@ bool SimpleBond::isIndirectBond(const SimpleBond& c) const {
 }
 
 /**
- *@Description
+ * 
  *    Checks if this is indirectly bonded to c.
  *    (ie. A to C if A bond B and B bond C) */
 bool SimpleBond::isIndirectInBond(const SimpleBond& c) const {
@@ -79,7 +79,7 @@ bool SimpleBond::isIndirectInBond(const SimpleBond& c) const {
 }
 
 /**
- *@Description
+ * 
  *    Checks if this is indirectly bonded to c.
  *    (ie. A to C if A bond B and B bond C) */
 bool SimpleBond::isIndirectOutBond(const SimpleBond& c) const {
@@ -91,7 +91,7 @@ bool SimpleBond::isIndirectOutBond(const SimpleBond& c) const {
 }
 
 /**
- *@Description
+ * 
  *    Checks if this is torsion bond to c.
  *    (ie. A to D if A indirect bond C and C bond D) */
 bool SimpleBond::isTorsionBond(const SimpleBond& c) const {
@@ -109,7 +109,7 @@ bool SimpleBond::isTorsionBond(const SimpleBond& c) const {
 // MODIFIERS:
 
 /**
- * @Description
+ *  
  *    Sets and in-bond from this to c.
  */
 void SimpleBond::bindIn(SimpleBond& c) {
@@ -123,7 +123,7 @@ void SimpleBond::bindIn(SimpleBond& c) {
 }
 
 /**
- * @Description Sets and out-bond from this to c
+ *   Sets and out-bond from this to c
  */
 void SimpleBond::bindOut(SimpleBond& c) {
     PRINT_NAME;
@@ -136,7 +136,7 @@ void SimpleBond::bindOut(SimpleBond& c) {
 }
 
 /**
- *@Description
+ * 
  *    Removes an in-bond from this to c.*/
 void SimpleBond::unbindIn(SimpleBond& c) {
     PRINT_NAME;
@@ -145,7 +145,7 @@ void SimpleBond::unbindIn(SimpleBond& c) {
 }
 
 /**
- *@Description
+ * 
  *    Removes an out-bond from this to c.*/
 void SimpleBond::unbindOut(SimpleBond& c) {
     PRINT_NAME;
@@ -154,7 +154,7 @@ void SimpleBond::unbindOut(SimpleBond& c) {
 }
 
 /**
- *@Description
+ * 
  *    Private method to find the matching in-bond from c to this to remove.*/
 void SimpleBond::pUnbindIn(SimpleBond& c) {
     PRINT_NAME;
@@ -167,7 +167,7 @@ void SimpleBond::pUnbindIn(SimpleBond& c) {
 }
 
 /**
- *@Description  Private method to find the matching out-bond from c to this to remove.
+ *   Private method to find the matching out-bond from c to this to remove.
  */
 void SimpleBond::pUnbindOut(SimpleBond& c) {
     PRINT_NAME;
@@ -180,7 +180,7 @@ void SimpleBond::pUnbindOut(SimpleBond& c) {
 }
 
 /** 
- *@Description
+ * 
  *    Copy operator.
  *    Attention: copy() strips orig from its bonds and attaches them to 
  *               the new bond. 

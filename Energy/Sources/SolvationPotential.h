@@ -34,7 +34,7 @@ namespace Victor { namespace Energy {
    
     /**@brief Includes methods that allow to  calculate solvation, energy and propensity. 
      * 
-     *@Description
+     * 
      *   A simple solvation potential is derived in analogy to the one described for GenTHREADER
      *   (Jones, 1999). The likelihood for each of the 20 amino acids to adopt a given relative solvent accessibility is used to derive the pseudo-energy. The relative solvent accessibility is estimated as the number of other
      *   Cβ atoms within a sphere of radius 10 Å centered on the residue’s Cβ atom. This computationally simple measure was reported to correlate very well (cc > 0.85) with the accessible surface of the residue (Jones, 1999). 
@@ -122,7 +122,7 @@ namespace Victor { namespace Energy {
     // -----------------x-------------------x-------------------x-----------------
 
     /**
-     *@Description returns the maximum propensity for an amino acid type    
+     *  returns the maximum propensity for an amino acid type    
      *@param   the amino acid type(AminoAcidCode)
      *@return    the value of maximum propensity(long double)
      */
@@ -131,7 +131,7 @@ namespace Victor { namespace Energy {
     }
 
     /**
-     *@Description returns the minimum propensity for an amino acid type    
+     *  returns the minimum propensity for an amino acid type    
      *@param   the amino acid type(AminoAcidCode)
      *@return    the value of minimum propensity(long double)
      */

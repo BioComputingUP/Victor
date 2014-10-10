@@ -200,7 +200,7 @@ void PhiPsiOmegaChi1PreAngle::pConstructData() {
 }
 
 /**
- * @Description resets the data
+ *   resets the data
  * @param  none
  */
 void PhiPsiOmegaChi1PreAngle::pResetData() {
@@ -283,7 +283,7 @@ void PhiPsiOmegaChi1PreAngle::pResetData() {
 // PREDICATES:
 
 /**
- * @Description Calculates energy 
+ *   Calculates energy 
  * @param spacer reference
  * @return long double
  */
@@ -297,7 +297,7 @@ long double PhiPsiOmegaChi1PreAngle::calculateEnergy(Spacer& sp) {
 }
 
 /**
- * @Description calculates energy
+ *   calculates energy
  * @param spacer reference ,unsigned int 
  */
 long double PhiPsiOmegaChi1PreAngle::calculateEnergy(Spacer& sp, unsigned int index1,
@@ -314,7 +314,7 @@ long double PhiPsiOmegaChi1PreAngle::calculateEnergy(Spacer& sp, unsigned int in
 }
 
 /**
- * @Description calculates energy
+ *   calculates energy
  * @param amino acid reference
  * @return long double
  */
@@ -356,7 +356,7 @@ long double PhiPsiOmegaChi1PreAngle::calculateEnergy(AminoAcid& aa) {
 }
 
 /**
- * @Description Identify the correct chi 
+ *   Identify the correct chi 
  * @param double
  * @return int
  */

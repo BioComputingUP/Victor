@@ -25,7 +25,7 @@
 
 
 /**
- *@Description     Translator: PDB names to internal one-word-code and 
+ *      Translator: PDB names to internal one-word-code and 
  *                  vice versa. Provides some simple predicates dealing with 
  *                  one-word-code. 
  * Copyright:       This file contains information from the Bioinformatics Template Library (BTL).
@@ -45,7 +45,7 @@ enum NucleotideCode {
 };
 
 /**
- * @Description Return true, if Nucleotide type name is known.
+ *   Return true, if Nucleotide type name is known.
  *  The magic code XXX corresponds to an unknown Nucleotide code
  */
 inline
@@ -55,7 +55,7 @@ isKnownNucleotide(NucleotideCode code) {
 }
 
 /** 
- * @Description Translate string into Nucleotide code enum. 
+ *   Translate string into Nucleotide code enum. 
  */
 inline
 NucleotideCode
@@ -83,7 +83,7 @@ nucleotideOneLetterTranslator(char name) {
 }
 
 /** 
- * @Description Translate string into Nucleotide code enum. 
+ *   Translate string into Nucleotide code enum. 
  */
 inline
 NucleotideCode
@@ -121,7 +121,7 @@ nucleotideThreeLetterTranslator(const string& name) {
 }
 
 /**
- *@Description Returns the corresponding three letter code as a string.
+ *  Returns the corresponding three letter code as a string.
  *@param aminoacidCode 
  *@return string
  */
@@ -149,7 +149,7 @@ inline string nucleotideThreeLetterTranslator(NucleotideCode code) {
 }
 
 /**
- *@Description Returns the corresponding three letter code as a string.
+ *  Returns the corresponding three letter code as a string.
  *@param one letter code (char)
  *@return string
  */
@@ -160,7 +160,7 @@ inline string nucleotideOneLetter2ThreeLetter(char oneLetter) {
 }
 
 /**
- *@Description Returns the corresponding one letter code.
+ *  Returns the corresponding one letter code.
  *@param three letter code (string)
  *@return char
  */
@@ -171,7 +171,7 @@ inline char nucleotideThreeLetter2OneLetter(const string& threeLetter) {
 }
 
 /**
- *@Description Returns one aminoacid code.
+ *  Returns one aminoacid code.
  *@param aminoacid code 
  *@return aminoacid code
  */
@@ -180,7 +180,7 @@ inline NucleotideCode& operator++(NucleotideCode& ac, int) {
 }
 
 /**
- *@Description Returns one aminoacid code.
+ *  Returns one aminoacid code.
  *@param aminoacid code 
  *@return aminoacid code
  */

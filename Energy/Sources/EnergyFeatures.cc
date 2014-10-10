@@ -26,7 +26,7 @@ using namespace Victor;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description Basic constructor 
+ *  Basic constructor 
  */
 EnergyFeatures::EnergyFeatures() : solv(), rapdf() {
     tors = new PhiPsi(10);
@@ -36,7 +36,7 @@ EnergyFeatures::EnergyFeatures() : solv(), rapdf() {
 // PREDICATES:
 
 /**
- *@Description print the possible output features
+ *  print the possible output features
  */
 void EnergyFeatures::showFeatures() {
     cout << "The ouput features (15 per protein model) are:\n"
@@ -54,7 +54,7 @@ void EnergyFeatures::showFeatures() {
 }
 
 /**
- *@Description   calculates the quantity of backbone hidrogen Bonds from the spacer 
+ *    calculates the quantity of backbone hidrogen Bonds from the spacer 
  *@param reference of a Spacer(Spacer&)
  *@return  quantity of hydrogen bonds (double)
  */
@@ -77,7 +77,7 @@ double EnergyFeatures::calculateBackboneHydrogenBonds(Spacer& sp) {
 }
 
 /**
- *@Description Returns the calculated  Aa Composition for all the aa in the spacer
+ *  Returns the calculated  Aa Composition for all the aa in the spacer
  *@param reference of a Spacer(spacer&)
  *@return  a vector containing all the compositions for each of the aas (vector double)
  */
@@ -97,7 +97,7 @@ vector<double> EnergyFeatures::calculateAaComposition(Spacer& sp) {
 }
 
 /**
- *@Description Returns the calculated  Secondary Composition from the amino acids in the spacer
+ *  Returns the calculated  Secondary Composition from the amino acids in the spacer
  *@param reference of a Spacer(Spacer&)
  *@return a vector of 3 containing the corresponding values (vector double)
  */
@@ -122,7 +122,7 @@ vector<double> EnergyFeatures::calculateSecondaryComposition(Spacer& sp) {
 }
 
 /**
- *@Description Returns the calculated  Meso State Composition for the amino acids in the spacer
+ *  Returns the calculated  Meso State Composition for the amino acids in the spacer
  *@param reference of a Spacer(Spacer&)
  *@return  vector of 36 containing the corresponding values (vector double)
  */
@@ -169,7 +169,7 @@ vector<double> calculateMesoStateComposition(Spacer& sp) {
 }
 
 /**
- *@Description Returns the calculated  chain breaks for the amino acids in the spacer
+ *  Returns the calculated  chain breaks for the amino acids in the spacer
  *@param reference of a Spacer(Spacer&)
  *@return  vector of 5 containing the corresponding values (vector double)
  */
@@ -195,7 +195,7 @@ vector<double> EnergyFeatures::calculateChainBreaks(Spacer& sp) {
 }
 
 /**
- *@Description Returns the calculated  the clashes for the amino acids in the spacer
+ *  Returns the calculated  the clashes for the amino acids in the spacer
  *@param reference of a Spacer(Spacer&)
  *@return  double containing the corresponding value ( double)
  */
@@ -211,7 +211,7 @@ double EnergyFeatures::calculateClashes(Spacer& sp) {
 }
 
 /**
- *@Description Returns the calculated  all the features for the amino acids in the spacer
+ *  Returns the calculated  all the features for the amino acids in the spacer
  *@param reference of a Spacer(Spacer&)
  *@return  vector  containing the corresponding values (vector double)
  */

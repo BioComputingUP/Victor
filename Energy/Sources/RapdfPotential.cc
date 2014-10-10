@@ -32,7 +32,7 @@ using namespace Victor::Energy;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description    Basic constructor, allocate the information from the ram.par file 
+ *     Basic constructor, allocate the information from the ram.par file 
  */
 RapdfPotential::RapdfPotential() {
 
@@ -60,7 +60,7 @@ RapdfPotential::RapdfPotential() {
 // PREDICATES:
 
 /**
- *@Description Calculates the energy for the amino acids in the Spacer
+ *  Calculates the energy for the amino acids in the Spacer
  *@param   spacer reference(Spacer&),
  *@return energy value (long double)
  */
@@ -83,7 +83,7 @@ long double RapdfPotential::calculateEnergy(Spacer& sp) {
 }
 
 /**
- *@Description Calculates the energy for a group of amino acids in the Spacer limited by the index values as start and end
+ *  Calculates the energy for a group of amino acids in the Spacer limited by the index values as start and end
  *@param   spacer reference(Spacer&), start and end positions (unsigned int,unsigned int)
  *@return energy value (long double)
  */
@@ -104,7 +104,7 @@ long double RapdfPotential::calculateEnergy(Spacer& sp, unsigned int index1, uns
 }
 
 /**
- *@Description Calculates the energy for the amino acids in the Spacer that are different to the given aa
+ *  Calculates the energy for the amino acids in the Spacer that are different to the given aa
  *@param  amino acid reference(AminoAcid&),spacer reference(Spacer&),
  *@return energy value (long double)
  */
@@ -124,7 +124,7 @@ long double RapdfPotential::calculateEnergy(AminoAcid& aa, Spacer& sp) {
 }
 
 /**
- *@Description Calculates the energy between 2 amino acids
+ *  Calculates the energy between 2 amino acids
  *@param  amino acids references( AminoAcid&,AminoAcid&)
  *@return energy value (long double)
  */
@@ -147,7 +147,7 @@ long double RapdfPotential::calculateEnergy(AminoAcid& aa, AminoAcid& aa2) {
 // HELPERS:
 
 /**
- *@Description Retrieves the corresponding index for the given distance
+ *  Retrieves the corresponding index for the given distance
  *@param  distance (double)
  *@return corresponding index (unsigned int)
  */
@@ -180,7 +180,7 @@ unsigned int RapdfPotential::pGetDistanceBinOne(double distance)
 /******************************************************************/
 
 /**
- *@Description Retrieves the corresponding index for the given group(AAtype_AtomType)
+ *  Retrieves the corresponding index for the given group(AAtype_AtomType)
  *@param  group name (char*)
  *@return corresponding index (unsigned int)
  */

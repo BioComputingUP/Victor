@@ -26,7 +26,7 @@
 
 /**
  
- *@Description     Translator: PDB names to internal one-word-code and 
+ *      Translator: PDB names to internal one-word-code and 
  *                  vice versa. Provides some simple predicates dealing with 
  *                  one-word-code. 
  *       This file contains information from the Bioinformatics Template Library (BTL).
@@ -182,7 +182,7 @@ aminoAcidThreeLetterTranslator(const string& name) {
 }
 
 /**
- *@Description Returns the corresponding three letter code as a string.
+ *  Returns the corresponding three letter code as a string.
  *@param aminoacidCode 
  *@return string
  */
@@ -241,7 +241,7 @@ inline string aminoAcidThreeLetterTranslator(AminoAcidCode code) {
 }
 
 /**
- *@Description Returns the corresponding one letter code as a string.
+ *  Returns the corresponding one letter code as a string.
  *@param aminoacidCode 
  *@return char
  */
@@ -301,7 +301,7 @@ inline char aminoAcidOneLetterTranslator(AminoAcidCode code) {
 }
 
 /**
- *@Description Returns the corresponding aminoacid name as a string.
+ *  Returns the corresponding aminoacid name as a string.
  *@param aminoacidCode 
  *@return string
  */
@@ -361,7 +361,7 @@ inline string aminoAcidFullTranslator(AminoAcidCode code) {
 }
 
 /**
- *@Description Returns the corresponding three letter code as a string.
+ *  Returns the corresponding three letter code as a string.
  *@param one letter code (char)
  *@return string
  */
@@ -372,7 +372,7 @@ inline string oneLetter2ThreeLetter(char oneLetter) {
 }
 
 /**
- *@Description Returns the corresponding one letter code.
+ *  Returns the corresponding one letter code.
  *@param three letter code (string)
  *@return char
  */
@@ -383,7 +383,7 @@ inline char threeLetter2OneLetter(const string& threeLetter) {
 }
 
 /**
- *@Description Returns one aminoacid code.
+ *  Returns one aminoacid code.
  *@param aminoacid code 
  *@return aminoacid code
  */
@@ -392,7 +392,7 @@ inline AminoAcidCode& operator++(AminoAcidCode& ac, int) {
 }
 
 /**
- *@Description Returns one aminoacid code.
+ *  Returns one aminoacid code.
  *@param aminoacid code 
  *@return aminoacid code
  */
@@ -401,7 +401,7 @@ inline AminoAcidCode& operator--(AminoAcidCode& ac, int) {
 }
 
 /**
- *@Description verifyes if the aminoacid is a polar one.
+ *  verifyes if the aminoacid is a polar one.
  *@param aminoacid code 
  *@return boolean
  */
@@ -424,7 +424,7 @@ inline bool isPolar(AminoAcidCode code) {
 }
 
 /**
- *@Description verifyes if the aminoacid is a  Hydrophobic one.
+ *  verifyes if the aminoacid is a  Hydrophobic one.
  *@param aminoacid code 
  *@return boolean
  */
@@ -452,7 +452,7 @@ enum StateCode {
 };
 
 /**
- *@Description states  name for a translator.
+ *  states  name for a translator.
  *@param translator  one letter code
  *@return statecode(char)
  */
@@ -478,7 +478,7 @@ inline StateCode stateCodeOneLetterTranslator(char name) {
 }
 
 /**
- *@Description states the one letter name for a translator.
+ *  states the one letter name for a translator.
  *@param translator name
  *@return statecode
  */
@@ -506,7 +506,7 @@ inline char stateCodeOneLetterTranslator(StateCode code) {
 }
 
 /**
- *@Description Returns one state code.
+ *  Returns one state code.
  *@param statecode code 
  *@return statecode code
  */

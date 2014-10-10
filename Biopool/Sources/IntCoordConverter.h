@@ -40,7 +40,7 @@ namespace Victor { namespace Biopool {
     /**
      * @brief Implements methods to manage translation vector and angles between vectors
      * 
-     * @Description Includes methods that allow to get, calculate angels and traslation vector, rotation matrix, etc .
+     *   Includes methods that allow to get, calculate angels and traslation vector, rotation matrix, etc .
      * */
     
     class IntCoordConverter {
@@ -108,7 +108,7 @@ namespace Victor { namespace Biopool {
     // HELPERS:
 
     /**
-     * @Description Returns the angle between two vectors of coordinates
+     *   Returns the angle between two vectors of coordinates
      * @param a and b contain the 3D coordinates (vgVector3<double>)
      * @return The angle in RADIANTS (double)
      */
@@ -131,7 +131,7 @@ namespace Victor { namespace Biopool {
         return acos(d);
     }
     /**
-     * @Description Returns the angle between two vectors of coordinates
+     *   Returns the angle between two vectors of coordinates
      * @param a and b contain the 3D coordinates (vgVector3<float>)
      * @return The angle in RADIANTS (double)
      */
@@ -155,7 +155,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     * @Description Align (ie. move) v2 with (to) v1.
+     *   Align (ie. move) v2 with (to) v1.
      * @param v1 and v2 contain the 3D coordinates (vgVector3<double>)
      */
     
@@ -178,7 +178,7 @@ namespace Victor { namespace Biopool {
     }
 
     /**
-     * @Description Align (ie. move) v2 with (to) v1.
+     *   Align (ie. move) v2 with (to) v1.
      * @param v1 and v2 contain the 3D coordinates (vgVector3<float>)
      */
     inline void

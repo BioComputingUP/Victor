@@ -32,7 +32,7 @@ using namespace Victor; using namespace Victor::Biopool;
 // MODIFIERS:
 
 /**
- *@Description Saves a group in INT format. 
+ *  Saves a group in INT format. 
  *@param group reference
  *@return  void 
  */
@@ -42,7 +42,7 @@ void IntSaver::saveGroup(Group& gr) {
 }
 
 /**
- *@Description   Saves a Ligand in INT format. 
+ *    Saves a Ligand in INT format. 
  *@param Ligand reference
  *@return  void
  */
@@ -51,7 +51,7 @@ void IntSaver::saveLigand(Ligand& l) {
 }
 
 /**
- *@Description   Saves a sidechain in INT format. 
+ *    Saves a sidechain in INT format. 
  *@param SideChain reference
  *@return  void
  */
@@ -61,7 +61,7 @@ void IntSaver::saveSideChain(SideChain& sc) {
 }
 
 /**
- *@Description   Saves an aminoacid in INT format. 
+ *    Saves an aminoacid in INT format. 
  *@param AminoAcid reference
  *@return  void
  */
@@ -72,7 +72,7 @@ void IntSaver::saveAminoAcid(AminoAcid& aa) {
 }
 
 /**
- *@Description    Saves a spacer in INT format. 
+ *     Saves a spacer in INT format. 
  *@param Spacer reference
  *@return  void
  */
@@ -97,7 +97,7 @@ void IntSaver::saveSpacer(Spacer& sp) {
 // HELPER:
 
 /**
- *@Description    Private helper method to save a vector of atoms.
+ *     Private helper method to save a vector of atoms.
  *    Attention: ID realignment is currently commented out.
  *@param vector<Atom> reference, unsigned int
  *@return  void

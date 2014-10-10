@@ -41,7 +41,7 @@ SideChain::~SideChain() {
 // PREDICATES:
 
 /**
- * @Description Calculate the Chi angles if not already set.
+ *   Calculate the Chi angles if not already set.
  * @return The vector of "chi" angles (a SideChain can have more than 1 "chi" angle)
  */
 vector<double> SideChain::getChi() {
@@ -54,7 +54,7 @@ vector<double> SideChain::getChi() {
 // MODIFIERS:
 
 /**
- * @Description Sets the Chi angles of a SideChain
+ *   Sets the Chi angles of a SideChain
  * @param cv The vector of Chi angles
  */
 void SideChain::setChi(vector<double> cv) {
@@ -76,7 +76,7 @@ void SideChain::copy(const SideChain& orig) {
 }
 
 /**
- * @Description Sets the "backboneRer" and binds the SideChain (CB atom) to the BackBone (CA atom).
+ *   Sets the "backboneRer" and binds the SideChain (CB atom) to the BackBone (CA atom).
  * @param br, a pointer to the "backboneRef" AminoAcid
  */
 void SideChain::setBackboneRef(AminoAcid* br) {
@@ -90,7 +90,7 @@ void SideChain::setBackboneRef(AminoAcid* br) {
 }
 
 /**
- * @Description Determines the 3-letter code from sidechain atoms and sets the AminoAcid Type
+ *   Determines the 3-letter code from sidechain atoms and sets the AminoAcid Type
  */
 
 void SideChain::patchAminoAcidCode() { 
@@ -163,7 +163,7 @@ void SideChain::patchAminoAcidCode() {
 }
 
 /**
- * @Description Binds the SideChain to the corresponding "backboneRef"  * 
+ *   Binds the SideChain to the corresponding "backboneRef"  * 
  * @param connect, if True, it creates the "connection" (trans and rot)
  * @param permissive, Not used
  * @return True if bonds are created
@@ -306,7 +306,7 @@ bool SideChain::setBondsFromPdbCode(bool connect, bool permissive) {
     return true;
 }
 /**
- * @Description Search for the type of atom in the side chain
+ *   Search for the type of atom in the side chain
  * @param c, the type of atom
  * @param pos, position passed by reference
  * @param pos2, position passed by reference
@@ -332,7 +332,7 @@ bool SideChain::findCode(char c, unsigned int &pos, unsigned int &pos2) {
 }
 
 /**
- * @Description Finds, binds and connects the H Atom.
+ *   Finds, binds and connects the H Atom.
  * @param c, Atom name
  * @param c2, the pos1 as a string
  * @param at, the H partner Atom
@@ -361,7 +361,7 @@ SideChain& SideChain::operator=(const SideChain& orig) {
 
 // HELPERS:
 /**
- * @Description Calculates the Chi angle
+ *   Calculates the Chi angle
  * @param n, the SideChain atom index
  * @return the Chi angle in radiants 
  */
@@ -386,7 +386,7 @@ double SideChain::calculateChi(unsigned int n) {
 }
 
 /**
- * @Description Sets the Chi angle.
+ *   Sets the Chi angle.
  * @param n, the SideChain atom position
  * @param c, the Chi angle in radiants
  */
@@ -522,7 +522,7 @@ bool SideChain::hasH() {
     return false;
 }
 /**
- * @Description Sets the MaxChi according to the SydeChain type.
+ *   Sets the MaxChi according to the SydeChain type.
  */
 void SideChain::setMaxChiFromCode() {
     unsigned int tMaxChi = 0;
@@ -579,7 +579,7 @@ void SideChain::setMaxChiFromCode() {
 
 
 /**
- * @Description Sets the maximum Chi angle.
+ *   Sets the maximum Chi angle.
  * @param _maxChi, Chi angle in radiants
  */
 void SideChain::setMaxChi(unsigned int _maxChi) {

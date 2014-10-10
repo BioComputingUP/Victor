@@ -26,7 +26,7 @@ using namespace Victor;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description    Basic constructor, sets the efective solvation potential for a chain.
+ *     Basic constructor, sets the efective solvation potential for a chain.
  */
 EffectiveSolvationPotential::EffectiveSolvationPotential() {
 
@@ -64,7 +64,7 @@ EffectiveSolvationPotential::EffectiveSolvationPotential() {
 // PREDICATES:
 
 /**
- *@Description Calculates Energy from the amino acids in the spacer
+ *  Calculates Energy from the amino acids in the spacer
  *@param spacer reference (spacer&)
  *@return energy value (long double)
  */
@@ -78,7 +78,7 @@ long double EffectiveSolvationPotential::calculateEnergy(Spacer& sp) {
 }
 
 /**
- *@Description Calculates Energy
+ *  Calculates Energy
  *@param spacer reference(spacer&),positions of the start and eend of the amino acids portion of the spacer(unsigned int,unsigned int)
  *@return energy value(long double)
  */
@@ -93,7 +93,7 @@ long double EffectiveSolvationPotential::calculateEnergy(Spacer& sp, unsigned in
 }
 
 /**
- *@Description Calculates Fraction of the amino acids Buried in the spacer
+ *  Calculates Fraction of the amino acids Buried in the spacer
  *@param   central amino acid position to considers,(unsigned int ),spacer reference(spacer&)
  *@return the fraction of the amino acids buried (double)
  */
@@ -128,7 +128,7 @@ double EffectiveSolvationPotential::pCalcFracBuried(unsigned int index, Spacer& 
 }
 
 /**
- *@Description Calculates the energy for the amino acids in the Spacer
+ *  Calculates the energy for the amino acids in the Spacer
  *@param  amino acid reference(not used AminoAcid&),spacer reference(Spacer&),
  *@return energy value (long double)
  */

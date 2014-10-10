@@ -36,7 +36,7 @@ namespace Victor { namespace Energy {
      * @brief Implements a knowledge-based solvation with polar/hydrophobic information potential. 
      * A coefficient is used to normalize the propensity.
      * 
-     *@Description  This class implements a knowledge-based solvation with polar/hydrophobic 
+     *   This class implements a knowledge-based solvation with polar/hydrophobic 
      *    information potential. The final values are normalized by an hardcoded coefficient (see source)
      * */
     class EffectiveSolvationPotential : public Potential {
@@ -78,7 +78,7 @@ namespace Victor { namespace Energy {
     // -----------------x-------------------x-------------------x-----------------
 
     /**
-     *@Description Verifies if the amino acid is a polar one
+     *  Verifies if the amino acid is a polar one
      *@param reference of the aa(aminoAcid&)
      *@return  result of the validation(bool)
      */

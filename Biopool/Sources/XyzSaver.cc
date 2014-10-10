@@ -32,7 +32,7 @@ using namespace Victor::Biopool;
 // MODIFIERS:
 
 /**
- *@Description  Obtains the atom from the given group and saves it as a vector format. 
+ *   Obtains the atom from the given group and saves it as a vector format. 
  *@param   Group reference(Group&)
  *@return  changes are made internally (void)
  */
@@ -45,7 +45,7 @@ void XyzSaver::saveGroup(Group& gr) {
 }
 
 /**
- *@Description  Obtains the atom from the given side chain and saves it as a vector format. 
+ *   Obtains the atom from the given side chain and saves it as a vector format. 
  *@param   Side chain reference(SideChain&)
  *@return  changes are made internally (void)
  */
@@ -59,7 +59,7 @@ void XyzSaver::saveSideChain(SideChain& sc) {
 }
 
 /**
- *@Description  Obtains the atom and the said chain from the given amino acid and saves them as a vector format. 
+ *   Obtains the atom and the said chain from the given amino acid and saves them as a vector format. 
  *@param  Amino acid reference(AminoAcid&)
  *@return  changes are made internally (void)
  */
@@ -75,7 +75,7 @@ void XyzSaver::saveAminoAcid(AminoAcid& aa) {
 }
 
 /**
- *@Description  Obtains the atoms and side chains  from each of the amino acids in the spacer/protein and saves them  as a vector format. 
+ *   Obtains the atoms and side chains  from each of the amino acids in the spacer/protein and saves them  as a vector format. 
  *@param   Spacer reference(Spacer&)
  *@return  changes are made internally (void)
  */
@@ -105,7 +105,7 @@ void XyzSaver::saveLigand(Ligand& l) {
 // HELPER:
 
 /**
- *@Description  Creates a list of the atom types contained in the vector and saves it.
+ *   Creates a list of the atom types contained in the vector and saves it.
  *@param   reference to the vector that contains atoms(vector<Atom>&)
  *@return  changes are made internally (void)
  */

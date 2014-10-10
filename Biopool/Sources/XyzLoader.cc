@@ -30,7 +30,7 @@ using namespace Victor; using namespace Victor::Biopool;
 // MODIFIERS:
 
 /**
- *@Description Loads the information from the input stream into an atom group considering the xyz format. 
+ *  Loads the information from the input stream into an atom group considering the xyz format. 
  *@param  Group reference(Group&)
  *@return changes are made internally
  */
@@ -60,7 +60,7 @@ void XyzLoader::loadGroup(Group& gr) {
 }
 
 /**
- *@Description  Loads the side chain from the file, and returns the reference to the corresponding amino acid 
+ *   Loads the side chain from the file, and returns the reference to the corresponding amino acid 
  *@param  SideChain reference(SideChain&), AminoAcid pointer(AminoAcid&)
  *@return void
  */
@@ -76,7 +76,7 @@ void XyzLoader::loadSideChain(SideChain& sc, AminoAcid* aaRef) {
 }
 
 /**
- *@Description  Loads an aminoacid in xyz format. 
+ *   Loads an aminoacid in xyz format. 
  *  
  *@param  AminoAcid reference
  *@return void
@@ -105,7 +105,7 @@ void XyzLoader::loadAminoAcid(AminoAcid& aa) {
 }
 
 /**
- *@Description Loads a spacer in xyz format. 
+ *  Loads a spacer in xyz format. 
  *  
  *@param  Spacer reference
  *@return void
@@ -130,7 +130,7 @@ void XyzLoader::loadSpacer(Spacer& sp) {
 }
 
 /**
- *@Description Loads a Ligand in xyz format. 
+ *  Loads a Ligand in xyz format. 
  *  
  *@param  Ligand reference
  *@return void

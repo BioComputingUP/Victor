@@ -35,7 +35,7 @@ using namespace Victor;
     /** @brief This class implements a simple torsion potential based on the 
      *    statistical preference of aminoacid types for certain angles.
      * 
-     * @Description Is a generic class for administrate different angles. Includes methods that allow to calculate max and min energy, also contains virtual methods that will be defined in the differents angles classes.
+     *   Is a generic class for administrate different angles. Includes methods that allow to calculate max and min energy, also contains virtual methods that will be defined in the differents angles classes.
      * */
     class TorsionPotential : public Potential {
     public:
@@ -119,7 +119,7 @@ using namespace Victor;
     // ---------------------------------------------------------------------------
 
     /**
-     * @Description Calculates the maximum energy for an amino acid
+     *   Calculates the maximum energy for an amino acid
      * @param  index of the amino acid, consider the enum list(unsigned int)
      * @return  the corresponding value( double)
      */
@@ -128,7 +128,7 @@ using namespace Victor;
     }
 
     /**
-     * @Description Calculates the minimum energy for an amino acid
+     *   Calculates the minimum energy for an amino acid
      * @param  index of the amino acid, consider the enum list(unsigned int)
      * @return  the corresponding value( double)
      */
@@ -137,7 +137,7 @@ using namespace Victor;
     }
 
     /**
-     * @Description Calculates the maximum energy for the amino acids in the spacer
+     *   Calculates the maximum energy for the amino acids in the spacer
      * @param  spacer reference(Spacer&)
      * @return  the corresponding value( double)
      */
@@ -149,7 +149,7 @@ using namespace Victor;
     }
 
     /**
-     * @Description Calculates the minimum energy for the amino acids in the spacer
+     *   Calculates the minimum energy for the amino acids in the spacer
      * @param  spacer reference(Spacer&)
      * @return  the corresponding value( double)
      */

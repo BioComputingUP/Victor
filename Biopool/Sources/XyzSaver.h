@@ -34,7 +34,7 @@ namespace Victor { namespace Biopool {
 
     /**@brief Saves components (Atoms, Groups, etc.) in carthesian format 
      * 
-     *@Description 
+     *  
      *    Internal format is made of type, coords & bonds of each atom,
      *    one per line. Keywords "aminoacid" and "sidechain" delimit these
      *    structures.

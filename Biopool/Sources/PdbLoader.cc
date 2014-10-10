@@ -35,7 +35,7 @@ using namespace Victor; using namespace Victor::Biopool;
 // PREDICATES:
 
 /**
- *@Description Reads in the maximum allowed number of NMR models, zero otherwise
+ *  Reads in the maximum allowed number of NMR models, zero otherwise
  *@param none
  */
 
@@ -57,7 +57,7 @@ PdbLoader::getMaxModels() {
 }
 
 /**
- *@Description   If user selected a chain, it check validity of this choice,
+ *    If user selected a chain, it check validity of this choice,
  *    otherwise it select first available chain.
  *@param   void
  *@return  void
@@ -80,7 +80,7 @@ PdbLoader::checkAndSetChain() {
 }
 
 /**
- *@Description   If user selected a Model, it check validity of this choice,
+ *    If user selected a Model, it check validity of this choice,
  *    otherwise it select first available chain.
  *@param   void
  *@return  void
@@ -93,7 +93,7 @@ PdbLoader::checkModel() {
 }
 
 /**
- *@Description   Reads in the maximum allowed number of NMR models, zero otherwise.
+ *    Reads in the maximum allowed number of NMR models, zero otherwise.
  *    This is a faster version because we only need to read the line with
  *    EXPDTA
  *@param   void
@@ -118,7 +118,7 @@ PdbLoader::getMaxModelsFast() {
 }
 
 /**
- *@Description   Returns all available chain IDs for a PDB file.
+ *    Returns all available chain IDs for a PDB file.
  *    
  *@param   void
  *@return  vector of chars
@@ -153,7 +153,7 @@ PdbLoader::getAllChains() {
 }
 
 /**
- *@Description   Private helper function to set bond structure after loading the spacer.
+ *    Private helper function to set bond structure after loading the spacer.
  *@param   Spacer reference
  *@return  bool
  */
@@ -169,7 +169,7 @@ bool PdbLoader::setBonds(Spacer& sp) {
 }
 
 /**
- *@Description   Private helper function to determine if atom is backbone or sidechain. 
+ *    Private helper function to determine if atom is backbone or sidechain. 
  *@param   Spacer reference
  *@return  bool
  */
@@ -186,7 +186,7 @@ bool PdbLoader::inSideChain(const AminoAcid& aa, const Atom& at) {
 
 
 /**
- *@Description   Try to assigns the secondary structure from the PDB header. If not present
+ *    Try to assigns the secondary structure from the PDB header. If not present
  *  uses Spacer's setStateFromTorsionAngles().
  *@param   Spacer reference
  */
@@ -250,7 +250,7 @@ PdbLoader::loadSpacer(Spacer& sp){
  */
 
 /**
- * @Description Core function for PDB file parsing. 
+ *   Core function for PDB file parsing. 
  * @param prot (Protein&)
  */
 
@@ -563,7 +563,7 @@ PdbLoader::loadProtein(Protein& prot) {
 }
 
 /**
- * @Description Parse a single line of a PDB file.
+ *   Parse a single line of a PDB file.
  * @param atomLine (string) the whole PDB line as it is
  * @param tag (string) = the first field (keyword) in a PDB line
  * @param lig (Ligand) pointer

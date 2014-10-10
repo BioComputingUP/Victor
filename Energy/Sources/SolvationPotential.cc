@@ -31,7 +31,7 @@ unsigned int SolvationPotential::MAX_BINS = 30;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
- *@Description    Basic constructor, allocate information from the "solv.par" file, and set the min and max propensities values.
+ *     Basic constructor, allocate information from the "solv.par" file, and set the min and max propensities values.
  *@param      _resol is the number of bins to calculate the statistics. 1 = max resulution.
  */
 SolvationPotential::SolvationPotential(unsigned int _resol) : sum(), binResolution(_resol) {
@@ -80,7 +80,7 @@ SolvationPotential::SolvationPotential(unsigned int _resol) : sum(), binResoluti
 // PREDICATES:
 
 /**
- *@Description calculates the total solvation potential for the residue in the spacer    
+ *  calculates the total solvation potential for the residue in the spacer    
  *@param   reference of a Spacer(Spacer&)
  *@return    value of the total solvation potential(long double)
  */
@@ -92,7 +92,7 @@ long double SolvationPotential::calculateSolvation(Spacer& sp) {
 }
 
 /**
- *@Description calculates the total energy for a portion of a residue in the spacer    
+ *  calculates the total energy for a portion of a residue in the spacer    
  *@param   reference of a Spacer(Spacer&), index for the beginning and ending position of the residue portion(unsigned int)
  *@return    value of the total solvation potential(long double)
  */
@@ -104,7 +104,7 @@ long double SolvationPotential::calculateEnergy(Spacer& sp, unsigned int index1,
 }
 
 /**
- *@Description calculates the total solvation potential for a portion of residues in the spacer, 
+ *  calculates the total solvation potential for a portion of residues in the spacer, 
  * and an specific residue. the relation between them should be minor to SOLVATION_CUTOFF_DISTANCE and not identical    
  *@param  reference of a residue (AminoAcid&), reference of a Spacer(Spacer&), index for the beginning and ending position of the residues portion(unsigned int)
  *@return    value of the total solvation potential(long double)
@@ -135,7 +135,7 @@ long double SolvationPotential::calculateSolvation(AminoAcid& aa, Spacer& sp, un
 }
 
 /**
- *@Description    solvation potential of the residue, considering a given amino acid type.
+ *     solvation potential of the residue, considering a given amino acid type.
  *@param   reference of a residue (AminoAcid&), amino acid type (aminoacidCode) ,reference of a Spacer(Spacer&)
  *@return    value of the solvation potential(long double)
  */
@@ -177,7 +177,7 @@ long double SolvationPotential::calculateSolvation(AminoAcid& resid, AminoAcidCo
 }
 
 /**
- *@Description    obtains the propensity value
+ *     obtains the propensity value
  *@param  amino acid type (AminoAcidCode), count (unsigned int)
  *@return  solvation propensity for the (type, count) slot in the 'sum' table(long double)    
  */
@@ -194,7 +194,7 @@ long double SolvationPotential::pGetPropensity(const AminoAcidCode type, unsigne
 }
 
 /**
- *@Description    gets maximum solvation propensity for that type.
+ *     gets maximum solvation propensity for that type.
  *@param  amino acid type (AminoAcidCode) 
  *@return the maximum propensity value (long double)    
  */
@@ -209,7 +209,7 @@ long double SolvationPotential::pGetMaxPropensity(const AminoAcidCode type) cons
 }
 
 /**
- *@Description    calculates  minimum solvation propensity for that type.
+ *     calculates  minimum solvation propensity for that type.
  *@param    amino acid type (AminoAcidCode) 
  *@return the minimum propensity value (long double)    
  */
@@ -225,7 +225,7 @@ long double SolvationPotential::pGetMinPropensity(const AminoAcidCode type) cons
 }
 
 /**
- *@Description    stores the maximum propensity of each amino acid type. 
+ *     stores the maximum propensity of each amino acid type. 
  *    the max. propensity of the i-th amino acid type in the AminoAcidCode
  *    enumeration is stored in the i-th position of amino_max_propensities
  *    (i=0,...,19)
@@ -243,7 +243,7 @@ void Victor::Energy::SolvationPotential::pConstructMaxPropensities() {
 }
 
 /**
- *@Description    stores the minimum propensity of each amino acid type. 
+ *     stores the minimum propensity of each amino acid type. 
  * the min. propensity of the i-th amino acid type in the AminoAcidCode
  *    enumeration is stored in the i-th position of amino_max_propensities
  *    (i=0,...,19).

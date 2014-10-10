@@ -22,7 +22,7 @@ using namespace Victor::Energy;
 using namespace Victor;
 
 /**
- * @Description  
+ *    
  * @param   
  * @return   
  */
@@ -33,7 +33,7 @@ propensities(), all_propensities() {
 }
 
 /**
- * @Description  Sets all the information need for the class
+ *    Sets all the information need for the class
  * @param   none
  * @return    changes the object internally (void)   
  */
@@ -140,7 +140,7 @@ void PhiPsi::pConstructData() {
 }
 
 /**
- * @Description  Clears all the set data 
+ *    Clears all the set data 
  * @param   none
  * @return    changes the object internally (void)  
  */
@@ -171,7 +171,7 @@ void PhiPsi::pResetData() {
 // PREDICATES:
 
 /** 
- * @Description calculates the total energy for the amino acids in the spacer 
+ *   calculates the total energy for the amino acids in the spacer 
  * @param spacer reference(Sapcer(&)
  * @return value of the total energy(long double)
  */
@@ -185,7 +185,7 @@ long double PhiPsi::calculateEnergy(Spacer& sp) {
 }
 
 /** 
- * @Description calculates the total energy for the amino acids in a portion of the spacer 
+ *   calculates the total energy for the amino acids in a portion of the spacer 
  * @param spacer reference(Sapcer(&), positions for start and end of the Sapcer portion (unsigned int, unsigned int) 
  * @return value of the total energy for the aminoacids in the given spacer portion(long double)
  */
@@ -202,7 +202,7 @@ long double PhiPsi::calculateEnergy(Spacer& sp, unsigned int index1, unsigned in
 }
 
 /** 
- * @Description calculates the total energy for the amino acid 
+ *   calculates the total energy for the amino acid 
  * @param the amino acid reference (AminoAcir&)
  * @return corresponding energy value(long double)
  */
@@ -226,7 +226,7 @@ long double PhiPsi::calculateEnergy(AminoAcid& aa) {
 }
 
 /** 
- * @Description calculates the total energy for the amino acid 
+ *   calculates the total energy for the amino acid 
  * @param the amino acid reference (AminoAcir&)
  * @return corresponding energy value(long double)
  */
@@ -314,7 +314,7 @@ long double PhiPsi::calculateEnergySmooth(AminoAcid& aa) {
 }
 
 /** 
- * @Description calculates the total energy for the amino acid, considering a specific phi an psi value
+ *   calculates the total energy for the amino acid, considering a specific phi an psi value
  * @param the amino acid reference (AminoAcir&), values for phi and psi (double)
  * @return corresponding energy value(long double)
  */
@@ -343,7 +343,7 @@ long double PhiPsi::calculateEnergy(AminoAcid& aa, double phi, double psi) {
 }
 
 /**
- * @Description  Calculates the psi-psi torsional energy of the amino acid whose (phi, psi) pair is 
+ *    Calculates the psi-psi torsional energy of the amino acid whose (phi, psi) pair is 
  *    specified by 'diheds' and whose type is specified by code.
  * @param   pair of dihedral angles(AminoAcir&), the amino acid code(AminoAcidCode)
  * @return   corresponding value(long double)
@@ -367,7 +367,7 @@ long double PhiPsi::calculateEnergy(AminoAcid& diheds, AminoAcidCode code) {
 }
 
 /**
- * @Description  Calculates the propensity binding value for a specific angle
+ *    Calculates the propensity binding value for a specific angle
  * @param   angle value (double)
  * @return   the corresponding value( int)
  */
@@ -379,7 +379,7 @@ inline int PhiPsi::sGetPropBin(double p) {
 }
 
 /**
- * @Description  Calculates the differenciated propensity binding and the 
+ *    Calculates the differenciated propensity binding and the 
  * @param   angle value(double), reference to the calculated diff propensity binding(double&)
  * @return   propensity value( int)
  */
@@ -393,7 +393,7 @@ inline int PhiPsi::sGetPropBinDiff(double p, double& diff) {
 }
 
 /**
- * @Description  Adds a propensity for a specific amino acid type
+ *    Adds a propensity for a specific amino acid type
  * @param   code of the amion acid(int), coordinates (int,int,int), values to set (int, int)
  * @return    changes the object internally (void)  
  */
@@ -403,7 +403,7 @@ inline void PhiPsi::sAddProp(int code, int x, int y) {
 }
 
 /**
- * @Description Sets the step for the arc  
+ *   Sets the step for the arc  
  * @param   the step value(int)
  * @return    changes the object internally (void)  
  */
@@ -415,7 +415,7 @@ inline void PhiPsi::setArcStep(int n) {
 }
 
 /**
- * @Description  Calculates the Maximum propensities value of the amino acid
+ *    Calculates the Maximum propensities value of the amino acid
  * @param   amino acid index corresponding to the enum (int)
  * @return  corresponding value (double)
  */
@@ -437,7 +437,7 @@ double PhiPsi::pGetMaxPropensities(int amino) {
 }
 
 /**
- * @Description  Calculates the Minimum propensities value of the amino acid
+ *    Calculates the Minimum propensities value of the amino acid
  * @param   amino acid index corresponding to the enum (int)
  * @return  corresponding value (double)
  */
@@ -459,7 +459,7 @@ double PhiPsi::pGetMinPropensities(int amino) {
 }
 
 /**
- * @Description  returns the maximum propensities for the corresponding amino
+ *    returns the maximum propensities for the corresponding amino
  * @param   amino index from the enum (int)
  * @return   the corresponding value(double)
  */
@@ -468,7 +468,7 @@ double PhiPsi::pReturnMaxPropensities(int amino) {
 }
 
 /**
- * @Description  returns the minimum propensities for the corresponding amino
+ *    returns the minimum propensities for the corresponding amino
  * @param   amino index from the enum (int)
  * @return   the corresponding value(double)
  */
@@ -477,7 +477,7 @@ double PhiPsi::pReturnMinPropensities(int amino) {
 }
 
 /**
- * @Description fill an array containing max propensities for each amino
+ *   fill an array containing max propensities for each amino
  * @param   none
  * @return    changes the object internally (void)  
  */
@@ -491,7 +491,7 @@ void PhiPsi::pConstructMaxPropensities() {
 }
 
 /**
- * @Description fill an array containing min propensities for each amino
+ *   fill an array containing min propensities for each amino
  * @param   none
  * @return    changes the object internally (void)  
  */
@@ -505,7 +505,7 @@ void PhiPsi::pConstructMinPropensities() {
 }
 
 /**
- * @Description calculates the energy from the PhiPsi angles of an amino acid 
+ *   calculates the energy from the PhiPsi angles of an amino acid 
  * @param   code of the amino acid(AminoAcidCode), values for phi and psi(double,double)
  * @return  corresponding value (double)
  */

@@ -44,7 +44,7 @@ Bond::~Bond() {
 // PREDICATES
 
 /**
- *@Description  Returns reference to the i-th open in-bond atom.
+ *   Returns reference to the i-th open in-bond atom.
  *    NB: This is undefined (ie. returns error) for Bond, but is needed for
  *    later structures (AminoAcid, etc.).
  *@param unsigned int 
@@ -64,7 +64,7 @@ Bond::getOpenInBondRef(unsigned int n) const {
 }
 
 /**
- *@Description  Returns reference to the i-th open out-bond atom.
+ *   Returns reference to the i-th open out-bond atom.
  *    NB: This is undefined (ie. returns error) for Bond, but is needed for
  *    later structures (AminoAcid, etc.).
  *@param unsigned int
@@ -84,7 +84,7 @@ Bond::getOpenOutBondRef(unsigned int n) const {
 // MODIFIERS
 
 /**
- *@Description   In-going bond from this to c, from this' atom _this to c's _other atom. 
+ *    In-going bond from this to c, from this' atom _this to c's _other atom. 
  *@param  atom reference, bond reference, atom reference
  *@return    void
  */
@@ -108,7 +108,7 @@ void Bond::bindIn(Atom& _this, Bond& c, Atom& _other) {
 }
 
 /**
- *@Description   Out-going bond from this to c, from this' atom _this to c's _other atom. 
+ *    Out-going bond from this to c, from this' atom _this to c's _other atom. 
  *@param   atom reference, bond reference, atom reference
  *@return  void  
  */
@@ -132,7 +132,7 @@ Bond::bindOut(Atom& _this, Bond& c, Atom& _other) {
 }
 
 /**
- *@Description   Remove in-going bond from this to c. 
+ *    Remove in-going bond from this to c. 
  *@param     bond reference 
  *@return    void
  */
@@ -143,7 +143,7 @@ void Bond::unbindIn(Bond& c) {
 }
 
 /**
- *@Description   Remove out-going bond from this to c.
+ *    Remove out-going bond from this to c.
  *@param   bond reference 
  *@return    void
  */
@@ -155,7 +155,7 @@ void Bond::unbindOut(Bond& c) {
 
 
 /**
- *@Description    Private helper method for removing in-bonds. 
+ *     Private helper method for removing in-bonds. 
  *@param   bond reference , bool
  *@return    void
  */
@@ -191,7 +191,7 @@ void Bond::pUnbindIn(Bond& c, bool unbind) {
 }
 
 /**
- *@Description   Private helper method for removing out-bonds. 
+ *    Private helper method for removing out-bonds. 
  *@param   bond reference , bool
  *@return    void
  */
@@ -224,7 +224,7 @@ void Bond::pUnbindOut(Bond& c, bool unbind) {
 }
 
 /**
- *@Description   Copy operator. Attention: copy() strips orig from its bonds and  attaches them to the new bond. 
+ *    Copy operator. Attention: copy() strips orig from its bonds and  attaches them to the new bond. 
  *@param   bond reference 
  *@return    void
  */
