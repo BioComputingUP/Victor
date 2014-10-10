@@ -24,7 +24,7 @@ namespace Victor { namespace Align2{
     /** @brief  Implement Needleman-Wunsch global alignment.
      * 
      *   
-     * @This 
+
      **/
     class NWAlign : public Align {
     public:

@@ -32,7 +32,7 @@ namespace Victor { namespace Align2{
     // CONSTRUCTORS:
     /**
      * 
-     *@description 
+     * 
      * @param pro1
      * @param pro2
      */

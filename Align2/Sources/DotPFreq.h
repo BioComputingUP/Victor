@@ -38,7 +38,7 @@ namespace Victor { namespace Align2{
      *                  Alignment of protein sequences by their profiles.
      *                  Protein Sci. 2004 Apr;13(4):1071-87.
      *                  PMID: 15044736 [PubMed - indexed for MEDLINE]
-     * @This 
+
      **/
     class DotPFreq : public ScoringFunction {
     public:

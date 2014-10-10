@@ -29,7 +29,7 @@ namespace Victor { namespace Align2{
      *                  threading and PHD.
      * 
      *   
-     * @This 
+
      **/
     class ThreadingProf : public Structure {
     public:

@@ -29,7 +29,7 @@ namespace Victor { namespace Align2{
     /** @brief   Implement I/O objects for handling PSI-PRED files.
      * 
      *   
-     * @This 
+
      **/
     class Ss2Input {
     public:

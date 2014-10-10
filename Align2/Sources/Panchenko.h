@@ -33,7 +33,7 @@ namespace Victor { namespace Align2{
      *                  Finding weak similarities between proteins by sequence
      *                  profile comparison.
      *                  Nucleic Acids Res. 2003 Jan 15;31(2):683-9.
-     * @This 
+
      **/
     class Panchenko : public ScoringFunction {
     public:

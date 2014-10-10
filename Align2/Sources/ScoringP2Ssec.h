@@ -28,7 +28,6 @@ namespace Victor { namespace Align2{
      *                  secondary structure.
      * 
      *   
-     * @This 
      **/
 
     class ScoringP2Ssec : public ScoringScheme {

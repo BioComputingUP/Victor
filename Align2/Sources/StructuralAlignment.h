@@ -35,7 +35,7 @@ namespace Victor { namespace Align2{
 /** @brief   Class for structural alignments.
      * 
      *   
-     * @This 
+
      **/
     struct EData {
 

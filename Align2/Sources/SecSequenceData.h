@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
      *                  structure.
      * 
      *   
-     * @This 
+
      **/
     class SecSequenceData : public AlignmentData {
     public:

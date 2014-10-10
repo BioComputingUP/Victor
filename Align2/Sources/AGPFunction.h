@@ -22,8 +22,6 @@ namespace Victor { namespace Align2{
 
     /** @brief Implement AGP (Affine Gap Penalty) function.
      * 
-     *   
-     * @This 
      **/
     class AGPFunction : public GapFunction {
     public:

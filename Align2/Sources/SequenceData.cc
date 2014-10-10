@@ -170,7 +170,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
 /**
- * @description
+ * 
  * @param orig
  */
     void

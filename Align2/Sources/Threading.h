@@ -28,7 +28,7 @@ namespace Victor { namespace Align2{
      *                  threading.
      * 
      *   
-     * @This 
+
      **/
     class Threading : public Structure {
     public:

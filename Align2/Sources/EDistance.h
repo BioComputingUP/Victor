@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
      *                  euclidean distance.
      * 
      *   
-     * @This 
+
      **/
     class EDistance : public ScoringFunction {
     public:

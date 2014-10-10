@@ -22,101 +22,94 @@
 
 #include <ScoringP2Ssec.h>
 
-namespace Victor { namespace Align2{
+using namespace Victor::Align2;
+namespace Victor {
+    namespace Align2 {
 
-    // CONSTRUCTORS:
-    /**
-    * @description*/
-    ScoringP2Ssec::ScoringP2Ssec(Blosum* sub, Blosum* sec,
-            AlignmentData *a, Profile* f) : ScoringScheme(sub, a), secstr(sec),
-    seq1(a->getSequence(1)), seq2(a->getSequence(2)), profile(f),
-    sec1(a->getSequence(3)), sec2(a->getSequence(4)) {
-        //check secondary sctructure
-        if ((sec1.size() != seq1.size()) || (sec2.size() != seq2.size())
-                || (!checkSequence(sec1)) || (!checkSequence(sec2))) {
-            cout << "Illegal sequence: " << sec1
-                    << " " << sec2 << " " << sub->getResidues();
-            ERROR("Error checking sequence.", exception);
+        // CONSTRUCTORS:
+
+        ScoringP2Ssec::ScoringP2Ssec(Blosum* sub, Blosum* sec, AlignmentData *a, Profile* f) : ScoringScheme(sub, a), secstr(sec),
+        seq1(a->getSequence(1)), seq2(a->getSequence(2)), profile(f),
+        sec1(a->getSequence(3)), sec2(a->getSequence(4)) {
+            //check secondary sctructure
+            if ((sec1.size() != seq1.size()) || (sec2.size() != seq2.size())
+                    || (!checkSequence(sec1)) || (!checkSequence(sec2))) {
+                cout << "Illegal sequence: " << sec1
+                        << " " << sec2 << " " << sub->getResidues();
+                ERROR("Error checking sequence.", exception);
+            }
         }
-    }
-    /**
-    * @description*/
-    ScoringP2Ssec::ScoringP2Ssec(const ScoringP2Ssec& orig) : ScoringScheme(orig),
-    profile(orig.profile) {
-        copy(orig);
-    }
 
-    ScoringP2Ssec::~ScoringP2Ssec() {
-    }
-
-
-    // OPERATORS:
-    /**
-    * @description*/
-    ScoringP2Ssec& ScoringP2Ssec::operator =(const ScoringP2Ssec& orig) {
-        if (&orig != this) {
+        ScoringP2Ssec::ScoringP2Ssec(const ScoringP2Ssec& orig) : ScoringScheme(orig),
+        profile(orig.profile) {
             copy(orig);
         }
-        return *this;
-    }
 
-
-    // PREDICATES:
-    /**
-    * @description*/
-    double
-    ScoringP2Ssec::scoring(int i, int j) {
-        double s = 0.00;
-
-        for (AminoAcidCode Amino = ALA; Amino < TYR; Amino++) {
-            char aminoacid = aminoAcidOneLetterTranslator(Amino);
-            s += (sub->score[seq2[j - 1]][aminoacid])
-                    * (profile->getAminoFrequencyFromCode(Amino, (i - 1)));
+        ScoringP2Ssec::~ScoringP2Ssec() {
         }
-        s += secstr->score[sec1[i - 1]][sec2[j - 1]];
 
-        return s;
+
+        // OPERATORS:
+
+        ScoringP2Ssec& ScoringP2Ssec::operator =(const ScoringP2Ssec& orig) {
+            if (&orig != this) {
+                copy(orig);
+            }
+            return *this;
+        }
+
+
+        // PREDICATES:
+
+        double
+        ScoringP2Ssec::scoring(int i, int j) {
+            double s = 0.00;
+
+            for (AminoAcidCode Amino = ALA; Amino < TYR; Amino++) {
+                char aminoacid = aminoAcidOneLetterTranslator(Amino);
+                s += (sub->score[seq2[j - 1]][aminoacid])
+                        * (profile->getAminoFrequencyFromCode(Amino, (i - 1)));
+            }
+            s += secstr->score[sec1[i - 1]][sec2[j - 1]];
+
+            return s;
+        }
+
+        // MODIFIERS:
+
+        void
+        ScoringP2Ssec::copy(const ScoringP2Ssec& orig) {
+            ScoringScheme::copy(orig);
+
+            profile = orig.profile->newCopy();
+            secstr = orig.secstr;
+            seq1 = orig.seq1;
+            seq2 = orig.seq2;
+            sec1 = orig.sec1;
+            sec2 = orig.sec2;
+        }
+
+        ScoringP2Ssec*
+        ScoringP2Ssec::newCopy() {
+            ScoringP2Ssec* tmp = new ScoringP2Ssec(*this);
+            return tmp;
+        }
+
+        void
+        ScoringP2Ssec::reverse() {
+            string tmp = "";
+            for (unsigned int i = seq2.length(); i > 0; i--)
+                tmp.push_back(seq2[i - 1]);
+            seq2 = tmp;
+
+            string tmpS = "";
+            for (unsigned int i = sec2.length(); i > 0; i--)
+                tmpS.push_back(sec2[i - 1]);
+            sec2 = tmpS;
+        }
+
     }
-
-    // MODIFIERS:
-    /**
-     *@description*/
-    void
-    ScoringP2Ssec::copy(const ScoringP2Ssec& orig) {
-        ScoringScheme::copy(orig);
-
-        profile = orig.profile->newCopy();
-        secstr = orig.secstr;
-        seq1 = orig.seq1;
-        seq2 = orig.seq2;
-        sec1 = orig.sec1;
-        sec2 = orig.sec2;
-    }
-    /**
-    * @description
-     */
-    ScoringP2Ssec*
-    ScoringP2Ssec::newCopy() {
-        ScoringP2Ssec* tmp = new ScoringP2Ssec(*this);
-        return tmp;
-    }
-    /**
-    * @description
-     */
-    void
-    ScoringP2Ssec::reverse() {
-        string tmp = "";
-        for (unsigned int i = seq2.length(); i > 0; i--)
-            tmp.push_back(seq2[i - 1]);
-        seq2 = tmp;
-
-        string tmpS = "";
-        for (unsigned int i = sec2.length(); i > 0; i--)
-            tmpS.push_back(sec2[i - 1]);
-        sec2 = tmpS;
-    }
-
-}} // namespace
+} // namespace
 
 
 

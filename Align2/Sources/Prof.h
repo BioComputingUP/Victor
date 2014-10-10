@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
     /** @brief   Calculate structural scores with info derived from PHD.
      * 
      *   
-     * @This 
+
      **/
     class Prof : public Structure {
     public:

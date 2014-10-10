@@ -44,7 +44,6 @@ namespace Victor { namespace Align2{
      *    originally based
      *                  on the Java implementation from Peter Sestoft.
      *                  http://www.dina.dk/~sestoft
-     * @This 
      **/
     class Align {
     public:

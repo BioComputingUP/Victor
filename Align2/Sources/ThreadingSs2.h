@@ -29,7 +29,7 @@ namespace Victor { namespace Align2{
      *                  threading and PSI-PRED.
      * 
      *   
-     * @This 
+
      **/
     class ThreadingSs2 : public Structure {
     public:

@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
      *                  structure.
      * 
      *   
-     * @This 
+
      **/
     class Sec : public Structure {
     public:
