@@ -228,7 +228,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
 /**
- * @Description Copy orig object to this object ("deep copy").
+ * Copy orig object to this object ("deep copy").
  * @param orig
  */
     void
@@ -269,7 +269,7 @@ namespace Victor { namespace Align2{
         penaltyAdd = orig.penaltyAdd;
     }
 /**
- * @Description Recalculate the alignment matrix.
+ * Recalculate the alignment matrix.
  */
      void
     Align::recalculateMatrix() {

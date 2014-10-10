@@ -69,7 +69,7 @@ namespace Victor { namespace Align2{
         output << t << endl;
     }
 /**
- * @description Save as MSAF (Mannheim Sequence Alignment Format) like output.
+ * Save as MSAF (Mannheim Sequence Alignment Format) like output.
  * @param output
  */
     void
@@ -80,7 +80,7 @@ namespace Victor { namespace Align2{
                 output);
     }
 /**
- * @description Save as FASTA like output.
+ * Save as FASTA like output.
  * @param output
  */
     void
@@ -96,7 +96,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
 /**
- * @description Swap templates index1 and index2.
+ * Swap templates index1 and index2.
  * @param index1
  * @param index2
  */
@@ -128,7 +128,7 @@ namespace Victor { namespace Align2{
         evalue[index] = val;
     }
 /**
- * @description  Remove all templates below index.
+ *  Remove all templates below index.
  * @param index
  */
     void
@@ -138,7 +138,7 @@ namespace Victor { namespace Align2{
         evalue.resize(index);
     }
 /**
- * @description Output of alignment including headers of the 2 sequences.
+ * Output of alignment including headers of the 2 sequences.
  * @param os
  * @param headerTarget
  * @param startTarget
@@ -189,7 +189,7 @@ namespace Victor { namespace Align2{
         return t2;
     }
 /**
- * @description Read FASTA format input.
+ * Read FASTA format input.
  * @param input
  */
     void
@@ -282,7 +282,6 @@ namespace Victor { namespace Align2{
             ERROR("Abnormal input file end.", exception);
     }
 /**
- * @description Read output of CE program.
  * @param input
  */
     void
