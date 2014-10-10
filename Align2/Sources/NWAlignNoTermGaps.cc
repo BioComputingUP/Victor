@@ -22,21 +22,36 @@
 
 #include <NWAlignNoTermGaps.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param ad
+     * @param gf
+     * @param ss
+     */
     NWAlignNoTermGaps::NWAlignNoTermGaps(AlignmentData *ad, GapFunction *gf,
             ScoringScheme *ss) : Align(ad, gf, ss) {
         pCalculateMatrix(true);
     }
-
+    /**
+     * @description
+     * @param ad
+     * @param gf
+     * @param ss
+     * @param v1
+     * @param v2
+     */
     NWAlignNoTermGaps::NWAlignNoTermGaps(AlignmentData *ad, GapFunction *gf,
             ScoringScheme *ss, const vector<unsigned int> &v1,
             const vector<unsigned int> &v2) : Align(ad, gf, ss) {
         pCalculateMatrix(v1, v2, true);
     }
-
+    /**
+     * @description
+     * @param orig
+     */
     NWAlignNoTermGaps::NWAlignNoTermGaps(const NWAlignNoTermGaps &orig)
     : Align(orig) {
     }
@@ -46,7 +61,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     NWAlignNoTermGaps&
             NWAlignNoTermGaps::operator =(const NWAlignNoTermGaps &orig) {
         if (&orig != this)
@@ -57,7 +76,9 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     */
     void
     NWAlignNoTermGaps::getMultiMatch() {
         Traceback tb = B0;
@@ -80,7 +101,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     NWAlignNoTermGaps::copy(const NWAlignNoTermGaps &orig) {
         Align::copy(orig);
@@ -94,7 +118,10 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param update
+     */
     void
     NWAlignNoTermGaps::pCalculateMatrix(bool update) {
         if (update)
@@ -158,7 +185,12 @@ namespace Biopool {
 
 
     // SSEA variant
-
+    /**
+     * @description
+     * @param v1
+     * @param v2
+     * @param update
+     */
     void
     NWAlignNoTermGaps::pCalculateMatrix(const vector<unsigned int> &v1,
             const vector<unsigned int> &v2, bool update) {
@@ -234,4 +266,4 @@ namespace Biopool {
         B0 = Traceback(n, m);
     }
 
-} // namespace
+}} // namespace

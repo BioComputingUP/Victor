@@ -29,7 +29,7 @@
 #include <vector>
 #include <Debug.h>
 
-namespace Biopool {
+namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
@@ -117,6 +117,6 @@ namespace Biopool {
         return tmp - 6;
     }
 
-} // namespace
+}} // namespace
 
 #endif //_RAMACHANDRANDATA_H_

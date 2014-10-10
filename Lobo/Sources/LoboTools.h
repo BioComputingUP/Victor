@@ -27,7 +27,8 @@
 #include <PdbLoader.h>
 #include <PdbSaver.h>
 #include <iostream>
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Lobo;
 
 bool silent = false;
 

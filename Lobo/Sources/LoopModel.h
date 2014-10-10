@@ -32,7 +32,7 @@
 #include <PhiPsi.h>
 #include <ctype.h>
 
-namespace Biopool {
+namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
@@ -327,7 +327,7 @@ namespace Biopool {
         return tmp;
     }
 
-} // namespace
+}} // namespace
 
 #endif //_LOOPMODEL_H_
 

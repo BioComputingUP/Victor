@@ -20,7 +20,7 @@
 
 #include <Ss2Input.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -48,13 +48,23 @@ namespace Biopool {
         POSTCOND((orig == *this), exception);
         return *this;
     }
-
+    /**
+     * @description
+     * @param os
+     * @param object
+     * @return 
+     */
     ostream&
     operator <<(ostream &os, const Ss2Input &object) {
         Ss2Input::pWriteDoubleVector(os, object.residuescores);
         return os;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param object
+     * @return 
+     */
     istream&
     operator >>(istream &is, Ss2Input &object) {
         for (int i = 0; i < 8; i++) // all the first 9 words are just piped in a string variable
@@ -69,7 +79,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Ss2Input::copy(const Ss2Input &orig) {
         residuescores.clear();
@@ -80,7 +93,10 @@ namespace Biopool {
             residuescores.push_back(tmp);
         }
     }
-
+    /**
+     * @description
+     * @return 
+     */
     Ss2Input*
     Ss2Input::newCopy() {
         Ss2Input *tmp = new Ss2Input(*this);
@@ -89,7 +105,11 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param os
+     * @param data
+     */
     template<class T> void
     Ss2Input::pWriteDoubleVector(ostream &os, vector< vector<T> > data) {
         for (unsigned int i = 0; i < data.size(); i++) {
@@ -99,7 +119,11 @@ namespace Biopool {
         }
         os << endl;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param data
+     */
     template<class T> void
     Ss2Input::pReadDoubleVector(istream &is, vector< vector<T> > &data) {
         int tmp = -5; // setup to a funcy number; check if we have this numer
@@ -136,4 +160,4 @@ namespace Biopool {
     template void
     Ss2Input::pReadDoubleVector(istream &is, vector< vector<double> > &data);
 
-} // namespace
+}} // namespace

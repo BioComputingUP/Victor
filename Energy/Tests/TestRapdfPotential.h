@@ -15,7 +15,7 @@
 #include <RapdfPotential.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor;
 
 class TestRapdfPotential : public CppUnit::TestFixture {
 private:

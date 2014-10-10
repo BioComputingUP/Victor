@@ -21,10 +21,19 @@
 
 #include <ScoringP2P.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param sub
+     * @param ad
+     * @param str
+     * @param pro1
+     * @param pro2
+     * @param fun
+     * @param cSeq
+     */
     ScoringP2P::ScoringP2P(SubMatrix *sub, AlignmentData *ad, Structure *str,
             Profile *pro1, Profile *pro2, ScoringFunction *fun, double cSeq)
     : ScoringScheme(sub, ad, str), seq1(ad->getSequence(1)),
@@ -41,7 +50,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     ScoringP2P&
             ScoringP2P::operator =(const ScoringP2P &orig) {
         if (&orig != this)
@@ -52,7 +65,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     ScoringP2P::scoring(int i, int j) {
         double s = cSeq * fun->scoringSeq(i, j);
@@ -63,7 +81,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ScoringP2P::copy(const ScoringP2P &orig) {
         ScoringScheme::copy(orig);
@@ -74,7 +95,10 @@ namespace Biopool {
         fun = orig.fun->newCopy();
         cSeq = orig.cSeq;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     ScoringP2P*
     ScoringP2P::newCopy() {
         ScoringP2P *tmp = new ScoringP2P(*this);
@@ -93,4 +117,4 @@ namespace Biopool {
         pro2->reverse();
     }
 
-} // namespace
+}} // namespace

@@ -20,7 +20,7 @@
 #include <PdbLoader.h>
 #include <PdbSaver.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 void sShowHelp() {
     cout << "PDB Shifter\n"

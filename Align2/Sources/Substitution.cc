@@ -23,7 +23,7 @@
 
 #include <Substitution.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -39,7 +39,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     Substitution&
             Substitution::operator =(const Substitution &orig) {
         if (&orig != this)
@@ -47,7 +51,12 @@ namespace Biopool {
         POSTCOND((orig == *this), exception);
         return *this;
     }
-
+    /**
+     * @description
+     * @param os
+     * @param object
+     * @return 
+     */
     ostream&
     operator <<(ostream &os, const Substitution &object) {
         Substitution::pWriteDoubleVector(os, object.score);
@@ -62,7 +71,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Substitution::copy(const Substitution &orig) {
         score.clear();
@@ -75,7 +87,11 @@ namespace Biopool {
             score.push_back(tmp);
         }
     }
-
+    /**
+     * @description
+     * @param residues
+     * @param residuescores
+     */
     void
     Substitution::buildscore(const string &residues,
             const vector< vector<int> > &residuescores) {
@@ -101,7 +117,11 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param os
+     * @param data
+     */
     void Substitution::pWriteDoubleVector(ostream &os, vector< vector<int> > data) {
         os << data.size() << endl;
 
@@ -114,7 +134,11 @@ namespace Biopool {
 
         os << "\n";
     }
-
+    /**
+     * @description
+     * @param is
+     * @param data
+     */
     template<class T> void
     Substitution::pReadDoubleVector(istream &is, vector< vector<T> > &data) {
         unsigned int size1;
@@ -145,4 +169,4 @@ namespace Biopool {
     template void
     Substitution::pReadDoubleVector(istream &is, vector< vector<double> > &data);
 
-} // namespace
+}} // namespace

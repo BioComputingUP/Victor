@@ -29,7 +29,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Save components (Atoms, Groups, etc.) in relative format 
      * 
@@ -69,5 +69,5 @@ namespace Biopool {
         int offset; // ID offset for saving (optional) -- currently disabled
     };
 
-} // namespace
+}} //namespace
 #endif //_REL_SAVER_H_

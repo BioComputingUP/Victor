@@ -29,7 +29,7 @@
 #include <IntCoordConverter.h>
 #include <VectorTransformation.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 void sShowHelp() {
     LoopModel lm;

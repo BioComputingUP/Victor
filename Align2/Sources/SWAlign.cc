@@ -23,10 +23,15 @@
 #include <SWAlign.h>
 #include <limits.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param ad
+     * @param gf
+     * @param ss
+     */
     SWAlign::SWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss)
     : Align(ad, gf, ss) {
         pCalculateMatrix(true);
@@ -57,7 +62,9 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     */
     void
     SWAlign::getMultiMatch() {
         Traceback tb = B0;
@@ -85,7 +92,10 @@ namespace Biopool {
     SWAlign::copy(const SWAlign &orig) {
         Align::copy(orig);
     }
-
+    /**
+     * @description
+     * @return 
+     */
     SWAlign*
     SWAlign::newCopy() {
         SWAlign *tmp = new SWAlign(*this);
@@ -94,7 +104,10 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param update
+     */
     void
     SWAlign::pCalculateMatrix(bool update) {
         int maxi = n;
@@ -159,7 +172,12 @@ namespace Biopool {
 
 
     // SSEA variant
-
+    /**
+     * @description
+     * @param v1
+     * @param v2
+     * @param update
+     */
     void
     SWAlign::pCalculateMatrix(const vector<unsigned int> &v1,
             const vector<unsigned int> &v2, bool update) {
@@ -236,4 +254,4 @@ namespace Biopool {
             }
     }
 
-} // namespace
+}} // namespace

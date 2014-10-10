@@ -18,7 +18,7 @@
 
 #include <GapFunction.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief Implement AGP (Affine Gap Penalty) function.
      * 
@@ -147,6 +147,6 @@ namespace Biopool {
         e = pen;
     }
 
-} // namespace
+}} // namespace
 
 #endif

@@ -22,10 +22,10 @@
 
 #include <PssmInput.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    
     PssmInput::PssmInput() {
     }
 
@@ -42,7 +42,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     PssmInput&
             PssmInput::operator =(const PssmInput &orig) {
         if (&orig != this)
@@ -50,15 +54,25 @@ namespace Biopool {
         POSTCOND((orig == *this), exception);
         return *this;
     }
-
+    /**
+     * @description
+     * @param os
+     * @param object
+     * @return 
+     */
     ostream&
     operator <<(ostream &os, const PssmInput &object) {
         PssmInput::pWriteDoubleVector(os, object.residuescores, object.allPosition,
                 object.allAa);
         return os;
     }
-
-    istream&
+    /**
+     * @description
+     * @param is
+     * @param object
+     * @return 
+     */
+    istream&    
     operator >>(istream &is, PssmInput &object) {
         PssmInput::pReadDoubleVector(is, object.residuescores, object.allPosition,
                 object.allAa);
@@ -67,7 +81,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     PssmInput::copy(const PssmInput &orig) {
         residuescores.clear();
@@ -89,8 +106,11 @@ namespace Biopool {
                 tmp.push_back(orig.residuescores[i][j]);
             residuescores.push_back(tmp);
         }
-    }
-
+    }   
+    /**
+     * @description
+     * @return 
+     */
     PssmInput*
     PssmInput::newCopy() {
         PssmInput *tmp = new PssmInput(*this);
@@ -99,7 +119,13 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param os
+     * @param data
+     * @param data1
+     * @param data2
+     */
     template<class T> void
     PssmInput::pWriteDoubleVector(ostream &os, vector< vector<T> > data,
             vector<string> data1, vector<string> data2) {
@@ -112,7 +138,13 @@ namespace Biopool {
         }
         os << endl;
     }
-
+    /**
+     * @description
+     * @param is
+     * @param data
+     * @param data1
+     * @param data2
+     */
     template<class T> void
     PssmInput::pReadDoubleVector(istream &is, vector< vector<T> > &data,
             vector<string> &data1, vector<string> &data2) {
@@ -146,7 +178,6 @@ namespace Biopool {
         }
     }
 
-
     template void
     PssmInput::pReadDoubleVector(istream &is, vector< vector<int> > &data,
             vector<string> &data1, vector<string> &data2);
@@ -156,4 +187,4 @@ namespace Biopool {
     PssmInput::pReadDoubleVector(istream &is, vector< vector<double> > &data,
             vector<string> &data1, vector<string> &data2);
 
-} // namespace
+}} // namespace

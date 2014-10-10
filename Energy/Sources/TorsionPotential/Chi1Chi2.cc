@@ -18,7 +18,7 @@
 // Includes:
 #include <Chi1Chi2.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 
 // CONSTRUCTORS/DESTRUCTOR:

@@ -27,7 +27,9 @@
 #include <VectorTransformation.h>
 
 #include <LoboTools.h>
-
+using namespace Victor;
+using namespace Victor::Lobo; 
+using namespace Victor::Biopool;
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv)) {
         showLoboHelp();

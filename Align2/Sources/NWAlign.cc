@@ -22,15 +22,27 @@
 
 #include <NWAlign.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param ad
+     * @param gf
+     * @param ss
+     */
     NWAlign::NWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss)
     : Align(ad, gf, ss) {
         pCalculateMatrix(true);
     }
-
+    /**
+     * @description
+     * @param ad
+     * @param gf
+     * @param ss
+     * @param v1
+     * @param v2
+     */
     NWAlign::NWAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss,
             const vector<unsigned int> &v1, const vector<unsigned int> &v2)
     : Align(ad, gf, ss) {
@@ -45,7 +57,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     NWAlign&
             NWAlign::operator =(const NWAlign &orig) {
         if (&orig != this)
@@ -56,7 +72,9 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     */
     void
     NWAlign::getMultiMatch() {
         Traceback tb = B0;
@@ -84,7 +102,10 @@ namespace Biopool {
     NWAlign::copy(const NWAlign &orig) {
         Align::copy(orig);
     }
-
+    /**
+     * @description
+     * @return 
+     */
     NWAlign*
     NWAlign::newCopy() {
         NWAlign *tmp = new NWAlign(*this);
@@ -93,7 +114,10 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param update
+     */
     void
     NWAlign::pCalculateMatrix(bool update) {
         if (update)
@@ -159,7 +183,12 @@ namespace Biopool {
 
 
     // SSEA variant
-
+    /**
+     * @description
+     * @param v1
+     * @param v2
+     * @param update
+     */
     void
     NWAlign::pCalculateMatrix(const vector<unsigned int> &v1,
             const vector<unsigned int> &v2, bool update) {
@@ -237,4 +266,4 @@ namespace Biopool {
         B0 = Traceback(n, m);
     }
 
-} // namespace
+}} // namespace

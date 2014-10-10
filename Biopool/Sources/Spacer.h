@@ -29,7 +29,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Implements a "Spacer" for a protein chain. Includes methods to obtain values from the atoms and its pdb information.
      * 
@@ -381,5 +381,5 @@ namespace Biopool {
 
     // OPERATORS:
 
-} // namespace
+}} //namespace
 #endif //_SPACER_H_

@@ -30,7 +30,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Loads components (Atoms, Groups, etc.) in internal format.
      * 
@@ -70,5 +70,5 @@ namespace Biopool {
         // unsigned int count;
     };
 
-} // namespace
+}} //namespace
 #endif //_INT_SAVER_H_

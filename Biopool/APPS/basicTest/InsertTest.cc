@@ -27,7 +27,7 @@
 #include <IntCoordConverter.h>
 #include <IntSaver.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 void sShowHelp()
 {

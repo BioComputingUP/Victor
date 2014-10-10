@@ -24,7 +24,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Implements methods to manage a polymer created by components.
      * 
@@ -142,7 +142,7 @@ namespace Biopool {
         return *components[n];
     }
 
-} // namespace
+}} //namespace
 #endif //_POLYMER_H_
 
 

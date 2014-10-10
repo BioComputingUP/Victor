@@ -21,8 +21,11 @@
 #include <Spacer.h>
 #include <cstring>
 
-using namespace Biopool;
+using namespace Victor;
 
+using namespace Victor::Biopool;
+
+using namespace Victor::Energy;
 // Global constants, typedefs, etc. (to avoid):
 
 

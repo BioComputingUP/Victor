@@ -37,7 +37,7 @@
 /// Numeric approximation of equality for doubles.
 #define EQUALS(a, b)   (fabs(a - b) < EQ_EPS ? true : false)
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Pairwise sequence and profile alignment.
      * 
@@ -107,14 +107,14 @@ namespace Biopool {
         virtual vector<int> shiftMatchSubset(vector<int> inputVector,
                 int newStartPos);
 
-        /// Generate and output an ensemble of suboptimal alignments.
+        
         virtual void outputMultiMatch(ostream &os, unsigned int num = 10,
                 bool fasta = false);
 
-        /// Generate and return an ensemble of suboptimal alignments.
+        
         virtual vector<Alignment> generateMultiMatch(unsigned int num = 1);
 
-        /// Generate and return scores of an ensemble of suboptimal alignments.
+        
         virtual vector<double> generateMultiMatchScore(unsigned int num = 10);
 
         /// Output of alignment result.
@@ -127,19 +127,19 @@ namespace Biopool {
 
         // MODIFIERS:
 
-        /// Copy orig object to this object ("deep copy").
+        /// 
         virtual void copy(const Align &orig);
 
         /// Construct a new "deep copy" of this object.
         virtual Align* newCopy() = 0;
 
-        /// Set penalties for suboptimal alignments.
+        /// 
         void setPenalties(double mul, double add);
 
-        /// Modify matrix during suboptimal alignment generation.
+        ///
         void pModifyMatrix(int i, int j);
 
-        /// Recalculate the alignment matrix.
+        /// 
         virtual void recalculateMatrix();
 
 
@@ -213,18 +213,27 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
-    inline void
+    /**
+     * @Description Set penalties for suboptimal alignments.
+     * @param mul
+     * @param add
+     */
+    
+      inline void
     Align::setPenalties(double mul, double add) {
         penaltyMul = mul;
         penaltyAdd = add;
     }
-
+    /**
+     * @Description  Modify matrix during suboptimal alignment generation.
+     * @param i
+     * @param j
+     */
     inline void
     Align::pModifyMatrix(int i, int j) {
         F[i][j] = penaltyMul * F[i][j] - penaltyAdd;
     }
 
-} // namespace
+}} // namespace
 
 #endif

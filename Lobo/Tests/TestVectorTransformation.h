@@ -15,7 +15,7 @@
 #include <VectorTransformation.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor;
 
 class TestVectorTransformation : public CppUnit::TestFixture {
 private:

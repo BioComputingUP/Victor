@@ -49,8 +49,8 @@ all: install
 install: $(LIBRARY) $(TARGETS)
 	mv $(EXECS) $(UPDIR)/bin/
 	mv $(LIBRARY) $(UPDIR)/lib/ 
-	cp ./loboLUT_all.pl ./loboLUT_all
-	
+	cp loboLUT_all.pl loboLUT_all
+	cp loboAuto_all.pl loboAuto_all
 	
 
 #

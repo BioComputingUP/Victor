@@ -21,7 +21,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 
 // CONSTRUCTORS/DESTRUCTOR:
 

@@ -22,10 +22,19 @@
 
 #include <ThreadingProf.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param subStr
+     * @param ad
+     * @param thread
+     * @param phd1
+     * @param phd2
+     * @param cThr
+     * @param cPrf
+     */
     ThreadingProf::ThreadingProf(SubMatrix *subStr, AlignmentData *ad,
             ThreadingInput *thread, ProfInput *phd1, ProfInput *phd2, double cThr,
             double cPrf) : Structure(subStr), seq1(ad->getSequence(1)),
@@ -41,7 +50,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     ThreadingProf&
             ThreadingProf::operator =(const ThreadingProf &orig) {
         if (&orig != this)
@@ -52,7 +65,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     ThreadingProf::scoringStr(int i, int j) {
         //
@@ -96,7 +114,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     ThreadingProf::copy(const ThreadingProf &orig) {
         Structure::copy(orig);
@@ -114,4 +135,4 @@ namespace Biopool {
         return tmp;
     }
 
-} // namespace
+}} // namespace

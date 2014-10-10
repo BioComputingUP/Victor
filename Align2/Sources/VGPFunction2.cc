@@ -29,15 +29,26 @@
 
 #include <VGPFunction2.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param secFileName
+     */
     VGPFunction2::VGPFunction2(string secFileName) : o(14.00), e(1.00), extType(0),
     extCounter(0), wH(1.00), wS(1.00) {
         pExtractSecInfo(secFileName);
     }
-
+    /**
+     * @description
+     * @param secFileName
+     * @param o
+     * @param e
+     * @param extType
+     * @param wH
+     * @param wS
+     */
     VGPFunction2::VGPFunction2(string secFileName, double o, double e,
             unsigned int extType, double wH, double wS) : o(o), e(e), extType(extType),
     extCounter(0), wH(wH), wS(wS) {
@@ -53,7 +64,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     VGPFunction2&
             VGPFunction2::operator =(const VGPFunction2 &orig) {
         if (&orig != this)
@@ -64,7 +79,11 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param p
+     * @return 
+     */
     double
     VGPFunction2::getOpenPenalty(int p) {
         double penH = hContent[p - 1];
@@ -73,7 +92,11 @@ namespace Biopool {
         extCounter = 0;
         return o + wH * penH + wS * penS;
     }
-
+    /**
+     * @description
+     * @param p
+     * @return 
+     */
     double
     VGPFunction2::getExtensionPenalty(int p) {
         const double STEP1 = 10.00;
@@ -91,7 +114,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     VGPFunction2::copy(const VGPFunction2 &orig) {
         GapFunction::copy(orig);
@@ -110,7 +136,10 @@ namespace Biopool {
         wH = orig.wH;
         wS = orig.wS;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     VGPFunction2*
     VGPFunction2::newCopy() {
         VGPFunction2 *tmp = new VGPFunction2(*this);
@@ -119,7 +148,10 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param secFileName
+     */
     void
     VGPFunction2::pExtractSecInfo(string secFileName) {
         // --------------------------------------------------
@@ -166,4 +198,4 @@ namespace Biopool {
                 };
     }
 
-} // namespace
+}} // namespace

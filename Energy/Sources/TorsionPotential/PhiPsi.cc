@@ -17,7 +17,9 @@
 // Includes:
 #include <PhiPsi.h>
 
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
 
 /**
  * @Description  

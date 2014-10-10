@@ -31,15 +31,34 @@
 #include <VGPFunction.h>
 #include <SolvExpos.h>
 
-namespace Biopool {
+using namespace Victor;
+using namespace Victor::Biopool;
+
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param pdbFileName
+     * @param chainID
+     */
     VGPFunction::VGPFunction(string pdbFileName, string chainID) : o(14.00), e(1.00), extType(0),
     extCounter(0), wH(1.00), wS(1.00), wB(1.00), wC(1.00), wD(1.00) {
         pExtractPdbInfo(pdbFileName, chainID);
     }
-
+    /**
+     * @description
+     * @param pdbFileName
+     * @param chainID
+     * @param o
+     * @param e
+     * @param extType
+     * @param wH
+     * @param wS
+     * @param wB
+     * @param wC
+     * @param wD
+     */
     VGPFunction::VGPFunction(string pdbFileName, string chainID, double o, double e,
             unsigned int extType, double wH, double wS, double wB, double wC, double wD)
     : o(o), e(e), extType(extType), extCounter(0), wH(wH), wS(wS), wB(wB),
@@ -56,7 +75,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     VGPFunction&
             VGPFunction::operator =(const VGPFunction &orig) {
         if (&orig != this)
@@ -67,7 +90,11 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param p
+     * @return 
+     */
     double
     VGPFunction::getOpenPenalty(int p) {
         double penH = hContent[p - 1];
@@ -87,7 +114,11 @@ namespace Biopool {
         extCounter = 0;
         return o + wH * penH + wS * penS + wB * penB + wC * penC + wD * penD;
     }
-
+    /**
+     * @description
+     * @param p
+     * @return 
+     */
     double
     VGPFunction::getExtensionPenalty(int p) {
         const double STEP1 = 10.00;
@@ -105,7 +136,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     VGPFunction::copy(const VGPFunction &orig) {
         GapFunction::copy(orig);
@@ -148,7 +182,11 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param pdbFileName
+     * @param chainID
+     */
     void
     VGPFunction::pExtractPdbInfo(string pdbFileName, string chainID) {
         // --------------------------------------------------
@@ -275,4 +313,4 @@ namespace Biopool {
 
     }
 
-} // namespace
+}} // namespace

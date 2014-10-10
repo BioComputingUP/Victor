@@ -20,7 +20,7 @@
 
 #include <Substitution.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief     Implement a standard substitution matrix.
      * 
@@ -103,6 +103,6 @@ namespace Biopool {
         return residuescores.size();
     }
 
-} // namespace
+}} // namespace
 
 #endif

@@ -25,7 +25,7 @@
 const unsigned int MAX_BINS = 18;
 const unsigned int MAX_TYPES = 168;
 
-namespace Biopool {
+ namespace Victor { namespace Energy {
 
     /**
      * @brief Distance-dependent residue-specific all-atom probability discriminatory function.
@@ -101,5 +101,5 @@ namespace Biopool {
             return 0;
     }
 
-} // namespace
+}} // namespace
 #endif //_RAPDFPOTENTIAL_H_

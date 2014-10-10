@@ -17,8 +17,11 @@
 // Includes:
 #include <PolarSolvationPotential.h>
 
-using namespace Biopool;
+using namespace Victor;
 
+using namespace Victor::Biopool;
+
+using namespace Victor::Energy;
 // Global constants, typedefs, etc. (to avoid):
 unsigned int PolarSolvationPotential::MAX_BINS = 15;
 unsigned int PolarSolvationPotential::BIN_POLAR = 1;

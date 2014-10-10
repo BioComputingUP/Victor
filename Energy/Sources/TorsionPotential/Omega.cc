@@ -16,7 +16,9 @@
 
 // Includes:
 #include <Omega.h>
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
 // Global constants, typedefs, etc. (to avoid):
 // CONSTRUCTORS/DESTRUCTOR:
 

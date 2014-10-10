@@ -23,7 +23,7 @@
 #include <IntCoordConverter.h>
 #include <Visitor.h>
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**
      * @brief This class implements a side chain
@@ -219,6 +219,6 @@ namespace Biopool {
 
     // HELPERS:
 
-} // namespace
+}} //namespace
 #endif //_SIDECHAIN_H_
 

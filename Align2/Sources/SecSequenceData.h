@@ -20,7 +20,7 @@
 
 #include <AlignmentData.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Print alignment of two sequences considering also secondary
      *                  structure.
@@ -95,6 +95,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

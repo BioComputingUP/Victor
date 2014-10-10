@@ -19,7 +19,7 @@
 #include <XyzSaver.h>
 #include <vglMath.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 vg_ieee64 degreesToRadian(const vg_ieee64& deg)
 {

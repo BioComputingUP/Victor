@@ -22,7 +22,7 @@
 
 #include <Ss2.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -52,7 +52,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Ss2::scoringStr(int i, int j) {
         const string ss2_indices = "HEC";
@@ -85,7 +90,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Ss2::copy(const Ss2 &orig) {
         Structure::copy(orig);
@@ -95,13 +103,18 @@ namespace Biopool {
         psipred2 = orig.psipred2->newCopy();
         cSs2 = orig.cSs2;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     Ss2*
     Ss2::newCopy() {
         Ss2 *tmp = new Ss2(*this);
         return tmp;
     }
-
+    /**
+     * @description
+     */
     void
     Ss2::reverse() {
         string tmp = "";
@@ -110,4 +123,4 @@ namespace Biopool {
         sec2 = tmp;
     }
 
-} // namespace
+}} // namespace

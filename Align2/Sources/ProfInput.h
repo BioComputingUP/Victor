@@ -24,7 +24,7 @@
 #include <iostream>
 #include <string>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Implement I/O objects for handling PHD files.
      * 
@@ -130,6 +130,6 @@ namespace Biopool {
         return seq.size();
     }
 
-} // namespace
+}} // namespace
 
 #endif

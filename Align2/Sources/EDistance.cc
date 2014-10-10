@@ -23,18 +23,30 @@
 
 #include <EDistance.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param pro1
+     * @param pro2
+     */
     EDistance::EDistance(Profile *pro1, Profile *pro2) : ScoringFunction(),
     pro1(pro1), pro2(pro2), offset(1.00) {
     }
-
+    /**
+     * @description 
+     * @param pro1
+     * @param pro2
+     * @param offset
+     */
     EDistance::EDistance(Profile *pro1, Profile *pro2, double offset)
     : ScoringFunction(), pro1(pro1), pro2(pro2), offset(offset) {
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     EDistance::EDistance(const EDistance &orig) : ScoringFunction(orig) {
         copy(orig);
     }
@@ -44,7 +56,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     EDistance&
             EDistance::operator =(const EDistance &orig) {
         if (&orig != this)
@@ -55,7 +71,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     EDistance::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -76,7 +97,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     EDistance::copy(const EDistance &orig) {
         ScoringFunction::copy(orig);
@@ -84,11 +108,14 @@ namespace Biopool {
         pro2 = orig.pro2->newCopy();
         offset = orig.offset;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     EDistance*
     EDistance::newCopy() {
         EDistance *tmp = new EDistance(*this);
         return tmp;
     }
 
-} // namespace
+}} // namespace

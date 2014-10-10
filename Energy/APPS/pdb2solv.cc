@@ -22,8 +22,10 @@
 #include <SolvationPotential.h>
 #include <PolarSolvationPotential.h>
 
-using namespace Biopool;
+using namespace Victor;
 
+using namespace Victor::Energy;
+using namespace Victor::Biopool;
 void sShowHelp(){
   cout << "Pdb to Solvation Energy\n"
        << " Options: \n"

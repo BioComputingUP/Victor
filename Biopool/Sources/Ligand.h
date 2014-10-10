@@ -29,7 +29,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Implements methods to verify the ligand properties
      * 
@@ -109,6 +109,6 @@ namespace Biopool {
     }
 
 
-} // namespace
+}} //namespace
 #endif //_Ligand_H_
 

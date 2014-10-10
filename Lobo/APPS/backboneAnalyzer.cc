@@ -28,8 +28,8 @@
 #include <IntCoordConverter.h>
 #include <IntSaver.h>
 #include <StatTools.h>
-
-using namespace Biopool;
+using namespace Victor; 
+using namespace Victor::Biopool;
 
 void sShowHelp() {
     cout << "Backbone Analyzer\n"

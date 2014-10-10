@@ -30,7 +30,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
    
     class SeqSaver : public Saver {
@@ -64,5 +64,5 @@ namespace Biopool {
         bool writeChi; // switch: write chi angles?
     };
 
-} // namespace
+}} //namespace
 #endif //_SEQ_SAVER_H_

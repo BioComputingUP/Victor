@@ -25,7 +25,7 @@
 #include <String2Number.h>
 #include <globalStatistic.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 void sShowHelp() {
     cout << "createLoopTestset\n"

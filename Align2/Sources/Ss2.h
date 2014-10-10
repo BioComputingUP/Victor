@@ -22,7 +22,7 @@
 #include <Structure.h>
 #include <Ss2Input.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief Calculate structural scores with info derived from PSI-PRED.  
      * 
@@ -84,6 +84,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

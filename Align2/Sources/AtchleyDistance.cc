@@ -27,20 +27,32 @@
 
 #include <AtchleyDistance.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description 
+     * @param pro1
+     * @param pro2
+     */
     AtchleyDistance::AtchleyDistance(Profile *pro1, Profile *pro2)
     : ScoringFunction(), pro1(pro1), pro2(pro2), offset(5.00) {
         pLoadFactor();
     }
-
+    /**
+     * 
+     * @param pro1
+     * @param pro2
+     * @param offset
+     */
     AtchleyDistance::AtchleyDistance(Profile *pro1, Profile *pro2, double offset)
     : ScoringFunction(), pro1(pro1), pro2(pro2), offset(offset) {
         pLoadFactor();
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     AtchleyDistance::AtchleyDistance(const AtchleyDistance &orig)
     : ScoringFunction(orig) {
         copy(orig);
@@ -51,7 +63,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * 
+     * @param orig
+     * @return 
+     */
     AtchleyDistance&
             AtchleyDistance::operator =(const AtchleyDistance &orig) {
         if (&orig != this)
@@ -62,7 +78,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     AtchleyDistance::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -104,7 +125,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     AtchleyDistance::copy(const AtchleyDistance &orig) {
         ScoringFunction::copy(orig);
@@ -119,7 +143,10 @@ namespace Biopool {
                 cout << factor[k][z] << " ";
             }
     }
-
+    /**
+     * @description 
+     * @return 
+     */
     AtchleyDistance*
     AtchleyDistance::newCopy() {
         AtchleyDistance *tmp = new AtchleyDistance(*this);
@@ -128,7 +155,9 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description 
+     */
     void
     AtchleyDistance::pLoadFactor() {
         string path = getenv("VICTOR_ROOT");
@@ -149,4 +178,4 @@ namespace Biopool {
             }
     }
 
-} // namespace
+}} // namespace

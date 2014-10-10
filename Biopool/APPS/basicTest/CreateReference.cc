@@ -28,7 +28,7 @@
 #include <IntSaver.h>
 #include <RelSaver.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 int main() {
     cout << "Create Reference \n   $Revision: 1.2 $:\n";

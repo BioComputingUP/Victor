@@ -28,7 +28,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**
      * @brief Loads components (Atoms, Groups, etc.) in XYZ (carthesian) format.
@@ -69,5 +69,5 @@ namespace Biopool {
         istream& input; // input stream
         bool connect; // are segments to be connected to each other?
     };
-} // namespace
+}} //namespace
 #endif //_XYZ_LOADER_H_

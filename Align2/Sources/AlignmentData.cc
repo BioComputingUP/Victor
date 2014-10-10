@@ -21,14 +21,22 @@
 
 #include <AlignmentData.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description 
+     * @param n
+     * @param _n1
+     * @param _n2
+     */
     AlignmentData::AlignmentData(int n, const string &_n1, const string &_n2)
     : match(n), n(n), name1(_n1), name2(_n2) {
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     AlignmentData::AlignmentData(const AlignmentData &orig) {
         copy(orig);
     }
@@ -38,7 +46,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     AlignmentData&
             AlignmentData::operator =(const AlignmentData &orig) {
         if (&orig != this)
@@ -49,7 +61,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param a
+     * @param b
+     * @return 
+     */
     bool
     AlignmentData::similar(char a, char b) {
         // polar
@@ -95,7 +112,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     AlignmentData::copy(const AlignmentData &orig) {
         match.clear();
@@ -107,4 +127,4 @@ namespace Biopool {
         name2 = orig.name2;
     }
 
-} // namespace
+}} // namespace

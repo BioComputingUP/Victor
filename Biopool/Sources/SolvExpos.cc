@@ -15,8 +15,8 @@
  */
 
 #include <SolvExpos.h>
-using namespace Biopool;
 
+using namespace Victor; using namespace Victor::Biopool;
 
 SolvExpos::SolvExpos(){
 }
@@ -31,7 +31,9 @@ SolvExpos::~SolvExpos(){
  *@return the representative atom of that residue as to solvent exposure. Such atom
  *    is CA for Glycine and CB for all other amino acid types.
  */
+
 Atom& SolvExpos::getReprAtom(AminoAcid &amino) {
+
     if (amino.getCode() == XXX) throw "errore amino type XXX\n";
 
     // Glycine
@@ -67,7 +69,9 @@ Atom& SolvExpos::getReprAtom(AminoAcid &amino) {
     residue.
  */
 
+
 unsigned int SolvExpos::getNumNeighbours(Spacer &chain, const unsigned int tgt,
+
         const unsigned int start, const unsigned int end) {
     const double CUTOFF = 10; // Angstrom
 

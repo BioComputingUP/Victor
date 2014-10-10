@@ -22,7 +22,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     class Group;
     class SideChain;
@@ -87,5 +87,5 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} //namespace
 #endif //_SAVER_H_

@@ -22,7 +22,8 @@
 #include <GetArg.h>
 #include <VectorTransformation.h>
 
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Lobo;
 
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv)) {

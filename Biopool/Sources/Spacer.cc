@@ -28,7 +28,7 @@
 #include <cassert>
 using namespace std;
 
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 
 // Global constants, typedefs, etc. (to avoid):
 double Spacer::BOND_ANGLE_AT_CPRIME_TO_N = 116.4;

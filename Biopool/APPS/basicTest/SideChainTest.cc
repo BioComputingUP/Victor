@@ -21,7 +21,7 @@
 #include <SideChainConstructor.h>
 #include <GetArg.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 int main(int nArgs, char* argv[])
 { 

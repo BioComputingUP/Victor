@@ -21,23 +21,38 @@
 
 #include <FSAlign.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description 
+     * @param ad
+     * @param gf
+     * @param ss
+     */
     FSAlign::FSAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss)
     : Align(ad, gf, ss) {
         cout << "inizio creazione FSAlign\n";
         pCalculateMatrix(true);
         cout << "fine creazione FSAlign\n";
     }
-
+    /**
+     * @description 
+     * @param ad
+     * @param gf
+     * @param ss
+     * @param v1
+     * @param v2
+     */
     FSAlign::FSAlign(AlignmentData *ad, GapFunction *gf, ScoringScheme *ss,
             const vector<unsigned int> &v1, const vector<unsigned int> &v2)
     : Align(ad, gf, ss) {
         pCalculateMatrix(v1, v2, true);
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     FSAlign::FSAlign(const FSAlign &orig) : Align(orig) {
     }
 
@@ -46,7 +61,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     FSAlign&
             FSAlign::operator =(const FSAlign &orig) {
         if (&orig != this)
@@ -57,7 +76,9 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     */
     void
     FSAlign::getMultiMatch() {
         Traceback tb = B0;
@@ -80,7 +101,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     FSAlign::copy(const FSAlign &orig) {
         Align::copy(orig);
@@ -94,7 +118,10 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description 
+     * @param update
+     */
     void
     FSAlign::pCalculateMatrix(bool update) {
         if (update)
@@ -177,7 +204,12 @@ namespace Biopool {
 
 
     // SSEA variant
-
+    /**
+     * @description 
+     * @param v1
+     * @param v2
+     * @param update
+     */
     void
     FSAlign::pCalculateMatrix(const vector<unsigned int> &v1,
             const vector<unsigned int> &v2, bool update) {
@@ -271,4 +303,4 @@ namespace Biopool {
         B0 = Traceback(maxI, maxJ);
     }
 
-} // namespace
+}} // namespace

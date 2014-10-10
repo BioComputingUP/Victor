@@ -23,7 +23,7 @@
 #include <string>
 #include <vector>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief    Base class for deriving substitution matrices.
      * 
@@ -101,6 +101,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

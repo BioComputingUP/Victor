@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <Bond.h>
 
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
 
 Bond::Bond(unsigned int mI, unsigned int mO) : SimpleBond(mI, mO),
 inRef(), outRef() {

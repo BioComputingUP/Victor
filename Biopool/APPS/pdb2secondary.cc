@@ -22,7 +22,7 @@
 #include <PdbLoader.h>
 #include <IoTools.h>
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 void sShowHelp() {
     cout << "Pdb 2 Secondary Structure converter\n"

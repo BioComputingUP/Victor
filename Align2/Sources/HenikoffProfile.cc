@@ -29,7 +29,7 @@
 
 #include <HenikoffProfile.h>
 #include <ctime>
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -45,7 +45,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     HenikoffProfile&
             HenikoffProfile::operator =(const HenikoffProfile &orig) {
         if (&orig != this)
@@ -56,7 +60,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     HenikoffProfile::copy(const HenikoffProfile &orig) {
         Profile::copy(orig);
@@ -69,7 +76,10 @@ namespace Biopool {
             aliWeight.push_back(tmp);
         }
     }
-
+    /**
+     * @description 
+     * @return 
+     */
     HenikoffProfile*
     HenikoffProfile::newCopy() {
         HenikoffProfile *tmp = new HenikoffProfile(*this);
@@ -78,7 +88,11 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param ali
+     * @param cLen
+     */
     void //suggested: use cLen=25 to save computational time
     HenikoffProfile::pCalculateWeight(Alignment &ali, unsigned int cLen) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -295,7 +309,13 @@ namespace Biopool {
         }
 
     }
-
+    /**
+     * @description 
+     * @param freq
+     * @param freqGap
+     * @param ali
+     * @param i
+     */
     void
     HenikoffProfile::pCalculateRawFrequency(vector<double> &freq, double &freqGap,
             Alignment &ali, unsigned int i) {
@@ -310,7 +330,10 @@ namespace Biopool {
             else
                 freqGap++;
     }
-
+    /**
+     * @description
+     * @param ali
+     */
     void
     HenikoffProfile::pConstructData(Alignment &ali) {
         if (!gap) {
@@ -346,4 +369,4 @@ namespace Biopool {
         setSeq(ali.getTarget());
     }
 
-} // namespace
+}} // namespace

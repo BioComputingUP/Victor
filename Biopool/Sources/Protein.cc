@@ -19,7 +19,9 @@
 #include <Protein.h>
 #include <iostream>
 using namespace std;
-using namespace Biopool;
+using namespace Victor; using namespace Victor::Biopool;
+
+using namespace Victor::Biopool;
 
 // CONSTRUCTORS/DESTRUCTOR:
 

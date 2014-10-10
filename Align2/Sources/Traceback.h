@@ -20,7 +20,7 @@
 #include <Debug.h>
 #include <iostream>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief    Reconstruct the path in the alignment matrix.
      * 
@@ -152,6 +152,6 @@ namespace Biopool {
         return tmp;
     }
 
-} // namespace
+}} // namespace
 
 #endif

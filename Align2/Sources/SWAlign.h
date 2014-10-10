@@ -20,7 +20,7 @@
 
 #include <Align.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Implement Smith-Waterman local alignment.
      * 
@@ -84,6 +84,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

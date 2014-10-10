@@ -31,7 +31,7 @@
 #include <Protein.h>
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief Saves components (Atoms, Groups, etc.) in standard PDB format
      * 
@@ -118,7 +118,7 @@ namespace Biopool {
         // offsets that determine at which atom, aminoacid and ligand number to start
     };
 
-} // namespace
+}} //namespace
 #endif //_PDB_SAVER_H_
 
 

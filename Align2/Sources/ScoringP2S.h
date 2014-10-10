@@ -21,7 +21,7 @@
 #include <Profile.h>
 #include <ScoringScheme.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Calculate scores for profile to sequence alignment.
      * 
@@ -82,6 +82,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

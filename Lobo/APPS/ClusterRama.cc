@@ -19,8 +19,8 @@
 #include <string>
 #include <GetArg.h>
 #include <RamachandranData.h>
-
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Lobo;
 
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv))

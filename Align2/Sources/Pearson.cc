@@ -29,10 +29,14 @@
 
 #include <Pearson.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param pro1
+     * @param pro2
+     */
     Pearson::Pearson(Profile *pro1, Profile *pro2) : ScoringFunction(), pro1(pro1),
     pro2(pro2) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -49,7 +53,10 @@ namespace Biopool {
                 p2[k] += (pro2->getAminoFrequency(residue_indices[k], n) / pro2->getSequenceLength());
         }
     }
-
+    /**
+     * @description
+     * @param orig
+     */
     Pearson::Pearson(const Pearson &orig) : ScoringFunction(orig) {
         copy(orig);
     }
@@ -59,7 +66,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     Pearson&
             Pearson::operator =(const Pearson &orig) {
         if (&orig != this)
@@ -70,7 +81,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     Pearson::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -98,7 +114,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     Pearson::copy(const Pearson &orig) {
         ScoringFunction::copy(orig);
@@ -115,12 +134,15 @@ namespace Biopool {
             p2[k] = orig.p2[k];
             cout << p2[k];
         }
-    }
-
+    }   
+    /**
+     * @description
+     * @return 
+     */
     Pearson*
     Pearson::newCopy() {
         Pearson *tmp = new Pearson(*this);
         return tmp;
     }
 
-} // namespace
+}} // namespace

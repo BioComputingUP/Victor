@@ -30,7 +30,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief It mplements a simple amino acid.
      * 
@@ -382,6 +382,6 @@ namespace Biopool {
 
     // HELPERS:
 
-} // namespace
+}} //namespace
 #endif //_AMINOACID_H_
 

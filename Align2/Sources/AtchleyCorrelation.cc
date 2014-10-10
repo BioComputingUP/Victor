@@ -28,31 +28,47 @@
 
 #include <AtchleyCorrelation.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description 
+     * @param pro1
+     * @param pro2
+     */
     AtchleyCorrelation::AtchleyCorrelation(Profile *pro1, Profile *pro2)
     : ScoringFunction(), pro1(pro1), pro2(pro2), offset(8.00) {
         pLoadFactor();
     }
-
+    /**
+     * @description 
+     * @param pro1
+     * @param pro2
+     * @param offset
+     */
     AtchleyCorrelation::AtchleyCorrelation(Profile *pro1, Profile *pro2,
             double offset) : ScoringFunction(), pro1(pro1), pro2(pro2), offset(offset) {
         pLoadFactor();
     }
-
+    /**
+     * @description 
+     * @param orig
+     */
     AtchleyCorrelation::AtchleyCorrelation(const AtchleyCorrelation &orig)
     : ScoringFunction(orig) {
         copy(orig);
-    }
-
+    } 
+    
     AtchleyCorrelation::~AtchleyCorrelation() {
     }
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     AtchleyCorrelation&
             AtchleyCorrelation::operator =(const AtchleyCorrelation &orig) {
         if (&orig != this)
@@ -63,7 +79,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     AtchleyCorrelation::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
@@ -116,7 +137,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description 
+     * @param orig
+     */
     void
     AtchleyCorrelation::copy(const AtchleyCorrelation &orig) {
         ScoringFunction::copy(orig);
@@ -131,7 +155,10 @@ namespace Biopool {
                 cout << factor[k][z] << " ";
             }
     }
-
+    /**
+     * @description 
+     * @return 
+     */
     AtchleyCorrelation*
     AtchleyCorrelation::newCopy() {
         AtchleyCorrelation *tmp = new AtchleyCorrelation(*this);
@@ -140,7 +167,9 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description 
+     */
     void
     AtchleyCorrelation::pLoadFactor() {
         string path = getenv("VICTOR_ROOT");
@@ -161,4 +190,4 @@ namespace Biopool {
             }
     }
 
-} // namespace
+}} // namespace

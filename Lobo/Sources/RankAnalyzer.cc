@@ -25,8 +25,9 @@
 #include <IoTools.h>
 
 // Global constants, typedefs, etc. (to avoid):
-
-namespace Biopool {
+using namespace Victor;  
+using namespace Victor::Lobo;
+namespace Victor { namespace Lobo {
 
     static void sLine() {
         cout << "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\n";
@@ -379,4 +380,4 @@ namespace Biopool {
 
     // HELPERS:
 
-}
+}}

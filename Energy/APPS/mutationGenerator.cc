@@ -24,9 +24,8 @@
 #include <Spacer.h>
 #include <PdbLoader.h>
 #include <PdbSaver.h>
-
-using namespace Biopool;
-
+using namespace Victor::Biopool; 
+using namespace Victor;
 void sShowHelp(){
   cout << "MutationGenerator.\n"
        << "This program give a file containing a protein sequence with a single mutations.\n "

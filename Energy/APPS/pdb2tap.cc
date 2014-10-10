@@ -31,8 +31,9 @@
 //#include <Omega.h>
 //#include <Chi1Chi2.h>
 #include <StatTools.h>
-
-using namespace Biopool;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
 
 void sShowHelp()
 {

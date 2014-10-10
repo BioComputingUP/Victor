@@ -20,7 +20,7 @@
 #include <AlignmentData.h>
 #include <Structure.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Calculate structural scores with info derived from secondary
      *                  structure.
@@ -80,6 +80,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

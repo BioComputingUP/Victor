@@ -21,7 +21,7 @@
 #include <math.h>
 #include <string>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief    Base class for scoring functions.
      * 
@@ -99,6 +99,6 @@ namespace Biopool {
     ScoringFunction::copy(const ScoringFunction &orig) {
     }
 
-} // namespace
+}} // namespace
 
 #endif

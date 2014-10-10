@@ -20,8 +20,8 @@
 #include <GetArg.h>
 #include <iostream>
 #include <IoTools.h>
-
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Lobo;
 
 void sShowHelp() {
     cout << "Scat Edit\n"

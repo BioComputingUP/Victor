@@ -26,7 +26,8 @@
 #include <matrix3.h>
 #include <IntCoordConverter.h>
 
-namespace Biopool {
+using namespace Victor::Biopool;
+namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
@@ -153,7 +154,7 @@ namespace Biopool {
         return _v;
     }
 
-} // namespace
+}} // namespace
 
 #endif //_VECTORTRANSFORMATION_H_
 

@@ -27,7 +27,7 @@
 #include "IntSaver.h"
 #include "IntLoader.h"
 
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 int main()
 { 

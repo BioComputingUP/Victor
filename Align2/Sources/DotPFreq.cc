@@ -34,24 +34,41 @@
 
 #include <DotPFreq.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
+    /**
+     * @description 
+     * @param pro1
+     * @param pro2
+     */
     DotPFreq::DotPFreq(Profile *pro1, Profile *pro2) : ScoringFunction(),
     pro1(pro1), pro2(pro2) {
     }
 
+    /**
+     * @description 
+     * @param orig
+     */
     DotPFreq::DotPFreq(const DotPFreq &orig) : ScoringFunction(orig) {
         copy(orig);
     }
 
+    /**
+     * @description 
+     */
     DotPFreq::~DotPFreq() {
     }
 
 
     // OPERATORS:
 
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     DotPFreq&
             DotPFreq::operator =(const DotPFreq &orig) {
         if (&orig != this)
@@ -63,8 +80,13 @@ namespace Biopool {
 
     // PREDICATES:
 
-    double
-    DotPFreq::scoringSeq(int i, int j) {
+    /**
+     * @description 
+     * @param i
+     * @param j
+     * @return 
+     */
+    double    DotPFreq::scoringSeq(int i, int j) {
         const string residue_indices = "ARNDCQEGHILKMFPSTWYV";
 
         double freq1 = 0.00;
@@ -84,17 +106,24 @@ namespace Biopool {
 
     // MODIFIERS:
 
-    void
-    DotPFreq::copy(const DotPFreq &orig) {
+    /**
+     * @description 
+     * @param orig
+     */
+    void DotPFreq::copy(const DotPFreq &orig) {
         ScoringFunction::copy(orig);
         pro1 = orig.pro1->newCopy();
         pro2 = orig.pro2->newCopy();
     }
 
+    /**
+     * @description 
+     * @return 
+     */
     DotPFreq*
     DotPFreq::newCopy() {
         DotPFreq *tmp = new DotPFreq(*this);
         return tmp;
     }
 
-} // namespace
+}} // namespace

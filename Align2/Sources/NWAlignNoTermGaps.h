@@ -19,7 +19,7 @@
 
 #include <Align.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief   Implement Needleman-Wunsch global alignment with no penalty
      *                  for the terminal hangouts of the sequence.
@@ -84,6 +84,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

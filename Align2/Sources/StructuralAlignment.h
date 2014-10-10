@@ -25,11 +25,12 @@
 #include <Spacer.h>
 #include <vector3.h>
 #include <matrix3.h>
+using namespace Victor::Biopool;
 
-using namespace Biopool;
+using namespace Victor;
 using namespace std;
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
 /** @brief   Class for structural alignments.
      * 
@@ -109,6 +110,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif //_STRUCTURALALIGNMENT_H_

@@ -23,15 +23,25 @@
 
 #include <SequenceData.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param n
+     * @param _seq1
+     * @param _seq2
+     * @param _n1
+     * @param _n2
+     */
     SequenceData::SequenceData(int n, const string &_seq1, const string &_seq2,
             const string &_n1, const string &_n2) : AlignmentData(n, _n1, _n2),
     seq1(_seq1), seq2(_seq2) {
     }
-
+    /**
+     * @description
+     * @param orig
+     */
     SequenceData::SequenceData(const SequenceData &orig) : AlignmentData(orig) {
         copy(orig);
     }
@@ -41,7 +51,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     SequenceData&
             SequenceData::operator =(const SequenceData &orig) {
         if (&orig != this)
@@ -52,7 +66,11 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param n
+     * @return 
+     */
     string
     SequenceData::getSequence(int n) {
         if (n == 1)
@@ -60,7 +78,13 @@ namespace Biopool {
         else
             return seq2;
     }
-
+    /**
+     * @description
+     * @param i
+     * @param tbi
+     * @param j
+     * @param tbj
+     */
     void
     SequenceData::calculateMatch(int i, int tbi, int j, int tbj) {
         string res1 = "";
@@ -79,7 +103,9 @@ namespace Biopool {
         add(res1, 0);
         add(res2, 1);
     }
-
+    /**
+     * @description
+     */
     void
     SequenceData::getMatch() {
         for (int i = 0; i < n; i++) {
@@ -88,7 +114,11 @@ namespace Biopool {
             match[i] = tmp;
         }
     }
-
+    /**
+     * @description
+     * @param os
+     * @param fasta
+     */
     void
     SequenceData::outputMatch(ostream &os, bool fasta) {
         string temp = "";
@@ -123,7 +153,11 @@ namespace Biopool {
 
         clear();
     }
-
+    /**
+     * @description
+     * @param score
+     * @return 
+     */
     Alignment&
     SequenceData::generateMatch(double score) {
         Alignment *ali = new Alignment;
@@ -135,20 +169,30 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+/**
+ * @description
+ * @param orig
+ */
     void
     SequenceData::copy(const SequenceData &orig) {
         AlignmentData::copy(orig);
         seq1 = orig.seq1;
         seq2 = orig.seq2;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     SequenceData*
     SequenceData::newCopy() {
         SequenceData *tmp = new SequenceData(*this);
         return tmp;
     }
-
+    /**
+     * @description
+     * @param s
+     * @param n
+     */
     void
     SequenceData::setSequence(string s, int n) {
         if (n == 1)
@@ -157,4 +201,4 @@ namespace Biopool {
             seq2 = s;
     }
 
-} // namespace
+}} // namespace

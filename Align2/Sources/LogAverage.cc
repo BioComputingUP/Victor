@@ -32,10 +32,15 @@
 
 #include <LogAverage.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * @description
+     * @param sub
+     * @param pro1
+     * @param pro2
+     */
     LogAverage::LogAverage(SubMatrix *sub, Profile *pro1, Profile *pro2)
     : ScoringFunction(), sub(sub), pro1(pro1), pro2(pro2) {
     }
@@ -49,7 +54,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     LogAverage&
             LogAverage::operator =(const LogAverage &orig) {
         if (&orig != this)
@@ -60,7 +69,12 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description
+     * @param i
+     * @param j
+     * @return 
+     */
     double
     LogAverage::scoringSeq(int i, int j) {
         double s = 0.00;
@@ -84,7 +98,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     LogAverage::copy(const LogAverage &orig) {
         ScoringFunction::copy(orig);
@@ -92,11 +109,14 @@ namespace Biopool {
         pro1 = orig.pro1->newCopy();
         pro2 = orig.pro2->newCopy();
     }
-
+    /**
+     * @description
+     * @return 
+     */
     LogAverage*
     LogAverage::newCopy() {
         LogAverage *tmp = new LogAverage(*this);
         return tmp;
     }
 
-} // namespace
+}} // namespace

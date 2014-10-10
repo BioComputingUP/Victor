@@ -27,7 +27,10 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
+using namespace Victor;
+namespace Victor { namespace Energy {
 
 /** @brief class manages the angle qualities and the energy 
      * 
@@ -103,7 +106,7 @@ namespace Biopool {
         // according to knowledge.
     };
 
-} // namespace
+}} // namespace
 #endif// _PHIPSIOMEGACHI1CHI2_H_
 
 

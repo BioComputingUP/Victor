@@ -22,7 +22,7 @@
 #include <string>
 #include <vector>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  Implement a simple alignment type.
      * 
@@ -58,7 +58,7 @@ namespace Biopool {
         /// Return E-value of template index.
         double getEvalue(unsigned int index = 0) const;
 
-        /// Save as MSAF (Mannheim Sequence Alignment Format) like output.
+        /// 
         void saveMSAF(ostream &output) const;
 
         /// Save as FASTA like output.
@@ -67,10 +67,10 @@ namespace Biopool {
 
         // MODIFIERS:
 
-        /// Clear alignment data.
+        
         virtual void clearAlignment();
 
-        /// Swap templates index1 and index2.
+        /// 
         virtual void swapTemplate(unsigned int index1, unsigned int index2);
 
         /// Set template to t.
@@ -86,17 +86,17 @@ namespace Biopool {
         /// Clear template.
         virtual void clearTemplate();
 
-        /// Remove all templates below index.
+        ///
         virtual void cutTemplate(unsigned int index);
 
-        /// Output of alignment including headers of the 2 sequences.
+        /// 
         virtual void doMatchPlusHeader(ostream &os, string headerTarget,
                 int startTarget, int endTarget, string headerTemplate, int startTemplate,
                 int endTemplate, string alignType, string gapOpen, string gapExtension,
                 double pWeigth, double sWeigth, double tWeigth, string seqTarget,
                 string seqTemplat) const;
 
-        /// Read FASTA format input.
+        /// 
         void loadFasta(istream &input);
 
         /// Read output of CE program.
@@ -188,7 +188,7 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+/// Clear alignment data.
     inline void
     Alignment::clearAlignment() {
         AlignmentBase::clearAlignment();
@@ -203,6 +203,6 @@ namespace Biopool {
         evalue.clear();
     }
 
-} // namespace
+}} // namespace
 
 #endif

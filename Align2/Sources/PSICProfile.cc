@@ -28,7 +28,7 @@
 
 #include <PSICProfile.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -44,7 +44,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description
+     * @param orig
+     * @return 
+     */
     PSICProfile&
             PSICProfile::operator =(const PSICProfile &orig) {
         if (&orig != this)
@@ -55,7 +59,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     PSICProfile::copy(const PSICProfile &orig) {
         Profile::copy(orig);
@@ -68,7 +75,10 @@ namespace Biopool {
             aliWeight.push_back(tmp);
         }
     }
-
+    /**
+     * @description
+     * @return 
+     */
     PSICProfile*
     PSICProfile::newCopy() {
         PSICProfile *tmp = new PSICProfile(*this);
@@ -77,7 +87,10 @@ namespace Biopool {
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param ali
+     */
     void
     PSICProfile::pCalculateWeight(Alignment &ali) {
         // --------------------------------------------------
@@ -250,7 +263,13 @@ namespace Biopool {
 
 
     }
-
+    /**
+     * @description
+     * @param freq
+     * @param freqGap
+     * @param ali
+     * @param i
+     */
     void
     PSICProfile::pCalculateRawFrequency(vector<double> &freq, double &freqGap,
             Alignment &ali, unsigned int i) {
@@ -265,7 +284,10 @@ namespace Biopool {
             else
                 freqGap++;
     }
-
+    /**
+     * @description
+     * @param ali
+     */
     void
     PSICProfile::pConstructData(Alignment &ali) {
         if (!gap) {
@@ -302,4 +324,4 @@ namespace Biopool {
         setSeq(ali.getTarget());
     }
 
-} // namespace
+}} // namespace

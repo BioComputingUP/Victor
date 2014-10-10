@@ -21,7 +21,7 @@
 #include <PdbSaver.h>
 #include <IoTools.h>
 #include <iostream>
-using namespace Biopool;
+using namespace Victor;using namespace Victor::Biopool;
 
 void sShowHelp()
 {

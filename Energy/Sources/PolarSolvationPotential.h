@@ -24,8 +24,8 @@
 #include <Potential.h>
 
 // Global constants, typedefs, etc. (to avoid):
-
-namespace Biopool {
+using namespace Victor::Biopool;
+ namespace Victor { namespace Energy {
 
     const double SOLVATION_CUTOFF_DISTANCE_POLAR = 7.0;
 
@@ -81,5 +81,5 @@ namespace Biopool {
         static string SOLV_PARAM_FILE;
     };
 
-} // namespace
+}} // namespace
 #endif //_POLARSOLVATIONPOTENTIAL_H_

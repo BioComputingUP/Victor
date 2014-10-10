@@ -21,10 +21,17 @@
 
 #include <ScoringP2S.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
-
+    /**
+     * 
+     * @param sub
+     * @param ad
+     * @param str
+     * @param pro
+     * @param cSeq
+     */
     ScoringP2S::ScoringP2S(SubMatrix *sub, AlignmentData *ad, Structure *str,
             Profile *pro, double cSeq) : ScoringScheme(sub, ad, str),
     seq1(ad->getSequence(1)), seq2(ad->getSequence(2)), pro(pro), cSeq(cSeq) {
@@ -96,4 +103,4 @@ namespace Biopool {
         seq2 = tmp;
     }
 
-} // namespace
+}} // namespace

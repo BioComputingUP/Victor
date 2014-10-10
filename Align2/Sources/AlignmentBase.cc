@@ -22,7 +22,7 @@
 #include <AlignmentBase.h>
 #include <IoTools.h>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
 
@@ -39,7 +39,11 @@ namespace Biopool {
 
 
     // OPERATORS:
-
+    /**
+     * @description 
+     * @param orig
+     * @return 
+     */
     AlignmentBase&
             AlignmentBase::operator =(const AlignmentBase &orig) {
         if (&orig != this)
@@ -50,12 +54,21 @@ namespace Biopool {
 
 
     // PREDICATES:
-
+    /**
+     * @description 
+     * @param seq
+     * @return 
+     */
     unsigned int
     AlignmentBase::getSequenceLength(const string &seq) {
         return (getPureSequence(seq)).length();
     }
-
+    /**
+     * @description
+     * @param seq1
+     * @param seq2
+     * @return 
+     */
     double
     AlignmentBase::calculatePairwiseIdentity(const string &seq1, const string &seq2) {
         unsigned int maxL = (seq1.length() <= seq2.length()) ? seq1.length() : seq2.length();
@@ -79,7 +92,10 @@ namespace Biopool {
 
         return tmp / (seq1.length() - countN);
     }
-
+    /**
+     * @description
+     * @return 
+     */
     double
     AlignmentBase::calculateIdentity() {
         double tmp = 0;
@@ -108,7 +124,12 @@ namespace Biopool {
 
         return tmp / (getSequenceLength(target) - countN);
     }
-
+    /**
+     * @description
+     * @param p
+     * @param index
+     * @return 
+     */
     bool
     AlignmentBase::isConserved(unsigned int p, unsigned int index) const {
         if ((p > target.length()) || (index > this->size()))
@@ -124,7 +145,12 @@ namespace Biopool {
 
         return true;
     }
-
+    /**
+     * @description
+     * @param p
+     * @param index
+     * @return 
+     */
     bool
     AlignmentBase::isInsertion(unsigned int p, unsigned int index) const {
         if ((p > target.length()) || (index >= seqTemplate.size()))
@@ -135,7 +161,11 @@ namespace Biopool {
 
         return true;
     }
-
+    /**
+     * @description
+     * @param p
+     * @return 
+     */
     bool
     AlignmentBase::isDeletion(unsigned int p) const {
         if (p > target.length())
@@ -146,7 +176,12 @@ namespace Biopool {
 
         return true;
     }
-
+    /**
+     * @description
+     * @param p
+     * @param index
+     * @return 
+     */
     bool
     AlignmentBase::isGap(unsigned int p, unsigned int index) const {
         if ((p > target.length()) || (index >= seqTemplate.size()))
@@ -157,7 +192,10 @@ namespace Biopool {
 
         return false;
     }
-
+    /**
+     * @description
+     * @return 
+     */
     vector< vector<int> >
     AlignmentBase::getMatchSubset() {
         string targetSequence = target;
@@ -187,7 +225,12 @@ namespace Biopool {
 
         return resultVecs;
     }
-
+    /**
+     * @description
+     * @param inputVector
+     * @param newStartPos
+     * @return 
+     */
     vector<int>
     AlignmentBase::shiftMatchSubset(vector<int> inputVector, int newStartPos) {
         unsigned int len = inputVector.size();
@@ -207,7 +250,14 @@ namespace Biopool {
 
         return newInputVector;
     }
-
+    /**
+     * @description
+     * @param CeTarget
+     * @param CeTemplate
+     * @param seqTarget
+     * @param seqTemplate
+     * @return 
+     */
     double
     AlignmentBase::matchPositionVector(vector<int> CeTarget, vector<int> CeTemplate,
             vector<int> seqTarget, vector<int> seqTemplate) {
@@ -236,14 +286,20 @@ namespace Biopool {
         overlap = static_cast<double> (counting) / matchCount;
         return overlap;
     }
-
+    /**
+     * @description
+     * @param output
+     */
     void
     AlignmentBase::saveFasta(ostream &output) const {
         saveFasta(target, targetName, output);
         for (unsigned int j = 0; j < seqTemplate.size(); j++)
             saveFasta(seqTemplate[j], seqTemplateName[j], output);
     }
-
+    /**
+     * @description
+     * @param output
+     */
     void
     AlignmentBase::saveClustal(ostream &output) const {
         output << "CLUSTAL\n\n";
@@ -258,7 +314,10 @@ namespace Biopool {
 
 
     // MODIFIERS:
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     AlignmentBase::copy(const AlignmentBase &orig) {
         targetName = orig.targetName;
@@ -274,14 +333,21 @@ namespace Biopool {
             startAaTemplates.push_back(orig.startAaTemplates[i]);
         }
     }
-
+    /**
+     * @description
+     * @return 
+     */
     AlignmentBase*
     AlignmentBase::newCopy() {
         AlignmentBase *tmp = new AlignmentBase(*this);
         return tmp;
     }
-
-    void
+    /**
+     * @description
+     * @param t
+     * @param tName
+     */
+    void    
     AlignmentBase::setTemplate(string t, string tName) {
         if (t.length() != target.length())
             ERROR("AlignmentBase::setTemplate() Template length does not match target.", exception);
@@ -289,7 +355,11 @@ namespace Biopool {
         seqTemplate.push_back(t);
         startAaTemplates.push_back(0);
     }
-
+    /**
+     * @description
+     * @param index1
+     * @param index2
+     */
     void
     AlignmentBase::swapTemplate(unsigned int index1, unsigned int index2) {
         if ((index1 >= this->size()) || (index2 >= this->size()))
@@ -298,7 +368,11 @@ namespace Biopool {
         swap(seqTemplate[index1], seqTemplate[index2]);
         swap(startAaTemplates[index1], startAaTemplates[index2]);
     }
-
+    /**
+     * @description
+     * @param p
+     * @param c
+     */
     void
     AlignmentBase::insertCharacter(unsigned int p, char c) {
         if (p <= target.size())
@@ -308,12 +382,18 @@ namespace Biopool {
             if (p <= seqTemplate[i].size())
                 seqTemplate[i].insert(p, 1, c);
     }
-
+    /**
+     * @description
+     * @param p
+     */
     void
     AlignmentBase::insertDash(unsigned int p) {
         insertCharacter(p, '-');
     }
-
+    /**
+     * @description
+     * @param p
+     */
     void
     AlignmentBase::deletePos(unsigned int p) {
         PRECOND((p < target.size()), exception);
@@ -324,7 +404,9 @@ namespace Biopool {
             seqTemplate[i] = deleteChar(seqTemplate[i], p);
         }
     }
-
+    /**
+     * @description
+     */
     void
     AlignmentBase::purgeTargetInsertions() {
         unsigned int i = 0;
@@ -336,7 +418,10 @@ namespace Biopool {
             } else
                 ++i;
     }
-
+    /**
+     * @description
+     * @param index
+     */
     void
     AlignmentBase::cutTemplate(unsigned int index) {
         // Removes all templates below index.
@@ -370,7 +455,10 @@ namespace Biopool {
     /// - normal insertion for target A or target B
     /// - trailing insertion for target A or target B
     /// If ignoreInsertion is set, insertions of target A are ignored.
-
+    /**
+     * @description
+     * @param orig
+     */
     void
     AlignmentBase::addAlignment(const AlignmentBase &orig) {
         unsigned int i = 0;
@@ -624,7 +712,11 @@ COMBINE_END:
 
 
     // HELPERS:
-
+    /**
+     * @description
+     * @param s
+     * @return 
+     */
     string
     AlignmentBase::getPureSequence(const string &s) {
         string result = "";
@@ -639,7 +731,12 @@ COMBINE_END:
 
     /// If original index points to a dash, it returns the position of the first
     /// non-dash left character, again taking '-' not into account.
-
+    /**
+     * @description
+     * @param s
+     * @param p
+     * @return 
+     */
     unsigned int
     AlignmentBase::getOrigPos(const string &s, unsigned int p) {
         PRECOND((p < s.size()), exception);
@@ -664,7 +761,12 @@ COMBINE_END:
 
         return i - counter; // position minus number of dashes counted
     }
-
+    /**
+     * @description
+     * @param s
+     * @param p
+     * @return 
+     */
     unsigned int
     AlignmentBase::getNewPos(const string &s, unsigned int p) {
         PRECOND((p < s.size()), exception);
@@ -683,7 +785,11 @@ COMBINE_END:
 
         return s.size(); // dummy
     }
-
+    /**
+     * @description
+     * @param text
+     * @return 
+     */
     vector<string>
     AlignmentBase::getTokens(const string &text) {
         istringstream ist(text.c_str());
@@ -703,7 +809,12 @@ COMBINE_END:
 
         return v;
     }
-
+    /**
+     * @description
+     * @param s
+     * @param n
+     * @return 
+     */
     string
     AlignmentBase::deleteChar(const string &s, unsigned int n) {
         string result = s.substr(0, n);
@@ -714,4 +825,4 @@ COMBINE_END:
         return result;
     }
 
-} // namespace
+}} // namespace

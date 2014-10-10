@@ -21,8 +21,9 @@
 #include <LoopTable.h>
 #include <IntCoordConverter.h>
 
-using namespace Biopool;
+using namespace Victor;
 
+using namespace Victor::Lobo;
 int main(int nArgs, char* argv[]) {
     char *victor = getenv("VICTOR_ROOT");
     if (victor == NULL)

@@ -32,7 +32,7 @@
 #include <LoopTableEntry.h>
 #include <queue>
 
-namespace Biopool {
+namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
 
@@ -334,7 +334,7 @@ namespace Biopool {
         }
     }
 
-} // namespace
+}} // namespace
 
 #endif //_LOOPTABLE_H_
 

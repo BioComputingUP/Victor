@@ -24,8 +24,8 @@
 
 // Global constants, typedefs, etc. (to avoid):
 using namespace std;
-using namespace Biopool;
-
+using namespace Victor;
+using namespace Victor::Lobo;
 unsigned int LoopModel::MAX_CHAIN_LENGTH = 64;
 unsigned int LoopModel::OPT_MAX1 = 5;
 unsigned int LoopModel::OPT_MAX2 = 5;

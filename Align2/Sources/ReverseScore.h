@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-namespace Biopool {
+namespace Victor { namespace Align2{
 
     /** @brief  
      * 
@@ -75,6 +75,6 @@ namespace Biopool {
 
     };
 
-} // namespace
+}} // namespace
 
 #endif

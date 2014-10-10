@@ -21,7 +21,7 @@
 #include <LoopTable.h>
 #include <IntCoordConverter.h>
 
-using namespace Biopool;
+using namespace Victor;
 
 int main(int nArgs, char* argv[]) {
     if (getArg("h", nArgs, argv))

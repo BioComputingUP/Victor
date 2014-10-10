@@ -27,7 +27,7 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-namespace Biopool {
+namespace Victor { namespace Biopool { 
 
     /**@brief class implements methods to manage the ligandSet
      * 
@@ -189,7 +189,7 @@ namespace Biopool {
 
     // HELPERS:
 
-} // namespace
+}} //namespace
 #endif //_LigandSet_H_
 
 

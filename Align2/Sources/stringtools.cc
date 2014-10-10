@@ -19,6 +19,10 @@
 #include <cstdlib>
 using namespace std;
 
+/**
+ * @description
+ * @param str
+ */
 void
 strip(string &str) {
     string temp = "";
@@ -30,6 +34,11 @@ strip(string &str) {
     str = temp;
 }
 
+/**
+ * @description
+ * @param str
+ * @return 
+ */
 string
 strip_and_return_string(string str) {
     string temp = "";
@@ -40,7 +49,11 @@ strip_and_return_string(string str) {
 
     return temp;
 }
-
+/**
+ * @description
+ * @param str
+ * @return 
+ */
 int
 strip_and_return_int(string str) {
     string temp = "";
@@ -52,7 +65,11 @@ strip_and_return_int(string str) {
     int integ = atoi(temp.c_str());
     return integ;
 }
-
+/**
+ * @description
+ * @param str
+ * @return 
+ */
 unsigned int
 strip_and_return_unsigned_int(string str) {
     string temp = "";
@@ -64,7 +81,11 @@ strip_and_return_unsigned_int(string str) {
     unsigned int integ = atoi(temp.c_str());
     return integ;
 }
-
+/**
+ * @description
+ * @param str
+ * @return 
+ */
 float
 strip_and_return_float(string str) {
     string temp = "";
@@ -80,7 +101,12 @@ strip_and_return_float(string str) {
     float doub = atof(temp.c_str());
     return doub;
 }
-
+/**
+ * @description
+ * @param text_to_split
+ * @param delimiter
+ * @return 
+ */
 vector<string>
 split(string text_to_split, char delimiter) {
     vector<string> vector_with_splited_text;
@@ -97,7 +123,11 @@ split(string text_to_split, char delimiter) {
 
     return vector_with_splited_text;
 }
-
+/**
+ * @description
+ * @param str
+ * @return 
+ */
 int
 seq_length(const string str) {
     unsigned int size = 0;
@@ -110,7 +140,11 @@ seq_length(const string str) {
 
 
 /// Change each element of the string to upper case.
-
+/**
+ * @description
+ * @param strToConvert
+ * @return 
+ */
 string
 StringToUpper(string strToConvert) {
     for (unsigned int i = 0; i < strToConvert.length(); i++)
@@ -120,7 +154,11 @@ StringToUpper(string strToConvert) {
 
 
 /// Change each element of the string to lower case.
-
+/**
+ * @description
+ * @param strToConvert
+ * @return 
+ */
 string
 StringToLower(string strToConvert) {
     for (unsigned int i = 0; i < strToConvert.length(); i++)
