@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
     /** @brief   Calculate structural scores with info derived from secondary
      *                  structure.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class Sec : public Structure {

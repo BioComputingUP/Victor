@@ -40,7 +40,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -52,7 +52,7 @@ namespace Victor { namespace Align2{
         return *this;
     }
     /**
-     * @description
+     * 
      * @param os
      * @param object
      * @return 
@@ -72,7 +72,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -88,7 +88,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      * @param residues
      * @param residuescores
      */
@@ -118,7 +118,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param os
      * @param data
      */
@@ -135,7 +135,7 @@ namespace Victor { namespace Align2{
         os << "\n";
     }
     /**
-     * @description
+     * 
      * @param is
      * @param data
      */

@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param n
      * @param seq1
      * @param seq2
@@ -42,7 +42,7 @@ namespace Victor { namespace Align2{
     sec1(sec1), sec2(sec2) {
     }
     /**
-     * @description
+     * 
      * @param orig
      */
     SecSequenceData::SecSequenceData(const SecSequenceData &orig)
@@ -56,7 +56,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -71,7 +71,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param n
      * @return 
      */
@@ -89,7 +89,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      * @param i
      * @param tbi
      * @param j
@@ -122,7 +122,7 @@ namespace Victor { namespace Align2{
         add(ret2, 3);
     }
     /**
-     * @description
+     * 
      */
     void
     SecSequenceData::getMatch() {
@@ -133,7 +133,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      * @param os
      * @param fasta
      */
@@ -180,7 +180,7 @@ namespace Victor { namespace Align2{
         clear();
     }
     /**
-     * @description
+     * 
      * @param score
      * @return 
      */
@@ -198,7 +198,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -216,7 +216,7 @@ namespace Victor { namespace Align2{
         return tmp;
     }
     /**
-     * @description
+     * 
      * @param s
      * @param n
      */

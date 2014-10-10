@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
     /** @brief  Calculate scores for profile to profile alignment using
      *                  Panchenko method. 
      * 
-     * @Description  Some explanations can be found in:
+     *   Some explanations can be found in:
      *
      *                  Panchenko AR.
      *                  Finding weak similarities between proteins by sequence

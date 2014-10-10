@@ -24,7 +24,7 @@ namespace Victor { namespace Align2{
 
     /** @brief   Print alignment of two sequences.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class SequenceData : public AlignmentData {

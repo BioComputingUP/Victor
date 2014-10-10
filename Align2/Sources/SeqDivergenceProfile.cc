@@ -47,7 +47,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -62,7 +62,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -74,7 +74,7 @@ namespace Victor { namespace Align2{
             aliWeight.push_back(orig.aliWeight[i]);
     }
     /**
-     * @description
+     * 
      * @return 
      */
     SeqDivergenceProfile*
@@ -86,7 +86,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param ali
      */
     void
@@ -183,7 +183,7 @@ namespace Victor { namespace Align2{
 
     }
     /**
-     * @description
+     * 
      * @param freq
      * @param freqGap
      * @param ali
@@ -204,7 +204,7 @@ namespace Victor { namespace Align2{
                 freqGap++;
     }
     /**
-     * @description
+     * 
      * @param ali
      */
     void

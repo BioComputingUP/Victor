@@ -48,7 +48,7 @@ StructuralAlignment::~StructuralAlignment() {
 
 // MODIFIERS:
     /**
-     * @description
+     * 
      * @param input
      * @param spNew
      */

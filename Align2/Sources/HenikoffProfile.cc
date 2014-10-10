@@ -46,7 +46,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description 
+     *  
      * @param orig
      * @return 
      */
@@ -61,7 +61,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description 
+     *  
      * @param orig
      */
     void
@@ -77,7 +77,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description 
+     *  
      * @return 
      */
     HenikoffProfile*
@@ -89,7 +89,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param ali
      * @param cLen
      */
@@ -310,7 +310,7 @@ namespace Victor { namespace Align2{
 
     }
     /**
-     * @description 
+     *  
      * @param freq
      * @param freqGap
      * @param ali
@@ -331,7 +331,7 @@ namespace Victor { namespace Align2{
                 freqGap++;
     }
     /**
-     * @description
+     * 
      * @param ali
      */
     void

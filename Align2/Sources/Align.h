@@ -41,7 +41,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  Pairwise sequence and profile alignment.
      * 
-     * @Description   originally based
+     *    originally based
      *                  on the Java implementation from Peter Sestoft.
      *                  http://www.dina.dk/~sestoft
      * @This 
@@ -214,7 +214,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @Description Set penalties for suboptimal alignments.
+     *  Set penalties for suboptimal alignments.
      * @param mul
      * @param add
      */
@@ -225,7 +225,7 @@ namespace Victor { namespace Align2{
         penaltyAdd = add;
     }
     /**
-     * @Description  Modify matrix during suboptimal alignment generation.
+     *   Modify matrix during suboptimal alignment generation.
      * @param i
      * @param j
      */

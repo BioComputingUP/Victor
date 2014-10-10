@@ -32,7 +32,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param pro1
      * @param pro2
      * @param pssm1
@@ -53,7 +53,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -68,7 +68,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param i
      * @param j
      * @return 
@@ -101,7 +101,7 @@ namespace Victor { namespace Align2{
         return ((ni * s1) + (nj * s2)) / (ni + nj);
     }
     /**
-     * @description
+     * 
      * @param i
      * @return 
      */
@@ -122,7 +122,7 @@ namespace Victor { namespace Align2{
         return aaColumn;
     }
     /**
-     * @description
+     * 
      * @param i
      * @return 
      */
@@ -146,7 +146,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -158,7 +158,7 @@ namespace Victor { namespace Align2{
         pssm2 = orig.pssm2->newCopy();
     }
     /**
-     * @description
+     * 
      * @return 
      */
     Panchenko*

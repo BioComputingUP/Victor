@@ -33,7 +33,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param secFileName
      */
     VGPFunction2::VGPFunction2(string secFileName) : o(14.00), e(1.00), extType(0),
@@ -41,7 +41,7 @@ namespace Victor { namespace Align2{
         pExtractSecInfo(secFileName);
     }
     /**
-     * @description
+     * 
      * @param secFileName
      * @param o
      * @param e
@@ -65,7 +65,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -80,7 +80,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param p
      * @return 
      */
@@ -93,7 +93,7 @@ namespace Victor { namespace Align2{
         return o + wH * penH + wS * penS;
     }
     /**
-     * @description
+     * 
      * @param p
      * @return 
      */
@@ -115,7 +115,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -137,7 +137,7 @@ namespace Victor { namespace Align2{
         wS = orig.wS;
     }
     /**
-     * @description
+     * 
      * @return 
      */
     VGPFunction2*
@@ -149,7 +149,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param secFileName
      */
     void

@@ -17,7 +17,7 @@
 #include <Group.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor::Biopool;
 
 class TestGroup : public CppUnit::TestFixture {
 private:

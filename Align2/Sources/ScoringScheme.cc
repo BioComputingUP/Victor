@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param sub
      * @param ad
      * @param str
@@ -53,7 +53,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -68,7 +68,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param s
      * @return 
      */
@@ -98,7 +98,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void    

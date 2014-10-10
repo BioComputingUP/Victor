@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
     /** @brief   Calculate scores for profile to profile alignment using
     //                  Zhou-Zhou method.
      * 
-     * @Description   Some explanations can be found in:
+     *    Some explanations can be found in:
      *
      *                  Zhou H., Zhou Y.
      *                  Single-body residue-level knowledge-based energy score

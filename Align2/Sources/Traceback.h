@@ -24,7 +24,7 @@ namespace Victor { namespace Align2{
 
     /** @brief    Reconstruct the path in the alignment matrix.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class Traceback {

@@ -30,7 +30,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class ReverseScore {

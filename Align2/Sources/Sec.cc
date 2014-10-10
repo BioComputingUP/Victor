@@ -28,7 +28,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param subStr
      * @param ad
      * @param cSec
@@ -58,7 +58,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param i
      * @param j
      * @return 
@@ -71,7 +71,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -82,7 +82,7 @@ namespace Victor { namespace Align2{
         cSec = orig.cSec;
     }
     /**
-     * @description
+     * 
      * @return 
      */
     Sec*
@@ -91,7 +91,7 @@ namespace Victor { namespace Align2{
         return tmp;
     }
     /**
-     * @description
+     * 
      */
     void
     Sec::reverse() {

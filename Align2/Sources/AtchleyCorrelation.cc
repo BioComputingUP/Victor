@@ -32,7 +32,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description 
+     *  
      * @param pro1
      * @param pro2
      */
@@ -41,7 +41,7 @@ namespace Victor { namespace Align2{
         pLoadFactor();
     }
     /**
-     * @description 
+     *  
      * @param pro1
      * @param pro2
      * @param offset
@@ -51,7 +51,7 @@ namespace Victor { namespace Align2{
         pLoadFactor();
     }
     /**
-     * @description 
+     *  
      * @param orig
      */
     AtchleyCorrelation::AtchleyCorrelation(const AtchleyCorrelation &orig)
@@ -65,7 +65,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description 
+     *  
      * @param orig
      * @return 
      */
@@ -80,7 +80,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description 
+     *  
      * @param i
      * @param j
      * @return 
@@ -138,7 +138,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description 
+     *  
      * @param orig
      */
     void
@@ -156,7 +156,7 @@ namespace Victor { namespace Align2{
             }
     }
     /**
-     * @description 
+     *  
      * @return 
      */
     AtchleyCorrelation*
@@ -168,7 +168,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description 
+     *  
      */
     void
     AtchleyCorrelation::pLoadFactor() {

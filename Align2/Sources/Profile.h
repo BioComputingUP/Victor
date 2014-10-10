@@ -29,7 +29,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  Calculate a frequency profile or PSSM.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class Profile {

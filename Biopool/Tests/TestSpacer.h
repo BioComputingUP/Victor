@@ -17,7 +17,7 @@
 #include <PdbLoader.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor::Biopool;
 
 class TestSpacer : public CppUnit::TestFixture {
 private:

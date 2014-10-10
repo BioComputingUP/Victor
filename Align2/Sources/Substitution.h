@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
 
     /** @brief    Base class for deriving substitution matrices.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class Substitution {

@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
 
     /** @brief    Implement I/O objects for handling threading files.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class ThreadingInput {

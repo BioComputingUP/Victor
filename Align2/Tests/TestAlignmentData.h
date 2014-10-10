@@ -17,7 +17,7 @@
 #include <SecSequenceData.h>
 
 using namespace std;
-using namespace Victor;
+using namespace Victor::Align2;
 
 class TestAlignmentData : public CppUnit::TestFixture {
 private:
@@ -27,11 +27,11 @@ private:
 public:
 
     TestAlignmentData() : testAlignmentData(NULL) {
-         string seq1Name, seq2Name, seq1, seq2, sec1, sec2;
+        string seq1Name, seq2Name, seq1, seq2, sec1, sec2;
         string path = getenv("VICTOR_ROOT");
         string examplesPath = path + "Align2/Tests/data/";
-         
-        string inputFileName = examplesPath + inputFileName;
+        string inputFileName = "test.fasta";
+        inputFileName = examplesPath + inputFileName;
         ifstream inputFile(inputFileName.c_str());
         if (!inputFile)
             ERROR("Error opening input FASTA file.", exception);
@@ -43,8 +43,8 @@ public:
         seq2Name = ali.getTemplateName();
         seq1 = Alignment::getPureSequence(ali.getTarget());
         seq2 = Alignment::getPureSequence(ali.getTemplate());
-
-        string secFileName = examplesPath + secFileName;
+        string secFileName = "t0111.sec";
+        secFileName = examplesPath + secFileName;
         ifstream secFile(secFileName.c_str());
         if (!secFile)
             ERROR("Error opening secondary structure FASTA file.", exception);
@@ -64,12 +64,14 @@ public:
     static CppUnit::Test *suite() {
         CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestAlignmentData");
 
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test1 - distance greater than zero.",
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test1 - Loads the alignment of two identical sequences .",
                 &TestAlignmentData::testAlignmentData_A));
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test2 - distance greater than zero.",
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test2 -Verifies the matching sequences .",
                 &TestAlignmentData::testAlignmentData_B));
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test3 - distance greater than zero.",
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test3 - evaluating match using same positions.",
                 &TestAlignmentData::testAlignmentData_C));
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestAlignmentData>("Test4 - evaluating match using different positions.",
+                &TestAlignmentData::testAlignmentData_D));
 
         return suiteOfTests;
     }
@@ -87,24 +89,56 @@ public:
 protected:
 
     void testAlignmentData_A() {
-       // AlignmentData *ad;
-        cout<<testAlignmentData->name1;
-       cout<<testAlignmentData->name2;
-       // ad = new SecSequenceData(4, seq1, seq2, sec1, sec2, seq1Name, seq2Name);
+        // Loads the alignment of two identical sequences 
 
-        CPPUNIT_ASSERT(true);
+        CPPUNIT_ASSERT((testAlignmentData->n == 4)&&(testAlignmentData->name2 == testAlignmentData->name1));
     }
 
     void testAlignmentData_B() {
+        // Verifies the matching sequences 
 
-
-        CPPUNIT_ASSERT(true);
+        CPPUNIT_ASSERT((testAlignmentData->getSequence(1) == testAlignmentData->getSequence(2)));
     }
 
     void testAlignmentData_C() {
-
-
-        CPPUNIT_ASSERT(true);
+        //evaluating match using the same positions from the same sequence
+        string path = getenv("VICTOR_ROOT");
+        string examplesPath = path + "Align2/Tests/data/";
+        string outputFileName = "output1.fasta";
+        string spectedoutputFileName = "SpectedOutput.fasta";
+        spectedoutputFileName=examplesPath +spectedoutputFileName;
+        outputFileName = examplesPath + outputFileName;
+        ofstream outputFile(outputFileName.c_str());
+        ifstream specoutputFile(spectedoutputFileName.c_str());
+        testAlignmentData->calculateMatch(1, 1, 1, 1);
+        testAlignmentData->calculateMatch(1, 1, 2, 2);
+        testAlignmentData->calculateMatch(1, 1, 3, 3);
+        testAlignmentData->calculateMatch(1, 1, 4, 4);
+        testAlignmentData->calculateMatch(1, 1, 5, 5);
+        testAlignmentData->calculateMatch(1, 1, 6, 6);
+        testAlignmentData->outputMatch(outputFile);
+        ifstream routputFile(outputFileName.c_str());
+        CPPUNIT_ASSERT((readLine(routputFile)==readLine(specoutputFile)));
     }
 
+    void testAlignmentData_D() {
+         //evaluating match using different positions from the same sequence
+        string path = getenv("VICTOR_ROOT");
+        string examplesPath = path + "Align2/Tests/data/";
+        string outputFileName = "output2.fasta";
+        string spectedoutputFileName = "SpectedOutput.fasta";
+        spectedoutputFileName=examplesPath +spectedoutputFileName;
+        outputFileName = examplesPath + outputFileName;
+        ofstream outputFile(outputFileName.c_str());
+        ifstream specoutputFile(spectedoutputFileName.c_str());
+        testAlignmentData->calculateMatch(1, 2, 1, 1);
+        testAlignmentData->calculateMatch(1, 2, 2, 2);
+        testAlignmentData->calculateMatch(1, 2, 3, 3);
+        testAlignmentData->calculateMatch(1, 2, 4, 4);
+        testAlignmentData->calculateMatch(1, 2, 5, 5);
+        testAlignmentData->calculateMatch(1, 2, 6, 6);
+        testAlignmentData->outputMatch(outputFile);
+        ifstream routputFile(outputFileName.c_str());
+        CPPUNIT_ASSERT((readLine(routputFile)!=readLine(specoutputFile)));
+    }
 };

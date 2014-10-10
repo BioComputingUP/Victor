@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param ad
      * @param gf
      * @param ss
@@ -36,7 +36,7 @@ namespace Victor { namespace Align2{
         pCalculateMatrix(true);
     }
     /**
-     * @description
+     * 
      * @param ad
      * @param gf
      * @param ss
@@ -49,7 +49,7 @@ namespace Victor { namespace Align2{
         pCalculateMatrix(v1, v2, true);
     }
     /**
-     * @description
+     * 
      * @param orig
      */
     NWAlignNoTermGaps::NWAlignNoTermGaps(const NWAlignNoTermGaps &orig)
@@ -62,7 +62,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -77,7 +77,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      */
     void
     NWAlignNoTermGaps::getMultiMatch() {
@@ -102,7 +102,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -119,7 +119,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param update
      */
     void
@@ -186,7 +186,7 @@ namespace Victor { namespace Align2{
 
     // SSEA variant
     /**
-     * @description
+     * 
      * @param v1
      * @param v2
      * @param update
