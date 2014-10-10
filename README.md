@@ -24,6 +24,7 @@ To compile the seource code simply run from the Victor
 root folder (Makefile.global) the following commands:
 
  make clean
+
  make
 
 The make clean command simply ensures the compilation 
