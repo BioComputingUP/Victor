@@ -18,7 +18,7 @@ along with Victor.  If not, see <http://www.gnu.org/licenses/>.
 
 =======================
 # Installation
-=======================
+
 To compile the seource code simply run from the Victor 
 root folder (Makefile.global) the following commands:
 
@@ -32,7 +32,7 @@ process will start from scratch.
 
 =======================
 # Wiki
-=======================
+
 Additional informations (Introduction, Tutorial, Documentation, 
 Features description) are avilable in the Victor Wiki:
 
