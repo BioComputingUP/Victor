@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
     /** @brief  Calculate scores for profile to profile alignment using
      *                  Pearson's correlation coefficient. 
      * 
-     * @Description  Some explanations can be
+     *   Some explanations can be
      *                  found in:
      *
      *                  Guoli Wang, Roland L. Dunbrack jr.

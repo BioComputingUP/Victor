@@ -38,7 +38,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param pdbFileName
      * @param chainID
      */
@@ -47,7 +47,7 @@ namespace Victor { namespace Align2{
         pExtractPdbInfo(pdbFileName, chainID);
     }
     /**
-     * @description
+     * 
      * @param pdbFileName
      * @param chainID
      * @param o
@@ -76,7 +76,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -91,7 +91,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param p
      * @return 
      */
@@ -115,7 +115,7 @@ namespace Victor { namespace Align2{
         return o + wH * penH + wS * penS + wB * penB + wC * penC + wD * penD;
     }
     /**
-     * @description
+     * 
      * @param p
      * @return 
      */
@@ -137,7 +137,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -183,7 +183,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param pdbFileName
      * @param chainID
      */

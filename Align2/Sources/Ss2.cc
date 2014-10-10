@@ -53,7 +53,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param i
      * @param j
      * @return 
@@ -91,7 +91,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -104,7 +104,7 @@ namespace Victor { namespace Align2{
         cSs2 = orig.cSs2;
     }
     /**
-     * @description
+     * 
      * @return 
      */
     Ss2*
@@ -113,7 +113,7 @@ namespace Victor { namespace Align2{
         return tmp;
     }
     /**
-     * @description
+     * 
      */
     void
     Ss2::reverse() {

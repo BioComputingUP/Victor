@@ -21,7 +21,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param a
      */
     ReverseScore::ReverseScore(Align *a) {
@@ -40,7 +40,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -55,7 +55,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -64,7 +64,7 @@ namespace Victor { namespace Align2{
         inv = orig.inv;
     }
     /**
-     * @description
+     * 
      * @param forward
      * @param reverse
      * @param n

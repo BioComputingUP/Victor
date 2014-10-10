@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
     /** @brief  Calculate scores for profile to profile alignment using
      *                  sequence metric factor.
      * 
-     * @Description   Some explanations can be found in:
+     *    Some explanations can be found in:
      *
      *                  William R. Atchley, Jieping Zhao, Andrew D. Fernandes, Tanja Druke
      *                  Solving the protein sequence metric problem.

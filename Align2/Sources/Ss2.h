@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
 
     /** @brief Calculate structural scores with info derived from PSI-PRED.  
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class Ss2 : public Structure {

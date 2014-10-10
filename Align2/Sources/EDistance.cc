@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param pro1
      * @param pro2
      */
@@ -35,7 +35,7 @@ namespace Victor { namespace Align2{
     pro1(pro1), pro2(pro2), offset(1.00) {
     }
     /**
-     * @description 
+     *  
      * @param pro1
      * @param pro2
      * @param offset
@@ -44,7 +44,7 @@ namespace Victor { namespace Align2{
     : ScoringFunction(), pro1(pro1), pro2(pro2), offset(offset) {
     }
     /**
-     * @description 
+     *  
      * @param orig
      */
     EDistance::EDistance(const EDistance &orig) : ScoringFunction(orig) {
@@ -57,7 +57,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description 
+     *  
      * @param orig
      * @return 
      */
@@ -72,7 +72,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description 
+     *  
      * @param i
      * @param j
      * @return 
@@ -98,7 +98,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description 
+     *  
      * @param orig
      */
     void
@@ -109,7 +109,7 @@ namespace Victor { namespace Align2{
         offset = orig.offset;
     }
     /**
-     * @description
+     * 
      * @return 
      */
     EDistance*

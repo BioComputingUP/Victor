@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
     /** @brief  Implement I/O objects for handling BLAST PSSM (Position
      *                  Specific Score Matrix).
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class PssmInput {

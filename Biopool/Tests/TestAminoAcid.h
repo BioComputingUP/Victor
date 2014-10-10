@@ -15,7 +15,7 @@
 #include <Atom.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor::Biopool;
 
 class TestAminoAcid : public CppUnit::TestFixture {
 private:

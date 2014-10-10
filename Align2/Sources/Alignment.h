@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  Implement a simple alignment type.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class Alignment : public AlignmentBase {

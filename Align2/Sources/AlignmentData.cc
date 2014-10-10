@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description 
+     *  
      * @param n
      * @param _n1
      * @param _n2
@@ -34,7 +34,7 @@ namespace Victor { namespace Align2{
     : match(n), n(n), name1(_n1), name2(_n2) {
     }
     /**
-     * @description 
+     *  
      * @param orig
      */
     AlignmentData::AlignmentData(const AlignmentData &orig) {
@@ -47,7 +47,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description 
+     *  
      * @param orig
      * @return 
      */
@@ -62,7 +62,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description 
+     *  
      * @param a
      * @param b
      * @return 
@@ -113,7 +113,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description 
+     *  
      * @param orig
      */
     void

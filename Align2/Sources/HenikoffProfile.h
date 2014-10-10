@@ -24,7 +24,7 @@ namespace Victor { namespace Align2{
     /** @brief Calculate a frequency profile or PSSM using Henikoff
      *                  weighting scheme. 
      * 
-     * @Description  Some explanations can be found in:
+     *   Some explanations can be found in:
      *
      *                  Guoli Wang, Roland L. Dunbrack jr.
      *                  Scoring profile-to-profile sequence alignments.

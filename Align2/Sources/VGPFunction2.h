@@ -28,7 +28,7 @@ namespace Victor { namespace Align2{
 
 /** @brief   Implement VGP (Variable Gap Penalty) function.
      * 
-     * @Description   Some
+     *    Some
      *                  explanations can be found in:
      *
      *                  Madhusudhan MS., Marti-Renom MA., Sanchez R., Sali A.

@@ -151,7 +151,7 @@ namespace Victor { namespace Align2{
         return newInputVector;
     }
     /**
-     * @Description Generate and output an ensemble of suboptimal alignments.
+     *  Generate and output an ensemble of suboptimal alignments.
      */
     void
     Align::outputMultiMatch(ostream &os, unsigned int num, bool fasta) {
@@ -169,7 +169,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @Description  Generate and return an ensemble of suboptimal alignments.
+     *   Generate and return an ensemble of suboptimal alignments.
      * @param num
      * @return 
      */
@@ -188,7 +188,7 @@ namespace Victor { namespace Align2{
         return va;
     }
     /**
-     * @Description Generate and return scores of an ensemble of suboptimal alignments.
+     *  Generate and return scores of an ensemble of suboptimal alignments.
      * @param num
      * @return 
      */

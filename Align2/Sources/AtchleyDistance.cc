@@ -31,7 +31,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description 
+     *  
      * @param pro1
      * @param pro2
      */
@@ -50,7 +50,7 @@ namespace Victor { namespace Align2{
         pLoadFactor();
     }
     /**
-     * @description 
+     *  
      * @param orig
      */
     AtchleyDistance::AtchleyDistance(const AtchleyDistance &orig)
@@ -79,7 +79,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description 
+     *  
      * @param i
      * @param j
      * @return 
@@ -126,7 +126,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description 
+     *  
      * @param orig
      */
     void
@@ -144,7 +144,7 @@ namespace Victor { namespace Align2{
             }
     }
     /**
-     * @description 
+     *  
      * @return 
      */
     AtchleyDistance*
@@ -156,7 +156,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description 
+     *  
      */
     void
     AtchleyDistance::pLoadFactor() {

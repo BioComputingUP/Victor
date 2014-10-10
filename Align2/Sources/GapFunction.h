@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
 
     /** @brief Base class for gap functions.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class GapFunction {

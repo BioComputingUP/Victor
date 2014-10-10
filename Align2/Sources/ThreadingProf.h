@@ -28,7 +28,7 @@ namespace Victor { namespace Align2{
     /** @brief    Calculate structural scores with info derived from
      *                  threading and PHD.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class ThreadingProf : public Structure {

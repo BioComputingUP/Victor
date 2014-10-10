@@ -24,7 +24,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  Implement Smith-Waterman local alignment.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class SWAlign : public Align {

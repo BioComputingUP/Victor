@@ -29,7 +29,7 @@ namespace Victor { namespace Align2{
 
     /** @brief   Base class for printing alignments.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class AlignmentData {

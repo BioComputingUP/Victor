@@ -40,7 +40,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description 
+     *  
      * @param orig
      * @return 
      */
@@ -55,7 +55,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description 
+     *  
      * @param seq
      * @return 
      */
@@ -64,7 +64,7 @@ namespace Victor { namespace Align2{
         return (getPureSequence(seq)).length();
     }
     /**
-     * @description
+     * 
      * @param seq1
      * @param seq2
      * @return 
@@ -93,7 +93,7 @@ namespace Victor { namespace Align2{
         return tmp / (seq1.length() - countN);
     }
     /**
-     * @description
+     * 
      * @return 
      */
     double
@@ -125,7 +125,7 @@ namespace Victor { namespace Align2{
         return tmp / (getSequenceLength(target) - countN);
     }
     /**
-     * @description
+     * 
      * @param p
      * @param index
      * @return 
@@ -146,7 +146,7 @@ namespace Victor { namespace Align2{
         return true;
     }
     /**
-     * @description
+     * 
      * @param p
      * @param index
      * @return 
@@ -162,7 +162,7 @@ namespace Victor { namespace Align2{
         return true;
     }
     /**
-     * @description
+     * 
      * @param p
      * @return 
      */
@@ -177,7 +177,7 @@ namespace Victor { namespace Align2{
         return true;
     }
     /**
-     * @description
+     * 
      * @param p
      * @param index
      * @return 
@@ -193,7 +193,7 @@ namespace Victor { namespace Align2{
         return false;
     }
     /**
-     * @description
+     * 
      * @return 
      */
     vector< vector<int> >
@@ -226,7 +226,7 @@ namespace Victor { namespace Align2{
         return resultVecs;
     }
     /**
-     * @description
+     * 
      * @param inputVector
      * @param newStartPos
      * @return 
@@ -251,7 +251,7 @@ namespace Victor { namespace Align2{
         return newInputVector;
     }
     /**
-     * @description
+     * 
      * @param CeTarget
      * @param CeTemplate
      * @param seqTarget
@@ -287,7 +287,7 @@ namespace Victor { namespace Align2{
         return overlap;
     }
     /**
-     * @description
+     * 
      * @param output
      */
     void
@@ -297,7 +297,7 @@ namespace Victor { namespace Align2{
             saveFasta(seqTemplate[j], seqTemplateName[j], output);
     }
     /**
-     * @description
+     * 
      * @param output
      */
     void
@@ -315,7 +315,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -334,7 +334,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      * @return 
      */
     AlignmentBase*
@@ -343,7 +343,7 @@ namespace Victor { namespace Align2{
         return tmp;
     }
     /**
-     * @description
+     * 
      * @param t
      * @param tName
      */
@@ -356,7 +356,7 @@ namespace Victor { namespace Align2{
         startAaTemplates.push_back(0);
     }
     /**
-     * @description
+     * 
      * @param index1
      * @param index2
      */
@@ -369,7 +369,7 @@ namespace Victor { namespace Align2{
         swap(startAaTemplates[index1], startAaTemplates[index2]);
     }
     /**
-     * @description
+     * 
      * @param p
      * @param c
      */
@@ -383,7 +383,7 @@ namespace Victor { namespace Align2{
                 seqTemplate[i].insert(p, 1, c);
     }
     /**
-     * @description
+     * 
      * @param p
      */
     void
@@ -391,7 +391,7 @@ namespace Victor { namespace Align2{
         insertCharacter(p, '-');
     }
     /**
-     * @description
+     * 
      * @param p
      */
     void
@@ -405,7 +405,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      */
     void
     AlignmentBase::purgeTargetInsertions() {
@@ -419,7 +419,7 @@ namespace Victor { namespace Align2{
                 ++i;
     }
     /**
-     * @description
+     * 
      * @param index
      */
     void
@@ -456,7 +456,7 @@ namespace Victor { namespace Align2{
     /// - trailing insertion for target A or target B
     /// If ignoreInsertion is set, insertions of target A are ignored.
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -713,7 +713,7 @@ COMBINE_END:
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param s
      * @return 
      */
@@ -732,7 +732,7 @@ COMBINE_END:
     /// If original index points to a dash, it returns the position of the first
     /// non-dash left character, again taking '-' not into account.
     /**
-     * @description
+     * 
      * @param s
      * @param p
      * @return 
@@ -762,7 +762,7 @@ COMBINE_END:
         return i - counter; // position minus number of dashes counted
     }
     /**
-     * @description
+     * 
      * @param s
      * @param p
      * @return 
@@ -786,7 +786,7 @@ COMBINE_END:
         return s.size(); // dummy
     }
     /**
-     * @description
+     * 
      * @param text
      * @return 
      */
@@ -810,7 +810,7 @@ COMBINE_END:
         return v;
     }
     /**
-     * @description
+     * 
      * @param s
      * @param n
      * @return 

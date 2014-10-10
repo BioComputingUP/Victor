@@ -27,7 +27,7 @@ namespace Victor { namespace Align2{
     /** @brief   Calculate score for profile to sequence alignment with
      *                  secondary structure.
      * 
-     * @Description  
+     *   
      * @This 
      **/
 

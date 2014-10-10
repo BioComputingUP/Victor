@@ -51,7 +51,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -80,7 +80,7 @@ namespace Victor { namespace Align2{
         return tmp;
     }
     /**
-     * @description
+     * 
      * @param ali
      */
     void
@@ -96,7 +96,7 @@ namespace Victor { namespace Align2{
         pConstructData(ali);
     }
     /**
-     * @description
+     * 
      * @param ali
      * @param is
      */
@@ -129,7 +129,7 @@ namespace Victor { namespace Align2{
         setSeq(ali.getTarget());
     }
     /**
-     * @description
+     * 
      */
     void
     Profile::reverse() {
@@ -158,7 +158,7 @@ namespace Victor { namespace Align2{
 
     // HELPERS:
     /**
-     * @description
+     * 
      * @param freq
      * @param freqGap
      * @param ali
@@ -179,7 +179,7 @@ namespace Victor { namespace Align2{
                 freqGap++;
     }
     /**
-     * @description
+     * 
      * @param ali
      */
     void
@@ -204,7 +204,7 @@ namespace Victor { namespace Align2{
         setSeq(ali.getTarget());
     }
     /**
-     * @description
+     * 
      */
     void
     Profile::pResetData() {

@@ -117,11 +117,11 @@ endif
 
 .SUFFIXES: .c .cc .cpp
 .cc.o:
-	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings -Wno-narrowing
 .c.o:
-	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings -Wno-narrowing
 .cpp.o:
-	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings
+	$(CC) $(CFLAGS) $(INC_PATH) -c $< -o $*.o -Wno-reorder  -Wno-uninitialized -Wno-write-strings -Wno-narrowing
 
 ######## Build rules
 

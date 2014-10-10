@@ -39,7 +39,7 @@ namespace Victor { namespace Align2{
     // CONSTRUCTORS:
 
     /**
-     * @description 
+     *  
      * @param pro1
      * @param pro2
      */
@@ -48,7 +48,7 @@ namespace Victor { namespace Align2{
     }
 
     /**
-     * @description 
+     *  
      * @param orig
      */
     DotPFreq::DotPFreq(const DotPFreq &orig) : ScoringFunction(orig) {
@@ -56,7 +56,7 @@ namespace Victor { namespace Align2{
     }
 
     /**
-     * @description 
+     *  
      */
     DotPFreq::~DotPFreq() {
     }
@@ -65,7 +65,7 @@ namespace Victor { namespace Align2{
     // OPERATORS:
 
     /**
-     * @description 
+     *  
      * @param orig
      * @return 
      */
@@ -81,7 +81,7 @@ namespace Victor { namespace Align2{
     // PREDICATES:
 
     /**
-     * @description 
+     *  
      * @param i
      * @param j
      * @return 
@@ -107,7 +107,7 @@ namespace Victor { namespace Align2{
     // MODIFIERS:
 
     /**
-     * @description 
+     *  
      * @param orig
      */
     void DotPFreq::copy(const DotPFreq &orig) {
@@ -117,7 +117,7 @@ namespace Victor { namespace Align2{
     }
 
     /**
-     * @description 
+     *  
      * @return 
      */
     DotPFreq*

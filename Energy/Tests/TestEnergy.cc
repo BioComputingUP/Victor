@@ -11,7 +11,9 @@
 
 #include <TestRapdfPotential.h>
 using namespace std;
-
+using namespace Victor;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
 
 int main() {
 	CppUnit::TextUi::TestRunner runner;

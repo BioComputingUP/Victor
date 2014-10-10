@@ -35,7 +35,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param pro1
      * @param pssm2
      */
@@ -64,7 +64,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param i
      * @param j
      * @return 
@@ -90,7 +90,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -100,7 +100,7 @@ namespace Victor { namespace Align2{
         pssm2 = orig.pssm2->newCopy();
     }
     /**
-     * @description
+     * 
      * @return 
      */
     Zhou*

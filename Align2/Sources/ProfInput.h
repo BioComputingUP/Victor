@@ -28,7 +28,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  Implement I/O objects for handling PHD files.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class ProfInput {

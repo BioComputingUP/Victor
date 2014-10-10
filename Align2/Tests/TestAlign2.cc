@@ -12,7 +12,7 @@
 #include <TestAlign.h>
 #include <TestAlignment.h>
 using namespace std;
-
+using namespace Victor;
 
 int main() {
 	CppUnit::TextUi::TestRunner runner;

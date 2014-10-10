@@ -26,7 +26,7 @@ namespace Victor { namespace Align2{
 
     /** @brief  Calculate scores for profile to profile alignment.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class ScoringP2P : public ScoringScheme {

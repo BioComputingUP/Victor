@@ -43,7 +43,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -70,7 +70,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -86,7 +86,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      * @return 
      */
     ThreadingInput*
@@ -111,7 +111,7 @@ namespace Victor { namespace Align2{
         os << endl;
     }
     /**
-     * @description
+     * 
      * @param is
      * @param data
      */

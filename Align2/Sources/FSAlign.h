@@ -24,7 +24,7 @@ namespace Victor { namespace Align2{
 
     /** @brief Implement free-shift "glocal" alignment.
      * 
-     * @Description  
+     *   
      * @This 
      **/
     class FSAlign : public Align {

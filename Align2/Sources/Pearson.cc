@@ -33,7 +33,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param pro1
      * @param pro2
      */
@@ -54,7 +54,7 @@ namespace Victor { namespace Align2{
         }
     }
     /**
-     * @description
+     * 
      * @param orig
      */
     Pearson::Pearson(const Pearson &orig) : ScoringFunction(orig) {
@@ -67,7 +67,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -82,7 +82,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param i
      * @param j
      * @return 
@@ -115,7 +115,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -136,7 +136,7 @@ namespace Victor { namespace Align2{
         }
     }   
     /**
-     * @description
+     * 
      * @return 
      */
     Pearson*

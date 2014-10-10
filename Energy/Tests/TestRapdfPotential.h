@@ -18,7 +18,9 @@
 #include <RapdfPotential.h>
 
 using namespace std;
-using namespace Biopool;
+using namespace Victor;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
 
 class TestRapdfPotential : public CppUnit::TestFixture {
 private:
@@ -58,7 +60,7 @@ protected:
     
 	void testRapdfPotential_spacer() {
                 Spacer s;
-                string p = path + "Energy/Tests/data/test.pdb";
+                string p = path + "Energy/Tests/data/rapd.pdb";
                 ifstream inFile2(p.c_str());
                 if (!inFile2)
                   ERROR("File not found.", exception);

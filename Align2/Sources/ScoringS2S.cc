@@ -25,7 +25,7 @@ namespace Victor { namespace Align2{
 
     // CONSTRUCTORS:
     /**
-     * @description
+     * 
      * @param sub
      * @param ad
      * @param str
@@ -36,7 +36,7 @@ namespace Victor { namespace Align2{
     seq2(ad->getSequence(2)), cSeq(cSeq) {
     }
     /**
-     * @description
+     * 
      * @param orig
      */
     ScoringS2S::ScoringS2S(const ScoringS2S &orig) : ScoringScheme(orig) {
@@ -60,7 +60,7 @@ namespace Victor { namespace Align2{
 
     // PREDICATES:
     /**
-     * @description
+     * 
      * @param i
      * @param j
      * @return 
@@ -78,7 +78,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -95,7 +95,7 @@ namespace Victor { namespace Align2{
         return tmp;
     }
     /**
-     * @description
+     * 
      */
     void
     ScoringS2S::reverse() {

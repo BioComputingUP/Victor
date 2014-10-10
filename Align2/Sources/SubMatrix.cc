@@ -44,7 +44,7 @@ namespace Victor { namespace Align2{
 
     // OPERATORS:
     /**
-     * @description
+     * 
      * @param orig
      * @return 
      */
@@ -56,7 +56,7 @@ namespace Victor { namespace Align2{
         return *this;
     }
     /**
-     * @description
+     * 
      * @param os
      * @param object
      * @return 
@@ -68,7 +68,7 @@ namespace Victor { namespace Align2{
         return os;
     }
     /**
-     * @description
+     * 
      * @param is
      * @param object
      * @return 
@@ -84,7 +84,7 @@ namespace Victor { namespace Align2{
 
     // MODIFIERS:
     /**
-     * @description
+     * 
      * @param orig
      */
     void
@@ -98,7 +98,7 @@ namespace Victor { namespace Align2{
         residues = orig.residues;
     }
     /**
-     * @description
+     * 
      * @return 
      */
     SubMatrix*
