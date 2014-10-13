@@ -40,3 +40,4 @@ Lobo/Tests/*.a
 Lobo/Tests/*.o
 tools/*.o
 tools/*.a
+tools/Depend
