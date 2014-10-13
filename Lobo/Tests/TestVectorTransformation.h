@@ -37,8 +37,7 @@ public:
         suiteOfTests->addTest(new CppUnit::TestCaller<TestVectorTransformation>("Test1 - Vector initialized with the identity matrix.",
                 &TestVectorTransformation::testTestVectorTransformation_A));
 
-        suiteOfTests->addTest(new CppUnit::TestCaller<TestVectorTransformation>("Test2 - verifies the initialized values.",
-                &TestVectorTransformation::testTestVectorTransformation_B));
+  
 
 
         return suiteOfTests;
@@ -73,9 +72,5 @@ protected:
         (testVector.getRot(0).z.z ==1)) ;
     }
 
-    void testTestVectorTransformation_B() {
-        // verifies the initialized values
-      
-        CPPUNIT_ASSERT(true);
-    }
+   
 };
