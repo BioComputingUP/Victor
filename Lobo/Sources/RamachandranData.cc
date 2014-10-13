@@ -20,7 +20,8 @@
 #include <IoTools.h>
 
 // Global constants, typedefs, etc. (to avoid):
-
+using namespace Victor;
+using namespace Victor::Lobo; 
 namespace Victor { namespace Lobo {
    
     float RamachandranData::PHI_ANGLE_TOL = 0.0;

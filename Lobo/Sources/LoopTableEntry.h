@@ -22,7 +22,9 @@
 #include <vector3.h>
 #include <matrix3.h>
 #include <Debug.h>
-
+using namespace Victor;
+using namespace Victor::Lobo;
+using namespace Victor::Biopool; 
 namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):

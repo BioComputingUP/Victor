@@ -26,6 +26,8 @@
 using namespace std;
 using namespace Victor;
 using namespace Victor::Lobo;
+using namespace Victor::Energy;
+using namespace Victor::Biopool;
 unsigned int LoopModel::MAX_CHAIN_LENGTH = 64;
 unsigned int LoopModel::OPT_MAX1 = 5;
 unsigned int LoopModel::OPT_MAX2 = 5;
@@ -1576,15 +1578,7 @@ LoopModel::convertCoords(AminoAcid start, vgVector3<float> startN,
         vt.addAlignVectors(convert(start[CA].getTrans()), refAxis);
         pAddRot(start, startN, end, endN, rotMat);
 
-        // ????? if nAmino % 2 == 0 rotate 180 degrees:
-        //        if (nAmino % 2 == 0)
-        //  	{
-        //  	  vgVector3<float> refAxis2(0,1,0);
-        //  	  rotMat = vgMatrix3<float>::createRotationMatrix(refAxis2,
-        //  							  DEG2RAD * 180.0);
-        //  	  vt.addRot(rotMat);
-        //  	  pAddRot(start, startN, end, endN, rotMat);
-        //  	}
+  
 
     }
 

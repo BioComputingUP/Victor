@@ -1,8 +1,8 @@
 /*
- * TestRapdfPotential.cpp
+ * TestVectorTransformation.cpp
  *
  *  Created on: Oct 6th, 2014
- *      Author: Manuel Giollo
+ *      Author: Layla Hirsh 
  */
 
 #include <iostream>
@@ -13,39 +13,69 @@
 #include <cppunit/TestCase.h>
 
 #include <VectorTransformation.h>
+#include <PdbLoader.h>
+#include <Spacer.h>
 
 using namespace std;
 using namespace Victor::Lobo;
 
 class TestVectorTransformation : public CppUnit::TestFixture {
 private:
-	VectorTransformation *testVectorTransformation;
+    VectorTransformation *testVectorTransformation;
 public:
-	TestVectorTransformation() : testVectorTransformation(NULL) {}
-	virtual ~TestVectorTransformation() {
-		delete testVectorTransformation;
-	}
 
-	static CppUnit::Test *suite() {
-		CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestVectorTransformation");
+    TestVectorTransformation() : testVectorTransformation(NULL) {
+    }
 
-		suiteOfTests->addTest(new CppUnit::TestCaller<TestVectorTransformation>("Test1 - distance greater than zero.",
-				&TestVectorTransformation::testVectorTransformation_A ));
+    virtual ~TestVectorTransformation() {
+        delete testVectorTransformation;
+    }
 
-		return suiteOfTests;
-	}
+    static CppUnit::Test *suite() {
+        CppUnit::TestSuite *suiteOfTests = new CppUnit::TestSuite("TestVectorTransformation");
 
-	/// Setup method
-	void setUp() {}
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestVectorTransformation>("Test1 - Vector initialized with the identity matrix.",
+                &TestVectorTransformation::testTestVectorTransformation_A));
 
-	/// Teardown method
-	void tearDown() {}
+        suiteOfTests->addTest(new CppUnit::TestCaller<TestVectorTransformation>("Test2 - verifies the initialized values.",
+                &TestVectorTransformation::testTestVectorTransformation_B));
 
+
+        return suiteOfTests;
+    }
+
+    /// Setup method
+
+    void setUp() {
+    }
+
+    /// Teardown method
+
+    void tearDown() {
+    }
+    vg_ieee64 degreesToRadian(const vg_ieee64& deg) {
+        return (deg / 180.0) * M_PI;
+    }
 protected:
-	void testVectorTransformation_A() {
-		
-		CPPUNIT_ASSERT( true );
-	}
 
-	
+    void testTestVectorTransformation_A() {
+        // Vector initialized with the identity matrix
+        VectorTransformation testVector;
+        
+        CPPUNIT_ASSERT((testVector.getRot(0).x.x==1 )&&
+        (testVector.getRot(0).x.y==0 )&&
+        (testVector.getRot(0).x.z==0 )&&
+        (testVector.getRot(0).y.x==0 )&&
+        (testVector.getRot(0).y.y ==1)&&
+        (testVector.getRot(0).y.z ==0 )&&
+        (testVector.getRot(0).z.x ==0 )&&
+        (testVector.getRot(0).z.y==0 )&&
+        (testVector.getRot(0).z.z ==1)) ;
+    }
+
+    void testTestVectorTransformation_B() {
+        // verifies the initialized values
+      
+        CPPUNIT_ASSERT(true);
+    }
 };

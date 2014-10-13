@@ -19,9 +19,7 @@
 #include<ranking_helper2.h>
 
 // Global constants, typedefs, etc. (to avoid):
-
 using namespace Victor;
-
 using namespace Victor::Lobo;
 // CONSTRUCTORS/DESTRUCTOR:
 

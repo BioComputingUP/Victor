@@ -18,10 +18,10 @@
 #ifndef _RAMACHANDRANDATA_H_
 #define _RAMACHANDRANDATA_H_
 
+
 // Includes:
 #include <vector>
 #include <Debug.h>
-
 namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):

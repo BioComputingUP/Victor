@@ -22,7 +22,9 @@
 #include "LoopExtractor.h"
 #include <set>
 #include "ranking_helper2.h"
-
+using namespace Victor;
+using namespace Victor::Lobo;
+using namespace Victor::Biopool; 
 // Global constants, typedefs, etc. (to avoid):
 namespace Victor { namespace Lobo {
 

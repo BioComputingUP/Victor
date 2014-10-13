@@ -25,6 +25,8 @@
 
 using namespace Victor;
 using namespace Victor::Lobo;
+using namespace Victor::Biopool; 
+
 unsigned int LoopTable::MAX_BINS = 128;
 unsigned int LoopTable::MAX_FACTOR = 5; // ie. applied as / MAX_FACTOR 
 double LoopTable::BOND_ANGLE_AT_CPRIME_TO_N = 112.7;

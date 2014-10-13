@@ -23,8 +23,8 @@
 #include <vector3.h>
 #include <matrix3.h>
 #include <IntCoordConverter.h>
-
-using namespace Victor::Biopool;
+using namespace Victor; 
+using namespace Victor::Biopool; 
 namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):
@@ -50,7 +50,7 @@ namespace Victor { namespace Lobo {
         void addRot(vgMatrix3<float> rm);
         void addTrans(vgVector3<float> t);
         void clear();
-
+         vgMatrix3<float> getRot(int i);
         void copy(const VectorTransformation& orig);
 
         // OPERATORS:

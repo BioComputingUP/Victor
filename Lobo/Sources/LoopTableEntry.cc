@@ -21,7 +21,9 @@
 
 // Global constants, typedefs, etc. (to avoid):
 
-//using namespace Victor;
+using namespace Victor;
+using namespace Victor::Lobo;
+using namespace Victor::Biopool; 
 namespace Victor { namespace Lobo {
     float LoopTableEntry::BOND_LENGTH_TOL = 2.0;
     float LoopTableEntry::BOND_ANGLE_TOL = 2.0;

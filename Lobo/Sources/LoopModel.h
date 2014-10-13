@@ -31,7 +31,10 @@
 #include <RapdfPotential.h>
 #include <PhiPsi.h>
 #include <ctype.h>
-
+using namespace Victor;
+using namespace Victor::Lobo;
+using namespace Victor::Biopool;
+using namespace Victor::Energy;
 namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):

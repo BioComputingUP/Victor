@@ -20,8 +20,8 @@
 #include <IoTools.h>
 
 // Global constants, typedefs, etc. (to avoid):
-using namespace Victor;  
-using namespace Victor::Lobo;
+using namespace Victor;
+using namespace Victor::Lobo; 
 namespace Victor { namespace Lobo {
 
     static void sLine() {

@@ -22,7 +22,7 @@
 // Includes:
 #include <string>
 #include <vector>
-using namespace std; 
+using namespace std;  
 namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):

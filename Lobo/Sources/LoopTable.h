@@ -26,7 +26,9 @@
 #include <RamachandranData.h>
 #include <LoopTableEntry.h>
 #include <queue>
-
+using namespace Victor;
+using namespace Victor::Lobo;
+using namespace Victor::Biopool; 
 namespace Victor { namespace Lobo {
 
     // Global constants, typedefs, etc. (to avoid):

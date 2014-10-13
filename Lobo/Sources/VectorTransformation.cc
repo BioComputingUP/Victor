@@ -22,8 +22,8 @@
 // Global constants, typedefs, etc. (to avoid):
 
 using namespace Victor;
-using namespace Victor::Biopool;
 using namespace Victor::Lobo;
+using namespace Victor::Biopool;
 // CONSTRUCTORS/DESTRUCTOR:
 
 /**
@@ -41,7 +41,7 @@ VectorTransformation::VectorTransformation(const VectorTransformation& orig) {
 }
 
 /**
- *@Description basic destructor
+ *basic destructor
  */
 VectorTransformation::~VectorTransformation() {
     PRINT_NAME;
@@ -71,6 +71,13 @@ vgVector3<float> VectorTransformation::transform(vgVector3<float> orig) {
 
 
 // MODIFIERS:
+
+/**
+ *@Description returns the rot matrix 
+ */
+vgMatrix3<float> VectorTransformation::getRot(int i){
+    return rot[i];
+}
 
 /**
  *@Description Adds rotation 

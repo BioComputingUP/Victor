@@ -16,17 +16,17 @@ BINPATH = ../../bin
 # Libraries and paths (which are not defined globally).
 #
 
-LIBS =  -L$(LIB) -lLobo -lBiopool  -ltools -lEnergy -lTorsion -L/usr/lib/ -lm -ldl -lcppunit
+LIBS = -lLobo -lEnergy -lTorsion -lBiopool  -ltools  -L/usr/lib/ -lm -ldl -lcppunit
 
 LIB_PATH = -L.
 
-INC_PATH = -I.  -I../../Energy/Sources -I../../Energy/TorsionPotential/Sources -I../../Biopool/Sources  -I../../tools -I../../Lobo/Sources
+INC_PATH = -I.
 
 #
 # Objects and headers
 #
 
-SOURCES =  TestLobo.cc TestVectorTransformation.h
+SOURCES =  TestLobo.cc TestLoopModel.h  TestVectorTransformation.h 
 
 OBJECTS =  $(SOURCES:.cpp=.o)
 
