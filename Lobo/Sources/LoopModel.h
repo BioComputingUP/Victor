@@ -264,7 +264,7 @@ namespace Victor { namespace Lobo {
         //  PRECOND( _tFN.size() == MAX_CHAIN_LENGTH, exception);
         tableFileName.clear();
         for (unsigned int i = 0; i < MAX_CHAIN_LENGTH; i++)
-            tableFileName.push_back(basename + (uitos(i)).c_str() + ending);
+            tableFileName.push_back(basename + (uitosDEF(i)).c_str() + ending);
     }
 
     inline void

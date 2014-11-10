@@ -166,7 +166,7 @@ bool getArg(const char *givenOption, int &value,
     value = defaultValue;
     result = getArg(givenOption, tempInt, argc, argv);
     if (tempInt != "") {
-        value = stoi(tempInt);
+        value = stoiDEF(tempInt);
     }
     return result;
 }
@@ -179,7 +179,7 @@ bool getArg(const char *givenOption, unsigned int &value,
     value = defaultValue;
     result = getArg(givenOption, tempInt, argc, argv);
     if (tempInt != "") {
-        value = stoui(tempInt);
+        value = stouiDEF(tempInt);
     }
     return result;
 }
@@ -192,7 +192,7 @@ bool getArg(const char *givenOption, long &value,
     value = defaultValue;
     result = getArg(givenOption, tempInt, argc, argv);
     if (tempInt != "") {
-        value = stol(tempInt);
+        value = stolDEF(tempInt);
     }
     return result;
 }
@@ -205,7 +205,7 @@ bool getArg(const char *givenOption, float &value,
     value = defaultValue;
     result = getArg(givenOption, tempInt, argc, argv);
     if (tempInt != "") {
-        value = stof(tempInt);
+        value = stofDEF(tempInt);
     }
     return result;
 }
@@ -218,7 +218,7 @@ bool getArg(const char *givenOption, double &value,
     value = defaultValue;
     result = getArg(givenOption, tempInt, argc, argv);
     if (tempInt != "") {
-        value = stod(tempInt);
+        value = stodDEF(tempInt);
     }
     return result;
 }
@@ -244,7 +244,7 @@ bool getArg(const char *givenOption, vector<int> &value,
             if (twiceSameNumber == true) {
 
                 if (strcmp(givenOption, option) == 0) {
-                    value.push_back(stoi(input));
+                    value.push_back(stoiDEF(input));
                 } else {
                     continue;
                 }
@@ -253,13 +253,13 @@ bool getArg(const char *givenOption, vector<int> &value,
                 if (strcmp(givenOption, option) == 0) {
                     bool alreadyAdded = false;
                     for (unsigned int i = 0; i < value.size(); i++) {
-                        if (stoi(input) == value[i]) {
+                        if (stoiDEF(input) == value[i]) {
                             alreadyAdded = true;
                             break;
                         }
                     }
                     if (alreadyAdded == false) {
-                        value.push_back(stoi(input));
+                        value.push_back(stoiDEF(input));
                     }
                 }
                 else {
@@ -303,7 +303,7 @@ bool getArg(const char *givenOption, vector<unsigned int> &value,
             if (twiceSameNumber == true) {
 
                 if (strcmp(givenOption, option) == 0) {
-                    value.push_back(stoui(input));
+                    value.push_back(stouiDEF(input));
                 } else {
                     continue;
                 }
@@ -313,13 +313,13 @@ bool getArg(const char *givenOption, vector<unsigned int> &value,
                 if (strcmp(givenOption, option) == 0) {
                     bool alreadyAdded = false;
                     for (unsigned int i = 0; i < value.size(); i++) {
-                        if (stoui(input) == value[i]) {
+                        if (stouiDEF(input) == value[i]) {
                             alreadyAdded = true;
                             break;
                         }
                     }
                     if (alreadyAdded == false) {
-                        value.push_back(stoui(input));
+                        value.push_back(stouiDEF(input));
                     }
                 }
                 else {
@@ -363,7 +363,7 @@ bool getArg(const char *givenOption, vector<double> &value,
             if (twiceSameNumber == true) {
 
                 if (strcmp(givenOption, option) == 0) {
-                    value.push_back(stod(input));
+                    value.push_back(stodDEF(input));
                 } else {
                     continue;
                 }
@@ -373,13 +373,13 @@ bool getArg(const char *givenOption, vector<double> &value,
                 if (strcmp(givenOption, option) == 0) {
                     bool alreadyAdded = false;
                     for (unsigned int i = 0; i < value.size(); i++) {
-                        if (stod(input) == value[i]) {
+                        if (stodDEF(input) == value[i]) {
                             alreadyAdded = true;
                             break;
                         }
                     }
                     if (alreadyAdded == false) {
-                        value.push_back(stod(input));
+                        value.push_back(stodDEF(input));
                     }
                 }
                 else {

@@ -366,7 +366,7 @@ inline void saveLoopEnsemble(unsigned int index1, unsigned int index2,
         else if (i < 100)
             tmpStr += "0";
 
-        tmpStr += itos(i);
+        tmpStr += itosDEF(i);
 
         ofstream outFile(tmpStr.c_str());
         if (!outFile)

@@ -243,13 +243,13 @@ int main(int nArgs, char* argv[]) {
             segName += "00";
         else if (index1 + 1 < 100)
             segName += "0";
-        segName += itos(index1 + 1) + "_";
+        segName += itosDEF(index1 + 1) + "_";
 
         if (index2 + 1 < 10)
             segName += "00";
         else if (index2 + 1 < 100)
             segName += "0";
-        segName += itos(index2 + 1);
+        segName += itosDEF(index2 + 1);
 
         // write output PDB files
 
@@ -266,7 +266,7 @@ int main(int nArgs, char* argv[]) {
                 else if (i < 100)
                     tmpStr += "0";
 
-                tmpStr += itos(i);
+                tmpStr += itosDEF(i);
 
                 ofstream outFile(tmpStr.c_str());
                 if (!outFile)

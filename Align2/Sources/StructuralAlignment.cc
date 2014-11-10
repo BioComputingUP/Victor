@@ -70,30 +70,30 @@ StructuralAlignment::loadCE(istream& input, Spacer& spNew) {
             string tmp2;
 
             tmp2 = readLine(input);
-            rot[0] = stod(tmp2.substr(3, 9));
-            rot[3] = stod(tmp2.substr(20, 9));
-            rot[6] = stod(tmp2.substr(37, 9));
-            trans[0] = stod(tmp2.substr(56, 10));
+            rot[0] = stodDEF(tmp2.substr(3, 9));
+            rot[3] = stodDEF(tmp2.substr(20, 9));
+            rot[6] = stodDEF(tmp2.substr(37, 9));
+            trans[0] = stodDEF(tmp2.substr(56, 10));
 
             input >> tmp;
             if (tmp != "Y2")
                 ERROR("Unexpected end of CE file.", exception);
 
             tmp2 = readLine(input);
-            rot[1] = stod(tmp2.substr(3, 9));
-            rot[4] = stod(tmp2.substr(20, 9));
-            rot[7] = stod(tmp2.substr(37, 9));
-            trans[1] = stod(tmp2.substr(56, 10));
+            rot[1] = stodDEF(tmp2.substr(3, 9));
+            rot[4] = stodDEF(tmp2.substr(20, 9));
+            rot[7] = stodDEF(tmp2.substr(37, 9));
+            trans[1] = stodDEF(tmp2.substr(56, 10));
 
             input >> tmp;
             if (tmp != "Z2")
                 ERROR("Unexpected end of CE file.", exception);
 
             tmp2 = readLine(input);
-            rot[2] = stod(tmp2.substr(3, 9));
-            rot[5] = stod(tmp2.substr(20, 9));
-            rot[8] = stod(tmp2.substr(37, 9));
-            trans[2] = stod(tmp2.substr(56, 10));
+            rot[2] = stodDEF(tmp2.substr(3, 9));
+            rot[5] = stodDEF(tmp2.substr(20, 9));
+            rot[8] = stodDEF(tmp2.substr(37, 9));
+            trans[2] = stodDEF(tmp2.substr(56, 10));
 
             cout << "\t" << rot[0] << "\t" << rot[3] << "\t" << rot[6]
                     << "\t" << trans[0] << "\n";

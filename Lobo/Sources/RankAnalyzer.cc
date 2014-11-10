@@ -270,11 +270,11 @@ namespace Victor { namespace Lobo {
                     cout << "----> " << tmpStr << endl;
 
                     if (tmpStr[1] == ':')
-                        tmp = stod(tmpStr.substr(2, tmpStr.length() - 2));
+                        tmp = stodDEF(tmpStr.substr(2, tmpStr.length() - 2));
                     else if (tmpStr[2] == ':')
-                        tmp = stod(tmpStr.substr(3, tmpStr.length() - 3));
+                        tmp = stodDEF(tmpStr.substr(3, tmpStr.length() - 3));
                     else
-                        tmp = stod(tmpStr);
+                        tmp = stodDEF(tmpStr);
 
                     cout << "-.-.# " << tmp << endl;
 

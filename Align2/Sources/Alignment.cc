@@ -25,6 +25,8 @@
 #include <AlignmentBase.h>
 #include <IoTools.h>
 #include <stringtools.h>
+#include <String2Number.h>
+
 
 
 namespace Victor { namespace Align2{
@@ -88,7 +90,7 @@ namespace Victor { namespace Align2{
         AlignmentBase::saveFasta(target, targetName, output);
 
         for (unsigned int j = 0; j < seqTemplate.size(); j++) {
-            string tmp = seqTemplateName[j] + " // " + dtos(score[j]);
+            string tmp = seqTemplateName[j] + " // " + dtosDEF(score[j]);
             AlignmentBase::saveFasta(seqTemplate[j], tmp, output);
         }
     }
@@ -321,14 +323,14 @@ namespace Victor { namespace Align2{
             if ((words.size() > 3) && (words[0] == "Chain")) {
                 if (words[1] == "1:") {
                     if (!startAaTargetRead) {
-                        startAaTarget = stoi(words[2]) - 1; // read offset
+                        startAaTarget = stoiDEF(words[2]) - 1; // read offset
                         startAaTargetRead = true;
                     }
                     target = target + words[3]; // add sequence
                 } else
                     if (words[1] == "2:") {
                     if (!startAaTemplateRead) {
-                        startAaTemplates[0] = stoi(words[2]) - 1; // read offset
+                        startAaTemplates[0] = stoiDEF(words[2]) - 1; // read offset
                         startAaTemplateRead = true;
                     }
                     seqTemplate[0] = seqTemplate[0] + words[3]; // add sequence
@@ -503,22 +505,22 @@ namespace Victor { namespace Align2{
             switch (state) {
                 case 0: // read scores & E-values
                     if (words[0].find("|") <= 10) {
-                        if ((words[words.size() - 2] == "0.0") && (stod(words[words.size() - 1]) == 0.0)) {
-                            score.push_back(stod(words[words.size() - 3]));
+                        if ((words[words.size() - 2] == "0.0") && (stodDEF(words[words.size() - 1]) == 0.0)) {
+                            score.push_back(stodDEF(words[words.size() - 3]));
 
                             if (words[words.size() - 2][0] == 'e')
-                                evalue.push_back(stod('1' + words[words.size() - 2]));
+                                evalue.push_back(stodDEF('1' + words[words.size() - 2]));
                             else {
-                                evalue.push_back(stod(words[words.size() - 2]));
+                                evalue.push_back(stodDEF(words[words.size() - 2]));
                             }
 
                         } else {
-                            score.push_back(stod(words[words.size() - 2]));
+                            score.push_back(stodDEF(words[words.size() - 2]));
 
                             if (words[words.size() - 1][0] == 'e')
-                                evalue.push_back(stod('1' + words[words.size() - 1]));
+                                evalue.push_back(stodDEF('1' + words[words.size() - 1]));
                             else {
-                                evalue.push_back(stod(words[words.size() - 1]));
+                                evalue.push_back(stodDEF(words[words.size() - 1]));
                             }
                         }
                     }
@@ -538,7 +540,7 @@ namespace Victor { namespace Align2{
                         }
                         if (words.size() == 4) {
                             //target = words[2];
-                            startAaTarget = stoi(words[1]) - 1; // read offset
+                            startAaTarget = stoiDEF(words[1]) - 1; // read offset
                             pos = line.find(words[3], iniseq - 1);
                             target += line.substr(iniseq, pos - iniseq - 2);
                         } else if (words.size() == 2) {
@@ -613,7 +615,7 @@ namespace Victor { namespace Align2{
                             score.push_back(0);
                             evalue.push_back(-1);
                             if ((words.size() == 4) || (words.size() == 3)) {
-                                startAaTemplates.push_back(stoi(words[1]) - 1);
+                                startAaTemplates.push_back(stoiDEF(words[1]) - 1);
                             } else { // no offset
                                 startAaTemplates.push_back(0);
                             }
@@ -655,11 +657,11 @@ namespace Victor { namespace Align2{
             switch (state) {
                 case 0: // read scores & E-values
                     if (words[0].find("|") <= 10) {
-                        score.push_back(stod(words[words.size() - 2]));
+                        score.push_back(stodDEF(words[words.size() - 2]));
                         if (words[words.size() - 1][0] == 'e')
-                            evalue.push_back(stod('1' + words[words.size() - 1]));
+                            evalue.push_back(stodDEF('1' + words[words.size() - 1]));
                         else
-                            evalue.push_back(stod(words[words.size() - 1]));
+                            evalue.push_back(stodDEF(words[words.size() - 1]));
                     }
 
                 case 1: // looking for start of alignment
@@ -678,7 +680,7 @@ namespace Victor { namespace Align2{
 
                         if (words.size() == 4) {
                             target = words[2];
-                            startAaTarget = stoi(words[1]) - 1; // read offset
+                            startAaTarget = stoiDEF(words[1]) - 1; // read offset
                         } else
                             if (words.size() == 2) {
                             target = words[1]; // line consists only of "-" characters
@@ -736,7 +738,7 @@ namespace Victor { namespace Align2{
                             evalue.push_back(-1);
 
                             if ((words.size() == 4) || (words.size() == 3))
-                                startAaTemplates.push_back(stoi(words[1]) - 1);
+                                startAaTemplates.push_back(stoiDEF(words[1]) - 1);
                             else // no offset
                                 startAaTemplates.push_back(0);
                         }
@@ -779,11 +781,11 @@ namespace Victor { namespace Align2{
             switch (state) {
                 case 0: // read scores & E-values
                     if (words[0].find("|") <= 10) {
-                        score.push_back(stod(words[words.size() - 2]));
+                        score.push_back(stodDEF(words[words.size() - 2]));
                         if (words[words.size() - 1][0] == 'e')
-                            evalue.push_back(stod('1' + words[words.size() - 1]));
+                            evalue.push_back(stodDEF('1' + words[words.size() - 1]));
                         else
-                            evalue.push_back(stod(words[words.size() - 1]));
+                            evalue.push_back(stodDEF(words[words.size() - 1]));
                     }
 
                 case 1: // looking for start of alignment
@@ -800,7 +802,7 @@ namespace Victor { namespace Align2{
 
                         if (words.size() == 4) {
                             target = words[2];
-                            startAaTarget = stoi(words[1]) - 1; // read offset
+                            startAaTarget = stoiDEF(words[1]) - 1; // read offset
                         } else
                             if (words.size() == 2) {
                             target = words[1]; // line consists only of "-" characters
@@ -899,7 +901,7 @@ namespace Victor { namespace Align2{
                             evalue.push_back(-1);
 
                             if ((words.size() == 4) || (words.size() == 3))
-                                startAaTemplates.push_back(stoi(words[1]) - 1);
+                                startAaTemplates.push_back(stoiDEF(words[1]) - 1);
                             else // no offset
                                 startAaTemplates.push_back(0);
                         }
@@ -928,7 +930,7 @@ namespace Victor { namespace Align2{
             ERROR("Strange first line in loadMSAF.", exception);
 
         targetName = words[0];
-        startAaTarget = stoi(words[1]) - 1;
+        startAaTarget = stoiDEF(words[1]) - 1;
         target = words[2];
 
         while (is) {

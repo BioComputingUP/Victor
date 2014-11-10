@@ -337,7 +337,7 @@ PdbLoader::loadProtein(Protein& prot) {
                     name = atomLine;
                     sp->setType(name);
                 } else if (tag == "MODEL ") {
-                    readingModel = stoui(atomLine.substr(6, 10));
+                    readingModel = stouiDEF(atomLine.substr(6, 10));
                     if (readingModel > model)
                         break;
                     // Get only the first model if not specified
@@ -348,15 +348,15 @@ PdbLoader::loadProtein(Protein& prot) {
 
                     // read helix entry
                 else if (tag == "HELIX ") {
-                    start = stoi(atomLine.substr(21, 4));
-                    end = stoi(atomLine.substr(33, 4));
+                    start = stoiDEF(atomLine.substr(21, 4));
+                    end = stoiDEF(atomLine.substr(33, 4));
 
                     helixData.push_back(pair<const int, int>(start, end));
                     helixCode += atomLine.substr(19, 1).c_str()[0];
                 }                    // read sheet entry
                 else if (tag == "SHEET ") {
-                    start = stoi(atomLine.substr(22, 4));
-                    end = stoi(atomLine.substr(33, 4));
+                    start = stoiDEF(atomLine.substr(22, 4));
+                    end = stoiDEF(atomLine.substr(33, 4));
 
                     sheetData.push_back(pair<const int, int>(start, end));
                     sheetCode += atomLine.substr(21, 1).c_str()[0];
@@ -369,7 +369,7 @@ PdbLoader::loadProtein(Protein& prot) {
                     if (chainList[i] == chainID) {
 
                         if ((model == 999) || (model == readingModel)) {
-                            aaNum = stoi(atomLine.substr(22, 4));
+                            aaNum = stoiDEF(atomLine.substr(22, 4));
 
                             // Insert the Ligand object into LigandSet
                             if (aaNum != oldAaNum) {
@@ -573,18 +573,18 @@ PdbLoader::loadProtein(Protein& prot) {
 int
 PdbLoader::parsePDBline(string atomLine, string tag, Ligand* lig, AminoAcid* aa) {
 
-    int atNum = stoi(atomLine.substr(6, 5)); // stoi convert from string to int
+    int atNum = stoiDEF(atomLine.substr(6, 5)); // stoi convert from string to int
     //char altAtID = atomLine.substr(16,1)[0];    // "Alternate location indicator"               
-    int aaNum = stoi(atomLine.substr(22, 4));
+    int aaNum = stoiDEF(atomLine.substr(22, 4));
     char altAaID = atomLine.substr(26, 1)[0]; // "Code for insertion of residues"
     vgVector3<double> coord;
-    coord.x = stod(atomLine.substr(30, 8));
-    coord.y = stod(atomLine.substr(38, 8));
-    coord.z = stod(atomLine.substr(46, 8));
+    coord.x = stodDEF(atomLine.substr(30, 8));
+    coord.y = stodDEF(atomLine.substr(38, 8));
+    coord.z = stodDEF(atomLine.substr(46, 8));
     double bfac = 0.0;
     if (atomLine.length() >= 66) {
         if (atomLine.substr(60, 6) != "      ") { // empty bfac
-            bfac = stod(atomLine.substr(60, 6));
+            bfac = stodDEF(atomLine.substr(60, 6));
         }
     }
     string atType = "";

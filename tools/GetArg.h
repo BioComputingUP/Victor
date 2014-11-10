@@ -64,7 +64,6 @@
 #include <cstdarg>
 #include <string>
 #include <vector>
-#include <Debug.h>
 #include <String2Number.h> // convert number to string and and vice versa
 #include <FileName.h>
 #include <limits>

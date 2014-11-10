@@ -35,30 +35,30 @@
 #include <limits>
 #include <cmath>
 // changes string into integer:
-int stoi(const string&);
+int stoiDEF(const string&);
 // changes string into unsigned integer:
-unsigned int stoui(const string&);
+unsigned int stouiDEF(const string&);
 // changes string into long:
-long stol(const string&);
+long stolDEF(const string&);
 // changes string into float:
-float stof(const string&);
+float stofDEF(const string&);
 // changes string into double:
-double stod(const string&);
+double stodDEF(const string&);
 // changes string to vector of integer. Format: n1,n2,n3, ...
-vector<int> sToVectorOfInt(const string&);
+vector<int> sToVectorOfIntDEF(const string&);
 // changes string to vector of unsigned integer. Format: n1,n2,n3, ...
-vector<unsigned int> sToVectorOfUInt(const string&);
+vector<unsigned int> sToVectorOfUIntDEF(const string&);
 
 // changes integer into string:
-string itos(const int&);
+string itosDEF(const int&);
 // changes unsigned integer into string:
-string uitos(const unsigned int&);
+string uitosDEF(const unsigned int&);
 // changes long into string;
-string ltos(const long&);
+string ltosDEF(const long&);
 // changes float into string:
-string ftos(const float&);
+string ftosDEF(const float&);
 // changes double into string:
-string dtos(const double&);
+string dtosDEF(const double&);
 /** tokenize text line */
 vector<string> getTokens(const string& s);
 

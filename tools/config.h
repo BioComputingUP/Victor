@@ -26,7 +26,7 @@
 #ifndef _config_h_
 #define _config_h_
 
-#include <string>
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>

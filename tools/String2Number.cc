@@ -19,7 +19,7 @@
  * @Description string to integer
  * @param string to convert
  */
-int stoi(const string &s) {
+int stoiDEF(const string &s) {
     int i;
     double temp;
     const char *pointer;
@@ -44,7 +44,7 @@ int stoi(const string &s) {
  *  if wrong input (integer expected but e.g. float given) then error
  * changes string into integer:
  * */
-unsigned int stoui(const string &s) {
+unsigned int stouiDEF(const string &s) {
     unsigned int i;
     double temp;
     const char *pointer;
@@ -70,7 +70,7 @@ unsigned int stoui(const string &s) {
  * @Description string to long
  * @param string to convert
  */
-long stol(const string &s) {
+long stolDEF(const string &s) {
     long l;
     long double temp;
     const char *pointer;
@@ -93,7 +93,7 @@ long stol(const string &s) {
  * @Description string to float
  * @param string to convert
  */
-float stof(const string &s) {
+float stofDEF(const string &s) {
     float f;
     float temp;
     const char *pointer;
@@ -116,7 +116,7 @@ float stof(const string &s) {
  * @Description string to double
  * @param string to convert
  */
-double stod(const string &s) {
+double stodDEF(const string &s) {
     double d;
     double temp; // temporary integer
     const char *pointer;
@@ -147,7 +147,7 @@ double stod(const string &s) {
  * postcondition: the return vector is filled with the apropriate numbers
  * error behaviour: quits, if precondition is not fullfilled.
  */
-vector<int> sToVectorOfInt(const string& s_orig) {
+vector<int> sToVectorOfIntDEF(const string& s_orig) {
     string s = s_orig;
     vector<int> v;
     if (s[1] == '\'') {
@@ -164,7 +164,7 @@ vector<int> sToVectorOfInt(const string& s_orig) {
     istringstream ist(s.c_str()); // see Stroustrup chapter 21.5.3
     string w; // word
     while (ist >> w) {
-        v.push_back(stoi(w));
+        v.push_back(stoiDEF(w));
         DUMP(w);
     }
     return v;
@@ -177,7 +177,7 @@ vector<int> sToVectorOfInt(const string& s_orig) {
  * postcondition: the return vector is filled with the apropriate numbers
  * error behaviour: quits, if precondition is not fullfilled.
  */
-vector<unsigned int> sToVectorOfUInt(const string& s_orig) {
+vector<unsigned int> sToVectorOfUIntDEF(const string& s_orig) {
     string s = s_orig;
     vector<unsigned int> v;
     if (s[1] == '\'') {
@@ -194,7 +194,7 @@ vector<unsigned int> sToVectorOfUInt(const string& s_orig) {
     istringstream ist(s.c_str()); // see Stroustrup chapter 21.5.3
     string w; // word
     while (ist >> w) {
-        v.push_back(stoi(w));
+        v.push_back(stoiDEF(w));
         DUMP(w);
     }
     return v;
@@ -204,7 +204,7 @@ vector<unsigned int> sToVectorOfUInt(const string& s_orig) {
  * @Description changes integer into sting:
  */
 
-string itos(const int &i) {
+string itosDEF(const int &i) {
     string s;
 
     ostringstream os;
@@ -215,7 +215,7 @@ string itos(const int &i) {
 /**
  * @Description changes unsigned integer into sting:
  * */
-string uitos(const unsigned int &i) {
+string uitosDEF(const unsigned int &i) {
     string s;
 
     ostringstream os;
@@ -226,7 +226,7 @@ string uitos(const unsigned int &i) {
 /**
  * @Description changes long into sting:
  * */
-string ltos(const long &l) {
+string ltosDEF(const long &l) {
     string s;
 
     ostringstream os;
@@ -237,7 +237,7 @@ string ltos(const long &l) {
 /**
  * @Description  changes float into sting:
  * */
-string ftos(const float &f) {
+string ftosDEF(const float &f) {
     string s;
 
     ostringstream os;
@@ -248,7 +248,7 @@ string ftos(const float &f) {
 /**
  * @Description  changes double into sting:
  * */
-string dtos(const double &d) {
+string dtosDEF(const double &d) {
     string s;
 
     ostringstream os;

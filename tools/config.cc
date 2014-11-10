@@ -86,23 +86,23 @@ template double config::getParameter<double>(string paramName, double value);
 template string config::getParameter<string>(string paramName, string value);
 
 int config::convertString2Type(string value, int tmp) {
-    return stoi(value);
+    return stoiDEF(value);
 }
 
 unsigned int config::convertString2Type(string value, unsigned int tmp) {
-    return stoui(value);
+    return stouiDEF(value);
 }
 
 double config::convertString2Type(string value, double tmp) {
-    return stod(value);
+    return stodDEF(value);
 }
 
 float config::convertString2Type(string value, float tmp) {
-    return stof(value);
+    return stofDEF(value);
 }
 
 long config::convertString2Type(string value, long tmp) {
-    return stol(value);
+    return stolDEF(value);
 }
 
 string config::convertString2Type(string value, string tmp) {
@@ -139,15 +139,15 @@ template int config::setParameter<long>(string paramName, long);
 template int config::setParameter<float>(string paramName, float);
 
 string config::convertTypes(int value) {
-    return itos(value);
+    return itosDEF(value);
 }
 
 string config::convertTypes(unsigned int value) {
-    return uitos(value);
+    return uitosDEF(value);
 }
 
 string config::convertTypes(float value) {
-    return ftos(value);
+    return ftosDEF(value);
 }
 
 string config::convertTypes(string value) {
@@ -155,11 +155,11 @@ string config::convertTypes(string value) {
 }
 
 string config::convertTypes(long value) {
-    return ltos(value);
+    return ltosDEF(value);
 }
 
 string config::convertTypes(double value) {
-    return dtos(value);
+    return dtosDEF(value);
 }
 
 template int config::changeParameter<int>(string paramName, int);
