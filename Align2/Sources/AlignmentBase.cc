@@ -493,11 +493,11 @@ namespace Victor { namespace Align2{
         diff = static_cast<int> (getPureSequence(target).size()) -
                 static_cast<int> (getPureSequence(other.target).size());
         if (diff < 0) // still not same size: add "X" at end
-            for (int i = 0; i < abs(diff); ++i)
+            for (int i = 0; i < fabs(diff); ++i)
                 insertCharacter(target.size(), '~');
         else
             if (diff > 0) // still not same size: add "X" at end
-            for (int i = 0; i < abs(diff); ++i)
+            for (int i = 0; i < fabs(diff); ++i)
                 other.insertCharacter(other.target.size(), '~');
 
 #ifdef DEBUG_VERBOSE

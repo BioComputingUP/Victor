@@ -523,7 +523,7 @@ LoopModel::calculateHydrogen(const Spacer& sp, unsigned int index1, unsigned int
 
     for (unsigned int i = 0; i < sp2.sizeAmino(); i++)
         for (unsigned int j = 0; j < sp2.sizeAmino(); j++)
-            if (abs((long) (i - j)) >= 2)
+            if (fabs((long) (i - j)) >= 2)
                 res += sCalcHydrogen(const_cast<AminoAcid&> (sp2.getAmino(i)),
                     const_cast<AminoAcid&> (sp2.getAmino(j)));
 

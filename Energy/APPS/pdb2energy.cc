@@ -115,7 +115,7 @@ double sHydrogen(Spacer& sp){
 
   for (int i = 0; i < static_cast<int>(sp.sizeAmino()); i++)
     for (int j = 0; j < static_cast<int>(sp.sizeAmino()); j++)
-      if (abs(i-j) > 1)	{
+      if (fabs(i-j) > 1)	{
 	  double dist = sp.getAmino(i)[N].distance(sp.getAmino(j)[O]);
 	  double dist2 = sp.getAmino(i)[N].distance(sp.getAmino(j)[C]);
 	  double dist3 = sp.getAmino(i)[CA].distance(sp.getAmino(j)[O]);

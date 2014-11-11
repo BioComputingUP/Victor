@@ -105,7 +105,7 @@ void IntLoader::zAtomToCartesian(Atom& atbLP, double bondLength, Atom& atbAP,
                 aCatbLP[2] + bondLength
                 * (-u2[2] * cos_1 + u4[2] * sin_1 * cos_2 + u3[2] * sin_1 * sin_2));
     }// now, the case where second angle is a bondLength angle
-    else if (abs(chiral) == 1) {
+    else if ((int)fabs(chiral) == 1) {
         u1 = (aCatbLP - aCattAP).normalize();
         u2 = (aCatbAP - aCatbLP).normalize();
 

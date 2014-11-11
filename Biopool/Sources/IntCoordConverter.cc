@@ -414,7 +414,7 @@ IntCoordConverter::zAtomToCartesian(Atom& atbLP, const double bondLength,
 
 
     }// now, the case where second angle is a bondLength angle
-    else if (abs(chiral) == 1) {
+    else if ((int)fabs(chiral) == 1) {
         u1 = (aCatbLP - aCattAP).normalize();
         u2 = (aCatbAP - aCatbLP).normalize();
 
