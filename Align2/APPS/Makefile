@@ -25,9 +25,9 @@ INC_PATH = -I. -I ../../Biopool/ -I../../tools/ -I../../Align2/Sources
 # Objects and headers
 #
 
-SOURCES =  
+SOURCES =  subali.cc
 
-OBJECTS =  
+OBJECTS =  subali.o
 
 TARGETS =   subali \
  

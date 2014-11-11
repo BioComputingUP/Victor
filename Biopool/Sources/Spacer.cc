@@ -25,6 +25,7 @@
 #include <matrix3.h>
 #include <iostream>
 #include <PdbLoader.h>
+#include <cmath>
 #include <cassert>
 using namespace std;
 
@@ -1624,7 +1625,7 @@ void Spacer::setDSSP(bool verbose) {
                 }
             }
             // Bridges
-            if (abs(i - j) > 2) { // Avoid overlapping stretches of 3 residues
+            if ( fabs(i - j) > 2) { // Avoid overlapping stretches of 3 residues
                 // Parallel bridges
                 if ((i > 0) && (i < (sizeAmino() - 1))) {
                     if ((backboneHbonds[i - 1][j]) && (backboneHbonds[j][i + 1])) {

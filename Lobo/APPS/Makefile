@@ -24,11 +24,13 @@ INC_PATH = -I.  -I../../Energy/Sources -I../../Energy/TorsionPotential/Sources -
 # Objects and headers
 #
 
-SOURCES = 
+SOURCES =  loboLUT.cc LoopTablePlot.cc   ClusterLoopTable.cc  \
+     ClusterRama.cc       lobo.cc  loop2torsion.cc scatEdit.cc  backboneAnalyzer.cc   loboFull.cc
     
     
 
-OBJECTS =   
+OBJECTS =    loboLUT.o LoopTablePlot.o   ClusterLoopTable.o  \
+     ClusterRama.o       lobo.o  loop2torsion.o scatEdit.o  backboneAnalyzer.o  loboFull.o 
 
 TARGETS = loboLUT LoopTablePlot  ClusterLoopTable    ClusterRama     lobo  \
    loop2torsion scatEdit   backboneAnalyzer  loboFull
