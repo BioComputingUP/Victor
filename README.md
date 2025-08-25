@@ -11,7 +11,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Victor.  If not, see <http://www.gnu.org/licenses/>.
+along with Victor.  If not, see [https://gnu.org/licenses/](https://gnu.org/licenses/).
 
 ## Installation
 
@@ -24,6 +24,6 @@ make
 The `make clean` command ensures that the compilation 
 process starts from scratch. 
 
-## Dicumentation
+## Documentation
 
 Victor documentation is available as Doxygen at [https://biocomputingup.it/victor_doxygen](https://biocomputingup.it/victor_doxygen).
