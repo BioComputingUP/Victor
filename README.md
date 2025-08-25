@@ -1,6 +1,4 @@
-==================================================
-Victor (Virtual Construction Toolkit for Proteins)
-==================================================
+# Victor (Virtual Construction Toolkit for Proteins)
 
 Victor is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,27 +13,17 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Victor.  If not, see <http://www.gnu.org/licenses/>.
 
+## Installation
 
-=======================
-# Installation
+To compile the seource code simply run the following commands 
+from the Victor root folder:
+```bash
+make clean
+make
+```
+The `make clean` command ensures that the compilation 
+process starts from scratch. 
 
-To compile the seource code simply run from the Victor 
-root folder (Makefile.global) the following commands:
+## Dicumentation
 
- make clean
-
- make
-
-The make clean command simply ensures the compilation 
-process will start from scratch. 
-
-
-=======================
-# Wiki
-
-Additional informations (Introduction, Tutorial, Documentation, 
-Features description) are avilable in the Victor Wiki:
-
-http://protein.bio.unipd.it/victor/index.php/
-
-
+Victor documentation is available as Doxygen at [https://biocomputingup.it/victor_doxygen](https://biocomputingup.it/victor_doxygen).
