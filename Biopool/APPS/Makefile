@@ -26,17 +26,17 @@ INC_PATH = -I. -I../../tools/ -I../../Biopool/Sources -I../../Energy/Sources -I.
 # Objects and headers
 #
 
-SOURCES =   PdbCorrector.cc PdbSecondary.cc PdbEditor.cc Pdb2Seq.cc pdb2secondary.cc pdbshifter.cc \
-	pdbMover.cc
+SOURCES =   PdbAlignment.cc PdbCorrector.cc PdbSecondary.cc PdbEditor.cc Pdb2Seq.cc pdb2secondary.cc pdbshifter.cc \
+	pdbMover.cc 
 
-OBJECTS =   PdbCorrector.o PdbSecondary.o PdbEditor.o Pdb2Seq.o pdb2secondary.o pdbshifter.o \
-	pdbMover.o
+OBJECTS =   PdbAlignment.o PdbCorrector.o PdbSecondary.o PdbEditor.o Pdb2Seq.o pdb2secondary.o pdbshifter.o \
+	pdbMover.o 
 
-TARGETS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover
+TARGETS = PdbAlignment PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
+	pdbMover 
 
-EXECS = PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
-	pdbMover
+EXECS = PdbAlignment PdbCorrector PdbSecondary PdbEditor Pdb2Seq pdb2secondary pdbshifter \
+	pdbMover 
 
 LIBRARY = APPSlibBiopool.a
 

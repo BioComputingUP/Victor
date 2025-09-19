@@ -20,14 +20,14 @@ LIBS = -lEnergy -lTorsion -ltools
 
 LIB_PATH = -L.
 
-INC_PATH = -I.   -I../../tools 
+INC_PATH = -I.   -I../../tools
 
 #
 # Objects and headers
 #
  
 
-SOURCES = Identity.cc SimpleBond.cc Bond.cc \
+SOURCES = Identity.cc SimpleBond.cc Bond.cc KabschMethod.cc Rotator.cc SuperImpositor.cc \
  Component.cc Monomer.cc Polymer.cc Atom.cc Group.cc SideChain.cc \
  AminoAcid.cc Spacer.cc IntSaver.cc IntLoader.cc SeqSaver.cc PdbLoader.cc \
  PdbSaver.cc SeqLoader.cc IntCoordConverter.cc SeqConstructor.cc Ligand.cc \
@@ -35,13 +35,13 @@ SOURCES = Identity.cc SimpleBond.cc Bond.cc \
  RelLoader.cc XyzSaver.cc RelSaver.cc XyzLoader.cc
 
 
-OBJECTS = Identity.o SimpleBond.o Bond.o \
+OBJECTS = Identity.o SimpleBond.o Bond.o KabschMethod.o Rotator.o SuperImpositor.o \
  Component.o Monomer.o Polymer.o Atom.o Group.o SideChain.o \
  AminoAcid.o Spacer.o IntSaver.o IntLoader.o \
  SeqSaver.o PdbLoader.o PdbSaver.o SeqLoader.o \
  IntCoordConverter.o SeqConstructor.o Ligand.o LigandSet.o \
  SolvExpos.o Protein.o AminoAcidHydrogen.o Nucleotide.o \
- RelLoader.o XyzSaver.o RelSaver.o XyzLoader.o
+ RelLoader.o XyzSaver.o RelSaver.o XyzLoader.o 
 
 
 TARGETS =   
