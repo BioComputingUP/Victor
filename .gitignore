@@ -41,3 +41,9 @@ Lobo/Tests/*.o
 tools/*.o
 tools/*.a
 tools/Depend
+Phylo/Sources/*.o
+Phylo/Sources/*.a
+Phylo/APPS/*.o
+Phylo/APPS/*.a
+Phylo/Tests/*.o
+Phylo/Test/*.a
