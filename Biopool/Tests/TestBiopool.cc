@@ -13,6 +13,8 @@
 #include <TestGroup.h>
 #include <TestAminoAcid.h>
 #include <TestSpacer.h>
+#include <TestKabsch.h>
+#include <TestStructuralSuperimposition.h>
 using namespace std;
 
 
@@ -24,6 +26,8 @@ int main() {
         runner.addTest(TestGroup::suite());
         runner.addTest(TestAminoAcid::suite());
         runner.addTest(TestSpacer::suite());
+        runner.addTest(TestKabsch::suite());
+        runner.addTest(TestStructuralSuperimposition::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
