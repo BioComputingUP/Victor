@@ -56,6 +56,11 @@ namespace Victor { namespace Biopool {
 
         // PREDICATES:
 
+        /**
+        	 close the output file
+         	 @param  none
+        	 @return void
+        */
         void endFile() {
             output << "END\n";
         }
@@ -102,8 +107,6 @@ namespace Victor { namespace Biopool {
         virtual void saveProtein(Protein& prot);
 
     protected:
-
-    private:
 
         // HELPERS:
         void writeSeqRes(Spacer& sp); // writes SEQRES entry

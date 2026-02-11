@@ -160,6 +160,21 @@ namespace Victor { namespace Biopool {
         void setStateFromTorsionAngles();
         void setDSSP(bool verbose);
 
+
+        /**
+         *
+         *  Return a vector of set, each set correspond whit one amino acid.
+         *  Use this command after setDSSP(boool verbose) command.
+         *  Each set contain many information about secondary structure of one amino acid.
+         *  The first letter of the set is the secondary structure.
+         *  @code
+         *  Spacer.setDSSP(false);
+		 *	vector<set<char> > = Spacer.getDSSP();
+         *  @endcode
+         *
+         *	@param none
+         *	@return  vector<set<char> > , a vector of set
+         */
         vector< set<char> > getDSSP() {
             return ss;
         };

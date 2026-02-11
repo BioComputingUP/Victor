@@ -45,6 +45,8 @@ namespace Victor { namespace Biopool {
         virtual ~Atom();
 
         // PREDICATES:
+
+
         AtomCode getCode() const;
         unsigned long getNumber() const;
 
@@ -130,17 +132,30 @@ namespace Victor { namespace Biopool {
     // -----------------x-------------------x-------------------x-----------------
 
     // PREDICATES:
-
+    /**
+            *   Return the code of the Atom
+            * @param none
+            * @return AtomCode
+            */
     inline AtomCode
     Atom::getCode() const {
         return type;
     }
-
+    /**
+            *   Return the number of the Atom in the model
+            * @param none
+            * @return id, id of atom
+            */
     inline unsigned long
     Atom::getNumber() const {
         return id;
     }
 
+    /**
+            *   Return 3D vector with coordinate 3D of the Atom
+            * @param none
+            * @return vgVector3<double>
+            */
     inline vgVector3<double>
     Atom::getCoords() {
         if (!inSync())

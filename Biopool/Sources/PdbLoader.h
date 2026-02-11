@@ -92,19 +92,35 @@ namespace Victor { namespace Biopool {
         void setNonPermissive() {
             permissive = false;
         }
-
+        /**
+        	 You can chose if you want verbose output from this class
+        	 @param  none
+        	 @return void
+        	 */
         void setVerbose() {
             verbose = true;
         }
-
+        /**
+        	 You can chose if you want not verbose output from this class
+        	 @param  none
+        	 @return void
+        	 */
         void setNoVerbose() {
             verbose = false;
         }
-
+	/**
+	 Set the chain that do you want load
+	 @param  char
+	 @return void
+	 */
         void setChain(char _ch) {
             chain = _ch;
         }
-
+     /**
+       set the Model that do you want load
+       @param  unsigned int
+       @return void
+     */
         void setModel(unsigned int _mod) {
             model = _mod;
         }
