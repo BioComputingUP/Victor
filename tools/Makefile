@@ -22,13 +22,13 @@ LIB_PATH = -L.
 INC_PATH = -I.
 
 #
-# Objects and headers
+# Objects and headersscale*
 #
 
 SOURCES = vector3.cc matrix3.cc vglStd.cc config.cc GetArg.cc \
- String2Number.cc timer.cc IoTools.cc StatTools.cc    
+ String2Number.cc timer.cc IoTools.cc StatTools.cc  Kabsch.cc
 OBJECTS = vector3.o matrix3.o vglStd.o config.o GetArg.o \
- String2Number.o timer.o IoTools.o StatTools.o  
+ String2Number.o timer.o IoTools.o StatTools.o  Kabsch.o
 TARGETS =  
 
 LIBRARY = libtools.a
