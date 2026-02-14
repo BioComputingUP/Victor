@@ -1,4 +1,5 @@
 .gitignore_bkp
+.settings/
 nbproject/
 html/
 latex/
@@ -38,6 +39,12 @@ Lobo/Sources/*.o
 Lobo/Sources/*.a
 Lobo/Tests/*.a
 Lobo/Tests/*.o
+Mobi/Sources/*.o
+Mobi/Sources/*.a
+Mobi/Tests/*.a
+Mobi/Tests/*.o
+Mobi/Tests/data/*.tmp*
 tools/*.o
 tools/*.a
 tools/Depend
+/Mobi.doxyfile
