@@ -106,11 +106,11 @@ SUBDIRS += _dummy_
 
 LIB_PATH += -L$(UPDIR)/lib
 
-INC_PATH += -I$(UPDIR)/tools -I$(UPDIR)/Energy/Sources   -I$(UPDIR)/Biopool/Sources -I$(UPDIR)/Energy/Sources/TorsionPotential     -I$(UPDIR)/Lobo/Sources  -I$(UPDIR)/Align2/Sources  -I$(UPDIR)/Biopool/APPS -I$(UPDIR)/Energy/APPS -I$(UPDIR)/Align2/APPS  -I$(UPDIR)/Lobo/APPS
+INC_PATH += -I$(UPDIR)/tools -I$(UPDIR)/Energy/Sources   -I$(UPDIR)/Biopool/Sources -I$(UPDIR)/Energy/Sources/TorsionPotential     -I$(UPDIR)/Lobo/Sources  -I$(UPDIR)/Align2/Sources -I$(UPDIR)/Phylo/Sources  -I$(UPDIR)/Biopool/APPS -I$(UPDIR)/Energy/APPS -I$(UPDIR)/Align2/APPS -I$(UPDIR)/Phylo/APPS  -I$(UPDIR)/Lobo/APPS
 
 ifdef test
-  INC_PATH += -I$(UPDIR)/Biopool/Tests -I$(UPDIR)/Energy/Tests -I$(UPDIR)/Align2/Tests -I$(UPDIR)/Lobo/Tests
-  SUBDIRS =  Biopool/Tests Energy/Tests Align2/Tests Lobo/Tests
+  INC_PATH += -I$(UPDIR)/Biopool/Tests -I$(UPDIR)/Energy/Tests -I$(UPDIR)/Align2/Tests -I$(UPDIR)/Phylo/Tests -I$(UPDIR)/Lobo/Tests
+  SUBDIRS =  Biopool/Tests Energy/Tests Align2/Tests Phylo/Tests Lobo/Tests
 endif
 
 ####### Implicit rules

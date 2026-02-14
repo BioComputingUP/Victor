@@ -89,7 +89,7 @@ namespace Victor { namespace Align2{
         time_t t;
         pResetData();
         seqLen = ali.getTarget().size();
-        numSeq = ali.size() - 2;
+        numSeq = ali.size();
         time(&t);
         newtime = localtime(&t);
         cout << "ready for pConstructData " << newtime->tm_hour << "/" << newtime->tm_min << endl;
