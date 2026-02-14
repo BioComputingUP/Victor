@@ -32,7 +32,8 @@ SOURCES = Identity.cc SimpleBond.cc Bond.cc \
  AminoAcid.cc Spacer.cc IntSaver.cc IntLoader.cc SeqSaver.cc PdbLoader.cc \
  PdbSaver.cc SeqLoader.cc IntCoordConverter.cc SeqConstructor.cc Ligand.cc \
  LigandSet.cc SolvExpos.cc AminoAcidHydrogen.cc Nucleotide.cc \
- RelLoader.cc XyzSaver.cc RelSaver.cc XyzLoader.cc
+ RelLoader.cc XyzSaver.cc RelSaver.cc XyzLoader.cc \
+ StructurePdbSuperimposition.cc
 
 
 OBJECTS = Identity.o SimpleBond.o Bond.o \
@@ -41,7 +42,8 @@ OBJECTS = Identity.o SimpleBond.o Bond.o \
  SeqSaver.o PdbLoader.o PdbSaver.o SeqLoader.o \
  IntCoordConverter.o SeqConstructor.o Ligand.o LigandSet.o \
  SolvExpos.o Protein.o AminoAcidHydrogen.o Nucleotide.o \
- RelLoader.o XyzSaver.o RelSaver.o XyzLoader.o
+ RelLoader.o XyzSaver.o RelSaver.o XyzLoader.o \
+ StructurePdbSuperimposition.o
 
 
 TARGETS =   

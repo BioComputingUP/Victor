@@ -13,6 +13,7 @@
 #include <TestGroup.h>
 #include <TestAminoAcid.h>
 #include <TestSpacer.h>
+#include <TestStructurePdbSuperimposition.h>
 using namespace std;
 
 
@@ -20,10 +21,11 @@ int main() {
 	CppUnit::TextUi::TestRunner runner;
 
 	cout << "Creating Test Suites:" << endl;
-        runner.addTest(TestAtom::suite());
-        runner.addTest(TestGroup::suite());
-        runner.addTest(TestAminoAcid::suite());
-        runner.addTest(TestSpacer::suite());
+    runner.addTest(TestAtom::suite());
+    runner.addTest(TestGroup::suite());
+    runner.addTest(TestAminoAcid::suite());
+    runner.addTest(TestSpacer::suite());
+    runner.addTest(TestStructurePdbSuperimposition::suite());
 	cout<< "Running the unit tests."<<endl;
 	runner.run();
 
