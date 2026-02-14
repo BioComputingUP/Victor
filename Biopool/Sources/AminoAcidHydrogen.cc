@@ -121,6 +121,11 @@ AminoAcidHydrogen::setHydrogen(AminoAcid* aa, bool verbose) {
         IntCoordConverter icc;
         Atom atH;
         atH.setType("H");
+	
+	// extra CIF fields
+	atH.setAsymId(aa->getAtom(0).getAsymId());
+	atH.setEntityId(aa->getAtom(0).getEntityId());
+	atH.setModel(aa->getAtom(0).getModel());
 
         AminoAcid before = (*aa).getInBond(0);
         atH.bindIn((*aa)[N]);
@@ -170,6 +175,11 @@ AminoAcidHydrogen::setHydrogen(AminoAcid* aa, bool verbose) {
             chiral = atoi(args[8].c_str());
 
             atH.setType(args[2]);
+	    
+	    // extra CIF fields
+	    atH.setAsymId(aa->getAtom(0).getAsymId());
+	    atH.setEntityId(aa->getAtom(0).getEntityId());
+	    atH.setModel(aa->getAtom(0).getModel());
 
             if (aa->getSideChain().isMember(atBindCod)) {
 

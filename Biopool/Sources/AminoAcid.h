@@ -58,9 +58,9 @@ namespace Victor { namespace Biopool {
         unsigned int size() const;
         unsigned int sizeBackbone() const;
 
-        double getPhi(bool override = false);
-        double getPsi(bool override = false);
-        double getOmega(bool override = false);
+        double getPhi(bool bypass = false);
+        double getPsi(bool bypass = false);
+        double getOmega(bool bypass = false);
         double getChi(unsigned int n);
         vector<double> getChi();
         unsigned int getMaxChi();
@@ -187,8 +187,8 @@ namespace Victor { namespace Biopool {
     }
 
     inline double
-    AminoAcid::getPhi(bool override) {
-        if ((phi > 990) || (override))
+    AminoAcid::getPhi(bool bypass) {
+        if ((phi > 990) || (bypass))
             if (sizeInBonds())
                 phi = RAD2DEG * icc.getTorsionAngle(getInBond(0)[C], (*this)[N],
                     (*this)[CA], (*this)[C]);
@@ -196,8 +196,8 @@ namespace Victor { namespace Biopool {
     }
 
     inline double
-    AminoAcid::getPsi(bool override) {
-        if ((psi > 990) || (override))
+    AminoAcid::getPsi(bool bypass) {
+        if ((psi > 990) || (bypass))
             if (sizeOutBonds())
                 psi = RAD2DEG * icc.getTorsionAngle((*this)[N], (*this)[CA],
                     (*this)[C], getOutBond(0)[N]);
@@ -205,8 +205,8 @@ namespace Victor { namespace Biopool {
     }
 
     inline double
-    AminoAcid::getOmega(bool override) {
-        if ((omega > 990) || (override))
+    AminoAcid::getOmega(bool bypass) {
+        if ((omega > 990) || (bypass))
             if (sizeOutBonds())
                 omega = RAD2DEG * icc.getTorsionAngle((*this)[CA], (*this)[C],
                     getOutBond(0)[N], getOutBond(0)[CA]);

@@ -87,8 +87,6 @@ int main(int nArgs, char* argv[]) {
     // 1. read structure
     // --------------------------------------------------
 
-    Spacer sp;
-
     ifstream inFile(inputFile.c_str());
 
     if (!inFile)
@@ -99,7 +97,10 @@ int main(int nArgs, char* argv[]) {
     if (noHydrogen)
         pl.setNoHAtoms();
 
-    sp.load(pl);
+    Protein prot;
+    prot.load(pl);
+    unsigned int zero = 0;
+    Spacer sp = *(prot.getSpacer(zero));
     inFile.close();
 
     // --------------------------------------------------

@@ -53,6 +53,11 @@ namespace Victor { namespace Biopool {
         double getBFac() {
             return Bfac;
         }
+	
+	char getAsymId();
+	string getEntityId();
+	double getOccupancy();
+	int getModel();
 
         double distance(Atom& other);
 
@@ -83,6 +88,10 @@ namespace Victor { namespace Biopool {
         void setBFac(double _b) {
             Bfac = _b;
         }
+	void setAsymId(char aId);
+	void setEntityId(string eId);
+	void setOccupancy(double occ);
+	void setModel(int mod);
 
         void setTrans(vgVector3<double> t);
         void addTrans(vgVector3<double> t);
@@ -117,6 +126,11 @@ namespace Victor { namespace Biopool {
         vgVector3<double> coords; // xyz-Coords
 
         double Bfac; // B-factor
+	
+	char asymId;
+	string entityId;
+	double occupancy;
+	int model;
 
         vgVector3<double> trans; // relative translation
         vgMatrix3<double> rot; // relative rotation
@@ -178,6 +192,22 @@ namespace Victor { namespace Biopool {
     inline bool
     Atom::inSync() {
         return (!modified);
+    }
+    
+    inline char Atom::getAsymId() {
+	return asymId;
+    }
+    
+    inline string Atom::getEntityId() {
+	return entityId;
+    }
+    
+    inline double Atom::getOccupancy() {
+	return occupancy;
+    }
+    
+    inline int Atom::getModel() {
+	return model;
     }
 
     // MODIFIERS:
@@ -279,6 +309,22 @@ namespace Victor { namespace Biopool {
         this->superior = gr;
     }
 
+    inline void Atom::setAsymId(char aId) {
+	asymId = aId;
+    }
+    
+    inline void Atom::setEntityId(string eId) {
+	entityId = eId;
+    }
+    
+    inline void Atom::setOccupancy(double occ) {
+	occupancy = occ;
+    }
+    
+    inline void Atom::setModel(int mod) {
+	model = mod;
+    }
+    
     // OPERATORS:
 
 

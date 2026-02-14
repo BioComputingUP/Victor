@@ -78,16 +78,16 @@ int main(int nArgs, char* argv[]) {
     // 1. read structure
     // --------------------------------------------------
 
-    Spacer sp;
-
     ifstream inFile(inputFile.c_str());
 
     if (!inFile)
         ERROR("File does not exist.\n", exception);
 
     PdbLoader pl(inFile);
-
-    sp.load(pl);
+    Protein prot;
+    prot.load(pl);
+    unsigned int zero = 0;
+    Spacer sp = *(prot.getSpacer(zero));
     inFile.close();
 
 

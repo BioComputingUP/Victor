@@ -274,15 +274,17 @@ void PdbSaver::saveProtein(Protein& prot) {
  */
 void PdbSaver::writeSeqRes(Spacer& sp) {
     for (unsigned int i = 0; i < sp.sizeAmino() / 13; i++) {
-        output << "SEQRES " << setw(3) << i << "   " << setw(3)
-                << sp.sizeAmino() << "   ";
+        output << "SEQRES " << setw(3) << i << " " << 
+		setw(1) << chain << " " <<
+		setw(4) << sp.sizeAmino() << "  ";
         for (unsigned int j = 0; j < 13; j++)
             output << sp.getAmino((i * 13) + j).getType() << " ";
         output << "\n";
     }
     if (sp.sizeAmino() % 13 > 0) {
-        output << "SEQRES " << setw(3) << sp.sizeAmino() / 13 + 1 << "   "
-                << setw(3) << sp.sizeAmino() << "   ";
+        output << "SEQRES " << setw(3) << sp.sizeAmino() / 13 + 1 << " " << 
+		setw(1) << chain << " " <<
+		setw(4) << sp.sizeAmino() << "  ";
         for (unsigned int j = 13 * (sp.sizeAmino() / 13); j < sp.sizeAmino(); j++)
             output << sp.getAmino(j).getType() << " ";
         output << "\n";

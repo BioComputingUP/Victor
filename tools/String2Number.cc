@@ -43,7 +43,7 @@ int stoiDEF(const string &s) {
  * @Description   if the input is no number (e.g. char or string)  then error, 
  *  if wrong input (integer expected but e.g. float given) then error
  * changes string into integer:
- * */
+ */
 unsigned int stouiDEF(const string &s) {
     unsigned int i;
     double temp;
@@ -201,9 +201,8 @@ vector<unsigned int> sToVectorOfUIntDEF(const string& s_orig) {
 }
 
 /**
- * @Description changes integer into sting:
+ * @Description changes integer into string:
  */
-
 string itosDEF(const int &i) {
     string s;
 
@@ -213,8 +212,8 @@ string itosDEF(const int &i) {
 }
 
 /**
- * @Description changes unsigned integer into sting:
- * */
+ * @Description changes unsigned integer into string:
+ */
 string uitosDEF(const unsigned int &i) {
     string s;
 
@@ -224,8 +223,8 @@ string uitosDEF(const unsigned int &i) {
 }
 
 /**
- * @Description changes long into sting:
- * */
+ * @Description changes long into string:
+ */
 string ltosDEF(const long &l) {
     string s;
 
@@ -235,8 +234,8 @@ string ltosDEF(const long &l) {
 }
 
 /**
- * @Description  changes float into sting:
- * */
+ * @Description  changes float into string:
+ */
 string ftosDEF(const float &f) {
     string s;
 
@@ -246,8 +245,8 @@ string ftosDEF(const float &f) {
 }
 
 /**
- * @Description  changes double into sting:
- * */
+ * @Description  changes double into string:
+ */
 string dtosDEF(const double &d) {
     string s;
 
@@ -258,7 +257,7 @@ string dtosDEF(const double &d) {
 
 /**
  * @Description  tokenize text 
- * */
+ */
 vector<string> getTokens(const string& text) {
     istringstream ist(text.c_str());
     char* charLine = new char[text.size() + 1]; // size of string

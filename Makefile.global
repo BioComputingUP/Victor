@@ -38,7 +38,7 @@ DEBUGFLAGS = -g
 
 NORMALFLAGS = $(DEBUGFLAGS)
 
-FASTFLAGS = -O3 -ffast-math -DNDEBUG -ftemplate-depth-36
+FASTFLAGS = -O3 -ffast-math -DNDEBUG -ftemplate-depth-48
 
 QUICKFLAGS = -DNDEBUG
 

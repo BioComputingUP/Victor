@@ -26,15 +26,20 @@ INC_PATH = -I.
 # Objects and headers
 #
 
-SOURCES =  TestBiopool.cc TestAtom.h TestAminoAcid.h TestGroup.h TestSpacer.h
+#SOURCES =  TestBiopool.cc TestAtom.h TestAminoAcid.h TestGroup.h TestSpacer.h
+SOURCES = TestCif.cc TestCifLoader.h TestCifStructure.h
 
-OBJECTS =  $(SOURCES:.cpp=.o)
+#OBJECTS =  $(SOURCES:.cpp=.o)
+OBJECTS = $(SOURCES:.cc=.o)
 
-TARGETS = TestBiopool
+#TARGETS = TestBiopool
+TARGETS = TestCif
 
-EXECS = TestBiopool
+#EXECS = TestBiopool
+EXECS = TestCif
 
-LIBRARY = TESTlibBiopool.a
+#LIBRARY = TESTlibBiopool.a
+LIBRARY = TESTlibCif.a
 
 #
 # Install rule
