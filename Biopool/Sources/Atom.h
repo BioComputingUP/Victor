@@ -53,6 +53,10 @@ namespace Victor { namespace Biopool {
         double getBFac() {
             return Bfac;
         }
+        
+        double getOccupancy(){
+            return Occupancy;
+        }
 
         double distance(Atom& other);
 
@@ -82,6 +86,10 @@ namespace Victor { namespace Biopool {
 
         void setBFac(double _b) {
             Bfac = _b;
+        }
+        
+        void setOccupancy(double _o){
+            Occupancy = _o;
         }
 
         void setTrans(vgVector3<double> t);
@@ -117,6 +125,7 @@ namespace Victor { namespace Biopool {
         vgVector3<double> coords; // xyz-Coords
 
         double Bfac; // B-factor
+        double Occupancy; // Occupancy
 
         vgVector3<double> trans; // relative translation
         vgMatrix3<double> rot; // relative rotation

@@ -1,0 +1,75 @@
+data_25C8
+# 
+_entry.id   25C8 
+# 
+_audit_conform.dict_name       mmcif_pdbx.dic 
+_audit_conform.dict_version    4.007 
+_audit_conform.dict_location   http://mmcif.pdb.org/dictionaries/ascii/mmcif_pdbx.dic 
+# 
+_database_2.database_id     PDB 
+_database_2.database_code   25C8 
+# 
+loop_
+_database_PDB_rev.num 
+_database_PDB_rev.date 
+_database_PDB_rev.date_original 
+_database_PDB_rev.status 
+_database_PDB_rev.replaces 
+_database_PDB_rev.mod_type 
+1 1999-03-23 1998-03-18 ? 25C8 0 
+2 1999-07-09 ?          ? 25C8 1 
+3 2009-02-24 ?          ? 25C8 1 
+# 
+loop_
+_database_PDB_rev_record.rev_num 
+_database_PDB_rev_record.type 
+_database_PDB_rev_record.details 
+2 JRNL  ? 
+3 VERSN ? 
+# 
+_pdbx_database_status.status_code      REL 
+_pdbx_database_status.entry_id         25C8 
+_pdbx_database_status.deposit_site     ? 
+_pdbx_database_status.process_site     ? 
+_pdbx_database_status.status_code_sf   REL 
+_pdbx_database_status.status_code_mr   ? 
+_pdbx_database_status.SG_entry         ? 
+# 
+loop_
+_atom_site.group_PDB 
+_atom_site.id 
+_atom_site.type_symbol 
+_atom_site.label_atom_id 
+_atom_site.label_alt_id 
+_atom_site.label_comp_id 
+_atom_site.label_asym_id 
+_atom_site.label_entity_id 
+_atom_site.label_seq_id 
+_atom_site.pdbx_PDB_ins_code 
+_atom_site.Cartn_x 
+_atom_site.Cartn_y 
+_atom_site.Cartn_z 
+_atom_site.occupancy 
+_atom_site.B_iso_or_equiv 
+_atom_site.Cartn_x_esd 
+_atom_site.Cartn_y_esd 
+_atom_site.Cartn_z_esd 
+_atom_site.occupancy_esd 
+_atom_site.B_iso_or_equiv_esd 
+_atom_site.pdbx_formal_charge 
+_atom_site.auth_seq_id 
+_atom_site.auth_comp_id 
+_atom_site.auth_asym_id 
+_atom_site.auth_atom_id 
+_atom_site.pdbx_PDB_model_num 
+ATOM   1    N N   . ASP A 1 1   ? 20.906 -15.638 12.067  1.00 47.61 ? ? ? ? ? ? 1   ASP L N   1 
+ATOM   2    C CA  . ASP A 1 1   ? 22.290 -15.122 12.255  1.00 43.71 ? ? ? ? ? ? 1   ASP L CA  1 
+ATOM   3    C C   . ASP A 1 1   ? 23.217 -16.226 12.755  1.00 39.92 ? ? ? ? ? ? 1   ASP L C   1 
+ATOM   4    O O   . ASP A 1 1   ? 23.358 -16.444 13.953  1.00 40.04 ? ? ? ? ? ? 1   ASP L O   1 
+ATOM   5    C CB  . ASP A 1 1   ? 22.272 -13.964 13.248  1.00 46.21 ? ? ? ? ? ? 1   ASP L CB  1 
+ATOM   6    C CG  . ASP A 1 1   ? 21.011 -13.950 14.085  1.00 50.61 ? ? ? ? ? ? 1   ASP L CG  1 
+ATOM   7    O OD1 . ASP A 1 1   ? 20.696 -14.987 14.702  1.00 56.57 ? ? ? ? ? ? 1   ASP L OD1 1 
+ATOM   8    O OD2 . ASP A 1 1   ? 20.326 -12.910 14.124  1.00 56.60 ? ? ? ? ? ? 1   ASP L OD2 1 
+ATOM   9    N N   . ILE A 1 2   ? 23.829 -16.941 11.824  1.00 34.30 ? ? ? ? ? ? 2   ILE L N   1 
+ATOM   10   C CA  . ILE A 1 2   ? 24.762 -17.997 12.187  1.00 31.02 ? ? ? ? ? ? 2   ILE L CA  1 
+# 

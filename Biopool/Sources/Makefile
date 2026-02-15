@@ -30,6 +30,7 @@ INC_PATH = -I.   -I../../tools
 SOURCES = Identity.cc SimpleBond.cc Bond.cc \
  Component.cc Monomer.cc Polymer.cc Atom.cc Group.cc SideChain.cc \
  AminoAcid.cc Spacer.cc IntSaver.cc IntLoader.cc SeqSaver.cc PdbLoader.cc \
+ CIFLoader.cc CIFLoop.cc CIFFileManager.cc StringUtils.cc CIFSaver.cc \
  PdbSaver.cc SeqLoader.cc IntCoordConverter.cc SeqConstructor.cc Ligand.cc \
  LigandSet.cc SolvExpos.cc AminoAcidHydrogen.cc Nucleotide.cc \
  RelLoader.cc XyzSaver.cc RelSaver.cc XyzLoader.cc
@@ -39,6 +40,7 @@ OBJECTS = Identity.o SimpleBond.o Bond.o \
  Component.o Monomer.o Polymer.o Atom.o Group.o SideChain.o \
  AminoAcid.o Spacer.o IntSaver.o IntLoader.o \
  SeqSaver.o PdbLoader.o PdbSaver.o SeqLoader.o \
+ CIFLoader.o CIFLoop.o CIFFileManager.o StringUtils.o CIFSaver.o \
  IntCoordConverter.o SeqConstructor.o Ligand.o LigandSet.o \
  SolvExpos.o Protein.o AminoAcidHydrogen.o Nucleotide.o \
  RelLoader.o XyzSaver.o RelSaver.o XyzLoader.o

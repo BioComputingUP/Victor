@@ -48,6 +48,9 @@ test: all
 
 depend: subdepend
 
+all:
+	make
+
 #
 # Call global Makefile to do the job.
 #

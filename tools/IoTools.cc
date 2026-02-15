@@ -153,7 +153,14 @@ template int readNumber<int>(istream& is, int& result);
 /**
  * @Description:  read a whole line into a string*/
 string readLine(istream& is) {
+    return readLine(is,true);
+}
+
+/**
+ * @Description:  read a whole line into a string*/
+string readLine(istream& is, bool _eatComment){
     string str = "";
+    if(_eatComment)
     eatComment(is);
     char c;
     while (is.get(c)) {

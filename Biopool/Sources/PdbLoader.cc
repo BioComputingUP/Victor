@@ -26,6 +26,8 @@
 #include <Nucleotide.h>
 #include <AminoAcidHydrogen.h>
 
+#include <StringUtils.h>
+
 // Global constants, typedefs, etc. (to avoid):
 
 using namespace Victor; using namespace Victor::Biopool;
@@ -38,7 +40,6 @@ using namespace Victor; using namespace Victor::Biopool;
  *  Reads in the maximum allowed number of NMR models, zero otherwise
  *@param none
  */
-
 unsigned int
 PdbLoader::getMaxModels() {
     input.clear(); // reset file to previous content 
@@ -190,8 +191,6 @@ bool PdbLoader::inSideChain(const AminoAcid& aa, const Atom& at) {
  *  uses Spacer's setStateFromTorsionAngles().
  *@param   Spacer reference
  */
-
-
 void PdbLoader::assignSecondary(Spacer& sp) {
     if (helixData.size() + sheetData.size() == 0) {
         sp.setStateFromTorsionAngles();
@@ -220,7 +219,6 @@ void PdbLoader::assignSecondary(Spacer& sp) {
 }
 
 //setOnlyMetalHetAtoms
-
 void
 PdbLoader::setOnlyMetalHetAtoms() {
     if (noHetAtoms) {
@@ -253,14 +251,12 @@ PdbLoader::loadSpacer(Spacer& sp){
  *   Core function for PDB file parsing. 
  * @param prot (Protein&)
  */
-
 void
 PdbLoader::loadProtein(Protein& prot) {
-
     PRINT_NAME;
 
     vector<char> chainList = getAllChains();
-
+    
     if (chainList.size() == 0) {
         if (verbose)
             cout << "Warning: Missing chain ID in the PDB, assuming the same chain for the entire file.\n";
@@ -366,20 +362,24 @@ PdbLoader::loadProtein(Protein& prot) {
                 else if ((tag == "ATOM  ") || (tag == "HETATM")) {
 
                     char chainID = atomLine.substr(21, 1)[0];
+                    
                     if (chainList[i] == chainID) {
-
+                        
                         if ((model == 999) || (model == readingModel)) {
                             aaNum = stoiDEF(atomLine.substr(22, 4));
 
                             // Insert the Ligand object into LigandSet
                             if (aaNum != oldAaNum) {
                                 // Print some indexes for the debug
-                                /* 
+                                /*
                                 cout << aa->getType1L() << " offset:" << sp->getStartOffset() << " gaps:" 
                                      << sp->sizeGaps() << " sizeAmino:" <<  sp->sizeAmino() <<  " maxPdbNum:" 
                                      << sp->maxPdbNumber() << " aaNum:" << aaNum  
-                                     << " oldAaNum:" << oldAaNum << " lastAa:" << lastAa << "\n";
+                                     << " oldAaNum:" << oldAaNum << endl;
+                                
+                                cout << "aa->size(): " << aa->size() << " - aa->getType1L()" << aa->getClassName() << endl;
                                  */
+                                
                                 if ((aa->size() > 0) && (aa->getType1L() != 'X')) { // Skip the first empty AminoAcid
                                     if (sp->sizeAmino() == 0) {
                                         sp->setStartOffset(oldAaNum - 1);
@@ -389,11 +389,9 @@ PdbLoader::loadProtein(Protein& prot) {
                                         for (int i = sp->maxPdbNumber() + 1; i < oldAaNum; i++) {
                                             sp->addGap(i);
                                         }
-
                                     }
 
                                     sp->insertComponent(aa);
-
                                 }
 
                                 // Ligand
@@ -496,7 +494,6 @@ PdbLoader::loadProtein(Protein& prot) {
                         cout << "Connected residues\n";
                 }
 
-
                 // correct position of leading N atom
                 sp->setTrans(sp->getAmino(0)[N].getTrans());
                 vgVector3<double> tmp(0.0, 0.0, 0.0);
@@ -504,8 +501,6 @@ PdbLoader::loadProtein(Protein& prot) {
                 sp->getAmino(0).adjustLeadingN();
                 if (verbose)
                     cout << "Fixed leading N atom\n";
-
-
 
                 // Add H atoms
                 if (!noHAtoms) {
@@ -590,12 +585,17 @@ PdbLoader::parsePDBline(string atomLine, string tag, Ligand* lig, AminoAcid* aa)
     string atType = "";
     for (int i = 11; i < 17; i++) {
         if (atomLine[i] != ' ')
+        {
             atType.append(atomLine.substr(i, 1));
+        }
     }
+
     string aaType = "";
     for (int i = 17; i < 20; i++) {
         if (atomLine[i] != ' ')
+        {
             aaType.append(atomLine.substr(i, 1));
+        }
     }
     // take care of deuterium atoms
     if (atType == "D") {
@@ -603,12 +603,14 @@ PdbLoader::parsePDBline(string atomLine, string tag, Ligand* lig, AminoAcid* aa)
         atType = "H";
     }
 
+    //cout << "atNum:" << atNum << " - aaNum:" << aaNum << " - altAaID:" << altAaID << " - coord.x:" << coord.x << " - coord.y:" << coord.y << " - coord.z:" << coord.z << " - bfac:" << bfac << " - atType:" << atType << " - aaType:" << aaType<< " - TAG:" << tag << endl;
+    
     // Initialize the Atom object
     Atom* at = new Atom();
     at->setNumber(atNum);
     at->setType(atType);
     at->setCoords(coord);
-    //at->setCoords(stod(atomLine.substr(30,8)),stod(atomLine.substr(38,8)),stod(atomLine.substr(46,8)));
+    at->setOccupancy(stodDEF(atomLine.substr(54, 6)));
     at->setBFac(bfac);
 
     // Ligand object (includes DNA/RNA in "ATOM" field)
@@ -641,7 +643,9 @@ PdbLoader::parsePDBline(string atomLine, string tag, Ligand* lig, AminoAcid* aa)
                 if (!noHAtoms || isHeavyAtom(at->getCode())) {
 
                     if (!inSideChain(*aa, *at))
+                    {
                         aa->addAtom(*at);
+                    }
                     else {
                         aa->getSideChain().addAtom(*at);
                     }

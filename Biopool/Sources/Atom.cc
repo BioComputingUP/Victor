@@ -78,8 +78,6 @@ Atom::distance(Atom& other) {
 
 // MODIFIERS:
 
-
-
 /**
  *   Set the 3D coordinates of the Atom
  * @param X, Y and Z (double)
@@ -133,6 +131,7 @@ Atom::copy(const Atom& orig) {
     type = orig.type;
     coords = orig.coords;
     Bfac = orig.Bfac;
+    Occupancy = orig.Occupancy;
 
     trans = orig.trans;
     rot = orig.rot;

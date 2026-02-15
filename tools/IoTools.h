@@ -57,6 +57,9 @@ template<class T> int readNumber(istream& is, T& result);
 /// Read a whole line into a string.
 string readLine(istream& is);
 
+/// Read a whole line into a string.
+string readLine(istream& is, bool ignoreComment);
+
 /// Skips to new line.
 void skipToNewLine(istream& is);
 

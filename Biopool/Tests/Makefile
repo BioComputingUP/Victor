@@ -26,13 +26,13 @@ INC_PATH = -I.
 # Objects and headers
 #
 
-SOURCES =  TestBiopool.cc TestAtom.h TestAminoAcid.h TestGroup.h TestSpacer.h
+SOURCES =  TestBiopool.cc TestAtom.h TestAminoAcid.h TestGroup.h TestSpacer.h TestCIF.cc
 
 OBJECTS =  $(SOURCES:.cpp=.o)
 
-TARGETS = TestBiopool
+TARGETS = TestBiopool TestCIF
 
-EXECS = TestBiopool
+EXECS = TestBiopool TestCIF
 
 LIBRARY = TESTlibBiopool.a
 
@@ -45,8 +45,8 @@ compile: all
 all: install
 
 install: $(LIBRARY) $(TARGETS)
-	mv $(EXECS) $(UPDIR)/bin
-	mv $(LIBRARY) $(UPDIR)/lib
+#	mv $(EXECS) $(UPDIR)/bin
+#	mv $(LIBRARY) $(UPDIR)/lib
 	
 #
 # Call global Makefile to do the job.
