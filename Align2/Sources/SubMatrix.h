@@ -65,6 +65,17 @@ namespace Victor { namespace Align2{
         /// Return the dimension of the matrix.
         virtual unsigned int size() const;
 
+        /// Return the average mismatch score.
+        double getAverageMismatchScore();
+
+        /// Return the average match score.
+        double getAverageMatchScore();
+
+        /// Return the average score.
+        double getAverageScore();
+
+        /// Return the minimal score.
+        double getMinScore();
 
         // MODIFIERS:
 
@@ -73,7 +84,6 @@ namespace Victor { namespace Align2{
 
         /// Construct a new "deep copy" of this object.
         virtual SubMatrix* newCopy();
-
 
     protected:
 
@@ -84,7 +94,10 @@ namespace Victor { namespace Align2{
 
         vector< vector<int> > residuescores; ///< Similarity scores.
         string residues; ///< Alphabet of allowed characters.
-
+    	double averageMismatchScore;
+    	double averageMatchScore;
+    	double averageScore;
+    	double minScore;
     };
 
     // -----------------------------------------------------------------------------

@@ -35,7 +35,7 @@ SOURCES = Alignment.cc AlignmentBase.cc \
           PssmInput.cc Profile.cc HenikoffProfile.cc PSICProfile.cc SeqDivergenceProfile.cc \
           LogAverage.cc CrossProduct.cc DotPFreq.cc DotPOdds.cc Pearson.cc JensenShannon.cc EDistance.cc AtchleyDistance.cc AtchleyCorrelation.cc Panchenko.cc Zhou.cc \
           ThreadingInput.cc Ss2Input.cc ProfInput.cc Sec.cc Threading.cc Ss2.cc Prof.cc ThreadingSs2.cc ThreadingProf.cc  \
-          ReverseScore.cc stringtools.cc
+          ReverseScore.cc stringtools.cc NWGAlign.cc
 
 OBJECTS = Alignment.o AlignmentBase.o \
           Align.o NWAlign.o SWAlign.o FSAlign.o NWAlignNoTermGaps.o \
@@ -46,7 +46,7 @@ OBJECTS = Alignment.o AlignmentBase.o \
           PssmInput.o Profile.o HenikoffProfile.o PSICProfile.o SeqDivergenceProfile.o \
           LogAverage.o CrossProduct.o DotPFreq.o DotPOdds.o Pearson.o JensenShannon.o EDistance.o AtchleyDistance.o AtchleyCorrelation.o Panchenko.o Zhou.o \
           ThreadingInput.o Ss2Input.o ProfInput.o Sec.o Threading.o Ss2.o Prof.o ThreadingSs2.o ThreadingProf.o  \
-          ReverseScore.o stringtools.o
+          ReverseScore.o stringtools.o NWGAlign.o
 
 TARGETS =  
 

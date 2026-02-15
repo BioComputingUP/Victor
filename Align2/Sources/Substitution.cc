@@ -103,14 +103,26 @@ namespace Victor { namespace Align2{
 
         for (unsigned int i = 0; i < residues.size(); i++) {
             char res1 = residues[i];
-
+            char res1_bis = res1;
+            if(res1>=65 && res1<=90){
+            	res1_bis = res1 + 32;
+            }
+            if(res1>=97 && res1<=122){
+				res1_bis = res1 - 32;
+			}
             for (unsigned int j = 0; j <= i; j++) {
                 char res2 = residues[j];
+                char res2_bis = res2;
+                if(res2>=65 && res2<=90){
+                	res2_bis = res2 + 32;
+                }
+                if(res2>=97 && res2<=122){
+    				res2_bis = res2 - 32;
+    			}
                 score[res1][res2] = score[res2][res1] =
-                        score[res1][res2 + 32] = score[res2 + 32][res1] =
-                        score[res1 + 32][res2] = score[res2][res1 + 32] =
-                        score[res1 + 32][res2 + 32] = score[res2 + 32][res1 + 32] =
-                        residuescores[i][j];
+				score[res1][res2_bis] = score[res2_bis][res1] =
+				score[res1_bis][res2] = score[res2][res1_bis] =
+				score[res1_bis][res2_bis] = score[res2_bis][res1_bis] = residuescores[i][j];
             }
         }
     }

@@ -125,14 +125,14 @@ namespace Victor { namespace Align2{
 
         for (int i = 1; i <= static_cast<int> (n); i++) {
             if (update)
-                F[i][0] = -gf->getOpenPenalty(0) -
-                gf->getExtensionPenalty(0) * (i - 1);
+                F[i][0] = -gf->getOpenPenalty(1) -
+                gf->getExtensionPenalty(i) * (i - 1);
             B[i][0] = Traceback(i - 1, 0);
         }
 
         for (int j = 1; j <= static_cast<int> (m); j++) {
             if (update)
-                F[0][j] = -gf->getOpenPenalty(j) -
+                F[0][j] = -gf->getOpenPenalty(1) -
                 gf->getExtensionPenalty(j) * (j - 1);
             B[0][j] = Traceback(0, j - 1);
         }
@@ -144,12 +144,12 @@ namespace Victor { namespace Align2{
 
                 if ((i != 1) && (j != 1)) {
                     if (B[i - 1][j].j == j)
-                        extI = F[i - 1][j] - gf->getExtensionPenalty(j);
+                        extI = F[i - 1][j] - gf->getExtensionPenalty(i);
                     else
                         if (B[i - 1][j].j == (j - 1))
-                        extI = F[i - 1][j] - gf->getOpenPenalty(j);
+                        extI = F[i - 1][j] - gf->getOpenPenalty(i);
                 } else
-                    extI = F[i - 1][j] - gf->getOpenPenalty(j);
+                    extI = F[i - 1][j] - gf->getOpenPenalty(i);
 
                 if ((i != 1) && (j != 1)) {
                     if (B[i][j - 1].i == i)
@@ -202,14 +202,14 @@ namespace Victor { namespace Align2{
 
         for (int i = 1; i <= static_cast<int> (n); i++) {
             if (update)
-                F[i][0] = -gf->getOpenPenalty(0) -
-                gf->getExtensionPenalty(0) * (i - 1);
+                F[i][0] = -gf->getOpenPenalty(1) -
+                gf->getExtensionPenalty(i) * (i - 1);
             B[i][0] = Traceback(i - 1, 0);
         }
 
         for (int j = 1; j <= static_cast<int> (m); j++) {
             if (update)
-                F[0][j] = -gf->getOpenPenalty(j) -
+                F[0][j] = -gf->getOpenPenalty(1) -
                 gf->getExtensionPenalty(j) * (j - 1);
             B[0][j] = Traceback(0, j - 1);
         }
@@ -229,12 +229,12 @@ namespace Victor { namespace Align2{
 
                 if ((i != 1) && (j != 1)) {
                     if (B[i - 1][j].j == j)
-                        extI = F[i - 1][j] - gf->getExtensionPenalty(j);
+                        extI = F[i - 1][j] - gf->getExtensionPenalty(i);
                     else
                         if (B[i - 1][j].j == (j - 1))
-                        extI = F[i - 1][j] - gf->getOpenPenalty(j);
+                        extI = F[i - 1][j] - gf->getOpenPenalty(i);
                 } else
-                    extI = F[i - 1][j] - gf->getOpenPenalty(j);
+                    extI = F[i - 1][j] - gf->getOpenPenalty(i);
 
                 if ((i != 1) && (j != 1)) {
                     if (B[i][j - 1].i == i)

@@ -39,6 +39,7 @@
 #include <AtchleyDistance.h>
 #include <AtchleyCorrelation.h>
 #include <NWAlign.h>
+#include <NWGAlign.h>
 #include <SWAlign.h>
 #include <FSAlign.h>
 #include <SubMatrix.h>
@@ -101,6 +102,7 @@ sShowHelp() {
             << "\n                     \t --sf=8: AtchleyCorrelation."
             << "\n"
             << "\n   [--global]        \t Needleman-Wunsch global alignment (default)"
+			<< "\n   [--gotoh]         \t Needleman-Wunsch-Gotoh global alignment"
             << "\n   [--local]         \t Smith-Waterman local alignment"
             << "\n   [--freeshift]     \t Free-shift alignment"
             << "\n   [-n <int>]        \t Number of suboptimal alignments (default = 1)"
@@ -156,7 +158,7 @@ main(int argc, char **argv) {
     double weightHelix, weightStrand, weightBuried, weightStraight, weightSpace;
     double cSeq, cStr;
     unsigned int weightingScheme, scoringFunction, suboptNum, gapFunction, extensionType, structure;
-    bool fasta, global, local, freeshift, verbose;
+    bool fasta, global, gotoh, local, freeshift, verbose;
     struct tm* newtime;
     time_t t;
 
@@ -182,9 +184,10 @@ main(int argc, char **argv) {
     getArg("-sf", scoringFunction, argc, argv, 1);
 
     global = getArg("-global", argc, argv);
+    gotoh = getArg("-gotoh", argc, argv);
     local = getArg("-local", argc, argv);
     freeshift = getArg("-freeshift", argc, argv);
-    if (!local && !freeshift)
+    if (!local && !freeshift && !gotoh)
         global = true;
     getArg("n", suboptNum, argc, argv, 1);
     getArg("p", suboptPenaltyMul, argc, argv, 1.00);
@@ -539,20 +542,26 @@ main(int argc, char **argv) {
     Align *a;
 
     if (global) {
-        cout << "\nSuboptimal Needleman-Wunsch alignments:\n" << endl;
-        a = new NWAlign(ad, gf, ss);
+    	cout << "\nSuboptimal Needleman-Wunsch alignments:\n" << endl;
+    	a = new NWAlign(ad, gf, ss);
     } else
-        if (local) {
-        cout << "\nSuboptimal Smith-Waterman alignments:\n" << endl;
-        a = new SWAlign(ad, gf, ss);
-    } else {
-        cout << "\nSuboptimal free-shift alignments:\n" << endl;
-        try {
-            a = new FSAlign(ad, gf, ss);
-        } catch (const char* a) {
-            cout << "FSAlign error!\n";
-        }
-    }
+    	if (local) {
+    		cout << "\nSuboptimal Smith-Waterman alignments:\n" << endl;
+    		a = new SWAlign(ad, gf, ss);
+    	}
+	else
+		if (gotoh) {
+			cout << "\nSuboptimal Needleman-Wunsch-Gotoh alignments:\n" << endl;
+			a = new NWGAlign(ad, gf, ss);
+		}
+	else {
+		cout << "\nSuboptimal free-shift alignments:\n" << endl;
+		try {
+			a = new FSAlign(ad, gf, ss);
+		} catch (const char* a) {
+			cout << "FSAlign error!\n";
+		}
+	}
     time(&t);
     newtime = localtime(&t);
     cout << "object FSAlign created " << newtime->tm_hour << "/" << newtime->tm_min << endl;

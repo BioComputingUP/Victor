@@ -32,6 +32,32 @@ namespace Victor { namespace Align2{
 
     SubMatrix::SubMatrix(istream &is) : Substitution() {
         is >> *this;
+        double res = residues.size()-2; //avoids '-'
+        double avg1 = 0, avg2 = 0, avg3 = 0;
+        for(int i=0;i<=res;i++){
+        	for(int j=0;j<=i;j++){
+        		double value = score[residues[i]][residues[j]];
+        		avg1 += value;
+        		if(residues[i] == residues[j]){
+        			avg2 += value;
+        		}
+        		else{
+        			avg3 += value;
+        		}
+    		}
+        }
+        minScore = score[0][0];
+        for(int i=0;i<= res;i++){
+			for(int j=0;j<=i;j++){
+				double value = score[residues[i]][residues[j]];
+				if(value < minScore){
+					minScore = value;
+				}
+			}
+        }
+        averageScore = avg1 / ((res*res)/2);
+        averageMatchScore = avg2 / res;
+    	averageMismatchScore =  avg3 / (((float)(res*res-res))/2);
     }
 
     SubMatrix::SubMatrix(const SubMatrix &orig) {
@@ -96,6 +122,10 @@ namespace Victor { namespace Align2{
             residuescores.push_back(orig.residuescores[n]);
 
         residues = orig.residues;
+        averageMatchScore = orig.averageMatchScore;
+        averageMismatchScore = orig.averageMatchScore;
+        averageScore = orig.averageScore;
+        minScore = orig.minScore;
     }
     /**
      * 
@@ -105,6 +135,22 @@ namespace Victor { namespace Align2{
     SubMatrix::newCopy() {
         SubMatrix *tmp = new SubMatrix(*this);
         return tmp;
+    }
+
+    double SubMatrix::getAverageMismatchScore(){
+    	return -averageMismatchScore;
+    }
+
+    double SubMatrix::getAverageMatchScore(){
+    	return averageMatchScore;
+    }
+
+    double SubMatrix::getAverageScore(){
+    	return averageScore;
+    }
+
+    double SubMatrix::getMinScore(){
+    	return minScore;
     }
 
 }} // namespace
